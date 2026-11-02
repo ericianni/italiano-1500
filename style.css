@@ -94,3 +94,4 @@ td.en{font-family:inherit;color:var(--muted);white-space:normal}
 .jump{margin:4px 0 8px}
 .mac button{font-size:1.05rem}
 .lesson i[lang=it]{font-family:Georgia,serif}
+.upd{position:fixed;left:12px;right:12px;bottom:76px;z-index:50;background:var(--ink);color:var(--bg, #fff);padding:10px 14px;border-radius:12px;font-size:.9rem;box-shadow:0 4px 16px rgba(0,0,0,.2)}.upd button.link{color:inherit;font-weight:600;margin-left:6px}

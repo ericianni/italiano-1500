@@ -320,7 +320,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v4'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v5'/.test(sw), 'sw: cache name');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);

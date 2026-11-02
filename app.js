@@ -569,6 +569,21 @@
     setTab(location.hash.slice(1) || 'today');
     window.__it1500 = { get S() { return S; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet };   // for tests
   }
-  if ('serviceWorker' in navigator && location.protocol !== 'file:') window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  // Updates: the new service worker takes over as soon as it is installed (skipWaiting + clients.claim). When it does,
+  // reload right away so the new code runs, unless a set is in progress: then offer a one-tap reload instead.
+  // Also check for updates whenever the app comes back to the foreground (home-screen apps rarely navigate).
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    const sw = navigator.serviceWorker; let had = !!sw.controller, reloading = false, lastCheck = Date.now();
+    const reload = () => { if (!reloading) { reloading = true; location.reload(); } };
+    sw.addEventListener('controllerchange', () => {
+      if (!had) { had = true; return; }   // first install: this page already runs the current code
+      if (!Q) return reload();
+      if (!$('#upd')) document.body.insertAdjacentHTML('beforeend', '<div id="upd" class="upd" role="status">A new version is ready. <button class="link" id="updgo">Reload</button></div>');
+      $('#updgo').onclick = reload;
+    });
+    window.addEventListener('load', () => sw.register('sw.js', { updateViaCache: 'none' }).then(reg => {
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && Date.now() - lastCheck > 60000) { lastCheck = Date.now(); reg.update().catch(() => {}); } });
+    }).catch(() => {}));
+  }
   boot();
 })();

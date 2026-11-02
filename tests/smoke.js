@@ -75,6 +75,16 @@ async function main() {
       else { const ab=[...document.querySelectorAll('.idrow[data-a="a"] button')].map(b=>b.dataset.v); if(ab.some(a=>!["la","l'","le","una","un'"].includes(a))) bad.push('articles '+ab.join(',')); document.querySelector('.idrow[data-a="a"] button').click(); }
       const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); if(!nx){ bad.push('no answer'); break; } nx.click(); n++; }
     const r=n+' answered ('+typed+' typed)'+(bad.length?' BAD: '+[...new Set(bad)].slice(0,3).join(' | '):''); if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
+  // reported live: only Present selected, Identify still offered all four tenses (set of 10, new word / new form)
+  await step('only present, identify, set of 10', `(()=>{const A=window.__it1500; A.setTab('drills'); ${setChips({ types: ['verb', 'art', 'agr'], tenses: ['pres'], persons: ['1', '2', '3'], vnums: ['s', 'p'], agen: ['m', 'f'] })}
+    document.querySelector('#dmode button[data-v="id"]').click(); document.querySelector('#sdr button[data-v="10"]').click(); document.querySelector('#dgo').click(); let n=0, v=0; const bad=[];
+    for(let i=0;i<40;i++){ const chk=document.querySelector('#chk'); if(!chk) break;
+      if(document.querySelector('#typed')) { document.querySelector('#typed').value='x'; chk.click(); }
+      else { const tb=[...document.querySelectorAll('.idrow[data-a="t"] button')];
+        if(tb.length){ v++; if(tb.length!==1||tb[0].dataset.v!=='pres'||!tb[0].classList.contains('on')||!tb[0].disabled) bad.push('tense row '+tb.map(b=>b.dataset.v).join(',')); if(document.querySelectorAll('.idrow[data-a="p"] button').length!==6) bad.push('persons'); }
+        document.querySelectorAll('#idrows .idrow:not(.fixed)').forEach(r=>r.querySelector('button').click()); const c2=document.querySelector('#chk'); if(c2 && !c2.disabled) c2.click(); }
+      const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); if(!nx){ bad.push('no answer'); break; } nx.click(); n++; }
+    const r=n+' answered, '+v+' verb questions'+(bad.length?' BAD: '+[...new Set(bad)].slice(0,3).join(' | '):''); if(/BAD/.test(r)||n<10||!v||A.S.set.dlen!==10) throw new Error(r); return r})()`);
   await step('settings restored', `(()=>{const A=window.__it1500; A.setTab('drills'); if(!document.querySelector('#dset')) document.querySelector('#tset').click();
     for(const g of Object.keys(A.S.set.df)) for(const b of document.querySelectorAll('.chips[data-g="'+g+'"] button')) if(b.getAttribute('aria-pressed')!=='true') document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+b.dataset.v+'"]').click();
     document.querySelector('#dmode button[data-v="type"]').click(); const D=window.ItDrills; if(D && Object.keys(D.DF).some(g=>A.S.set.df[g].length!==D.DF[g].length)) throw new Error('not restored '+JSON.stringify(A.S.set.df)); return Object.keys(A.S.set.df).length+' groups all on'})()`);
