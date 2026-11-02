@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "packs": [
+    { "id": "core", "path": "core/", "title": "Core 1500" }
+  ]
+}

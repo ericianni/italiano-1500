@@ -1,0 +1,58 @@
+// Headless browser smoke test: serves the app, drives every tab in Chrome over the DevTools protocol, fails on any JS error.
+// Usage: node tests/smoke.js [url]   (default: serves this folder on :8765). Needs google-chrome.
+'use strict';
+const { spawn } = require('child_process'), http = require('http'), fs = require('fs'), path = require('path');
+const root = path.join(__dirname, '..'), PORT = 8765, CDP = 9333;
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function main() {
+  let url = process.argv[2], srv;
+  if (!url) {
+    srv = http.createServer((q, r) => { let p = decodeURIComponent(q.url.split('?')[0]); if (p.endsWith('/')) p += 'index.html'; const f = path.join(root, p);
+      fs.readFile(f, (e, b) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(b); }); }).listen(PORT);
+    url = `http://localhost:${PORT}/`;
+  }
+  const ch = spawn('google-chrome', ['--headless=new', '--no-sandbox', '--disable-gpu', `--remote-debugging-port=${CDP}`, '--user-data-dir=/tmp/it1500-smoke-' + Date.now(), '--window-size=390,844', 'about:blank'], { stdio: 'ignore' });
+  let tabs; for (let i = 0; i < 50; i++) { try { tabs = await (await fetch(`http://127.0.0.1:${CDP}/json`)).json(); break; } catch (e) { await sleep(200); } }
+  const ws = new WebSocket(tabs.find(t => t.type === 'page').webSocketDebuggerUrl); await new Promise(r => ws.onopen = r);
+  let id = 0; const wait = {}, errors = [];
+  ws.onmessage = m => { const d = JSON.parse(m.data); if (d.id && wait[d.id]) { wait[d.id](d); delete wait[d.id]; }
+    if (d.method === 'Runtime.exceptionThrown') errors.push(d.params.exceptionDetails.exception ? d.params.exceptionDetails.exception.description : d.params.exceptionDetails.text);
+    if (d.method === 'Runtime.consoleAPICalled' && d.params.type === 'error') errors.push(d.params.args.map(a => a.value || a.description).join(' ')); };
+  const send = (method, params) => new Promise(r => { const i = ++id; wait[i] = r; ws.send(JSON.stringify({ id: i, method, params })); });
+  const ev = async expr => { const r = await send('Runtime.evaluate', { expression: expr, awaitPromise: true, returnByValue: true }); if (r.result.exceptionDetails) throw new Error(expr.slice(0, 80) + ': ' + r.result.exceptionDetails.exception.description); return r.result.result.value; };
+  await send('Runtime.enable'); await send('Page.enable');
+  await send('Page.navigate', { url }); await sleep(2500);
+  const results = []; const step = async (name, expr) => { try { const v = await ev(expr); results.push([name, v]); } catch (e) { errors.push(name + ': ' + e.message); } };
+  const click = sel => `(()=>{const b=document.querySelector(${JSON.stringify(sel)}); if(!b) throw new Error('missing ${sel.replace(/'/g, '')}'); b.click(); return true})()`;
+  await step('title', 'document.title');
+  await step('loaded words', 'window.__it1500.W.length');
+  // flashcards: answer 12 cards, alternating right/wrong, typing on production cards
+  await step('cards', `(async()=>{const A=window.__it1500; A.setTab('today'); document.querySelector('#go').click(); let n=0;
+    for(let i=0;i<12;i++){ const s=document.querySelector('#show'); if(!s) break; s.click(); const b=document.querySelector('#ans button[data-r="'+(i%3?1:0)+'"]')||document.querySelector('#ans button[data-r]'); b.click(); n++; }
+    return n+' answered; started '+Object.keys(A.S.cards).length+' cards'})()`);
+  // drills: type mode, identify mode, mix
+  for (const mode of ['type', 'id', 'mix']) await step('drills ' + mode, `(async()=>{const A=window.__it1500; A.S.set.dmode='${mode}'; A.setTab('drills'); document.querySelector('#dgo').click(); let n=0, kinds={};
+    for(let i=0;i<40;i++){ const chk=document.querySelector('#chk'); if(!chk) break; const typed=document.querySelector('#typed');
+      if(typed){ typed.value='xx'; chk.click(); } else { document.querySelectorAll('#idrows .idrow').forEach(r=>r.querySelector('button').click()); if(document.querySelector('#chk') && !document.querySelector('#chk').disabled) document.querySelector('#chk').click(); }
+      kinds[document.querySelector('.prompt-kind').textContent.split(' ')[0]]=1; const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); nx.click(); n++; }
+    return n+' answered, end screen: '+(document.querySelector('h2')||{}).textContent})()`);
+  await step('weak spots', `(()=>{window.__it1500.setTab('drills'); document.querySelector('#gweak').click(); return document.querySelectorAll('table.weak tr').length-1})()`);
+  await step('drill settings', `(()=>{window.__it1500.setTab('drills'); document.querySelector('#tset').click(); const b=document.querySelector('.chips[data-g="tenses"] button'); b.click(); const t=document.querySelector('#view').textContent.match(/(\\d+) forms/)[1]; document.querySelector('.chips[data-g="tenses"] button').click(); return t+' forms after toggling one tense'})()`);
+  await step('cheat overlay', `(()=>{window.__it1500.openSheet('cs-pp'); const o=document.querySelector('#overlay'); const r=!!o && document.querySelector('#cs-pp').open; document.querySelector('#ovx').click(); return r && !document.querySelector('#overlay')})()`);
+  await step('learn', `(async()=>{const A=window.__it1500; A.setTab('learn'); const ids=[...document.querySelectorAll('.lrow')].map(b=>b.dataset.l); let tot=0;
+    for(const id of ids){ A.openLesson(id); document.querySelector('#lq').click(); for(let i=0;i<12;i++){ const o=document.querySelector('.opts button'); if(o){o.click();} else { const t=document.querySelector('#typed'); if(!t) break; t.value='x'; document.querySelector('#chk').click(); }
+      const n=document.querySelector('#qnext'); if(n) n.click(); else break; tot++; } }
+    return ids.length+' lessons, '+tot+' quiz questions, done: '+Object.keys(A.S.lessons).length})()`);
+  await step('lesson practice', `(()=>{const A=window.__it1500; A.openLesson('l-pp'); document.querySelector('#ldr').click(); return document.querySelector('.prompt-kind').textContent})()`);
+  await step('cheat tab', `(()=>{window.__it1500.setTab('cheat'); return document.querySelectorAll('details.cs').length+' sections, '+document.querySelectorAll('.sheet td').length+' cells'})()`);
+  await step('word list', `(()=>{window.__it1500.setTab('list'); const n1=document.querySelectorAll('#ll li').length; const q=document.querySelector('#lq'); q.value='andare'; q.dispatchEvent(new Event('input')); document.querySelector('#ll li[data-id]').click(); return n1+' rows; andare detail: '+document.querySelector('.det').textContent.slice(0,120)})()`);
+  await step('about', `(()=>{window.__it1500.setTab('about'); return [...document.querySelectorAll('a')].map(a=>a.href).filter(h=>/FrequencyWords|creativecommons/.test(h)).length+' source/license links'})()`);
+  await step('export/import', `(()=>{const A=window.__it1500; const s=Store.create('italiano1500.v1', x=>x).exportText(A.S); return JSON.parse(s).app})()`);
+  await step('sw', `navigator.serviceWorker.getRegistration().then(r=>r? 'registered':'none').then(async x=>x+' / caches: '+(await caches.keys()).join(','))`);
+  for (const [n, v] of results) console.log('ok  ' + n + ': ' + JSON.stringify(v));
+  for (const e of errors) console.log('ERR ' + e);
+  ws.close(); ch.kill(); if (srv) srv.close();
+  process.exit(errors.length ? 1 : 0);
+}
+main().catch(e => { console.error(e); process.exit(1); });

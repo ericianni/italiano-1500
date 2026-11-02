@@ -1,0 +1,22 @@
+{
+  "id": "core",
+  "title": "Core 1500",
+  "desc": "The 1,500 most frequent Italian dictionary words (OpenSubtitles 2018 frequencies), with US English glosses, genders, plurals, adjective forms and verb classes.",
+  "lang": "it",
+  "version": 1,
+  "words": "words.json",
+  "count": 1500,
+  "license": "CC BY-SA 4.0",
+  "sources": [
+    { "name": "FrequencyWords (hermitdave), it_full 2018", "url": "https://github.com/hermitdave/FrequencyWords", "license": "CC BY-SA 4.0" },
+    { "name": "Morph-it! 0.4.8", "url": "https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it", "license": "CC BY-SA 2.0 / LGPL" },
+    { "name": "English Wiktionary via kaikki.org", "url": "https://kaikki.org/dictionary/Italian/", "license": "CC BY-SA 4.0" }
+  ],
+  "fields": {
+    "id": "unique within the pack (other packs get a '<pack>/' prefix at load time)",
+    "it": "headword", "en": "US English gloss", "pos": "n|v|adj|adv|prep|conj|pron|det|int|num|art", "rank": "frequency rank (1 = most frequent)",
+    "g": "nouns: m|f|mf", "pl": "nouns: plural", "plg": "nouns: plural gender when it differs (le uova)", "pltant": "plural-only noun", "sg": "no plural in normal use", "fem": "female counterpart",
+    "forms": "adjectives: [m.sg, f.sg, m.pl, f.pl]", "pre": "adjective normally precedes the noun", "inv": "invariable", "noagr": "left out of agreement drills",
+    "conj": "verbs: are|ere|ire|isc", "irr": "irregular somewhere in the drilled tenses", "aux": "a (avere) | e (essere) | a/e (both)", "refl": "mostly reflexive", "impers": "mostly impersonal"
+  }
+}

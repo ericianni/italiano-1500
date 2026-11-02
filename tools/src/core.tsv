@@ -1,0 +1,1524 @@
+# Italiano 1500 core list: headword, part of speech, grammar override (optional), US English gloss.
+# Order does not matter: rank and frequency come from build/ranked.tsv (OpenSubtitles 2018 counts, lemmatized).
+# pos: n v adj adv prep conj pron art det num int. Noun gender, plurals, verb class and auxiliary come from
+# Wiktionary unless given here (m f mf pl=plurale tantum inv pl:X  |  verbs: aux:a aux:e aux:a/e isc).
+il	art		the
+essere	v		to be
+di	prep		of; from; than
+e	conj		and
+avere	v		to have
+non	adv		not
+che	conj		that; than; what (in questions)
+a	prep		to; at; in (a city)
+un	art		a, an
+in	prep		in; into; to (a country or region)
+fare	v		to do; to make
+per	prep		for; through; in order to
+si	pron		oneself, himself, herself, themselves; one, people (impersonal)
+mi	pron		me; to me; myself
+da	prep		from; by; at/to someone's place; since (time)
+ci	pron		us; to us; there (ci sono = there are)
+stare	v		to stay; to be (how you are); to be about to (stare per)
+cosa	n		thing; what? (cosa?)
+andare	v		to go
+questo	det		this
+potere	v	aux:a	can, to be able to; may
+dire	v		to say; to tell
+sapere	v	aux:a	to know (a fact); to know how to
+ma	conj		but
+volere	v	aux:a	to want
+mio	det		my; mine
+dovere	v	aux:a	to have to, must; to owe
+con	prep		with
+no	adv		no; not
+ti	pron		you; to you; yourself (informal)
+tutto	det		all; everything; whole
+quello	det		that; that one
+come	adv		how; like, as
+io	pron		I
+uno	pron		one; someone
+bene	adv		well; fine, good
+perché	conj		why; because
+tuo	det		your; yours (informal)
+qui	adv		here
+lo	pron		him; it
+vedere	v		to see
+suo	det		his; her; its; your (formal Lei)
+solo	adv		only, just; alone
+su	prep		on; about; up
+tu	pron		you (informal singular)
+più	adv		more; most; no longer (non... più)
+pensare	v		to think
+me	pron		me (stressed: with me, for me)
+così	adv		so; like this, like that
+te	pron		you (stressed: with you, for you)
+ora	adv		now
+altro	det		other; else; another
+venire	v		to come
+ne	pron		of it, of them; some; from there
+quando	adv		when
+sì	adv		yes
+lei	pron		she; her; you (formal Lei)
+parlare	v		to speak, to talk
+sentire	v		to hear; to feel
+molto	adv		very; a lot, much
+anche	adv		also, too; even
+credere	v		to believe; to think
+prendere	v	aux:a	to take; to get; to catch
+mai	adv		never; ever
+o	conj		or
+dove	adv		where
+beh	int		well (to start a sentence)
+se	conj		if; whether
+trovare	v		to find
+dare	v		to give
+grazie	int		thank you, thanks
+chi	pron		who; whoever
+lui	pron		he; him
+allora	adv		then; so, well then
+qualcosa	pron		something; anything
+signore	n		sir; gentleman; lord
+niente	pron		nothing; anything (in questions)
+lasciare	v		to leave; to let
+vero	adj		true; real
+già	adv		already; yes, right
+nostro	det		our; ours
+davvero	adv		really; truly
+ancora	adv		still; yet; again; more
+casa	n		house; home
+portare	v		to bring; to carry; to wear
+bello	adj		beautiful; handsome; nice
+aspettare	v		to wait (for)
+chiamare	v		to call; chiamarsi = to be named
+capire	v		to understand
+piacere	v	aux:e	to be pleasing (mi piace = I like it)
+amico	n		friend
+prima	adv		before; first; earlier
+nessuno	pron		nobody, no one; no, not any
+noi	pron		we; us
+due	num		two
+volta	n		time (occasion); turn
+quindi	adv		so, therefore
+anno	n		year
+guardare	v		to look (at), to watch
+quanto	det		how much; how many; as much as
+mettere	v		to put
+po'	adv		a bit, a little (un po')
+cercare	v		to look for; to try (cercare di)
+tornare	v	aux:e	to return, to come back
+uomo	n		man; human being
+certo	adv		certainly, of course; sure
+sembrare	v		to seem
+sempre	adv		always; still
+proprio	adv		really, just, exactly; (adj.) own
+vi	pron		you all; to you all; there
+tempo	n		time; weather
+loro	pron		they; them; their
+forse	adv		maybe, perhaps
+chiedere	v		to ask; to ask for
+li	pron		them (masculine)
+vita	n		life; waist
+giorno	n		day
+arrivare	v		to arrive; to reach
+qualcuno	pron		someone, somebody; anyone
+ragazzo	n		boy; guy; boyfriend
+poi	adv		then, afterward
+buono	adj		good; kind; tasty
+parte	n		part; side
+fuori	adv		out, outside
+uccidere	v		to kill
+conoscere	v		to know (a person, a place); to meet
+fatto	n		fact; event
+dio	n		god
+cui	pron		which, whom (after a preposition)
+nuovo	adj		new
+aiutare	v		to help
+dispiacere	v		to be sorry (mi dispiace = I'm sorry); to mind
+persona	n		person
+ecco	adv		here is, here are; there it is
+tanto	det		so much; so many; a lot
+riuscire	v		to manage (to), to succeed
+voi	pron		you (plural)
+succedere	v		to happen
+ciao	int		hi; bye
+posto	n	m	place; seat; job
+grande	adj		big, large; great; grown-up
+dopo	adv		after; later; afterward
+adesso	adv		now
+finire	v	isc aux:a/e	to finish; to end
+lavoro	n		work; job
+padre	n		father
+stesso	adj	pre	same; -self (io stesso = I myself)
+scusare	v		to excuse (scusa, scusi = excuse me, sorry)
+bisogno	n		need (avere bisogno di = to need)
+via	n		street, road; way; (adv.) away
+vostro	det		your; yours (plural)
+servire	v		to serve; to be useful, to be needed
+tenere	v		to hold; to keep
+meglio	adv		better; best
+modo	n		way, manner
+sicuro	adj		sure; safe, secure
+giusto	adj		right, correct; fair, just
+senza	prep		without
+bambino	n		child; little boy
+troppo	adv		too; too much; too many
+ogni	det		every, each
+entrare	v		to enter, to go in, to come in
+figlio	n		son; child
+perdere	v		to lose; to miss (a train)
+problema	n		problem
+qualche	det		some, a few
+lavorare	v		to work
+provare	v		to try; to try on; to feel
+donna	n		woman
+uscire	v		to go out, to leave; to date (uscire con)
+leggere	v		to read
+ragazza	n		girl; girlfriend
+male	adv		badly; (n.) evil, harm, pain
+mamma	n		mom
+tra	prep		between, among; in (time: tra un'ora)
+passare	v	aux:a/e	to pass; to go by; to spend (time); to stop by
+madre	n		mother
+favore	n		favor (per favore = please)
+momento	n		moment
+ascoltare	v		to listen (to)
+vivere	v		to live
+pronto	adj		ready; hello? (on the phone)
+usare	v	aux:a	to use
+tipo	n		type, kind; guy
+morto	adj		dead
+quale	det		which; what
+primo	adj	pre	first
+mano	n		hand
+amare	v		to love
+morire	v		to die
+piccolo	adj		small, little
+idea	n		idea
+signora	n		lady; madam; Mrs.
+ciò	pron		that, this (ciò che = what)
+soldi	n	pl m	money
+ultimo	adj	pre	last; latest
+papà	n		dad
+caso	n		case; chance (per caso = by chance)
+prego	int		you're welcome; please, go ahead
+appena	adv		just; as soon as; barely
+nome	n		name; noun
+fermare	v		to stop
+tre	num		three
+forza	n		strength; force; come on! (forza!)
+oggi	adv		today
+accordo	n		agreement (d'accordo = OK, agreed)
+bastare	v		to be enough (basta! = that's enough!)
+gente	n	sg	people
+secondo	adj	pre	second; (prep.) according to
+diventare	v		to become
+cambiare	v	aux:a/e	to change
+dentro	adv		inside, in
+famiglia	n		family
+rimanere	v		to stay, to remain
+iniziare	v	aux:a/e	to begin, to start
+mondo	n		world
+restare	v		to stay, to remain
+nulla	pron		nothing
+successo	n		success; hit
+ragione	n		reason (avere ragione = to be right)
+mangiare	v		to eat
+mandare	v		to send
+insieme	adv		together
+preoccupare	v		to worry (preoccuparsi = to be worried)
+subito	adv		right away, immediately
+dottore	n		doctor
+notte	n		night
+continuare	v	aux:a/e	to continue, to go on
+migliore	adj		better; best
+testa	n		head
+fino	prep		until, up to (fino a)
+storia	n		story; history
+bravo	adj		good, skilled; well done! (bravo!)
+sotto	prep		under, below
+tesoro	n		treasure; honey, darling
+smettere	v		to stop, to quit (smettere di)
+unico	adj		only; unique
+ricordare	v		to remember; to remind
+settimana	n		week
+moglie	n		wife
+minuto	n		minute
+scoprire	v		to discover, to find out
+vecchio	adj		old
+fratello	n		brother
+sperare	v		to hope
+pagare	v		to pay
+scrivere	v		to write
+occhio	n		eye
+piano	n		plan; floor (of a building); piano; (adv.) slowly, softly
+amore	n		love; sweetheart
+meno	adv		less; least; minus
+controllare	v		to check; to control
+alcuno	det		any, no (non... alcuno); alcuni = some
+avanti	adv		forward, ahead; come in! (avanti!)
+macchina	n		car; machine
+polizia	n	sg	police
+ricordo	n		memory
+bere	v		to drink
+lì	adv		there
+sposare	v		to marry (sposarsi = to get married)
+felice	adj		happy
+incontrare	v	aux:a	to meet
+capo	n		boss; head, chief
+parere	v		to seem; (n.) opinion
+fine	n	f	end; (m) aim, purpose
+paura	n		fear (avere paura = to be afraid)
+mentre	conj		while
+sbagliare	v		to make a mistake, to get wrong
+poco	det		little, not much; few
+domani	adv		tomorrow
+parola	n		word
+significare	v		to mean
+abbastanza	adv		enough; fairly, quite
+salvare	v		to save
+domanda	n		question; application
+vicino	adv		near, nearby; (adj.) close; (n.) neighbor
+città	n		city, town
+neanche	adv		not even; neither
+permettere	v		to allow, to let
+trattare	v		to treat; to deal with; si tratta di = it's about
+comunque	adv		anyway; however
+giocare	v		to play (a game, a sport)
+seguire	v	aux:a	to follow
+strano	adj		strange, odd
+dormire	v		to sleep
+mese	n		month
+fantastico	adj		fantastic, great
+nemmeno	adv		not even
+sera	n		evening
+sparare	v		to shoot
+importante	adj		important
+rendere	v		to make (render); to give back
+funzionare	v		to work, to function
+morte	n		death
+presto	adv		soon; early
+aprire	v		to open
+strada	n		road, street
+qua	adv		here
+immaginare	v		to imagine
+serio	adj		serious
+diavolo	n		devil
+figlia	n		daughter
+importare	v		to matter (non importa = it doesn't matter); to import
+quasi	adv		almost, nearly
+colpa	n		fault, blame
+prossimo	adj	pre	next; nearest
+intendere	v		to mean; to intend
+giro	n		tour; turn; ride, spin (fare un giro = to go for a ride or walk)
+contro	prep		against
+agente	n	mf	agent; police officer
+dimenticare	v		to forget
+dato	n		piece of data; dati = data
+mancare	v		to be missing, to lack; mi manchi = I miss you
+invece	adv		instead; on the other hand
+terra	n		earth; ground; land
+muovere	v	aux:a	to move
+decidere	v		to decide
+numero	n		number
+dollaro	n		dollar
+almeno	adv		at least
+passato	n		past
+scuola	n		school
+possibile	adj		possible
+comprare	v		to buy
+occupare	v		to occupy; occuparsi di = to take care of
+magari	adv		maybe; if only!
+però	conj		but, however
+rispondere	v		to answer, to reply
+correre	v	aux:a/e	to run
+cominciare	v	aux:a/e	to begin, to start
+forte	adj		strong; loud; great, cool
+punto	n		point; dot, period
+cuore	n		heart
+difficile	adj		difficult, hard
+liberare	v		to free, to release
+salve	int		hello (neutral greeting)
+vincere	v		to win
+stasera	adv		tonight, this evening
+stupido	adj		stupid
+giù	adv		down; downstairs
+ricevere	v		to receive, to get
+verità	n		truth
+caro	adj		dear; expensive
+tirare	v		to pull; to throw
+diverso	adj		different; diversi = several
+corpo	n		body
+indietro	adv		back, backward; behind
+cioè	adv		that is, I mean
+marito	n		husband
+partire	v		to leave, to depart
+sangue	n	sg	blood
+mezzo	n		middle; means (of transport); (adj.) half
+nascondere	v		to hide
+stanza	n		room
+acqua	n		water
+perfetto	adj		perfect
+tardi	adv		late
+mentire	v		to lie (tell a lie)
+ieri	adv		yesterday
+lungo	adj		long; (prep.) along
+pure	adv		also, too; go ahead (prego, pure)
+scusa	n		excuse; apology; sorry! (scusa!)
+festa	n		party; holiday
+affare	n		deal, bargain; affari = business
+toccare	v		to touch; tocca a te = it's your turn
+chiudere	v		to close, to shut
+auto	n	f inv	car
+piede	n		foot (a piedi = on foot)
+sorella	n		sister
+veramente	adv		really, truly
+aiuto	n		help; help! (aiuto!)
+scappare	v		to run away, to escape
+qualsiasi	adj	inv noagr	any, any kind of
+preparare	v		to prepare, to get ready
+prova	n		proof, evidence; test, trial; rehearsal
+telefono	n		telephone, phone
+preferire	v		to prefer
+ottimo	adj		excellent, very good
+senso	n		sense; meaning; direction
+roba	n	sg	stuff, things
+alto	adj		tall; high; loud
+finché	conj		until; as long as
+realtà	n		reality (in realtà = actually)
+mostrare	v		to show
+sacco	n		sack, bag; un sacco di = a lot of
+entrambi	pron		both
+dietro	adv		behind; (prep.) behind (dietro di)
+foto	n		photo
+brutto	adj		ugly; bad
+togliere	v		to take off; to remove
+verso	prep		toward; around (time: verso le otto)
+fidare	v		fidarsi (di) = to trust
+cinque	num		five
+ufficio	n		office
+svegliare	v		to wake (svegliarsi = to wake up)
+conto	n		bill, check; account (rendersi conto = to realize)
+interessare	v	aux:a	to interest
+genere	n		kind, sort; gender; genre (in genere = usually)
+rubare	v		to steal
+guerra	n		war
+scegliere	v		to choose
+signorina	n		young lady; Miss
+quattro	num		four
+attimo	n		moment, instant (un attimo = just a moment)
+divertente	adj		fun, funny, amusing
+film	n		movie, film
+probabilmente	adv		probably
+motivo	n		reason, motive
+carino	adj		cute; nice, pretty
+pieno	adj		full
+accettare	v		to accept
+libro	n		book
+segreto	n		secret
+squadra	n		team; squad
+presentare	v		to introduce; to present
+calmare	v		to calm (calmati! = calm down!)
+esatto	adj		exact; exactly! (esatto!)
+vendere	v		to sell
+unire	v		to unite, to join
+cavolo	n		cabbage; darn! (cavolo!)
+spiegare	v		to explain
+omicidio	n		murder, homicide
+promettere	v		to promise
+divertire	v		to amuse (divertirsi = to have fun)
+girare	v		to turn; to go around; to film (a movie)
+pezzo	n		piece
+vestito	n		dress; suit; clothes (vestiti)
+arma	n		weapon
+sedere	v		to sit (sedersi = to sit down)
+tizio	n		guy, fellow
+saltare	v	aux:a/e	to jump; to skip
+lontano	adj		far, distant; (adv.) far away
+esattamente	adv		exactly
+giovane	adj		young; (n.) young person
+cane	n		dog
+sopra	prep		on, above, over; (adv.) upstairs
+pistola	n		pistol, gun
+pazzo	adj		crazy; (n.) madman
+notizia	n		piece of news; notizie = news
+imparare	v		to learn
+colpire	v		to hit, to strike
+facile	adj		easy
+guidare	v		to drive; to guide
+proteggere	v		to protect
+ordine	n		order
+fortuna	n		luck; fortune (buona fortuna = good luck)
+voce	n		voice; rumor
+capitano	n		captain
+umano	adj		human
+raccontare	v		to tell (a story)
+matrimonio	n		wedding; marriage
+messaggio	n		message
+alzare	v	aux:a	to raise, to lift (alzarsi = to get up)
+genitore	n		parent
+sistemare	v		to fix, to arrange, to settle
+fuoco	n		fire
+là	adv		there
+offrire	v		to offer
+luce	n		light
+faccia	n		face
+distruggere	v		to destroy
+accadere	v		to happen
+attento	adj		careful; attentive (stai attento! = watch out!)
+avvocato	n		lawyer
+bianco	adj		white
+vittima	n		victim
+gioco	n		game; play
+arrabbiato	adj		angry, mad
+nero	adj		black
+situazione	n		situation
+buongiorno	int		good morning; hello
+davanti	adv		in front, ahead (davanti a = in front of)
+sicurezza	n	sg	safety; security
+grosso	adj		big, large; thick
+ospedale	n		hospital
+suonare	v	aux:a	to play (an instrument); to ring
+cena	n		dinner
+adorare	v		to adore, to love
+zitto	adj	noagr	quiet, silent (stai zitto! = be quiet!)
+creare	v		to create
+paese	n		country; village, small town
+attenzione	n		attention; watch out! (attenzione!)
+ridere	v		to laugh
+re	n		king
+esistere	v		to exist
+chiaro	adj		clear; light (color)
+cattivo	adj		bad; mean, nasty
+cadere	v		to fall
+sesso	n		sex
+presidente	n		president
+sogno	n		dream
+scelta	n		choice
+idiota	n	mf	idiot
+giurare	v		to swear
+milione	n	m	million
+ottenere	v		to obtain, to get
+ringraziare	v		to thank
+possibilità	n		possibility; chance
+tranquillo	adj		calm, quiet; don't worry (tranquillo!)
+medico	n		doctor, physician
+causa	n		cause; lawsuit (a causa di = because of)
+cliente	n	mf	customer, client
+scorso	adj		last (la settimana scorsa = last week)
+scherzare	v		to joke, to kid
+nascere	v		to be born
+salire	v	aux:a/e	to go up, to climb; to get on (a bus)
+rompere	v		to break
+campo	n		field; camp
+tagliare	v		to cut
+buttare	v	aux:a	to throw; to throw away
+valere	v		to be worth
+speciale	adj		special
+chiave	n		key
+cura	n		care; cure, treatment
+durante	prep		during
+cielo	n		sky; heaven
+piangere	v		to cry
+solito	adj	pre	usual (di solito = usually)
+crescere	v	aux:a/e	to grow; to grow up
+musica	n	sg	music
+giornata	n		day (the whole day)
+chiunque	pron		anyone, whoever
+pace	n	sg	peace
+informazione	n		piece of information
+gruppo	n		group
+prigione	n		prison, jail
+duro	adj		hard; tough
+colpo	n		blow, hit; shot
+combattere	v		to fight
+convincere	v		to convince
+assolutamente	adv		absolutely
+futuro	n		future
+puntare	v		to point; to aim; to bet
+semplice	adj		simple
+bagno	n		bathroom; bath; swim
+intenzione	n		intention
+poliziotto	n		police officer, cop
+piuttosto	adv		rather; quite
+intero	adj		whole, entire
+aria	n		air; look, appearance
+spaventare	v		to scare, to frighten
+carta	n		paper; card; map
+contento	adj		glad, pleased, happy
+servizio	n		service; report (TV news)
+perciò	conj		so, therefore
+dieci	num		ten
+scendere	v	aux:a/e	to go down; to get off (a bus)
+veloce	adj		fast, quick
+mente	n		mind
+mille	num		thousand (pl. mila: duemila)
+resto	n		rest; change (money)
+rovinare	v	aux:a	to ruin
+chiuso	adj		closed
+fondo	n		bottom; end; fund (in fondo = after all)
+incidente	n		accident
+santo	adj	noagr	holy; saint (san, santa)
+camera	n		room; bedroom (camera da letto)
+cantare	v		to sing
+riguardare	v		to concern, to regard
+errore	n		mistake, error
+capelli	n	pl m	hair (on the head)
+benissimo	adv		very well; great
+nave	n		ship
+insegnare	v	aux:a	to teach
+grado	n		degree; rank (essere in grado di = to be able to)
+rapporto	n		relationship; report
+arrestare	v		to arrest
+qualunque	adj	inv noagr	any; whatever
+notare	v		to notice
+paio	n		pair; couple (un paio di = a couple of)
+porta	n		door
+onore	n		honor
+droga	n		drug(s)
+fra	prep		between, among; in (time: fra un'ora)
+cibo	n		food
+benvenuto	adj	noagr	welcome
+caffè	n		coffee; café
+risposta	n		answer, reply
+attaccare	v		to attack; to attach, to stick
+insomma	adv		in short; well...; come on!
+palla	n		ball
+indossare	v		to wear, to put on
+temere	v		to fear, to be afraid of
+bisognare	v		bisogna = it's necessary, one must
+viaggio	n		trip, journey
+appuntamento	n		appointment; date
+scomparire	v		to disappear
+risolvere	v		to solve; to resolve
+vivo	adj		alive; lively
+personale	adj		personal; (n.) staff
+perdonare	v		to forgive
+fretta	n	sg	hurry (avere fretta = to be in a hurry)
+assassino	n		murderer, killer
+finalmente	adv		finally, at last
+sparire	v		to disappear, to vanish
+assicurare	v		to assure; to insure
+odiare	v		to hate
+gamba	n		leg
+vista	n		view; sight
+consiglio	n		advice; council
+controllo	n		check; control
+americano	adj		American
+fregare	v		to cheat, to rip off; non me ne frega = I don't care
+lettera	n		letter
+bocca	n		mouth
+camminare	v		to walk
+diritto	n		right; law; (adj.) straight
+effetto	n		effect
+oltre	adv		beyond; more than (oltre a = besides)
+odio	n		hate, hatred
+normale	adj		normal
+mattina	n		morning
+braccio	n		arm
+contare	v		to count; to matter
+gentile	adj		kind, nice
+chiamata	n		call
+natale	n		Christmas (Natale)
+circa	adv		about, around, approximately
+ovviamente	adv		obviously, of course
+aereo	n		plane, airplane
+povero	adj		poor
+generale	adj		general; (n.) general (army)
+scena	n		scene; stage
+considerare	v		to consider
+comportare	v		to involve; comportarsi = to behave
+regola	n		rule
+simile	adj		similar, alike; such
+guardia	n		guard
+dolce	adj		sweet; gentle; (n.) dessert
+paziente	n	mf	patient; (adj.) patient
+raggiungere	v		to reach; to join (someone)
+spalla	n		shoulder
+aperto	adj		open
+costruire	v	isc	to build
+bloccare	v		to block; to lock
+soltanto	adv		only
+caldo	adj		hot, warm; (n.) heat
+relazione	n		relationship; report
+incredibile	adj		incredible, unbelievable
+lista	n		list
+terribile	adj		terrible, awful
+detective	n	mf inv	detective
+ballare	v		to dance
+avvicinare	v		to bring near; avvicinarsi = to approach
+firmare	v		to sign
+sorpresa	n		surprise
+ricerca	n		research; search
+freddo	adj		cold; (n.) cold
+centro	n		center; downtown
+zio	n		uncle
+cavallo	n		horse
+questione	n		question, issue, matter
+riprendere	v	aux:a	to take back; to resume
+dolore	n		pain; grief
+urlare	v		to scream, to yell
+programma	n		program; plan; show
+riportare	v		to bring back; to report
+innamorare	v		innamorarsi (di) = to fall in love (with)
+scommettere	v		to bet
+oppure	conj		or; or else
+completamente	adv		completely
+spesso	adv		often
+pericoloso	adj		dangerous
+pubblico	adj		public; (n.) audience
+canzone	n		song
+metà	n		half
+ormai	adv		by now; now (at this point)
+peccato	n	m	sin; che peccato! = what a shame!
+semplicemente	adv		simply
+specie	n		species; kind, sort
+pena	n		penalty; pity (vale la pena = it's worth it)
+compagnia	n		company
+spostare	v		to move, to shift
+capitare	v		to happen
+posizione	n		position
+rosso	adj		red
+interessante	adj		interesting
+affrontare	v		to face, to confront
+battere	v		to beat; to hit
+mantenere	v		to keep; to maintain; to support
+riguardo	n		regard; (riguardo a = regarding)
+riconoscere	v		to recognize; to admit
+meritare	v		to deserve
+sala	n		hall; room (sala da pranzo = dining room)
+occhiata	n		look, glance (dare un'occhiata = to take a look)
+studio	n		study; office, studio
+biglietto	n		ticket; note; bill (money)
+addio	int		goodbye, farewell
+base	n		base; basis
+guadagnare	v		to earn
+linea	n		line
+terzo	adj	pre	third
+decisione	n		decision
+schifo	n	sg	disgust (che schifo! = gross!)
+addosso	adv		on (wearing); on top of (addosso a)
+cervello	n		brain
+evitare	v		to avoid
+peggio	adv		worse; worst
+soldato	n		soldier
+zona	n		zone, area
+crimine	n		crime
+regalo	n		gift, present
+nonna	n		grandmother
+pulire	v	isc aux:a	to clean
+ammettere	v		to admit
+fortunato	adj		lucky
+fame	n	sg	hunger (avere fame = to be hungry)
+rispetto	n		respect (rispetto a = compared to)
+laggiù	adv		down there, over there
+proposito	n		purpose (a proposito = by the way)
+interno	adj		internal, inside; (n.) inside, interior
+bruciare	v	aux:a/e	to burn
+testimone	n	mf	witness
+necessario	adj		necessary
+uscita	n		exit, way out
+isola	n		island
+impossibile	adj		impossible
+animale	n		animal
+studiare	v		to study
+episodio	n		episode
+ordinare	v		to order
+desiderare	v		to want, to wish, to desire
+trasferire	v	isc	to transfer, to move
+casino	n		mess; racket, noise
+volare	v	aux:a/e	to fly
+luogo	n		place (avere luogo = to take place)
+appartamento	n		apartment
+negozio	n		store, shop
+bar	n		café, coffee bar
+organizzare	v		to organize
+salute	n	sg	health; cheers! (salute!)
+dimostrare	v		to show, to prove; to look (an age)
+segno	n		sign; mark
+impegnare	v		to commit; impegnarsi = to make an effort
+inizio	n		beginning, start
+lezione	n		lesson; class
+abbandonare	v		to abandon, to leave
+nemico	n		enemy
+ritardo	n		delay (in ritardo = late)
+precedente	adj		previous
+compleanno	n		birthday
+serata	n		evening (the whole evening)
+ammazzare	v		to kill
+coinvolgere	v		to involve
+intorno	adv		around (intorno a)
+legare	v		to tie, to bind
+video	n	inv	video
+rilassare	v		to relax (rilassarsi = to relax)
+spazio	n		space
+privato	adj		private
+anima	n		soul
+coraggio	n	sg	courage
+contatto	n		contact
+partita	n		game, match
+documento	n		document; ID
+reale	adj		real; royal
+inglese	adj		English
+denaro	n	sg	money
+spingere	v		to push
+triste	adj		sad
+livello	n		level
+fermo	adj		still; stopped (fermo! = freeze!)
+sicuramente	adv		surely, certainly
+birra	n		beer
+ritornare	v	aux:e	to return, to go back
+superare	v		to overcome; to pass (an exam); to exceed
+guai	n	pl m	trouble (essere nei guai = to be in trouble)
+fidanzato	n		boyfriend; fiancé
+basso	adj		short; low
+cellulare	n		cell phone
+soffrire	v		to suffer
+missione	n		mission
+dottoressa	n		doctor (woman)
+pranzo	n		lunch
+ex	n	mf inv	ex (former partner)
+sette	num		seven
+otto	num		eight
+baciare	v		to kiss
+assumere	v		to hire; to assume
+sistema	n		system
+fronte	n		forehead; (m) front (di fronte a = in front of)
+tale	adj	noagr	such; (n.) un tale = a certain person
+meraviglioso	adj		wonderful
+scarpa	n		shoe
+chiesa	n		church
+sbrigare	v		sbrigarsi = to hurry up
+respirare	v		to breathe
+pericolo	n		danger
+beccare	v		to catch (someone); to peck
+occasione	n		opportunity; occasion
+azione	n		action
+licenziare	v		to fire (from a job)
+intelligente	adj		intelligent, smart
+borsa	n		bag; purse; stock exchange
+stanco	adj		tired
+ripetere	v		to repeat
+mare	n		sea
+silenzio	n		silence
+visita	n		visit; checkup
+costare	v		to cost
+esercito	n	m	army
+presente	adj		present
+impazzire	v	isc aux:e	to go crazy
+direttore	n		director; manager
+sorridere	v		to smile
+altrimenti	adv		otherwise
+rifiutare	v		to refuse
+gestire	v	isc	to manage, to run
+stella	n		star
+nonno	n		grandfather
+bomba	n		bomb
+consegnare	v		to deliver; to hand over
+ferito	adj		wounded, injured
+sopravvivere	v		to survive
+ragazzino	n		little boy, kid
+né	conj		neither, nor (né... né)
+stamattina	adv		this morning
+test	n	inv	test
+ufficiale	n		officer; (adj.) official
+metro	n		meter
+computer	n	inv	computer
+voltare	v		to turn
+professore	n		professor; teacher
+albero	n		tree
+colore	n		color
+ala	n		wing
+ritrovare	v		to find again; to recover
+codice	n		code
+tentare	v		to try, to attempt
+oro	n	sg	gold
+presa	n		grip, hold; outlet (electric)
+lato	n		side
+dito	n		finger
+spettacolo	n		show, performance
+tavolo	n		table
+speranza	n		hope
+causare	v		to cause
+pregare	v		to pray; to beg
+dunque	conj		so, therefore; well then
+operazione	n		operation
+infatti	adv		in fact, indeed
+salutare	v		to greet; to say goodbye to
+fingere	v		to pretend
+compito	n	m	task; homework (compiti)
+esempio	n		example
+ricco	adj		rich
+apprezzare	v		to appreciate
+accompagnare	v		to accompany, to go with
+governo	n		government
+costringere	v		to force
+età	n		age
+maggiore	adj		bigger; older; major
+forma	n		shape, form
+certamente	adv		certainly
+coprire	v		to cover
+club	n	inv	club
+supporre	v		to suppose
+ovunque	adv		everywhere; wherever
+dubbio	n		doubt
+regina	n		queen
+responsabile	adj		responsible; (n.) person in charge
+risultato	n		result
+giudice	n		judge
+maestro	n		teacher (elementary school); master
+finestra	n		window
+stanotte	adv		tonight; last night
+traccia	n		trace, track
+sole	n		sun
+progetto	n		project, plan
+processo	n		trial; process
+spegnere	v		to turn off; to put out
+affatto	adv		at all (non... affatto = not at all)
+malato	adj		sick, ill
+rivedere	v		to see again; to review
+vuoto	adj		empty
+barca	n		boat
+classe	n		class; classroom
+inferno	n		hell
+riposare	v	aux:a	to rest
+differenza	n		difference
+incinta	adj	noagr	pregnant
+stagione	n		season
+rischio	n		risk
+registrare	v		to record; to register
+massimo	adj		maximum, greatest
+accendere	v		to turn on; to light
+contattare	v		to contact
+indovinare	v		to guess
+locale	adj		local; (n.) place, venue
+comune	adj		common; (n.) town hall, municipality
+concentrare	v		to concentrate (concentrarsi = to focus)
+tenente	n		lieutenant
+sopportare	v		to stand, to bear, to put up with
+tradire	v	isc	to betray; to cheat on
+pensiero	n		thought
+libertà	n		freedom, liberty
+diretto	adj		direct
+mica	adv		not at all (non... mica)
+treno	n		train
+fiore	n		flower
+banca	n		bank
+trasformare	v		to transform
+lanciare	v		to throw; to launch
+raccogliere	v		to pick up; to gather, to collect
+società	n		society; company
+matto	adj		crazy, mad
+orribile	adj		horrible
+rischiare	v		to risk
+passo	n		step; pace
+accusare	v		to accuse
+enorme	adj		huge, enormous
+sergente	n		sergeant
+compagno	n		companion; classmate; partner
+parecchio	det		quite a lot of; several
+vino	n		wine
+dannazione	int		damn!
+falso	adj		false; fake
+carne	n		meat; flesh
+discorso	n	m	speech; talk
+energia	n		energy
+pelle	n		skin; leather
+pesce	n		fish
+luna	n		moon
+comandante	n		commander
+esperienza	n		experience
+eroe	n		hero
+figliolo	n		son, sonny (affectionate)
+attacco	n		attack
+hotel	n	inv	hotel
+arte	n		art
+rimettere	v		to put back
+spirito	n		spirit; wit
+pianeta	n		planet
+pesare	v	aux:a	to weigh
+pressione	n		pressure
+cadavere	n		corpse, dead body
+pomeriggio	n		afternoon
+allontanare	v		to send away; allontanarsi = to move away
+scatola	n		box
+lottare	v		to fight, to struggle
+innocente	adj		innocent
+ospite	n	mf	guest; host
+giornale	n		newspaper
+maledizione	n		curse; damn! (maledizione!)
+prezzo	n		price
+cancellare	v		to delete, to erase; to cancel
+discutere	v		to discuss; to argue
+edificio	n		building
+membro	n		member
+colpevole	adj		guilty
+durare	v	aux:e	to last
+grave	adj		serious, grave
+confermare	v		to confirm
+arrivederci	int		goodbye
+fissare	v		to stare at; to fix, to set (a date)
+periodo	n		period
+collegare	v		to connect, to link
+sognare	v		to dream
+cacciare	v		to hunt; to kick out
+curare	v		to treat, to cure; to take care of
+offerta	n		offer
+condizione	n		condition
+coppia	n		couple; pair
+accidente	n		accident; damn! (accidenti!)
+indagine	n		investigation
+richiedere	v		to require; to request
+segnale	n		signal
+nord	n	inv sg	north
+rumore	n		noise
+riunione	n		meeting
+gatto	n		cat
+litigare	v		to argue, to fight
+congratulazioni	n	pl f	congratulations
+confondere	v		to confuse
+inventare	v		to invent; to make up
+desiderio	n		wish, desire
+ridicolo	adj		ridiculous
+ballo	n		dance; ball
+fantasma	n		ghost
+ristorante	n		restaurant
+fuggire	v	aux:e	to flee, to run away
+indirizzo	n		address
+scherzo	n		joke; prank
+zia	n		aunt
+radio	n	f inv	radio
+muro	n		wall
+torta	n		cake
+ferita	n		wound
+produrre	v		to produce
+anello	n		ring
+turno	n		shift; turn
+fumare	v		to smoke
+esame	n		exam, test
+francese	adj		French
+gettare	v		to throw
+inutile	adj		useless
+commettere	v		to commit
+accusa	n		accusation, charge
+peggiore	adj		worse; worst
+appartenere	v	aux:e	to belong
+legale	adj		legal; (n.) lawyer
+caccia	n	f	hunt, hunting
+laboratorio	n		laboratory, lab
+difesa	n		defense
+soprattutto	adv		above all, especially
+catturare	v		to capture
+medicina	n		medicine
+passaggio	n		passage; ride, lift (dare un passaggio = to give a ride)
+finta	n		pretense (fare finta di = to pretend to)
+famoso	adj		famous
+lingua	n		language; tongue
+criminale	adj		criminal; (n.) criminal
+dipendere	v		to depend
+sorprendere	v		to surprise
+sentimento	n		feeling
+attraverso	prep		through, across
+verde	adj		green
+campione	n		champion; sample
+utile	adj		useful
+inviare	v		to send
+stringere	v		to squeeze, to tighten; to shake (hands)
+malattia	n		illness, disease
+battaglia	n		battle
+lavare	v		to wash
+mollare	v		to let go; to quit; to dump
+cucinare	v		to cook
+ubriaco	adj		drunk
+mossa	n		move
+condurre	v		to lead; to conduct
+vento	n		wind
+stazione	n		station
+contrario	adj		contrary, opposite; (n.) opposite
+emergenza	n		emergency
+comando	n		command
+cucina	n		kitchen; cooking, cuisine
+fila	n		line (of people), row
+obiettivo	n		goal, objective; lens
+nervoso	adj		nervous; irritable
+telecamera	n		camera (video)
+debole	adj		weak
+bugia	n		lie
+russo	adj		Russian
+sud	n	inv sg	south
+pagina	n		page
+dettaglio	n		detail
+inoltre	adv		besides, moreover
+attraversare	v		to cross
+volo	n		flight
+incontro	n		meeting; match (sports)
+profondo	adj		deep
+principe	n		prince
+gridare	v		to shout
+dritto	adj		straight; (adv.) straight ahead
+ovvio	adj		obvious
+dente	n		tooth
+odore	n		smell
+levare	v		to remove, to take off
+picchiare	v		to beat (up), to hit
+scopo	n		aim, purpose
+contratto	n	m	contract
+naturalmente	adv		naturally, of course
+colazione	n		breakfast
+grandioso	adj		grand, terrific
+condividere	v		to share
+scaricare	v	aux:a	to unload; to download
+richiesta	n		request
+accorgere	v	aux:e	accorgersi (di) = to notice, to realize
+recuperare	v		to recover, to get back
+carriera	n		career
+mostro	n		monster
+studente	n		student
+fiducia	n	sg	trust, confidence
+viaggiare	v		to travel
+impronta	n		print (impronte digitali = fingerprints)
+scala	n		stairs, staircase; ladder; scale
+dichiarare	v		to declare
+angelo	n		angel
+avvertire	v		to warn; to feel
+quartiere	n		neighborhood
+ritirare	v		to withdraw; to pick up
+collo	n		neck
+rispettare	v		to respect
+nove	num		nine
+furgone	n		van
+orecchio	n		ear
+resistere	v		to resist
+maledire	v		to curse
+perso	adj		lost
+piantare	v		to plant; to dump (a partner)
+magnifico	adj		magnificent
+memoria	n		memory
+sceriffo	n		sheriff
+riferire	v	isc	to report; riferirsi a = to refer to
+comprendere	v		to understand; to include
+blu	adj	inv	blue
+assurdo	adj		absurd
+minimo	adj		minimum, least
+dipartimento	n		department
+sinistra	n		left (a sinistra = on the left)
+sensazione	n		feeling, sensation
+coltello	n		knife
+pausa	n		break, pause
+superiore	adj		higher; superior
+tranne	prep		except
+nipote	n	mf	grandchild; nephew, niece
+sporco	adj		dirty
+informare	v		to inform
+militare	adj		military; (n.) soldier
+immediatamente	adv		immediately
+valore	n		value
+impedire	v	isc	to prevent
+vacanza	n		vacation, holiday
+calcio	n		soccer; kick; calcium
+doppio	adj		double
+destino	n		destiny, fate
+capace	adj		able, capable
+particolare	adj		particular, special; (n.) detail
+fianco	n		side; hip
+immagine	n	f	image, picture
+armare	v		to arm
+principale	adj		main, principal
+razza	n		race; breed
+abbassare	v		to lower; to turn down
+invitato	n		guest
+praticamente	adv		practically
+invitare	v		to invite
+osso	n		bone
+naso	n		nose
+bottiglia	n		bottle
+accanto	adv		next to, beside (accanto a)
+tribunale	n		court (law)
+uccello	n		bird
+breve	adj		short, brief
+piatto	n		plate, dish; (adj.) flat
+telefonata	n		phone call
+battuta	n		line (in a script); joke, quip
+persino	adv		even
+buio	n		dark, darkness; (adj.) dark
+festeggiare	v		to celebrate
+colonnello	n		colonel
+faccenda	n		matter, business, affair
+termine	n		term; end
+tradurre	v		to translate
+assistente	n	mf	assistant
+fallire	v	isc aux:a/e	to fail
+conoscenza	n		knowledge; acquaintance
+opera	n		work; opera
+soluzione	n		solution
+improvviso	adj		sudden (all'improvviso = suddenly)
+ladro	n		thief
+pugno	n		fist; punch
+rinunciare	v		to give up
+procedere	v		to proceed
+corte	n		court; courtyard
+opportunità	n		opportunity
+natura	n	sg	nature
+evento	n		event
+sospetto	n		suspicion; suspect
+perdita	n		loss; leak
+ritorno	n		return
+infermiera	n		nurse
+giustizia	n	sg	justice
+attività	n		activity; business
+entrata	n		entrance
+sedia	n		chair
+frequentare	v		to attend; to hang out with; to date
+bicchiere	n		(drinking) glass
+bordo	n		edge (a bordo = on board)
+aggiungere	v		to add
+università	n		university, college
+sostenere	v		to support; to claim
+anzi	adv		actually, on the contrary; in fact
+angolo	n		corner; angle
+migliorare	v	aux:a/e	to improve
+uguale	adj		equal; same
+seppellire	v	isc	to bury
+sbattere	v		to slam; to bang
+accesso	n		access
+esplodere	v	aux:e	to explode
+fiume	n		river
+chissà	adv		who knows
+separare	v		to separate
+conversazione	n		conversation
+possedere	v		to own, to possess
+montagna	n		mountain
+sincero	adj		sincere, honest
+corsa	n		run; race; ride
+dannato	adj		damned
+figurare	v		to appear; figurati! = don't mention it!; of course not!
+sessuale	adj		sexual
+centrale	adj		central; (n.) headquarters, station
+magia	n		magic
+teoria	n		theory
+minacciare	v		to threaten
+proiettile	n		bullet
+collega	n	mf	colleague, coworker
+completo	adj		complete; full (no vacancy)
+stile	n		style
+uovo	n		egg
+insegnante	n	mf	teacher
+ponte	n		bridge
+onesto	adj		honest
+interesse	n		interest
+ricominciare	v	aux:a/e	to start again
+stavolta	adv		this time
+procuratore	n		prosecutor; attorney
+buco	n		hole
+oggetto	n		object
+quarto	adj	pre	fourth; (n.) quarter
+splendido	adj		splendid, gorgeous
+suggerire	v	isc	to suggest
+destra	n		right (a destra = on the right)
+giudicare	v		to judge
+fede	n		faith; wedding ring
+bacio	n		kiss
+finale	adj		final; (m) ending
+lupo	n		wolf
+campagna	n		countryside; campaign
+agire	v	isc	to act
+retro	n	inv	back (sul retro = in the back)
+risparmiare	v		to save (money, time); to spare
+pessimo	adj		very bad, terrible
+partecipare	v		to take part, to participate
+rivelare	v		to reveal
+pantaloni	n	pl m	pants, trousers
+spada	n		sword
+area	n		area
+ultimamente	adv		lately
+merito	n		merit, credit
+identificare	v		to identify
+interrompere	v		to interrupt
+estate	n		summer
+bugiardo	n		liar; (adj.) lying
+spezzare	v		to break
+concedere	v		to grant, to allow
+esagerare	v		to exaggerate; to overdo it
+dividere	v		to divide; to share
+genio	n		genius
+osare	v		to dare
+richiamare	v		to call back
+prevedere	v		to predict, to foresee
+abituare	v		abituarsi (a) = to get used (to)
+atto	n		act
+tedesco	adj		German
+azienda	n		company, firm
+premio	n		prize, award
+dirigere	v		to direct; to manage
+mercato	n		market
+positivo	adj		positive
+carico	adj		loaded; (n.) load
+proprietà	n		property; ownership
+vestire	v		to dress (vestirsi = to get dressed)
+disturbare	v		to disturb, to bother
+nazionale	adj		national
+ragazzina	n		little girl
+articolo	n		article
+ognuno	pron		everyone, each one
+osservare	v		to observe, to watch
+ritenere	v		to believe, to consider
+pista	n		track; trail; runway; dance floor
+danno	n		damage, harm
+limite	n		limit
+taxi	n	inv	taxi, cab
+villaggio	n		village
+naturale	adj		natural
+sguardo	n		look, gaze
+proprietario	n		owner
+schiena	n		back (body)
+aumentare	v	aux:a/e	to increase, to raise
+confessare	v		to confess
+principessa	n		princess
+cinese	adj		Chinese
+debito	n		debt
+maestà	n		majesty
+pollo	n		chicken
+federale	adj		federal
+ridurre	v		to reduce
+parco	n		park
+eliminare	v		to eliminate
+palazzo	n		building; palace
+voto	n		vote; grade (in school)
+nonostante	prep		despite, in spite of
+bellezza	n		beauty
+fisico	adj		physical; (n.) physique; physicist
+sprecare	v		to waste
+trattenere	v		to hold back; to keep
+cento	num		hundred
+comodo	adj		comfortable; convenient
+orologio	n		watch; clock
+responsabilità	n		responsibility
+chiaramente	adv		clearly
+straordinario	adj		extraordinary
+incastrare	v		to frame (someone); to fit together
+importanza	n	sg	importance
+dubitare	v		to doubt
+rientrare	v	aux:e	to come back in; to return home
+rappresentare	v		to represent
+combinare	v		to combine; to be up to (cosa combini? = what are you up to?)
+rotta	n		route, course
+antico	adj		ancient, antique
+latte	n	sg	milk
+esperto	n		expert; (adj.) expert, experienced
+gara	n		competition, race
+mordere	v		to bite
+orgoglioso	adj		proud
+preciso	adj		precise, exact
+buonasera	int		good evening
+decisamente	adv		definitely
+lieto	adj		glad (molto lieto = pleased to meet you)
+prestare	v		to lend
+indicare	v		to point out, to indicate
+cappello	n		hat
+contenere	v		to contain
+erba	n		grass; herb
+movimento	n		movement
+secolo	n		century
+socio	n		partner, associate; member
+ispettore	n		inspector
+adulto	n		adult; (adj.) adult
+motore	n		engine, motor
+pesante	adj		heavy
+pietra	n		stone
+maniera	n		manner, way
+fiero	adj		proud
+prigioniero	n		prisoner
+distanza	n		distance
+rilasciare	v		to release
+politica	n		politics; policy
+sindaco	n		mayor
+popolo	n		people, nation
+tetto	n		roof
+opinione	n		opinion
+dipingere	v		to paint
+minaccia	n		threat
+procurare	v		to get, to obtain; to cause
+serie	n	f inv	series
+seduta	n		session; sitting
+chilometro	n		kilometer
+attesa	n		wait (sala d'attesa = waiting room)
+fonte	n	f	source; spring
+talento	n		talent
+riflettere	v		to reflect; to think about
+spia	n	f	spy; warning light
+restituire	v	isc	to give back, to return
+giardino	n		garden; yard
+eppure	conj		and yet
+spendere	v		to spend (money)
+spiaggia	n		beach
+largo	adj		wide
+ghiaccio	n		ice
+cugino	n		cousin
+apparire	v	aux:e	to appear
+rintracciare	v		to track down, to trace
+doccia	n		shower
+scambiare	v		to exchange; to mistake (for)
+indagare	v		to investigate
+spesa	n		expense; shopping (fare la spesa = to go grocery shopping)
+stampa	n		press; print
+porre	v		to put, to place; to ask (a question)
+migliaio	n		about a thousand (migliaia = thousands)
+camion	n	inv	truck
+abito	n		dress; suit
+altezza	n		height
+onda	n		wave
+ruolo	n		role
+universo	n		universe
+puro	adj		pure
+strega	n		witch
+vittoria	n		victory
+venerdì	n		Friday
+creatura	n		creature
+sigaretta	n		cigarette
+fucile	n		rifle
+votare	v		to vote
+purtroppo	adv		unfortunately
+ignorare	v		to ignore; not to know
+amante	n	mf	lover
+riempire	v		to fill
+ebreo	adj		Jewish
+negare	v		to deny
+direttamente	adv		directly
+seriamente	adv		seriously
+lamentare	v		lamentarsi = to complain
+copertura	n		cover; coverage
+promessa	n		promise
+familiare	adj		familiar; family (adj.); (n.) relative
+maschio	n		male; boy
+denunciare	v		to report (to the police); to sue
+condannare	v		to condemn; to sentence
+allarme	n		alarm
+funerale	n		funeral
+definire	v	isc	to define
+caricare	v		to load; to charge (a battery)
+direzione	n		direction; management
+sconosciuto	adj		unknown; (n.) stranger
+complicato	adj		complicated
+abitare	v		to live (reside)
+badare	v		to look after (badare a); to mind
+cinema	n	inv	movie theater; cinema
+corrente	n	f	current; electricity; (adj.) current
+trappola	n		trap
+insistere	v		to insist
+deludere	v		to disappoint
+sabato	n		Saturday
+viso	n		face
+cancro	n		cancer
+stupendo	adj		wonderful, gorgeous
+recente	adj		recent
+internet	n	m inv sg	internet
+gelato	n	m	ice cream
+fresco	adj		fresh; cool
+noioso	adj		boring
+maiale	n		pig; pork
+civile	adj		civil; (n.) civilian
+messa	n		mass (church)
+trucco	n		trick; makeup
+sfuggire	v	aux:e	to escape, to slip away
+fornire	v	isc	to provide, to supply
+cella	n		cell
+perfettamente	adv		perfectly
+autobus	n	inv	bus
+liceo	n		high school
+pillola	n		pill
+pratica	n		practice; paperwork, file
+strappare	v		to tear, to rip
+fuga	n		escape; leak
+ingannare	v		to deceive, to fool
+ministro	n		minister
+bosco	n		woods, forest
+rosa	adj	inv	pink; (f n.) rose
+sito	n		site; website
+padrone	n		owner; master; boss
+destro	adj		right (side)
+garantire	v	isc	to guarantee
+zero	num		zero
+guarire	v	isc aux:a/e	to heal, to recover
+complimento	n		compliment; complimenti! = well done!
+cambiamento	n		change
+pubblicare	v		to publish
+giornalista	n	mf	journalist, reporter
+sociale	adj		social
+ginocchio	n		knee
+paradiso	n		paradise, heaven
+velocità	n		speed
+copia	n		copy
+vendetta	n		revenge
+coraggioso	adj		brave
+velocemente	adv		quickly
+tentativo	n		attempt
+domenica	n		Sunday
+rabbia	n	sg	anger; rabies
+camicia	n		shirt
+artista	n	mf	artist
+realizzare	v		to carry out, to achieve; to realize
+godere	v		to enjoy
+grato	adj		grateful
+difendere	v		to defend
+tasca	n		pocket
+violenza	n	sg	violence
+amicizia	n		friendship
+rifare	v		to redo, to do again
+sano	adj		healthy
+giacca	n		jacket
+delizioso	adj		delicious
+incendio	n		fire (a blaze)
+centinaio	n		about a hundred (centinaia = hundreds)
+correggere	v		to correct
+vampiro	n		vampire
+avvisare	v		to warn; to let know
+nazione	n		nation
+visitare	v		to visit; to examine (a patient)
+sospettato	n	m	suspect
+ombra	n		shadow; shade
+novità	n		news; something new
+rapire	v	isc	to kidnap
+segnare	v		to mark; to score
+presenza	n		presence
+rete	n		net; network; goal (soccer)
+valigia	n		suitcase
+esterno	adj		external, outside; (n.) outside
+attendere	v		to wait (for)
+disporre	v		to arrange; disporre di = to have available
+incubo	n		nightmare
+trascinare	v		to drag
+gratis	adv		free (no charge)
+riservare	v		to reserve
+scattare	v		to take (a photo); to go off, to spring
+miracolo	n		miracle
+dichiarazione	n		statement; declaration
+completare	v		to complete
+stabilire	v	isc	to establish; to decide
+mattino	n		morning
+negativo	adj		negative
+arresto	n		arrest
+spedire	v	isc	to send, to mail, to ship
+lassù	adv		up there
+versione	n		version
+addormentare	v		addormentarsi = to fall asleep
+conseguenza	n		consequence
+personaggio	n		character (in a story); celebrity
+magico	adj		magic, magical
+interrogare	v		to question, to interrogate
+regalare	v		to give (as a gift)
+proporre	v		to propose, to suggest
+obbligare	v		to force, to oblige
+grasso	adj		fat; (n.) fat
+disastro	n		disaster
+vendita	n		sale
+romantico	adj		romantic
+albergo	n		hotel
+cittadino	n		citizen; (adj.) city
+costume	n		costume; custom; swimsuit (costume da bagno)
+geloso	adj		jealous
+modello	n		model
+indiano	adj		Indian
+credito	n		credit
+avvenire	v	aux:e	to happen; (n.) future
+potente	adj		powerful
+protezione	n		protection
+recitare	v		to act; to recite

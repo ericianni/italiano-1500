@@ -1,0 +1,11 @@
+{
+  "name": "italiano-1500",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Italiano 1500: a free offline PWA for the 1,500 most common Italian words, with spaced repetition and grammar drills.",
+  "scripts": {
+    "test": "node tests/run.js",
+    "smoke": "node tests/smoke.js"
+  },
+  "license": "MIT"
+}
