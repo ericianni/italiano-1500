@@ -164,6 +164,38 @@ for (const [it, re, want] of [['idea', /^art\|ind/, ["un'idea"]], ['amico', /^ar
 // refl/impers verbs excluded
 ok(!Object.values(UALL).some(ids => ids.some(id => BID[id].refl || BID[id].impers)), 'reflexive/impersonal verbs not drilled');
 
+// ---------- drill settings: single selections (regression: only "Passato prossimo" selected still asked for the tense) ----------
+const dfWith = (g, v) => Object.assign({}, D.DF, { [g]: v });
+for (const [g, vals] of Object.entries(D.DF)) for (const v of vals) {
+  const U1 = D.buildUnits(WORDS, dfWith(g, [v])), cs = Object.keys(U1);
+  const okC = c => g === 'types' ? D.kindOf(c) === v : g === 'tenses' ? D.kindOf(c) !== 'verb' || c.split('|')[1].startsWith(v + '.')
+    : g === 'groups' ? D.kindOf(c) !== 'verb' || c.startsWith('v' + v + '|') : D.kindOf(c) !== 'art' || c.split('|')[1].startsWith(v + '.');
+  ok(cs.length && cs.every(okC), 'settings: only ' + g + '=' + v + ' gives only matching forms (' + cs.length + ')');
+}
+eq([...D.poolTenses(['vare|pp.1s', 'virr|pp.3p', 'art|def.m.s.c'])], ['pp'], 'poolTenses: one tense');
+eq([...D.poolTenses(Object.keys(UALL))].sort(), ['imp', 'fut', 'pp', 'pres'].sort(), 'poolTenses: all tenses');
+for (const t of D.DF.tenses) {
+  const U1 = D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['verb'], tenses: [t] })), ts = D.poolTenses(Object.keys(U1));
+  let n = 0; const badT = [];
+  for (const c of Object.keys(U1)) for (const id of U1[c].slice(0, 3)) {
+    const q = D.makeQ(c, BID[id], Object.assign({}, CTX, { tenses: ts }), () => 0.37), st = D.idSetup(q), tr = q.rows.find(r => r.key === 't'); n++;
+    if (q.t !== t || tr.opts.length !== 1 || tr.opts[0][0] !== t) badT.push(c + ': tense row ' + JSON.stringify(tr.opts));
+    if (st.sel.t !== t || !st.fixed.has('t') || st.open !== 1) badT.push(c + ': tense not pre-selected');
+    if (!q.valid.some(v => v.t === t && D.idRight(q, Object.assign({}, st.sel, { p: v.p })))) badT.push(c + ': picking only the person fails');
+  }
+  eq(badT.slice(0, 5), [], 'identify with only ' + t + ': tense pre-selected and fixed (' + n + ' questions)');
+}
+{ // two tenses: both offered, nothing pre-selected; no settings info: all four offered
+  const q = D.makeQ('vare|imp.2s', BY.parlare, Object.assign({}, CTX, { tenses: new Set(['imp', 'fut']) }));
+  eq(q.rows[0].opts.map(o => o[0]), ['imp', 'fut'], 'identify: only the enabled tenses are offered');
+  eq(D.idSetup(q).open, 2, 'identify: two tenses -> tense and person both open');
+  eq(D.makeQ('vare|imp.2s', BY.parlare, CTX).rows[0].opts.length, 4, 'identify: no tense info -> all four tenses');
+  const qd = D.makeQ(keyFor('studente', /^art\|def\.m\.s/), BY.studente, CTX), qi = D.makeQ(keyFor('studente', /^art\|ind/), BY.studente, CTX);
+  ok(qd.rows[0].opts.every(o => D.DEF_ARTS.includes(o[0])) && qi.rows[0].opts.every(o => D.IND_ARTS.includes(o[0])), 'identify: article choices match the article type');
+  const inv = WORDS.find(w => D.adjOk(w) && D.aclass(w) === 'inv'), qa = inv && D.makeQ('agr:inv|f.p', inv, CTX, () => 0.3);
+  ok(!qa || D.idSetup(qa).open === 0, 'identify: invariable adjective has nothing to pick (asked typed instead)');
+}
+
 // ---------- lessons ----------
 eq(LESSONS.length >= 10, true, 'at least 10 lessons');
 for (const l of LESSONS) {
@@ -220,7 +252,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v2'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v3'/.test(sw), 'sw: cache name');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);

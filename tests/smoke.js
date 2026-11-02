@@ -2,7 +2,7 @@
 // Usage: node tests/smoke.js [url]   (default: serves this folder on :8765). Needs google-chrome.
 'use strict';
 const { spawn } = require('child_process'), http = require('http'), fs = require('fs'), path = require('path');
-const root = path.join(__dirname, '..'), PORT = 8765, CDP = 9333;
+const root = path.join(__dirname, '..'), PORT = +process.env.SMOKE_PORT || 8765, CDP = +process.env.SMOKE_CDP || 9333;
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function main() {
@@ -39,6 +39,27 @@ async function main() {
     return n+' answered, end screen: '+(document.querySelector('h2')||{}).textContent})()`);
   await step('weak spots', `(()=>{window.__it1500.setTab('drills'); document.querySelector('#gweak').click(); return document.querySelectorAll('table.weak tr').length-1})()`);
   await step('drill settings', `(()=>{window.__it1500.setTab('drills'); document.querySelector('#tset').click(); const b=document.querySelector('.chips[data-g="tenses"] button'); b.click(); const t=document.querySelector('#view').textContent.match(/(\\d+) forms/)[1]; document.querySelector('.chips[data-g="tenses"] button').click(); return t+' forms after toggling one tense'})()`);
+  // regression: a single selected tense (or any single option) is the only one offered and comes pre-selected in Identify;
+  // settings are set through the UI, survive a reload, and apply to the next set and to weak-spot practice
+  await step('settings: only passato prossimo + identify', `(()=>{const A=window.__it1500; A.setTab('drills'); if(!document.querySelector('#dset')) document.querySelector('#tset').click();
+    for(const g of ['types','tenses']) for(const b of document.querySelectorAll('.chips[data-g="'+g+'"] button')) { const keep = g==='types' ? 'verb' : 'pp'; if((b.getAttribute('aria-pressed')==='true') !== (b.dataset.v===keep)) document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+b.dataset.v+'"]').click(); }
+    document.querySelector('#dmode button[data-v="id"]').click(); return JSON.stringify(A.S.set.df.tenses)+' '+A.S.set.dmode})()`);
+  await send('Page.reload', {}); await sleep(2500);
+  const onlyPP = `(()=>{ let n=0; const bad=[];
+    for(let i=0;i<40;i++){ const chk=document.querySelector('#chk'); if(!chk) break;
+      if(document.querySelector('#typed')) { bad.push('typed question'); break; }
+      const kick=document.querySelector('.prompt-kind').textContent, tb=[...document.querySelectorAll('.idrow[data-a="t"] button')];
+      if(!/Passato prossimo/.test(kick)) bad.push('kicker '+kick);
+      if(tb.length!==1 || tb[0].dataset.v!=='pp' || !tb[0].classList.contains('on') || !tb[0].disabled) bad.push('tense row '+tb.map(b=>b.dataset.v+(b.classList.contains('on')?'*':'')).join(','));
+      if(!chk.disabled) bad.push('check enabled before picking the person');
+      document.querySelector('.idrow[data-a="p"] button').click();   // picking the person alone answers it
+      const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); if(!nx) { bad.push('person pick did not answer'); break; } nx.click(); n++; }
+    return n+' answered'+(bad.length?' BAD: '+bad.slice(0,3).join(' | '):'')})()`;
+  await step('only passato prossimo (after reload)', `(()=>{const A=window.__it1500; if(A.S.set.dmode!=='id'||A.S.set.df.tenses.join()!=='pp') throw new Error('settings not persisted: '+JSON.stringify(A.S.set)); A.setTab('drills'); document.querySelector('#dgo').click(); const r=${onlyPP}; if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
+  await step('only passato prossimo: weak spots', `(()=>{const A=window.__it1500; A.setTab('drills'); document.querySelector('#gweak').click(); const g=document.querySelector('#wgo'); if(!g) return 'no weak spots'; g.click(); const r=${onlyPP}; if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
+  await step('settings restored', `(()=>{const A=window.__it1500; A.setTab('drills'); if(!document.querySelector('#dset')) document.querySelector('#tset').click();
+    for(const g of ['types','tenses','groups','arts']) for(const b of document.querySelectorAll('.chips[data-g="'+g+'"] button')) if(b.getAttribute('aria-pressed')!=='true') document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+b.dataset.v+'"]').click();
+    document.querySelector('#dmode button[data-v="type"]').click(); return JSON.stringify(A.S.set.df)})()`);
   await step('cheat overlay', `(()=>{window.__it1500.openSheet('cs-pp'); const o=document.querySelector('#overlay'); const r=!!o && document.querySelector('#cs-pp').open; document.querySelector('#ovx').click(); return r && !document.querySelector('#overlay')})()`);
   await step('learn', `(async()=>{const A=window.__it1500; A.setTab('learn'); const ids=[...document.querySelectorAll('.lrow')].map(b=>b.dataset.l); let tot=0;
     for(const id of ids){ A.openLesson(id); document.querySelector('#lq').click(); for(let i=0;i<12;i++){ const o=document.querySelector('.opts button'); if(o){o.click();} else { const t=document.querySelector('#typed'); if(!t) break; t.value='x'; document.querySelector('#chk').click(); }

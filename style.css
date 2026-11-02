@@ -75,7 +75,7 @@ details.cs summary{cursor:pointer;padding:6px 0;list-style-position:outside}
 .lex{padding:8px 0;border-bottom:1px solid var(--line)}.lex:last-child{border-bottom:0}.lex .tl{font-size:1.1rem}
 td.en{font-family:inherit;color:var(--muted);white-space:normal}
 /* identify the form */
-.idrow{margin-top:6px}.idrow.locked{opacity:.55}
+.idrow{margin-top:6px}.idrow.fixed .idc button.on{opacity:1}.idrow.locked{opacity:.55}
 .idc{gap:8px}.idc button{min-height:44px;min-width:56px;padding:9px 14px;font-size:.95rem}
 .idc button:disabled{cursor:default}.idrow.locked .idc button.on{opacity:1}
 .idc button.right{background:var(--good);border-color:var(--good);color:#fff}

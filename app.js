@@ -188,20 +188,24 @@
   const rebuild = () => { U = D.buildUnits(W, S.set.df); };
   const pct = st => st && st.n > 0 ? Math.round(100 * DrillPick.acc(st)) + '%' : '—';
   const cands = ids => ids.map(i => ({ id: i, r: BY[i].rank, fc: !!S.cards['r:' + i] }));
-  function mk(c, id) { const w = BY[id]; return w ? D.makeQ(c, w, CTX) : null; }
+  function mk(c, id, tenses) { const w = BY[id]; return w ? D.makeQ(c, w, Object.assign({}, CTX, { tenses })) : null; }
   const SRC = {
     pick(only, avoidC, avoidW) {
       const src = only ? UALL : U, es = D.entries(src).filter(e => !only || only.has(e.c)); if (!es.length) return null;
       for (let k = 0; k < 6; k++) {
         const c = DrillPick.pickCombo(es, S.dst, { q: S.dq, exclude: avoidC });
-        const q = mk(c, DrillPick.pickWord(cands(src[c]), avoidW)); if (q) return q;
+        const q = mk(c, DrillPick.pickWord(cands(src[c]), avoidW), Q && Q.tenses); if (q) return q;
       }
       return null;
     },
-    pickRedo(c, avoid) { const ids = UALL[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid]))) : null; },
+    pickRedo(c, avoid) { const ids = UALL[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid])), Q && Q.tenses) : null; },
   };
   let drillEnd = null, showSet = false, drillMsg = '';
-  function startDrills(only, len, label) { Q = DrillSession.create(len || S.set.dlen, only); Q.label = label || ''; nextDrill(); }
+  function startDrills(only, len, label) {
+    Q = DrillSession.create(len || S.set.dlen, only); Q.label = label || '';
+    Q.tenses = D.poolTenses(only ? [...only] : Object.keys(U));   // Identify offers only the tenses being drilled
+    nextDrill();
+  }
   function nextDrill() {
     const it = DrillSession.next(Q, SRC);
     if (!it) { drillEnd = { n: Q.done, ok: Q.ok, only: Q.only, label: Q.label }; Q = null; return renderDrills(); }
@@ -299,7 +303,7 @@
   }
   const cslink = '<button class="link small" id="cs">📖 Cheat sheet</button>';
   function renderDrill(it) {
-    if (S.set.dmode === 'id' || (S.set.dmode === 'mix' && Math.random() < 0.5)) return renderIdentify(it);
+    if ((S.set.dmode === 'id' || (S.set.dmode === 'mix' && Math.random() < 0.5)) && D.idSetup(it).open) return renderIdentify(it);
     V().innerHTML = `${sessionHead()}<div class="card"><div class="row"><div class="prompt-kind grow">${esc(it.kicker)}</div>${cslink}</div>${newTags(it)}${prompt(it)}
       <div id="ans"><input type="text" id="typed" lang="it" placeholder="Type the form" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:8px">${UI.keyRow(ACC_KEYS)}
       <div class="small muted" style="margin-top:6px">${it.kind === 'verb' ? 'The subject pronoun is optional. ' : ''}${S.set.strict ? 'Accents count.' : 'Accents optional.'}</div>
@@ -314,18 +318,19 @@
     $('#chk').onclick = go; bindStop(renderDrills); UI.bindTyped(go);
   }
   function renderIdentify(it) {
-    const sel = {}; let done = false;
+    const { sel, fixed, open } = D.idSetup(it); let done = false;
     const top = it.kind === 'verb'
       ? `<div class="tl" lang="it">${esc(it.show)}</div><div class="small muted">from <b>${esc(it.head)}</b> · ${esc(it.gloss.slice(0, 80))}</div><div class="small muted">Which tense and person?</div>`
       : `<div class="tl" lang="it">${esc(it.idPrompt)}</div><div class="small muted"><b>${esc(it.head)}</b> · ${esc(it.gloss.slice(0, 80))}${it.kind === 'agr' ? ' · noun: ' + esc(it.noun.it) + ' (' + (it.noun.g === 'f' ? 'f.' : 'm.') + ')' : ''}</div><div class="small muted">Which ${it.kind === 'art' ? 'article' : 'form'} fills the gap?</div>`;
     V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">Identify · ${esc(it.kicker)}</div>${newTags(it)}${top}
-      <div id="idrows">${it.rows.map(r => `<div class="idrow" data-a="${r.key}"><div class="small muted chiph">${esc(r.title)}</div><div class="chips idc">${r.opts.map(([v, l]) => `<button type="button" data-v="${esc(v)}">${esc(l)}</button>`).join('')}</div></div>`).join('')}</div>
-      <div id="ans"><button class="primary big" id="chk" style="margin-top:14px" disabled>Check</button></div>${it.nf ? '<div class="newtip small" id="pretip">New form for you: take your best guess. A refresher link comes with the answer.</div>' : ''}</div>`;
+      <div id="idrows">${it.rows.map(r => `<div class="idrow${fixed.has(r.key) ? ' fixed' : ''}" data-a="${r.key}"><div class="small muted chiph">${esc(r.title)}${fixed.has(r.key) ? ' <span class="muted">(only one selected in your drill settings)</span>' : ''}</div><div class="chips idc">${r.opts.map(([v, l]) => `<button type="button" data-v="${esc(v)}">${esc(l)}</button>`).join('')}</div></div>`).join('')}</div>
+      <div id="ans"><button class="primary big" id="chk" style="margin-top:14px">Check</button></div>${it.nf ? '<div class="newtip small" id="pretip">New form for you: take your best guess. A refresher link comes with the answer.</div>' : ''}</div>`;
     const refresh = () => {
       $$('#idrows .idrow').forEach(r => r.querySelectorAll('button').forEach(b => { const on = sel[r.dataset.a] === b.dataset.v; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }));
       $('#chk').disabled = !it.rows.every(r => sel[r.key] != null);
     };
-    $$('#idrows button').forEach(b => b.onclick = () => { if (done) return; sel[b.closest('.idrow').dataset.a] = b.dataset.v; refresh(); if (it.rows.length === 1) go(); });
+    $$('#idrows button').forEach(b => { if (fixed.has(b.closest('.idrow').dataset.a)) b.disabled = true;
+      b.onclick = () => { const k = b.closest('.idrow').dataset.a; if (done || fixed.has(k)) return; sel[k] = b.dataset.v; refresh(); if (open === 1) go(); }; });
     const go = () => {
       if (done || $('#chk').disabled) return; done = true;
       const ok = D.idRight(it, sel), best = it.valid.find(v => Object.keys(v).some(k => v[k] === sel[k])) || it.valid[0];
@@ -339,7 +344,7 @@
       if ($('#cs')) $('#cs').onclick = () => openSheet(D.comboAnchor(it.c)); bindTip(it);
       UI.bindRW(x => gradeDrill(it, x)); UI.focusNext();
     };
-    $('#chk').onclick = go; bindStop(renderDrills);
+    refresh(); $('#chk').onclick = go; bindStop(renderDrills);
   }
 
   // ---------- cheat sheet ----------

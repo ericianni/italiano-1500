@@ -110,7 +110,9 @@
 
   // ---------- questions ----------
   // q = { c, id, kind, kicker, head, gloss, ask (html-free text), answers:[...], rows:[{key,title,opts:[[val,label]]}], valid:[{...}], show }
-  function verbQ(c, v, rnd) {
+  // tenses offered in Identify: those in the current drill pool (settings, or a lesson / weak-spot set), plus the asked one
+  function poolTenses(combos) { const ts = new Set(); for (const c of combos) if (c[0] === 'v') ts.add(c.split('|')[1].split('.')[0]); return ts; }
+  function verbQ(c, v, rnd, tenses) {
     const key = c.split('|')[1], [t, p] = key.split('.'), i = P.indexOf(p);
     let subj = SUBJ[i], g = 'm';
     if (i === 2) { g = (rnd || Math.random)() < 0.5 ? 'm' : 'f'; subj = g === 'm' ? 'lui' : 'lei'; }
@@ -118,7 +120,7 @@
     const answers = t === 'pp' ? ppAnswers(v, i, g) : [tbl(v, t)[i]];
     return { c, id: v.id, kind: 'verb', kicker: TENSES[t], head: v.it, gloss: v.en, ask: subj, t, i, g, answers, show: answers[0],
       note: t === 'pp' ? (v.aux === 'a/e' ? 'Takes avere or essere (either is accepted).' : v.aux === 'e' ? 'Takes essere: the participle agrees with the subject.' : 'Takes avere.') : '',
-      rows: [{ key: 't', title: 'Tense', opts: Object.keys(TENSES).map(x => [x, TENSES[x]]) }, { key: 'p', title: 'Person', opts: P.map((x, j) => [x, SUBJ[j]]) }],
+      rows: [{ key: 't', title: 'Tense', opts: Object.keys(TENSES).filter(x => x === t || !tenses || !tenses.size || tenses.has(x)).map(x => [x, TENSES[x]]) }, { key: 'p', title: 'Person', opts: P.map((x, j) => [x, SUBJ[j]]) }],
       valid: verbParses(v, answers[0]) };
   }
   // every tense/person whose form (any gender, any allowed auxiliary) equals `form`
@@ -162,7 +164,7 @@
   // build a question for combo c with word w (nouns: AGR_NOUNS entries, for agreement phrases)
   function makeQ(c, w, ctx, rnd) {
     const k = kindOf(c);
-    if (k === 'verb') return verbQ(c, w, rnd);
+    if (k === 'verb') return verbQ(c, w, rnd, ctx && ctx.tenses);
     if (k === 'art') return artQ(c, w, rnd);
     return agrQ(c, w, ctx.agrNouns, rnd);
   }
@@ -183,8 +185,15 @@
   }
   // identify: picked = {key: value}; right when it matches one valid parse on every row
   function idRight(q, picked) { return q.valid.some(v => Object.keys(v).every(k => picked[k] === v[k])); }
+  // Identify picker state: rows with a single option are pre-picked (and shown fixed); identify only makes sense when
+  // at least one row is left to pick, otherwise the question is asked typed
+  function idSetup(q) {
+    const sel = {}, fixed = new Set();
+    for (const r of q.rows) if (r.opts.length === 1) { sel[r.key] = r.opts[0][0]; fixed.add(r.key); }
+    return { sel, fixed, open: q.rows.filter(r => !fixed.has(r.key)).length };
+  }
 
   return { TENSES, TENSE_IT, SUBJ, VGROUPS, ACLS, ONSET, GN, DF, DEF_ARTS, IND_ARTS, AGR_NOUNS,
     verbOk, nounOk, adjOk, aclass, irrTense, vgroup, auxes, ppAnswers, plOf,
-    buildUnits, entries, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight };
+    buildUnits, entries, poolTenses, idSetup, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight };
 });
