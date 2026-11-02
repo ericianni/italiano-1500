@@ -2,7 +2,9 @@
 """Step 2: merge lemma readings into headwords, drop junk, print candidates with a Wiktionary hint.
 Run: python3 tools/candidates.py [build/lemmas.tsv] > build/candidates.tsv"""
 import sys
-import collections, json, re
+import collections, json, re, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wordlists import PROTECTED
 # (lemma, tag-prefix) -> headword.  Articles, articulated prepositions, elided / apocopated forms, clitic variants.
 MAP = {
  ('il','art'):'il', ('la','art'):'il', ("l'",'art'):'il', ('lo','art'):'il', ('i','art'):'il', ('gli','art'):'il', ('le','art'):'il',
@@ -39,7 +41,10 @@ for line in open(sys.argv[1] if len(sys.argv) > 1 else 'build/lemmas.tsv', encod
     best[hw] += n; pos[hw][p] += n
     for f in fs.split(): forms[hw][f] += 1
 K = json.load(open('build/kaikki.json', encoding='utf-8'))
-for i, (hw, n) in enumerate(sorted(best.items(), key=lambda x: -x[1])[:int(sys.argv[2]) if len(sys.argv) > 2 else 2600]):
+TOP = int(sys.argv[2]) if len(sys.argv) > 2 else 2600
+ordered = sorted(best.items(), key=lambda x: -x[1])
+ordered = ordered[:TOP] + [x for x in ordered[TOP:] if x[0] in PROTECTED]   # protected words however rare (wordlists.py)
+for i, (hw, n) in enumerate(ordered):
     ps = ','.join(p for p, _ in pos[hw].most_common(3))
     k = K.get(hw, [])
     hint = ' || '.join(f"{e['pos']}: {e['head'][:60]} :: {'; '.join(e['gl'][:2])[:110]}" for e in k[:3])

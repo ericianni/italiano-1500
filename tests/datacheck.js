@@ -23,6 +23,8 @@ const ALLOW = {
   avanzare: 'avere for advancing (hanno avanzato), essere for being left over (è avanzato del pane); both are standard',
   pilota: 'common gender (il pilota / la pilota, pl. piloti / pilote); Morph-it lists only M',
   moto: 'la moto (motorcycle, short for motocicletta) is f inv; Wiktionary\'s first entry is il moto (motion), m',
+  stomaco: 'both plurals are standard (stomachi, stomaci); we teach stomachi, as Wiktionary does',
+  piovere: 'impersonal; essere and avere are both standard (è piovuto / ha piovuto); excluded from verb drills',
 };
 
 function check() {

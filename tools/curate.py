@@ -18,7 +18,7 @@ REDIRECT = {
  'compitare': 'compito', 'contrattare': 'contratto', 'isolare': 'isola', 'qualcun': 'qualcuno', 'eccolo': 'ecco',
  'universo': 'universo', 'seduta': 'seduta', 'drogare': 'droga', 'assassinare': 'assassinare', 'tornata': None,
  'fallare': None, 'cristo': None, 'sia': 'essere', 'fosse': 'essere', 'esercire': 'esercito', 'compire': 'compito', 'contrarre': 'contratto', 'rodere': None, 'alare': 'ala',
- 'scopare': None, 'don': None, 'universo': 'universo',
+ 'scopare': None, 'don': None, 'menu': 'menù', 'universo': 'universo',
  # vulgar / English / names / credits / pure sounds
  'tetta': None, 'lady': None, 'city': None, 'baby': None, 'team': None, 'band': None, 'lord': None, 'killer': None, 'partner': None,
  'weekend': None, 'internet': 'internet', 'super': None, 'okay': None, 'boss': None, 'sir': None, 'york': None, 'los': None, 'jack': None,

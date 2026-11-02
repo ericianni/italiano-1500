@@ -27,7 +27,7 @@ function readRanked() {
   });
 }
 const REFL = /^([a-z]+(?:arsi|ersi|irsi))\b/;
-const IMPERSONAL = { bisognare: 1, accadere: 1, succedere: 1, capitare: 1, importare: 0, bastare: 0, sembrare: 0, parere: 0, avvenire: 1 };
+const IMPERSONAL = { bisognare: 1, accadere: 1, succedere: 1, capitare: 1, importare: 0, bastare: 0, sembrare: 0, parere: 0, avvenire: 1, piovere: 1 };
 
 function noun(e, warn) {
   const w = W[e.it], g0 = e.gram.find(x => /^(m|f|mf)$/.test(x));

@@ -12,16 +12,16 @@ list). The blended score is a weighted mean of the two log frequencies (a weight
   (sceriffo, vampiro, detective, dannazione) fall back.
 - Subtitles get the larger weight and news can raise a word to at most NEWS_CAP times its subtitle frequency, so
   the list doesn't tilt toward politics and economics (commissione, ministero, euro, elezione stay out).
-- EVERYDAY: basic words for daily life (greetings, food, the body, family, home, clothes, getting around) that news
-  rarely uses. A frequency blend can't tell them apart from subtitle oddities, so they are kept by hand, ranked by
-  their subtitle frequency alone (so salve and arrivederci aren't the last words taught).
+- Hand-kept lists (tools/wordlists.py): PROTECTED words (EVERYDAY basics news rarely uses, plus the closed sets and
+  everyday words added after a gap check) are always kept, ranked by max(blend score, subtitle frequency) so salve
+  and arrivederci aren't the last words taught; DROPPED words (news/crime-heavy) are kept out of the 1,500.
 Run: python3 tools/blend.py > build/ranked.tsv"""
-import math, sys
+import math, sys, os
 FLOOR = 0.5
 W_SUB = 0.6
 NEWS_CAP = 2
-EVERYDAY = set('''salve buongiorno buonasera arrivederci congratulazioni colazione latte bicchiere gelato pollo uovo naso dente orecchio
-schiena ginocchio zia cugino sedia doccia autobus taxi giacca camicia pantaloni tasca cappello valigia'''.split())
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wordlists import PROTECTED, DROPPED
 N_WORDS = 1500
 def read(p):
     rows = [l.rstrip('\n').split('\t') for l in open(p, encoding='utf-8')]
@@ -35,9 +35,11 @@ for hw in set(S) | set(N):
     score[hw] = W_SUB * math.log(s) + (1 - W_SUB) * math.log(n)
 order = sorted(score, key=lambda h: (-score[h], h))
 # protected words take the place of the lowest-ranked words above the cut; everything else keeps blend order
-keep = [h for h in order if h in EVERYDAY]
+missing = PROTECTED - set(order)
+if missing: sys.exit('protected words with no count: ' + ' '.join(sorted(missing)))
+keep = [h for h in order if h in PROTECTED]
 for h in keep: score[h] = max(score[h], math.log(max(S[h][0] if h in S else 0, FLOOR)))
-top = [h for h in order if h not in EVERYDAY][:N_WORDS - len(keep)]
+top = [h for h in order if h not in PROTECTED and h not in DROPPED][:N_WORDS - len(keep)]
 order = sorted(top + keep, key=lambda h: (-score[h], h)) + [h for h in order if h not in set(top) | set(keep)]
 for i, hw in enumerate(order):
     sc = score[hw]

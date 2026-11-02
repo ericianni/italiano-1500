@@ -16,7 +16,9 @@ Run: python3 tools/lemmatize.py SRC_DIR > build/lemmas.tsv                      
      python3 tools/lemmatize.py SRC_DIR build/news_forms.txt news > build/news_lemmas.tsv   (Leipzig news forms)
 For news text (which spells accents properly and means 'pope' by papa) the subtitle accent repairs are off.
 """
-import sys, collections, unicodedata, re
+import sys, collections, unicodedata, re, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wordlists import PROTECTED
 src = sys.argv[1]
 FORMS_FILE = sys.argv[2] if len(sys.argv) > 2 else src + '/it_full.txt'
 NEWS = len(sys.argv) > 3 and sys.argv[3] == 'news'
@@ -53,7 +55,7 @@ KEEP_PART = {'fatto', 'stato', 'passato', 'successo', 'dato', 'risultato', 'sign
 # everyday nouns that share a form with a participle: keep the noun reading but not the participle-adjective one
 # (adjective 'corso' would also claim corsa 'race', 'volto' would claim volta 'time', 'partito' partita 'match')
 KEEP_NOUN = {'letto', 'porto', 'peso', 'volto', 'sorriso', 'conflitto', 'campionato', 'mandato', 'partito', 'tratto', 'corso', 'percorso',
-             'soccorso', 'permesso', 'prodotto', 'candidato', 'concorso', 'ricorso', 'contenuto', 'commesso', 'espresso'}
+             'soccorso', 'permesso', 'prodotto', 'candidato', 'concorso', 'ricorso', 'contenuto', 'commesso', 'espresso', 'riso'}
 BAD = {('era', 'noun'), ('saio', 'noun'), ('ancora', 'noun'), ('no', 'noun'), ('madre', 'adj'), ('sangue', 'adj'), ('vero', 'noun'),
        ('meglio', 'noun'), ('avanti', 'adj'), ('giusto', 'noun'), ('nuovo', 'noun'), ('stesso', 'noun'), ('primo', 'noun'), ('oggi', 'noun'),
        ('domani', 'noun'), ('ok', 'noun'), ('visto', 'noun'), ('detto', 'noun'), ('ucciso', 'noun'), ('voi', 'noun'), ('tratta', 'noun'), ('fallo', 'noun'),
@@ -68,6 +70,15 @@ for verb, stem in {'vedere': 'vist', 'rivedere': 'rivist', 'prevedere': 'previst
     if stem.endswith('_'): stem = 'concess'
     for end, gn in (('o', 's+m'), ('a', 's+f'), ('i', 'p+m'), ('e', 'p+f')):
         M[stem + end].add((verb, 'verb', '', 'v:part+past+' + gn))
+# everyday words Morph-it! lacks
+M['buonanotte'].add(('buonanotte', 'int', '', 'x:INT'))
+# Forms where the model gives (nearly) everything to a homograph because the other reading has no unambiguous forms to
+# learn from: sale 'salt' vs salire 'goes up', riso 'rice' vs ridere 'laughed', data 'date' vs dare, fa 'ago' vs fare,
+# sei 'six' vs essere. The protected reading gets at least this share of the form's count (rough hand estimates;
+# they only affect the teaching order, since these words are kept in the list anyway).
+MIN_SHARE = {'sale': (('sale', 'noun'), 0.3), 'riso': (('riso', 'noun'), 0.3), 'posta': (('posta', 'noun'), 0.8),
+             'data': (('data', 'noun'), 0.6), 'stato': (('stato', 'noun'), 0.05), 'fa': (('fa', 'adv'), 0.1),
+             'sei': (('sei', ''), 0.03)}
 MSP = collections.defaultdict(set)          # verb lemma -> its masc. sg. past participle(s)
 for form, an in M.items():
     for a in an:
@@ -123,19 +134,27 @@ def pcell(pos, cell):
 W = collections.Counter()
 for k, w, n in forms:
     for a in M[k]: W[(a[0], a[1], a[2])] += n / len(M[k])
+def split(k):
+    """-> [(analysis, fraction of the form's count)]"""
+    sc = [(a, (W[(a[0], a[1], a[2])] + 0.5) * pcell(a[1], a[3])) for a in M[k]]
+    tot = sum(s for _, s in sc)
+    fr = [(a, s / tot) for a, s in sc]
+    if k in MIN_SHARE:
+        (lem, p), want = MIN_SHARE[k]
+        hit = lambda a: a[0] == lem and a[1].startswith(p)
+        t = sum(f for a, f in fr if hit(a))
+        if 0 < t < want: fr = [(a, f * want / t if hit(a) else f * (1 - want) / (1 - t)) for a, f in fr]
+    return fr
 for it in range(30):
-    W2 = collections.Counter(); share = {}
+    W2 = collections.Counter()
     for k, w, n in forms:
-        sc = [(a, (W[(a[0], a[1], a[2])] + 0.5) * pcell(a[1], a[3])) for a in M[k]]
-        tot = sum(s for _, s in sc)
-        for a, s in sc: W2[(a[0], a[1], a[2])] += n * s / tot
+        for a, f in split(k): W2[(a[0], a[1], a[2])] += n * f
     W = W2
 FORMS = collections.defaultdict(collections.Counter)
 for k, w, n in forms:
-    sc = [(a, (W[(a[0], a[1], a[2])] + 0.5) * pcell(a[1], a[3])) for a in M[k]]
-    tot = sum(s for _, s in sc)
-    for a, s in sc: FORMS[(a[0], a[1], a[2])][w] += n * s / tot
-for (lemma, pos, g), n in W.most_common(9000):
-    if n < 50: break
+    for a, f in split(k): FORMS[(a[0], a[1], a[2])][w] += n * f
+# the most frequent lemmas, plus the hand-protected words (wordlists.py) however rare
+for i, ((lemma, pos, g), n) in enumerate(W.most_common()):
+    if (i >= 9000 or n < 50) and not (lemma in PROTECTED and n >= 1): continue
     top = ' '.join(f for f, _ in FORMS[(lemma, pos, g)].most_common(5))
     print(f'{lemma}\t{pos}{"-" + g if g else ""}\t{round(n)}\t{top}')
