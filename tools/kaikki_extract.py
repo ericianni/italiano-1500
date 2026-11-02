@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Extract a compact reference from the Wiktextract dump of English Wiktionary (Italian entries, kaikki.org, CC BY-SA).
 Used only to check our hand-written data (genders, plurals, conjugations) and as a reference when writing glosses.
-Run: python3 tools/kaikki_extract.py /workspace/itsrc/kaikki-it.jsonl build/lemmas.tsv > build/kaikki.json"""
+Run: python3 tools/kaikki_extract.py /workspace/itsrc/kaikki-it.jsonl build/lemmas.tsv [build/news_lemmas.tsv] > build/kaikki.json"""
 import sys, json, unicodedata
-want = {l.split('\t')[0] for l in open(sys.argv[2], encoding='utf-8')}
+want = {l.split('\t')[0] for f in sys.argv[2:] for l in open(f, encoding='utf-8')}
 KEEP_ACC = {'è', 'é', 'à', 'ì', 'ò', 'ù', 'í', 'ó', 'ú'}
 def plain(w):
     """Strip Wiktionary stress marks: keep an accent only on the final vowel of a polysyllable (andrò, città),

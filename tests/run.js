@@ -187,6 +187,10 @@ for (const l of LESSONS) {
   eq(d.nv, 2, 'srs: new words counted once'); eq(SRS.counts(cards, ids, t, 2, d).fresh, 0, 'srs: daily new limit');
   let c = { box: 0, due: 0 }; const seen = []; for (let i = 0; i < 8; i++) { c = SRS.sched(c, true, 0); seen.push(c.due); } eq(seen, [1, 3, 7, 14, 30, 60, 120, 120], 'srs: intervals');
   eq(SRS.dayState({ d: 5, nv: 3 }, 6), { d: 6, nv: 0, extra: 0, dn: 0 }, 'srs: day rollover');
+  // a card whose word left the list (pack update) is kept but never reviewed
+  const oc = { 'r:gone': { box: 2, due: 1 }, 'r:a': { box: 1, due: 1 } }, od = SRS.dayState(null, t);
+  eq(SRS.session(oc, ['a'], t, 0, od).items.map(x => x.k), ['r:a'], 'srs: orphaned card skipped in session');
+  eq(SRS.counts(oc, ['a'], t, 0, od).due, 1, 'srs: orphaned card not counted as due'); eq(!!oc['r:gone'], true, 'srs: orphaned card kept');
 }
 // ---------- core: drill picking + sessions ----------
 {

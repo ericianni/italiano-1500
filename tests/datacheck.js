@@ -20,6 +20,9 @@ const ALLOW = {
   continuare: 'avere with an object or a + infinitive, essere when the subject is a thing (la pioggia è continuata)',
   riposare: 'avere in the everyday sense (ho riposato); Wiktionary lists the reflexive riposarsi',
   retro: 'invariable (il retro / i retro); Morph-it\'s retri is an error',
+  avanzare: 'avere for advancing (hanno avanzato), essere for being left over (è avanzato del pane); both are standard',
+  pilota: 'common gender (il pilota / la pilota, pl. piloti / pilote); Morph-it lists only M',
+  moto: 'la moto (motorcycle, short for motocicletta) is f inv; Wiktionary\'s first entry is il moto (motion), m',
 };
 
 function check() {

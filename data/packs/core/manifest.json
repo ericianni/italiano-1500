@@ -1,14 +1,15 @@
 {
   "id": "core",
   "title": "Core 1500",
-  "desc": "The 1,500 most frequent Italian dictionary words (OpenSubtitles 2018 frequencies), with US English glosses, genders, plurals, adjective forms and verb classes.",
+  "desc": "The 1,500 most frequent Italian dictionary words (OpenSubtitles 2018 and Leipzig Italian news 2023–24 frequencies, blended), with US English glosses, genders, plurals, adjective forms and verb classes.",
   "lang": "it",
-  "version": 1,
+  "version": 2,
   "words": "words.json",
   "count": 1500,
   "license": "CC BY-SA 4.0",
   "sources": [
     { "name": "FrequencyWords (hermitdave), it_full 2018", "url": "https://github.com/hermitdave/FrequencyWords", "license": "CC BY-SA 4.0" },
+    { "name": "Leipzig Corpora Collection, ita_news_2023_1M + ita_news_2024_1M", "url": "https://wortschatz.uni-leipzig.de/en/download/Italian", "license": "CC BY 4.0" },
     { "name": "Morph-it! 0.4.8", "url": "https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it", "license": "CC BY-SA 2.0 / LGPL" },
     { "name": "English Wiktionary via kaikki.org", "url": "https://kaikki.org/dictionary/Italian/", "license": "CC BY-SA 4.0" }
   ],

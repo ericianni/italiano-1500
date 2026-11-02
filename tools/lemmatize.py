@@ -12,10 +12,14 @@ where the cell is the inflectional slot (e.g. verb ind.pres.1s, noun plural). P(
 estimated from unambiguous forms, so a verb explains only as much of 'lavoro' as a typical verb's
 1st-person-singular present would, and the rest goes to the noun. Forms Morph-it! doesn't know
 (names, English words, fragments) are dropped.
-Run: python3 tools/lemmatize.py SRC_DIR > build/lemmas.tsv
+Run: python3 tools/lemmatize.py SRC_DIR > build/lemmas.tsv                      (subtitles, SRC_DIR/it_full.txt)
+     python3 tools/lemmatize.py SRC_DIR build/news_forms.txt news > build/news_lemmas.tsv   (Leipzig news forms)
+For news text (which spells accents properly and means 'pope' by papa) the subtitle accent repairs are off.
 """
 import sys, collections, unicodedata, re
 src = sys.argv[1]
+FORMS_FILE = sys.argv[2] if len(sys.argv) > 2 else src + '/it_full.txt'
+NEWS = len(sys.argv) > 3 and sys.argv[3] == 'news'
 TOP_FORMS = 80000
 
 def analyse(tag):
@@ -43,7 +47,13 @@ for line in open(src + '/morphit.txt', encoding='utf-8'):
 #  - a few rare homographs that would otherwise swallow a common form (era 'era' vs essere, ancora 'anchor')
 KEEP_PART = {'fatto', 'stato', 'passato', 'successo', 'dato', 'risultato', 'significato', 'vestito', 'morto', 'ferito', 'invitato',
              'sposato', 'avvocato', 'impiegato', 'soldato', 'mercato', 'piatto', 'fidanzato', 'innamorato', 'sospettato', 'aperto', 'chiuso',
-             'posto', 'peccato', 'privato', 'solito', 'scorso', 'esatto', 'diretto', 'addosso', 'perfetto', 'contento', 'fermo', 'risposta'}
+             'posto', 'peccato', 'privato', 'solito', 'scorso', 'esatto', 'diretto', 'addosso', 'perfetto', 'contento', 'fermo', 'risposta',
+             # everyday adjectives that share a form with a participle (found while blending in news text)
+             'preferito', 'interessato', 'corretto', 'stretto', 'occupato', 'sbagliato'}
+# everyday nouns that share a form with a participle: keep the noun reading but not the participle-adjective one
+# (adjective 'corso' would also claim corsa 'race', 'volto' would claim volta 'time', 'partito' partita 'match')
+KEEP_NOUN = {'letto', 'porto', 'peso', 'volto', 'sorriso', 'conflitto', 'campionato', 'mandato', 'partito', 'tratto', 'corso', 'percorso',
+             'soccorso', 'permesso', 'prodotto', 'candidato', 'concorso', 'ricorso', 'contenuto', 'commesso', 'espresso'}
 BAD = {('era', 'noun'), ('saio', 'noun'), ('ancora', 'noun'), ('no', 'noun'), ('madre', 'adj'), ('sangue', 'adj'), ('vero', 'noun'),
        ('meglio', 'noun'), ('avanti', 'adj'), ('giusto', 'noun'), ('nuovo', 'noun'), ('stesso', 'noun'), ('primo', 'noun'), ('oggi', 'noun'),
        ('domani', 'noun'), ('ok', 'noun'), ('visto', 'noun'), ('detto', 'noun'), ('ucciso', 'noun'), ('voi', 'noun'), ('tratta', 'noun'), ('fallo', 'noun'),
@@ -51,7 +61,7 @@ BAD = {('era', 'noun'), ('saio', 'noun'), ('ancora', 'noun'), ('no', 'noun'), ('
 # rare verbs in the lexicon that would claim common noun/adjective forms (visto, solo, posto, ultimo, secondo, capo, figlio ...)
 BAD_LEMMA = {'vistare', 'solare', 'postare', 'figliare', 'capere', 'orare', 'ancorare', 'ultimare', 'secondare', 'compitare', 'discorrere',
              'contrattare', 'rodere', 'addossare', 'esercitare', 'scopare', 'menare', 'testare', 'agire_', 'mostrare_', 'capitanare', 'finanziare_',
-             'nullo', 'pianare', 'pianire', 'regolare_', 'liberare_', 'calmare_', 'fiorire_', 'sedare', 'parare', 'ostare', 'cenare_', 'sciare_', 'anelare', 'corare'}
+             'nullo', 'tessere', 'pianare', 'pianire', 'regolare_', 'liberare_', 'calmare_', 'fiorire_', 'sedare', 'parare', 'ostare', 'cenare_', 'sciare_', 'anelare', 'corare'}
 # participles Morph-it! lacks (visto is listed only under the rare verb vistare)
 for verb, stem in {'vedere': 'vist', 'rivedere': 'rivist', 'prevedere': 'previst', 'discutere': 'discuss', 'concedere': 'conced_',
                    'seppellire': 'sepolt', 'riflettere': 'rifless'}.items():
@@ -66,12 +76,12 @@ for form, an in list(M.items()):
     pps = set()
     for a in an:
         if a[1] == 'verb' and a[3].startswith('v:part+past'): pps |= MSP[a[0]]
-    keep = {a for a in an if not ((a[0], a[1]) in BAD or a[0] in BAD_LEMMA or (a[1] in ('adj', 'noun') and a[0] in pps and a[0] not in KEEP_PART))}
+    keep = {a for a in an if not ((a[0], a[1]) in BAD or a[0] in BAD_LEMMA or (a[1] in ('adj', 'noun') and a[0] in pps and a[0] not in KEEP_PART and not (a[1] == 'noun' and a[0] in KEEP_NOUN)))}
     if keep: M[form] = keep
 
 ACC = {'a': 'à', 'e': 'è', 'i': 'ì', 'o': 'ò', 'u': 'ù'}
 def lookup(f):
-    if f == 'papa': return 'papà'    # subtitles often drop accents; papà (dad) is far more common there than papa (pope)
+    if f == 'papa' and not NEWS: return 'papà'    # subtitles often drop accents; papà (dad) is far more common there than papa (pope)
     if f in M: return f
     if f == "e'": return 'è'
     if f and f[-1] in ACC and f[:-1] + ACC[f[-1]] in M: return f[:-1] + ACC[f[-1]]
@@ -81,17 +91,18 @@ def lookup(f):
 # Subtitles often drop a final accent (citta, pero, faro for farò). If the accented spelling is also attested and is
 # more than 3x as frequent, count the plain spelling as the accented word.
 RAW = {}
-for i, line in enumerate(open(src + '/it_full.txt', encoding='utf-8')):
+for i, line in enumerate(open(FORMS_FILE, encoding='utf-8')):
     if i >= TOP_FORMS: break
     w, n = line.rsplit(' ', 1); RAW[unicodedata.normalize('NFC', w.lower())] = int(n)
 def accented(w):
+    if NEWS: return None
     # unaccented 1st-person future (faro, saro, diro): far more common in subtitles than faro 'lighthouse'
     if w.endswith('ro') and any(a[3] == 'v:ind+fut+1+s' for a in M.get(w[:-1] + 'ò', ())): return w[:-1] + 'ò'
     if w and w[-1] in ACC and w[:-1] + ACC[w[-1]] in M and RAW.get(w[:-1] + ACC[w[-1]], 0) > 3 * RAW.get(w, 0): return w[:-1] + ACC[w[-1]]
     if w and w[-1] == 'e' and w[:-1] + 'é' in M and RAW.get(w[:-1] + 'é', 0) > 3 * RAW.get(w, 0): return w[:-1] + 'é'
     return None
 forms = []
-for i, line in enumerate(open(src + '/it_full.txt', encoding='utf-8')):
+for i, line in enumerate(open(FORMS_FILE, encoding='utf-8')):
     if i >= TOP_FORMS: break
     w, n = line.rsplit(' ', 1)
     w = unicodedata.normalize('NFC', w.lower())

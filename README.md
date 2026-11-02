@@ -47,7 +47,10 @@ npm run smoke     # drives every tab in headless Chrome (needs google-chrome)
 
 ## Sources and licenses
 
-- Frequencies: [FrequencyWords](https://github.com/hermitdave/FrequencyWords) (Hermit Dave, OpenSubtitles 2018, `it_full`), CC BY-SA 4.0.
+- Frequencies, blended (`tools/blend.py`: 0.6 × log subtitle frequency + 0.4 × log news frequency, news capped at 2× the subtitle frequency, plus a short hand-kept list of everyday words):
+  - spoken: [FrequencyWords](https://github.com/hermitdave/FrequencyWords) (Hermit Dave, OpenSubtitles 2018, `it_full`), CC BY-SA 4.0;
+  - written: [Leipzig Corpora Collection](https://wortschatz.uni-leipzig.de/en/download/Italian), `ita_news_2023_1M` and `ita_news_2024_1M` word lists, CC BY 4.0 (D. Goldhahn, T. Eckart, U. Quasthoff: *Building Large Monolingual Dictionaries at the Leipzig Corpora Collection*, LREC 2012).
+  Rebuild the ranking with `tools/rebuild_ranks.sh SRC_DIR`.
 - Lemmatization / form cross-checks: [Morph-it!](https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it) 0.4.8, CC BY-SA 2.0 / LGPL.
 - Gender/plural/gloss cross-checks: English Wiktionary via [kaikki.org](https://kaikki.org/dictionary/Italian/), CC BY-SA.
 

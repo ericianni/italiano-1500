@@ -54,14 +54,17 @@
     return st.cards[k];
   }
   // build today's flashcard session
+  // Only words in `ids` are reviewed: cards for words no longer in any loaded list (e.g. dropped from a pack in an
+  // update) stay saved but are skipped.
   function session(cards, ids, t, perDay, d, allow) {
+    allow = allow || new Set(ids);
     const rev = dueKeys(cards, /^[rp]:/, t, REVIEW_CAP, allow).map(k => ({ k }));
     const nw = newKeys(ids, cards, newLeft(perDay, d)).map(k => ({ k, isNew: true }));
     const items = weave(rev, nw);
     return { kind: 'vocab', items, done: 0, total: items.length };
   }
   function counts(cards, ids, t, perDay, d) {
-    return { due: dueKeys(cards, /^[rp]:/, t, REVIEW_CAP).length, fresh: newKeys(ids, cards, newLeft(perDay, d)).length };
+    return { due: dueKeys(cards, /^[rp]:/, t, REVIEW_CAP, new Set(ids)).length, fresh: newKeys(ids, cards, newLeft(perDay, d)).length };
   }
   return { INT, REVIEW_CAP, REDO_AT, dayNum, newCard, sched, nextLabel, split, dueKeys, newKeys, weave, dayState, newLeft, answer, session, counts };
 });

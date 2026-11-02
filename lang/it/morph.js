@@ -179,6 +179,8 @@
     cuocere: { pres: ['cuocio', 'cuoci', 'cuoce', 'cuociamo', 'cuocete', 'cuociono'], pp: 'cotto' },
     vedere: { fut: 'vedr', pp: 'visto' }, vivere: { fut: 'vivr', pp: 'vissuto' }, cadere: { fut: 'cadr' }, godere: { fut: 'godr' },
     udire: { pres: ['odo', 'odi', 'ode', 'udiamo', 'udite', 'odono'] },
+    // -ere infinitive, but imperfect and future go like compire (compivo, compirò)
+    compiere: { pres: ['compio', 'compi', 'compie', 'compiamo', 'compite', 'compiono'], imp: 'comp', impc: 'ire', fut: 'compir', pp: 'compiuto' },
    
   };
   // prefixed compounds that conjugate like their base (only the listed ones: tradire is not a compound of dire!)
@@ -194,7 +196,7 @@
     durre: ['tradurre', 'produrre', 'condurre', 'ridurre', 'introdurre', 'dedurre', 'indurre', 'sedurre', 'riprodurre', 'ricondurre'],
     parire: ['apparire', 'scomparire', 'riapparire', 'comparire'], salire: ['risalire'], rimanere: [], piacere: ['dispiacere', 'compiacere'],
     sedere: ['possedere'], chiedere: ['richiedere'], riempire: [], tacere: [], valere: ['prevalere'], cuocere: [], vivere: ['sopravvivere', 'rivivere', 'convivere'],
-    cadere: ['accadere', 'decadere', 'scadere'], morire: [], parere: [], godere: [], volere: [], spegnere: []
+    cadere: ['accadere', 'decadere', 'scadere'], morire: [], parere: [], godere: [], volere: [], spegnere: [], compiere: []
   };
   var FAM_OF = {};
   Object.keys(FAMILY).forEach(function (b) { FAMILY[b].forEach(function (v) { FAM_OF[v] = b; }); });
