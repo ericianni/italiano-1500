@@ -57,9 +57,27 @@ async function main() {
     return n+' answered'+(bad.length?' BAD: '+bad.slice(0,3).join(' | '):'')})()`;
   await step('only passato prossimo (after reload)', `(()=>{const A=window.__it1500; if(A.S.set.dmode!=='id'||A.S.set.df.tenses.join()!=='pp') throw new Error('settings not persisted: '+JSON.stringify(A.S.set)); A.setTab('drills'); document.querySelector('#dgo').click(); const r=${onlyPP}; if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
   await step('only passato prossimo: weak spots', `(()=>{const A=window.__it1500; A.setTab('drills'); document.querySelector('#gweak').click(); const g=document.querySelector('#wgo'); if(!g) return 'no weak spots'; g.click(); const r=${onlyPP}; if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
+  // click chips until each listed group has exactly the given values on (settings panel open)
+  const setChips = o => `if(!document.querySelector('#dset')) document.querySelector('#tset').click(); const o=${JSON.stringify(o)};
+    for(const g of Object.keys(o)) for(const v of [...document.querySelectorAll('.chips[data-g="'+g+'"] button')].map(b=>b.dataset.v)) { const b=document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+v+'"]');
+      if((b.getAttribute('aria-pressed')==='true') !== o[g].includes(v)) b.click(); }`;
+  await step('only noi (1st person plural), identify', `(()=>{const A=window.__it1500; A.setTab('drills'); ${setChips({ types: ['verb'], tenses: ['pres', 'pp', 'imp', 'fut'], persons: ['1'], vnums: ['p'] })}
+    if(A.S.set.df.persons.join()!=='1'||A.S.set.df.vnums.join()!=='p') throw new Error('chips: '+JSON.stringify(A.S.set.df)); document.querySelector('#dgo').click(); let n=0; const bad=[];
+    for(let i=0;i<40;i++){ const chk=document.querySelector('#chk'); if(!chk) break; if(document.querySelector('#typed')) { bad.push('typed'); break; }
+      const pb=[...document.querySelectorAll('.idrow[data-a="p"] button')], tb=[...document.querySelectorAll('.idrow[data-a="t"] button')];
+      if(pb.length!==1||pb[0].dataset.v!=='1p'||!pb[0].classList.contains('on')||!pb[0].disabled||!document.querySelector('.idrow.fixed[data-a="p"]')) bad.push('person row '+pb.map(b=>b.dataset.v).join(','));
+      if(tb.length!==4||tb.some(b=>b.disabled)) bad.push('tense row '+tb.length); if(!chk.disabled) bad.push('check enabled early');
+      tb[0].click(); const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); if(!nx){ bad.push('tense pick did not answer'); break; } nx.click(); n++; }
+    const r=n+' answered'+(bad.length?' BAD: '+[...new Set(bad)].slice(0,3).join(' | '):''); if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
+  await step('only feminine articles, identify', `(()=>{const A=window.__it1500; A.setTab('drills'); ${setChips({ types: ['art'], agen: ['f'] })} document.querySelector('#dgo').click(); let n=0, typed=0; const bad=[];
+    for(let i=0;i<40;i++){ const chk=document.querySelector('#chk'); if(!chk) break;
+      if(document.querySelector('#typed')) { const k=document.querySelector('.prompt-kind').textContent; typed++; document.querySelector('#typed').value='x'; chk.click(); }
+      else { const ab=[...document.querySelectorAll('.idrow[data-a="a"] button')].map(b=>b.dataset.v); if(ab.some(a=>!["la","l'","le","una","un'"].includes(a))) bad.push('articles '+ab.join(',')); document.querySelector('.idrow[data-a="a"] button').click(); }
+      const nx=[...document.querySelectorAll('#ans button[data-r]')].pop(); if(!nx){ bad.push('no answer'); break; } nx.click(); n++; }
+    const r=n+' answered ('+typed+' typed)'+(bad.length?' BAD: '+[...new Set(bad)].slice(0,3).join(' | '):''); if(/BAD|^0 /.test(r)) throw new Error(r); return r})()`);
   await step('settings restored', `(()=>{const A=window.__it1500; A.setTab('drills'); if(!document.querySelector('#dset')) document.querySelector('#tset').click();
-    for(const g of ['types','tenses','groups','arts']) for(const b of document.querySelectorAll('.chips[data-g="'+g+'"] button')) if(b.getAttribute('aria-pressed')!=='true') document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+b.dataset.v+'"]').click();
-    document.querySelector('#dmode button[data-v="type"]').click(); return JSON.stringify(A.S.set.df)})()`);
+    for(const g of Object.keys(A.S.set.df)) for(const b of document.querySelectorAll('.chips[data-g="'+g+'"] button')) if(b.getAttribute('aria-pressed')!=='true') document.querySelector('.chips[data-g="'+g+'"] button[data-v="'+b.dataset.v+'"]').click();
+    document.querySelector('#dmode button[data-v="type"]').click(); const D=window.ItDrills; if(D && Object.keys(D.DF).some(g=>A.S.set.df[g].length!==D.DF[g].length)) throw new Error('not restored '+JSON.stringify(A.S.set.df)); return Object.keys(A.S.set.df).length+' groups all on'})()`);
   await step('cheat overlay', `(()=>{window.__it1500.openSheet('cs-pp'); const o=document.querySelector('#overlay'); const r=!!o && document.querySelector('#cs-pp').open; document.querySelector('#ovx').click(); return r && !document.querySelector('#overlay')})()`);
   await step('learn', `(async()=>{const A=window.__it1500; A.setTab('learn'); const ids=[...document.querySelectorAll('.lrow')].map(b=>b.dataset.l); let tot=0;
     for(const id of ids){ A.openLesson(id); document.querySelector('#lq').click(); for(let i=0;i<12;i++){ const o=document.querySelector('.opts button'); if(o){o.click();} else { const t=document.querySelector('#typed'); if(!t) break; t.value='x'; document.querySelector('#chk').click(); }

@@ -19,7 +19,12 @@
   const ONSET = { c: 'before a consonant', z: 'before s + consonant, z, gn, ps, x, y', v: 'before a vowel' };
   const GN = { 'm.s': 'masc. sing.', 'f.s': 'fem. sing.', 'm.p': 'masc. pl.', 'f.p': 'fem. pl.' };
   const DEF_ARTS = ['il', 'lo', "l'", 'la', 'i', 'gli', 'le'], IND_ARTS = ['un', 'uno', 'una', "un'"];
-  const DF = { types: ['verb', 'art', 'agr'], tenses: ['pres', 'pp', 'imp', 'fut'], groups: ['are', 'ere', 'ire', 'isc', 'irr'], arts: ['def', 'ind'] };
+  // drill settings (each a list of enabled values; every group defaults to all):
+  //   verbs: tenses, groups, persons (1st/2nd/3rd), vnums (singular/plural)
+  //   articles: arts (definite/indefinite), agen / anum (gender / number of the noun), onsets (sound the word starts with)
+  //   agreement: acls (adjective class), jgen / jnum (gender / number of the noun)
+  const DF = { types: ['verb', 'art', 'agr'], tenses: ['pres', 'pp', 'imp', 'fut'], groups: ['are', 'ere', 'ire', 'isc', 'irr'], persons: ['1', '2', '3'], vnums: ['s', 'p'],
+    arts: ['def', 'ind'], agen: ['m', 'f'], anum: ['s', 'p'], onsets: ['c', 'z', 'v'], acls: ['o', 'e', 'sp', 'inv'], jgen: ['m', 'f'], jnum: ['s', 'p'] };
   // everyday nouns used to build adjective-agreement phrases (only those present in the word list are used)
   const AGR_NOUNS = ['ragazzo', 'ragazza', 'uomo', 'donna', 'bambino', 'amico', 'casa', 'libro', 'macchina', 'città', 'giorno', 'notte', 'storia',
     'lavoro', 'strada', 'porta', 'stanza', 'cane', 'albero', 'lettera', 'film', 'canzone', 'idea', 'problema', 'mano', 'uovo', 'braccio', 'dito',
@@ -59,24 +64,26 @@
 
   // ---------- units: combo -> drillable word ids, limited to the drill settings ----------
   function buildUnits(words, df) {
-    df = df || DF; const U = {};
+    df = Object.assign({}, DF, df || {}); const U = {};
+    const persons = P.filter(p => df.persons.includes(p[0]) && df.vnums.includes(p[1]));
+    const artOk = (g, n, o) => df.agen.includes(g) && df.anum.includes(n) && df.onsets.includes(o);
     const add = (c, id) => { (U[c] = U[c] || []).push(id); };
     for (const w of words) {
       if (df.types.includes('verb') && verbOk(w)) {
-        for (const t of df.tenses) { const g = vgroup(w, t); if (!df.groups.includes(g)) continue; P.forEach(p => add('v' + g + '|' + t + '.' + p, w.id)); }
+        for (const t of df.tenses) { const g = vgroup(w, t); if (!df.groups.includes(g)) continue; persons.forEach(p => add('v' + g + '|' + t + '.' + p, w.id)); }
       } else if (df.types.includes('art') && nounOk(w)) {
         if (!w.pltant) {
           const o = M.onset(w.it), oc = w.g === 'f' && o === 'z' ? 'c' : o;
-          if (df.arts.includes('def')) add('art|def.' + w.g + '.s.' + oc, w.id);
-          if (df.arts.includes('ind') && !w.sg) add('art|ind.' + w.g + '.' + oc, w.id);
+          if (df.arts.includes('def') && artOk(w.g, 's', oc)) add('art|def.' + w.g + '.s.' + oc, w.id);
+          if (df.arts.includes('ind') && !w.sg && artOk(w.g, 's', oc)) add('art|ind.' + w.g + '.' + oc, w.id);
         }
         if (!w.sg && df.arts.includes('def')) {
-          const { pl, g } = plOf(w), o = M.onset(pl);
-          add('art|def.' + g + '.p' + (g === 'f' ? '' : '.' + o), w.id);
+          const { pl, g } = plOf(w), o = M.onset(pl), oc = g === 'f' && o === 'z' ? 'c' : o;
+          if (artOk(g, 'p', oc)) add('art|def.' + g + '.p' + (g === 'f' ? '' : '.' + o), w.id);
         }
       } else if (df.types.includes('agr') && adjOk(w)) {
-        const k = aclass(w);
-        for (const gn of Object.keys(GN)) add('agr:' + k + '|' + gn, w.id);
+        const k = aclass(w); if (!df.acls.includes(k)) continue;
+        for (const gn of Object.keys(GN)) if (df.jgen.includes(gn[0]) && df.jnum.includes(gn[2])) add('agr:' + k + '|' + gn, w.id);
       }
     }
     return U;
@@ -112,7 +119,27 @@
   // q = { c, id, kind, kicker, head, gloss, ask (html-free text), answers:[...], rows:[{key,title,opts:[[val,label]]}], valid:[{...}], show }
   // tenses offered in Identify: those in the current drill pool (settings, or a lesson / weak-spot set), plus the asked one
   function poolTenses(combos) { const ts = new Set(); for (const c of combos) if (c[0] === 'v') ts.add(c.split('|')[1].split('.')[0]); return ts; }
-  function verbQ(c, v, rnd, tenses) {
+  // the article a combo asks for (combo keys fix it completely)
+  function comboArt(c) {
+    const k = c.split('|')[1].split('.');
+    if (k[0] === 'ind') return k[1] === 'm' ? (k[2] === 'z' ? 'uno' : 'un') : (k[2] === 'v' ? "un'" : 'una');
+    if (k[2] === 's') return k[3] === 'v' ? "l'" : k[1] === 'f' ? 'la' : k[3] === 'z' ? 'lo' : 'il';
+    return k[1] === 'f' ? 'le' : k[3] === 'c' ? 'i' : 'gli';
+  }
+  // what the current drill pool can ask, so Identify offers only those choices:
+  // t tenses, p persons ('1s'…), a articles, j {adjective class: Set of 'g.n'}
+  function poolInfo(combos) {
+    const o = { t: new Set(), p: new Set(), a: new Set(), j: {} };
+    for (const c of combos) {
+      const [pd, key] = c.split('|'), k = kindOf(c);
+      if (k === 'verb') { const [t, p] = key.split('.'); o.t.add(t); o.p.add(p); }
+      else if (k === 'art') o.a.add(comboArt(c));
+      else { const cl = pd.split(':')[1]; (o.j[cl] = o.j[cl] || new Set()).add(key); }
+    }
+    return o;
+  }
+  const FORM_I = { 'm.s': 0, 'f.s': 1, 'm.p': 2, 'f.p': 3 };
+  function verbQ(c, v, rnd, tenses, persons) {
     const key = c.split('|')[1], [t, p] = key.split('.'), i = P.indexOf(p);
     let subj = SUBJ[i], g = 'm';
     if (i === 2) { g = (rnd || Math.random)() < 0.5 ? 'm' : 'f'; subj = g === 'm' ? 'lui' : 'lei'; }
@@ -120,7 +147,7 @@
     const answers = t === 'pp' ? ppAnswers(v, i, g) : [tbl(v, t)[i]];
     return { c, id: v.id, kind: 'verb', kicker: TENSES[t], head: v.it, gloss: v.en, ask: subj, t, i, g, answers, show: answers[0],
       note: t === 'pp' ? (v.aux === 'a/e' ? 'Takes avere or essere (either is accepted).' : v.aux === 'e' ? 'Takes essere: the participle agrees with the subject.' : 'Takes avere.') : '',
-      rows: [{ key: 't', title: 'Tense', opts: Object.keys(TENSES).filter(x => x === t || !tenses || !tenses.size || tenses.has(x)).map(x => [x, TENSES[x]]) }, { key: 'p', title: 'Person', opts: P.map((x, j) => [x, SUBJ[j]]) }],
+      rows: [{ key: 't', title: 'Tense', opts: Object.keys(TENSES).filter(x => x === t || !tenses || !tenses.size || tenses.has(x)).map(x => [x, TENSES[x]]) }, { key: 'p', title: 'Person', opts: P.map((x, j) => [x, SUBJ[j]]).filter(([x]) => x === p || !persons || !persons.size || persons.has(x)) }],
       valid: verbParses(v, answers[0]) };
   }
   // every tense/person whose form (any gender, any allowed auxiliary) equals `form`
@@ -132,7 +159,7 @@
     });
     return out;
   }
-  function artQ(c, n, rnd) {
+  function artQ(c, n, rnd, arts) {
     const k = c.split('|')[1].split('.'), def = k[0] === 'def', pl = def && k[2] === 'p';
     const form = pl ? plOf(n).pl : n.it, g = pl ? plOf(n).g : n.g;
     const art = def ? M.defArt(form, g, pl ? 'p' : 's') : M.indefArt(form, g);
@@ -140,7 +167,7 @@
     return { c, id: n.id, kind: 'art', kicker: (def ? 'Definite' : 'Indefinite') + ' article' + (pl ? ' · plural' : ' · singular'),
       head: n.it, gloss: n.en, gtag: n.g === 'm' ? 'm.' : 'f.', ask: (def ? (pl ? 'the (plural)' : 'the') : 'a / an') + ' …',
       answers: [phrase], show: phrase, form, art,
-      idPrompt: '___ ' + form, rows: [{ key: 'a', title: def ? 'Definite article' : 'Indefinite article', opts: (def ? DEF_ARTS : IND_ARTS).map(a => [a, a]) }],
+      idPrompt: '___ ' + form, rows: [{ key: 'a', title: def ? 'Definite article' : 'Indefinite article', opts: (def ? DEF_ARTS : IND_ARTS).filter(a => a === art || !arts || !arts.size || arts.has(a)).map(a => [a, a]) }],
       valid: [{ a: art }] };
   }
   // noun for an agreement phrase: from AGR_NOUNS, with the wanted gender (plural gender for plurals)
@@ -148,13 +175,14 @@
     const ok = nouns.filter(w => (n === 'p' ? !w.sg && plOf(w).g === g : !w.pltant && w.g === g));
     return ok.length ? pick(ok, rnd) : null;
   }
-  function agrQ(c, a, nouns, rnd) {
+  function agrQ(c, a, nouns, rnd, gns) {
     const [g, n] = c.split('|')[1].split('.'), N = agrNoun(nouns, g, n, rnd); if (!N) return null;
     const nf = n === 'p' ? plOf(N).pl : N.it, af = M.adjAgree(a, g, n);
     const def = n === 'p' || (rnd || Math.random)() < 0.6;
     const first = a.pre ? af : nf, art = def ? M.defArt(first, g, n) : M.indefArt(first, g);
     const phrase = a.pre ? M.withArt(art, af + ' ' + nf) : M.withArt(art, nf) + ' ' + af;
-    const opts = [...new Set(a.forms)];
+    const fs = M.adjForms ? M.adjForms(a) : a.forms;
+    const opts = [...new Set(gns && gns.size ? fs.filter((x, i) => x === af || [...gns].some(gn => FORM_I[gn] === i)) : fs)];
     return { c, id: a.id, kind: 'agr', kicker: 'Agreement · ' + GN[g + '.' + n], head: a.it, gloss: a.en, noun: N,
       ask: (def ? 'the' : 'a') + ' ' + N.it + (n === 'p' ? ' (plural)' : '') + ' + ' + a.it, answers: [phrase], show: phrase, af,
       note: a.pre ? a.it + ' normally goes before the noun, so the article agrees with it.' : '',
@@ -164,9 +192,10 @@
   // build a question for combo c with word w (nouns: AGR_NOUNS entries, for agreement phrases)
   function makeQ(c, w, ctx, rnd) {
     const k = kindOf(c);
-    if (k === 'verb') return verbQ(c, w, rnd, ctx && ctx.tenses);
-    if (k === 'art') return artQ(c, w, rnd);
-    return agrQ(c, w, ctx.agrNouns, rnd);
+    const pool = ctx && ctx.pool;
+    if (k === 'verb') return verbQ(c, w, rnd, pool ? pool.t : ctx && ctx.tenses, pool && pool.p);
+    if (k === 'art') return artQ(c, w, rnd, pool && pool.a);
+    return agrQ(c, w, ctx.agrNouns, rnd, pool && pool.j[c.split('|')[0].split(':')[1]]);
   }
   function agrNouns(words) { const by = {}; words.forEach(w => { by[w.it] = w; }); return AGR_NOUNS.map(x => by[x]).filter(w => w && nounOk(w)); }
 
@@ -195,5 +224,5 @@
 
   return { TENSES, TENSE_IT, SUBJ, VGROUPS, ACLS, ONSET, GN, DF, DEF_ARTS, IND_ARTS, AGR_NOUNS,
     verbOk, nounOk, adjOk, aclass, irrTense, vgroup, auxes, ppAnswers, plOf,
-    buildUnits, entries, poolTenses, idSetup, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight };
+    buildUnits, entries, poolTenses, poolInfo, comboArt, idSetup, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight };
 });

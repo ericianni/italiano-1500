@@ -182,28 +182,36 @@
     types: [['verb', 'Verbs'], ['art', 'Articles'], ['agr', 'Adjective agreement']],
     tenses: Object.keys(D.TENSES).map(t => [t, D.TENSES[t]]),
     groups: [['are', '-are'], ['ere', '-ere'], ['ire', '-ire'], ['isc', '-isc-'], ['irr', 'Irregular']],
+    persons: [['1', '1st (io / noi)'], ['2', '2nd (tu / voi)'], ['3', '3rd (lui, lei / loro)']],
+    vnums: [['s', 'Singular'], ['p', 'Plural']],
     arts: [['def', 'the (il, lo…)'], ['ind', 'a (un, uno…)']],
+    agen: [['m', 'Masculine'], ['f', 'Feminine']],
+    anum: [['s', 'Singular'], ['p', 'Plural (definite only)']],
+    onsets: [['c', 'Consonant'], ['z', 's + consonant, z, gn, ps…'], ['v', 'Vowel']],
+    acls: [['o', '-o (4 forms)'], ['e', '-e (2 forms)'], ['sp', 'Spelling change'], ['inv', 'Invariable']],
+    jgen: [['m', 'Masculine'], ['f', 'Feminine']],
+    jnum: [['s', 'Singular'], ['p', 'Plural']],
   };
   const MODES = [['type', 'Type'], ['id', 'Identify'], ['mix', 'Mix']];
   const rebuild = () => { U = D.buildUnits(W, S.set.df); };
   const pct = st => st && st.n > 0 ? Math.round(100 * DrillPick.acc(st)) + '%' : '—';
   const cands = ids => ids.map(i => ({ id: i, r: BY[i].rank, fc: !!S.cards['r:' + i] }));
-  function mk(c, id, tenses) { const w = BY[id]; return w ? D.makeQ(c, w, Object.assign({}, CTX, { tenses })) : null; }
+  function mk(c, id, pool) { const w = BY[id]; return w ? D.makeQ(c, w, Object.assign({}, CTX, { pool })) : null; }
   const SRC = {
     pick(only, avoidC, avoidW) {
       const src = only ? UALL : U, es = D.entries(src).filter(e => !only || only.has(e.c)); if (!es.length) return null;
       for (let k = 0; k < 6; k++) {
         const c = DrillPick.pickCombo(es, S.dst, { q: S.dq, exclude: avoidC });
-        const q = mk(c, DrillPick.pickWord(cands(src[c]), avoidW), Q && Q.tenses); if (q) return q;
+        const q = mk(c, DrillPick.pickWord(cands(src[c]), avoidW), Q && Q.pool); if (q) return q;
       }
       return null;
     },
-    pickRedo(c, avoid) { const ids = UALL[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid])), Q && Q.tenses) : null; },
+    pickRedo(c, avoid) { const ids = UALL[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid])), Q && Q.pool) : null; },
   };
   let drillEnd = null, showSet = false, drillMsg = '';
   function startDrills(only, len, label) {
     Q = DrillSession.create(len || S.set.dlen, only); Q.label = label || '';
-    Q.tenses = D.poolTenses(only ? [...only] : Object.keys(U));   // Identify offers only the tenses being drilled
+    Q.pool = D.poolInfo(only ? [...only] : Object.keys(U));   // Identify offers only the choices being drilled
     nextDrill();
   }
   function nextDrill() {
@@ -219,11 +227,12 @@
   }
   const chipRow = (g, title) => `<div class="small muted chiph">${title}</div>${UI.chips(g, CHIPS[g], S.set.df[g])}`;
   function dfSummary() {
-    const df = S.set.df, nm = g => CHIPS[g].filter(([v]) => df[g].includes(v)).map(x => x[1]);
-    const p = [];
-    if (df.types.includes('verb')) p.push('verbs: ' + (df.tenses.length === 4 ? 'all tenses' : nm('tenses').join(', ') || 'no tense') + (df.groups.length === 5 ? '' : ' (' + nm('groups').join(', ') + ')'));
-    if (df.types.includes('art')) p.push('articles' + (df.arts.length === 2 ? '' : ': ' + nm('arts').join(', ')));
-    if (df.types.includes('agr')) p.push('adjective agreement');
+    const df = S.set.df, nm = g => CHIPS[g].filter(([v]) => df[g].includes(v)).map(x => x[1].replace(/ \(.*\)$/, ''));
+    const lim = gs => gs.filter(g => df[g].length < D.DF[g].length).map(g => nm(g).join('/') || 'none').join(', ');
+    const p = [], part = (name, gs) => { const l = lim(gs); p.push(name + (l ? ' (' + l + ')' : '')); };
+    if (df.types.includes('verb')) p.push('verbs: ' + (df.tenses.length === 4 ? 'all tenses' : nm('tenses').join(', ') || 'no tense') + (lim(['groups', 'persons', 'vnums']) ? ' (' + lim(['groups', 'persons', 'vnums']) + ')' : ''));
+    if (df.types.includes('art')) part('articles', ['arts', 'agen', 'anum', 'onsets']);
+    if (df.types.includes('agr')) part('adjective agreement', ['acls', 'jgen', 'jnum']);
     return p.join(' · ') || 'nothing selected';
   }
   function renderDrills() {
@@ -232,7 +241,7 @@
     const keys = Object.keys(U), allow = new Set(keys), tried = keys.filter(c => S.dst[c]).length, weak = DrillPick.weakest(S.dst, WEAK_N, allow, WEAK_MAX);
     const dn = d.dn || 0;
     const head = !keys.length
-      ? `<div class="card"><div class="prompt-kind">Form drills</div><p class="no">Nothing matches your choices.</p><p class="small muted">Turn on at least one word type, tense, or verb group below.</p></div>`
+      ? `<div class="card"><div class="prompt-kind">Form drills</div><p class="no">Nothing matches your choices.</p><p class="small muted">Turn on at least one option in each row of the settings below.</p></div>`
       : `<div class="card">${fin ? `<div class="prompt-kind">Set done${fin.label ? ' · ' + esc(fin.label) : ''}</div><h2 style="margin:4px 0 0">${fin.ok} of ${fin.n} right</h2>` : '<div class="prompt-kind">Form drills · free practice</div>'}
         <div class="stats two" style="margin:12px 0 10px"><div class="stat"><b>${tried}</b><span>of ${keys.length} forms tried</span></div><div class="stat"><b>${dn}</b><span>answered today</span></div></div>
         <div class="small muted">Daily goal: ${Math.min(dn, DAILY_DRILLS)} / ${DAILY_DRILLS}${dn >= DAILY_DRILLS ? ' ✓' : ''}</div>${goalBar(dn, DAILY_DRILLS)}
@@ -246,7 +255,7 @@
       <p class="small muted" style="margin:8px 0 0">${S.set.dmode === 'id' ? 'Tap what each form is: tense and person, or which article / adjective form fits.' : (S.set.dmode === 'mix' ? 'Half typed, half tapped. ' : 'Type the form. ') + (S.set.strict ? 'Accents count.' : 'Accents optional.')}</p></div>
       <div class="card"><div class="row"><h2 class="grow" style="margin:0">What to drill</h2><button class="link" id="tset">${showSet ? 'Hide' : 'Change'}</button></div>
       <div class="small muted" style="margin-top:4px">${esc(dfSummary())} · <b>${keys.length}</b> forms, <b>${nw}</b> words</div>
-      ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}<h3>Articles</h3>${chipRow('arts', 'Article')}
+      ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}${chipRow('persons', 'Person')}${chipRow('vnums', 'Number')}<h3>Articles</h3>${chipRow('arts', 'Article')}${chipRow('agen', 'Noun gender')}${chipRow('anum', 'Number')}${chipRow('onsets', 'Word starts with')}<h3>Adjective agreement</h3>${chipRow('acls', 'Adjective type')}${chipRow('jgen', 'Noun gender')}${chipRow('jnum', 'Number')}
         <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
         <p class="small muted">“Irregular” collects the tenses a verb forms irregularly (e.g. <i>fare</i> in the present, <i>prendere</i> in the passato prossimo); the rest of that verb stays in its regular group. Reflexive-only verbs are left out for now.</p>
         <button class="primary big" id="tdone">Done</button></div>` : ''}</div>

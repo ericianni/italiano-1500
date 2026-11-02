@@ -166,10 +166,26 @@ ok(!Object.values(UALL).some(ids => ids.some(id => BID[id].refl || BID[id].imper
 
 // ---------- drill settings: single selections (regression: only "Passato prossimo" selected still asked for the tense) ----------
 const dfWith = (g, v) => Object.assign({}, D.DF, { [g]: v });
+// onset of the word an article combo is about (feminine plurals have no onset in the key: use the words' plurals)
+const artOnset = (c, ids) => { const k = c.split('|')[1].split('.'); if (k[0] === 'ind') return k[2]; if (k[3]) return k[3];
+  const os = new Set(ids.map(id => { const o = M.onset(D.plOf(BID[id]).pl); return o === 'z' ? 'c' : o; })); return os.size === 1 ? [...os][0] : 'mixed'; };
 for (const [g, vals] of Object.entries(D.DF)) for (const v of vals) {
   const U1 = D.buildUnits(WORDS, dfWith(g, [v])), cs = Object.keys(U1);
-  const okC = c => g === 'types' ? D.kindOf(c) === v : g === 'tenses' ? D.kindOf(c) !== 'verb' || c.split('|')[1].startsWith(v + '.')
-    : g === 'groups' ? D.kindOf(c) !== 'verb' || c.startsWith('v' + v + '|') : D.kindOf(c) !== 'art' || c.split('|')[1].startsWith(v + '.');
+  const okC = c => { const kd = D.kindOf(c), [pd, key] = c.split('|'), k = key.split('.');
+    switch (g) {
+      case 'types': return kd === v;
+      case 'tenses': return kd !== 'verb' || k[0] === v;
+      case 'groups': return kd !== 'verb' || pd === 'v' + v;
+      case 'persons': return kd !== 'verb' || k[1][0] === v;
+      case 'vnums': return kd !== 'verb' || k[1][1] === v;
+      case 'arts': return kd !== 'art' || k[0] === v;
+      case 'agen': return kd !== 'art' || k[1] === v;
+      case 'anum': return kd !== 'art' || (k[0] === 'ind' ? 's' : k[2]) === v;
+      case 'onsets': return kd !== 'art' || artOnset(c, U1[c]) === v;
+      case 'acls': return kd !== 'agr' || pd === 'agr:' + v;
+      case 'jgen': return kd !== 'agr' || k[0] === v;
+      case 'jnum': return kd !== 'agr' || k[1] === v;
+    } throw new Error('untested setting ' + g); };
   ok(cs.length && cs.every(okC), 'settings: only ' + g + '=' + v + ' gives only matching forms (' + cs.length + ')');
 }
 eq([...D.poolTenses(['vare|pp.1s', 'virr|pp.3p', 'art|def.m.s.c'])], ['pp'], 'poolTenses: one tense');
@@ -194,6 +210,58 @@ for (const t of D.DF.tenses) {
   ok(qd.rows[0].opts.every(o => D.DEF_ARTS.includes(o[0])) && qi.rows[0].opts.every(o => D.IND_ARTS.includes(o[0])), 'identify: article choices match the article type');
   const inv = WORDS.find(w => D.adjOk(w) && D.aclass(w) === 'inv'), qa = inv && D.makeQ('agr:inv|f.p', inv, CTX, () => 0.3);
   ok(!qa || D.idSetup(qa).open === 0, 'identify: invariable adjective has nothing to pick (asked typed instead)');
+}
+
+// ---------- person / number, article and agreement settings (maximum settings) ----------
+eq(Object.keys(D.DF).sort(), ['acls', 'agen', 'anum', 'arts', 'groups', 'jgen', 'jnum', 'onsets', 'persons', 'tenses', 'types', 'vnums'], 'settings: all groups');
+{ // feminine plural definite combos with an onset filter: every word's plural starts with an allowed sound
+  for (const o of D.DF.onsets) { const U1 = D.buildUnits(WORDS, dfWith('onsets', [o])), bad = (U1['art|def.f.p'] || []).filter(id => { const x = M.onset(D.plOf(BID[id]).pl); return (x === 'z' ? 'c' : x) !== o; });
+    eq(bad.length, 0, 'settings: onset ' + o + ' also filters feminine plurals'); }
+  eq(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['art'], arts: ['ind'], anum: ['p'] }))).length, 0, 'settings: indefinite + plural only -> nothing (no indefinite plural)');
+  const old = D.buildUnits(WORDS, { types: D.DF.types, tenses: D.DF.tenses, groups: D.DF.groups, arts: D.DF.arts });   // settings saved before the new groups existed
+  eq(Object.keys(old).length, Object.keys(UALL).length, 'settings: missing groups default to all');
+}
+{ // comboArt agrees with the article every question actually asks for (except gli dei, irregular; Identify always offers the real answer)
+  const bad = []; for (const c of Object.keys(UALL).filter(c => D.kindOf(c) === 'art')) for (const id of UALL[c]) { const q = D.makeQ(c, BID[id], CTX, () => 0.2); if (q.art !== D.comboArt(c) && BID[id].it !== 'dio') bad.push(c + ' ' + BID[id].it + ' ' + q.art); }
+  eq(bad.slice(0, 5), [], 'comboArt matches every article question');
+}
+// Identify with a single person / number: only enabled persons offered, a lone one pre-selected and fixed
+for (const per of D.DF.persons) for (const num of D.DF.vnums) {
+  const U1 = D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['verb'], persons: [per], vnums: [num] })), pool = D.poolInfo(Object.keys(U1)), want = per + num;
+  const bad = []; let n = 0;
+  if (!Object.keys(U1).length || !Object.keys(U1).every(c => c.endsWith('.' + want))) bad.push('units');
+  for (const c of Object.keys(U1).slice(0, 40)) { const id = U1[c][0], q = D.makeQ(c, BID[id], Object.assign({}, CTX, { pool }), () => 0.6), st = D.idSetup(q), pr = q.rows.find(r => r.key === 'p'); n++;
+    if (pr.opts.length !== 1 || pr.opts[0][0] !== want || st.sel.p !== want || !st.fixed.has('p')) bad.push(c + ' person row ' + JSON.stringify(pr.opts));
+    if (st.open !== 1 || !q.valid.some(v => v.p === want && D.idRight(q, Object.assign({}, st.sel, { t: v.t })))) bad.push(c + ' picking only the tense fails'); }
+  eq(bad.slice(0, 5), [], 'identify with only ' + want + ': person pre-selected and fixed (' + n + ' questions)');
+}
+{ // person + tense both single: nothing left to pick -> typed; plural only: three persons offered
+  const pool = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['verb'], tenses: ['fut'], persons: ['2'], vnums: ['s'] }))));
+  eq(D.idSetup(D.makeQ('vare|fut.2s', BY.parlare, Object.assign({}, CTX, { pool }))).open, 0, 'identify: single tense + single person -> asked typed');
+  const pp = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['verb'], vnums: ['p'] }))));
+  eq(D.makeQ('vare|pres.2p', BY.parlare, Object.assign({}, CTX, { pool: pp })).rows[1].opts.map(o => o[0]), ['1p', '2p', '3p'], 'identify: plural only -> noi/voi/loro offered');
+  eq(D.makeQ('vare|pres.2p', BY.parlare, CTX).rows[1].opts.length, 6, 'identify: no pool -> all six persons');
+}
+{ // articles: choices limited to what the settings can ask
+  const cases = [[{ agen: ['f'], arts: ['def'] }, ['la', "l'", 'le']], [{ agen: ['m'], anum: ['p'] }, ['i', 'gli']], [{ arts: ['ind'], onsets: ['v'] }, ['un', "un'"]], [{ arts: ['def'], anum: ['s'], onsets: ['c'] }, ['il', 'la']]];
+  for (const [o, want] of cases) {
+    const U1 = D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['art'] }, o)), pool = D.poolInfo(Object.keys(U1)), bad = [];
+    if (!Object.keys(U1).length) bad.push('no units');
+    for (const c of Object.keys(U1)) { const q = D.makeQ(c, BID[U1[c][0]], Object.assign({}, CTX, { pool }), () => 0.4), got = q.rows[0].opts.map(x => x[0]);
+      if (!got.includes(q.art) || got.some(a => !want.includes(a))) bad.push(c + ' ' + got); }
+    eq(bad.slice(0, 3), [], 'identify articles with ' + JSON.stringify(o) + ': only ' + want.join(' / '));
+  }
+  const pool = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['art'], arts: ['def'], agen: ['m'], anum: ['s'], onsets: ['z'] }))));
+  const lo = D.makeQ(keyFor('studente', /^art\|def\.m\.s/), BY.studente, Object.assign({}, CTX, { pool }));
+  eq(D.idSetup(lo).open, 0, 'identify: a single possible article (lo) -> asked typed');
+}
+{ // agreement: forms limited to the enabled gender / number
+  const adj = WORDS.find(w => D.adjOk(w) && D.aclass(w) === 'o'), f4 = M.adjForms(adj);
+  const pf = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['agr'], jgen: ['f'] })))), qf = D.makeQ('agr:o|f.p', adj, Object.assign({}, CTX, { pool: pf }), () => 0.3);
+  eq(qf.rows[0].opts.map(o => o[0]), [f4[1], f4[3]], 'identify agreement, feminine only: ' + f4[1] + ' / ' + f4[3]);
+  const ps = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['agr'], jgen: ['m'], jnum: ['s'] })))), qs = D.makeQ('agr:o|m.s', adj, Object.assign({}, CTX, { pool: ps }), () => 0.3);
+  eq(D.idSetup(qs).open, 0, 'identify agreement, masc. sing. only: nothing to pick -> typed');
+  eq(D.makeQ('agr:o|m.s', adj, CTX, () => 0.3).rows[0].opts.length, 4, 'identify agreement, no pool: all four forms');
 }
 
 // ---------- lessons ----------
@@ -252,7 +320,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v3'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v4'/.test(sw), 'sw: cache name');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);
