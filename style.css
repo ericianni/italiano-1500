@@ -57,7 +57,7 @@ td b{color:var(--accent)}
 details.cs{border-top:1px solid var(--line);padding:8px 0}
 details.cs summary{cursor:pointer;padding:6px 0;list-style-position:outside}
 .sheet h2{font-family:Georgia,serif;color:var(--accent);margin-top:22px}
-.cst,.csg{margin:10px 0;overflow-x:auto;scroll-margin-top:56px}
+.cst,.csg{margin:10px 0;overflow-x:auto}
 .csh{font-size:.85rem;font-weight:600;margin:4px 0}
 .flash{animation:fl 1.6s}@keyframes fl{0%,40%{background:rgba(46,107,58,.22)}100%{background:transparent}}
 #overlay{position:fixed;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column}
@@ -91,7 +91,13 @@ td.en{font-family:inherit;color:var(--muted);white-space:normal}
 .tl-s{font-family:Georgia,serif;font-size:1.05rem}
 .det{margin-top:8px;padding:8px 10px;background:var(--soft);border-radius:10px;cursor:default}
 .lhead{position:sticky;top:0;z-index:2;background:var(--bg);padding:6px 0 8px}
-.jump{margin:4px 0 8px}
 .mac button{font-size:1.05rem}
 .lesson i[lang=it]{font-family:Georgia,serif}
 .upd{position:fixed;left:12px;right:12px;bottom:76px;z-index:50;background:var(--ink);color:var(--bg, #fff);padding:10px 14px;border-radius:12px;font-size:.9rem;box-shadow:0 4px 16px rgba(0,0,0,.2)}.upd button.link{color:inherit;font-weight:600;margin-left:6px}
+/* cheat sheet: sticky section chips */
+.jump{position:sticky;top:0;z-index:4;display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:var(--card);margin:0 -18px 8px;padding:8px 18px;border-bottom:1px solid var(--line)}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;white-space:nowrap}
+.jump a.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ovbody .jump{top:-8px;margin:-8px -16px 8px;padding:8px 16px;background:var(--bg)}
+.sheet [id]{scroll-margin-top:calc(var(--jh,48px) + 8px)}

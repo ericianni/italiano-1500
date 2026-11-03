@@ -40,7 +40,52 @@
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1600);
     el.scrollIntoView({ block: 'start' });
   }
-  const bindJump = rootEl => rootEl.querySelectorAll('.jump a').forEach(x => x.onclick = e => { e.preventDefault(); gotoAnchor(rootEl, x.getAttribute('href').slice(1)); });
+  // cheat-sheet chip bar: sticky at the top of its scroller (the page, or the overlay over a drill), scrolls sideways when it
+  // overflows; tapping a chip smooth-scrolls to its section (scroll-margin-top keeps it clear of the bar), and the chip of
+  // the section being read is highlighted as you scroll
+  function bindJump(root) {
+    const bar = root.querySelector('.jump'); if (!bar) return;
+    const sc = root.classList.contains('ovbody') ? root : window, links = [...bar.querySelectorAll('a')];
+    const tg = links.map(a => root.querySelector('#' + CSS.escape(a.getAttribute('href').slice(1))));
+    let lock = null, lockT = 0, raf = 0;
+    const setH = () => root.style.setProperty('--jh', bar.offsetHeight + 'px');
+    const mark = a => {
+      if (a && a.classList.contains('on')) return;
+      links.forEach(x => { x.classList.toggle('on', x === a); if (x === a) x.setAttribute('aria-current', 'location'); else x.removeAttribute('aria-current'); });
+      if (a && bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: Math.max(0, a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2), behavior: 'smooth' });
+    };
+    const spy = () => {
+      if (!bar.isConnected) return off();
+      if (lock && Date.now() < lockT) return mark(lock);
+      lock = null;
+      const y = bar.getBoundingClientRect().bottom + 12, last = tg.length - 1;
+      let cur = links[0];
+      tg.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= y) cur = links[i]; });
+      const end = sc === window ? innerHeight + scrollY >= document.documentElement.scrollHeight - 4 : sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 4;
+      if (end && tg[last] && tg[last].getBoundingClientRect().top < (sc === window ? innerHeight : sc.getBoundingClientRect().bottom)) cur = links[last];   // a short last section can't reach the top
+      mark(cur);
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; spy(); }); };
+    // a tapped chip stays current until its section has arrived under the bar (or the page can't scroll further), so a
+    // stray scrollend or a long smooth scroll can't flash another chip
+    const reached = () => {
+      const t = tg[links.indexOf(lock)]; if (!t) return true;
+      const d = t.getBoundingClientRect().top - bar.getBoundingClientRect().bottom;
+      const end = sc === window ? innerHeight + scrollY >= document.documentElement.scrollHeight - 4 : sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 4;
+      return Math.abs(d - 8) < 16 || (end && d > 0);
+    };
+    const onEnd = () => { if (lock && reached()) { lockT = 0; spy(); } };
+    const onResize = () => { setH(); onScroll(); };
+    function off() { sc.removeEventListener('scroll', onScroll); sc.removeEventListener('scrollend', onEnd); removeEventListener('resize', onResize); }
+    sc.addEventListener('scroll', onScroll, { passive: true }); sc.addEventListener('scrollend', onEnd); addEventListener('resize', onResize);
+    links.forEach((a, i) => a.onclick = e => {
+      e.preventDefault(); const t = tg[i]; if (!t) return;
+      for (let p = t; p && p !== root; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;   // a collapsed section opens
+      lock = a; lockT = Date.now() + 3000; mark(a);
+      t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
+    setH(); spy();
+  }
   const chips = (g, opts, on) => `<div class="chips" data-g="${g}">${opts.map(([v, l]) => `<button data-v="${esc(v)}" class="${on.includes(v) ? 'on' : ''}" aria-pressed="${on.includes(v)}">${esc(l)}</button>`).join('')}</div>`;
   const seg = (id, opts, cur) => `<div class="seg" id="${id}">${opts.map(([v, l]) => `<button data-v="${esc(v)}" class="${String(cur) === String(v) ? 'on' : ''}" aria-pressed="${String(cur) === String(v)}">${esc(l)}</button>`).join('')}</div>`;
   function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); }
