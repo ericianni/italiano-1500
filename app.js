@@ -162,9 +162,9 @@
     } else {
       const hs = heads(w);
       V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">English → Italian</div><div class="english">${esc(w.en)}</div>${pills}
-        <div id="ans"><input type="text" id="typed" lang="it" placeholder="Type the Italian (optional)" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:14px">${UI.keyRow(ACC_KEYS)}
+        <div id="ans"><input type="text" id="typed" lang="it" placeholder="Optional: type the Italian to check yourself" aria-label="Optional: type the Italian to check yourself" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:14px">${UI.keyRow(ACC_KEYS)}
         <div class="small muted" style="margin-top:6px">${hasArt(w) ? 'The article is optional. ' : ''}${S.set.strict ? 'Accents count.' : 'Accents optional.'}</div>
-        <button class="primary big" id="show" style="margin-top:10px">Check</button></div></div>`;
+        <button class="primary big" id="show" style="margin-top:10px">Show answer</button></div></div>`;
       const go = () => {
         const v = $('#typed').value.trim(); if (!v) return rw();
         const r = D.check(v, hs, S.set.strict);
@@ -172,6 +172,9 @@
         UI.bindRW(x => gradeCard(it, x)); UI.focusNext();
       };
       $('#show').onclick = go; UI.bindTyped(go);
+      // the button says what it will do: Show answer while the box is empty, Check once something is typed
+      const lbl = () => { $('#show').textContent = $('#typed').value.trim() ? 'Check' : 'Show answer'; };
+      $('#typed').addEventListener('input', lbl);
     }
     bindStop(renderToday);
   }

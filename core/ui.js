@@ -14,7 +14,7 @@
     t.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
     $$('#mac button').forEach(b => {
       b.onpointerdown = e => e.preventDefault();
-      b.onclick = () => { const a = t.selectionStart ?? t.value.length, z = t.selectionEnd ?? a; t.setRangeText(b.dataset.c, a, z, 'end'); t.focus({ preventScroll: true }); };
+      b.onclick = () => { const a = t.selectionStart ?? t.value.length, z = t.selectionEnd ?? a; t.setRangeText(b.dataset.c, a, z, 'end'); t.dispatchEvent(new Event('input')); t.focus({ preventScroll: true }); };
     });
     t.focus({ preventScroll: true });
   }

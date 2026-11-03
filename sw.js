@@ -1,5 +1,5 @@
 // Offline-first service worker: precache the whole app, serve from cache, refresh in the background (revalidating with the server).
-const CACHE = 'italiano1500-v6';
+const CACHE = 'italiano1500-v7';
 const ASSETS = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest',
   'core/srs.js', 'core/drillpick.js', 'core/drillsession.js', 'core/store.js', 'core/packs.js', 'core/ui.js',
   'lang/it/morph.js', 'lang/it/drills.js', 'lang/it/lessons.js',
