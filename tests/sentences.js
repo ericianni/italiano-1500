@@ -59,7 +59,7 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v10/.test(sw), 'cache v10');
+  ok(/italiano1500-v11/.test(sw), 'cache v11');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------
@@ -93,6 +93,7 @@ function main(eq, ok) {
     if (tier < 3 && s.tense !== 'pres' && s.template !== 'COORD') probs.push('non-present before tier 3');
     if (tier < 4 && /\bnon\b/.test(s.it)) probs.push('negation before tier 4');
     if (tier < 4 && s.nps.some(np => np.role === 'IO')) probs.push('indirect object before tier 4');
+    if (!s.verbs.some(v => v.exist) && s.nps.some(np => np.role === 'S' && np.det === 'part')) probs.push('partitive subject ' + s.la);
     if (E.templatesForTier(tier).indexOf(s.template) < 0) probs.push('template ' + s.template);
     for (const np of s.nps) {
       const head = np.poss ? np.possForm : (np.pre ? np.adjForm : np.form);
@@ -133,7 +134,7 @@ function main(eq, ok) {
         if (v.aux === 'a' && v.surface.indexOf(M.pastPart(w)) < 0) probs.push('avere participle ' + v.surface);
       }
     }
-    s.ids.forEach(id => { if (E.HELPERS.indexOf(id) >= 0) probs.push('helper counted as content ' + id); });
+    s.ids.forEach(id => { if (id !== 'loro' && E.HELPERS.indexOf(id) >= 0) probs.push('helper counted as content ' + id); });
     if (!E.gradeIt(s.it, s, true).ok) probs.push('rejects its own Italian');
     if (!E.gradeEn(s.en, s).ok) probs.push('rejects its own English ' + s.en);
     if (/\ba [aeiou]/i.test(s.en) && !/\ba (university|euro|hotel|hospital)\b/i.test(s.en)) probs.push('a/an ' + s.en);
@@ -239,6 +240,77 @@ function main(eq, ok) {
     if ((w.refl || w.impers) && E.generate) { /* lexicon bind would have thrown if one were tagged */ }
   });
   ok(true, 'lexicon bound with no reflexive or impersonal verb');
+
+  // ---------- frame allow / block lists ----------
+  const LEX = require('../lang/it/sentences_lexicon.js');
+  const SLEEP = ['casa', 'camera', 'albergo', 'hotel', 'letto'];
+  const VEH = ['treno', 'autobus', 'aereo', 'macchina', 'auto', 'taxi'];
+  LEX.pp.filter(f => f.vs.indexOf('dormire') >= 0).forEach(f => f.nouns.forEach(n => ok(SLEEP.indexOf(n) >= 0, 'dormire only a place to sleep: ' + n)));
+  LEX.pp.filter(f => f.vs.indexOf('salire') >= 0 || f.vs.indexOf('scendere') >= 0).forEach(f => f.nouns.forEach(n => ok(VEH.indexOf(n) >= 0, 'salire/scendere vehicle: ' + n)));
+  LEX.pp.filter(f => f.vs.some(v => v === 'essere' || v === 'stare')).forEach(f => ok(f.nouns.indexOf('negozio') < 0, 'essere/stare do not take the store'));
+  let badFrame = 0;
+  for (let i = 0; i < 400; i++) {
+    const s = E.generate(E.mulberry32(4000 + i), { tier: 4, words: WORDS, tries: 12 });
+    if (!s) continue;
+    if (s.verbs.some(v => v.it === 'dormire') && /banca|chiesa|museo|ufficio|negozio/.test(s.it)) badFrame++;
+    if (!s.verbs.some(v => v.exist) && s.nps.some(np => np.role === 'S' && np.det === 'part')) badFrame++;
+    const subj = s.nps.filter(np => np.role === 'S');
+    if (s.verbs.some(v => v.it === 'salire' || v.it === 'scendere') && subj.some(n => n.num === 's') && s.nps.some(n => n.role === 'PP' && n.num === 'p')) badFrame++;
+  }
+  eq(badFrame, 0, 'generated sentences keep the frame blocklist');
+
+  // ---------- possessive and sono / Lei English ----------
+  let suo = null, loro = null, sonoLoc = null, sonoSg = null, sonoPl = null, lei = null;
+  for (let i = 0; i < 2500 && !(suo && loro && sonoLoc && sonoSg && sonoPl && lei); i++) {
+    const s = E.generate(E.mulberry32(i + 11), { tier: i % 2 ? 4 : 2, words: WORDS, tries: 12 });
+    if (!s) continue;
+    if (!suo && /\b(suo|sua|suoi|sue)\b/.test(s.it) && /\b(his|her|its)\b/.test(s.en)) suo = s;
+    if (!loro && /\bloro\b/.test(s.it) && /\btheir\b/.test(s.en)) loro = s;
+    if (!sonoLoc && s.verbs[0] && s.verbs[0].surface === 'sono' && s.pronouns.length && !s.nps.some(np => np.adj) && s.nps.some(np => np.role === 'PP')) sonoLoc = s;
+    if (!sonoSg && s.verbs[0] && s.verbs[0].surface === 'sono' && s.verbs[0].n === 's' && s.pronouns.length && !s.nps.length) sonoSg = s;
+    if (!sonoPl && s.verbs[0] && s.verbs[0].surface === 'sono' && s.verbs[0].n === 'p' && s.pronouns.length && !s.nps.some(np => np.role === 'PP')) sonoPl = s;
+    if (!lei && s.pronouns.some(p => p.it === 'lei' || p.it === 'lui') && s.verbs[0] && s.verbs[0].surface === 'è') lei = s;
+  }
+  ok(!!suo, 'found a suo sentence');
+  if (suo) {
+    const stem = suo.en.replace(/\b(his|her|its|your|their)\b/i, '§');
+    ['his', 'her', 'its', 'your'].forEach(w => ok(E.gradeEn(stem.replace('§', w), suo).ok, 'suo accepts ' + w + ' (' + suo.it + ')'));
+    ok(suo.en.split(/\b(?:his|her|its|your|their)\b/i).length === 2, 'one possessive in the suo sample');
+  }
+  ok(!!loro, 'found a loro sentence');
+  if (loro) {
+    const stem = loro.en.replace(/\b(their|your)\b/i, '§');
+    ['their', 'your'].forEach(w => ok(E.gradeEn(stem.replace('§', w), loro).ok, 'loro accepts ' + w));
+  }
+  for (let i = 0; i < 600 && !sonoLoc; i++) {
+    const s = E.generate(E.mulberry32(i + 70), { tier: 2, template: 'SVPP', words: WORDS, tries: 8 });
+    if (s && s.verbs[0] && s.verbs[0].surface === 'sono' && s.pronouns.length && !s.nps.some(np => np.adj)) sonoLoc = s;
+  }
+  ok(!!sonoLoc, 'found sono + place');
+  if (sonoLoc) {
+    const rest = sonoLoc.en.replace(/^(I am|They are|She is|He is|We are|You are) /, '');
+    ok(E.gradeEn('I am ' + rest, sonoLoc).ok, 'sono place accepts I am');
+    ok(E.gradeEn('They are ' + rest, sonoLoc).ok, 'sono place accepts they are');
+    ok(!E.gradeEn('You are ' + rest, sonoLoc).ok, 'sono place rejects you are');
+  }
+  ok(!!sonoSg, 'found sono + singular adjective');
+  if (sonoSg) {
+    ok(E.gradeEn(sonoSg.en, sonoSg).ok, 'sono singular model');
+    ok(!E.gradeEn('They are tired', sonoSg).ok, 'Sono stanco/a is not they');
+  }
+  ok(!!sonoPl, 'found sono + plural adjective');
+  if (sonoPl) {
+    ok(E.gradeEn('They are tired', sonoPl).ok || E.gradeEn(sonoPl.en, sonoPl).ok, 'sono plural model');
+    ok(!E.gradeEn('I am tired', sonoPl).ok, 'Sono stanchi/e is not I');
+  }
+  ok(!!lei, 'found lei/lui + adjective');
+  if (lei) {
+    const fem = /lei/.test(lei.pronouns.map(p => p.it).join(''));
+    const rest = lei.en.replace(/^(She|He|You) (is|are|will be|was|were|has been|have been) /, '');
+    ok(E.gradeEn((fem ? 'She is ' : 'He is ') + rest, lei).ok || E.gradeEn(lei.en, lei).ok, 'lei/lui model');
+    ok(E.gradeEn('You are ' + rest, lei).ok || E.gradeEn('You will be ' + rest, lei).ok || E.gradeEn('You were ' + rest, lei).ok || E.gradeEn('You have been ' + rest, lei).ok, 'formal Lei accepts you');
+    ok(!E.gradeEn((fem ? 'He is ' : 'She is ') + rest, lei).ok, 'lei/lui rejects the other gender');
+  }
 }
 
 if (require.main === module) {

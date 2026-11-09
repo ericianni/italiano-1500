@@ -16,8 +16,8 @@
   const nouns = [
     { it: 'ragazzo', cls: 'person', en: 'boy', alts: ['guy', 'boyfriend'] },
     { it: 'ragazza', cls: 'person', en: 'girl', alts: ['girlfriend'] },
-    { it: 'uomo', cls: 'person', en: 'man', alts: ['guy'] },
-    { it: 'donna', cls: 'person', en: 'woman' },
+    { it: 'uomo', cls: 'person', en: 'man', alts: ['guy'], noposs: true },
+    { it: 'donna', cls: 'person', en: 'woman', noposs: true },
     { it: 'bambino', cls: 'person', en: 'child', alts: ['little boy'] },
     { it: 'padre', cls: 'person', en: 'father', alts: ['dad'], kin: 'sg' },
     { it: 'madre', cls: 'person', en: 'mother', alts: ['mom'], kin: 'sg' },
@@ -38,10 +38,10 @@
     { it: 'dottore', cls: 'person', en: 'doctor' },
     { it: 'professore', cls: 'person', en: 'professor', alts: ['teacher'] },
     { it: 'insegnante', cls: 'person', en: 'teacher' },
-    { it: 'signore', cls: 'person', en: 'gentleman', alts: ['man'] },
-    { it: 'signora', cls: 'person', en: 'lady', alts: ['woman'] },
+    { it: 'signore', cls: 'person', en: 'man', alts: ['gentleman'], noposs: true },
+    { it: 'signora', cls: 'person', en: 'woman', alts: ['lady'], noposs: true },
     { it: 'cliente', cls: 'person', en: 'customer' },
-    { it: 'persona', cls: 'person', en: 'person' },
+    { it: 'persona', cls: 'person', en: 'person', noposs: true },
     { it: 'cane', cls: 'animal', en: 'dog' },
     { it: 'gatto', cls: 'animal', en: 'cat' },
 
@@ -55,12 +55,12 @@
     { it: 'casa', cls: 'place', en: 'house', alts: ['home'], tags: ['aged'] },
     { it: 'scuola', cls: 'place', en: 'school' },
     { it: 'città', cls: 'place', en: 'city', alts: ['town'], tags: ['temp', 'famous'] },
-    { it: 'stazione', cls: 'place', en: 'station', tags: ['openable'] },
-    { it: 'aeroporto', cls: 'place', en: 'airport', tags: ['openable'] },
+    { it: 'stazione', cls: 'place', en: 'station', tags: ['openable'], noposs: true },
+    { it: 'aeroporto', cls: 'place', en: 'airport', tags: ['openable'], noposs: true },
     { it: 'albergo', cls: 'place', en: 'hotel', tags: ['openable', 'aged', 'priced', 'book'] },
     { it: 'hotel', cls: 'place', en: 'hotel', tags: ['openable', 'aged', 'priced', 'book'] },
-    { it: 'museo', cls: 'place', en: 'museum', tags: ['openable', 'famous', 'interest'] },
-    { it: 'chiesa', cls: 'place', en: 'church', tags: ['openable', 'famous'] },
+    { it: 'museo', cls: 'place', en: 'museum', tags: ['openable', 'famous', 'interest'], noposs: true },
+    { it: 'chiesa', cls: 'place', en: 'church', tags: ['openable', 'famous'], noposs: true },
     { it: 'piazza', cls: 'place', en: 'square', alts: ['plaza'], tags: ['fill', 'famous'] },
     { it: 'strada', cls: 'place', en: 'street', alts: ['road'], tags: ['long', 'dirty'] },
     { it: 'mercato', cls: 'place', en: 'market' },
@@ -68,8 +68,8 @@
     { it: 'ristorante', cls: 'place', en: 'restaurant', tags: ['openable', 'national', 'priced', 'book', 'fill', 'famous'] },
     { it: 'bar', cls: 'place', en: 'café', alts: ['bar'], tags: ['openable', 'national'] },
     { it: 'ufficio', cls: 'place', en: 'office', tags: ['openable'] },
-    { it: 'banca', cls: 'place', en: 'bank', tags: ['openable'] },
-    { it: 'ospedale', cls: 'place', en: 'hospital', tags: ['openable'] },
+    { it: 'banca', cls: 'place', en: 'bank', tags: ['openable'], noposs: true },
+    { it: 'ospedale', cls: 'place', en: 'hospital', tags: ['openable'], noposs: true },
     { it: 'parco', cls: 'place', en: 'park' },
     { it: 'giardino', cls: 'place', en: 'garden' },
     { it: 'spiaggia', cls: 'place', en: 'beach' },
@@ -264,9 +264,10 @@
   const poss = [
     { it: 'mio', en: 'my' },
     { it: 'tuo', en: 'your' },
-    { it: 'suo', en: 'his', alts: ['her', 'its'] },
+    { it: 'suo', en: 'his', alts: ['her', 'its', 'your'] },
     { it: 'nostro', en: 'our' },
-    { it: 'vostro', en: 'your' }
+    { it: 'vostro', en: 'your' },
+    { it: 'loro', en: 'their', alts: ['your'] }
   ];
 
   const advs = [
@@ -276,42 +277,64 @@
   // "sta male" = is sick / is unwell, not "is badly". Display uses enPred when set.
 
   // Prepositional frames. en: English after the verb; $ is the noun ("to the $"). No $ means the whole phrase ("home").
-  // plain: preposition does not contract (con il, not col).
-  const P = ['museo', 'ristorante', 'mercato', 'parco', 'albergo', 'hotel', 'bar', 'negozio', 'aeroporto', 'ospedale', 'lago'];
-  const IN = ['banca', 'chiesa', 'ufficio', 'cucina', 'camera', 'bagno', 'stazione', 'università', 'centro'];
+  // who: noun class allowed as the subject of this frame. plain: con does not contract.
+  // Each verb+preposition lists only the prep objects that make sense for it.
+  const PERS = ['person', 'animal'];
   const PEOPLE = nouns.filter(n => n.cls === 'person').map(n => n.it);
+  const GO = ['museo', 'ristorante', 'mercato', 'parco', 'albergo', 'hotel', 'bar', 'aeroporto', 'ospedale', 'stazione'];
+  const GO_IN = ['banca', 'chiesa', 'ufficio', 'cucina', 'camera', 'museo', 'ristorante', 'albergo', 'hotel', 'stazione'];
+  const BE = ['museo', 'ristorante', 'parco', 'albergo', 'hotel', 'bar', 'aeroporto', 'ospedale', 'stazione', 'mercato', 'piazza', 'chiesa'];
+  const SLEEP = ['camera', 'albergo', 'hotel', 'letto'];
+  const WORK = ['ufficio', 'banca', 'ospedale', 'ristorante', 'museo', 'negozio'];
+  const RIDE = ['treno', 'autobus', 'aereo'];
+  const CAR = ['macchina', 'auto', 'taxi'];
   const pp = [
-    { vs: ['andare', 'venire', 'tornare', 'arrivare', 'correre'], prep: 'a', art: true, nouns: P, en: 'to the $' },
-    { vs: ['andare', 'venire', 'tornare', 'arrivare', 'correre'], prep: 'a', art: false, nouns: ['casa'], en: 'home' },
-    { vs: ['andare', 'venire', 'tornare', 'arrivare'], prep: 'a', art: false, nouns: ['scuola'], en: 'to school' },
-    { vs: ['andare', 'venire', 'tornare', 'arrivare'], prep: 'in', art: true, nouns: IN.concat(['negozio', 'ristorante', 'museo', 'albergo', 'hotel']), en: 'to the $' },
-    { vs: ['entrare'], prep: 'in', art: true, nouns: IN.concat(['negozio', 'ristorante', 'museo', 'albergo', 'hotel', 'casa']), en: 'the $' },
-    { vs: ['andare', 'venire', 'tornare', 'arrivare'], prep: 'in', art: false, nouns: ['città'], en: 'to town' },
-    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: false, nouns: ['spiaggia'], en: 'to the beach' },
-    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: false, nouns: ['montagna'], en: 'to the mountains' },
-    { vs: ['partire'], prep: 'da', art: true, nouns: ['museo', 'ristorante', 'stazione', 'aeroporto', 'ufficio', 'chiesa', 'albergo', 'hotel', 'banca', 'città', 'parco'], en: 'from the $' },
-    { vs: ['uscire'], prep: 'da', art: true, nouns: ['museo', 'ristorante', 'stazione', 'aeroporto', 'ufficio', 'chiesa', 'albergo', 'hotel', 'banca', 'città', 'parco'], en: 'the $' },
-    { vs: ['partire', 'arrivare'], prep: 'da', art: false, nouns: ['casa'], en: 'from home' },
-    { vs: ['uscire'], prep: 'da', art: false, nouns: ['casa'], en: 'home' },
-    { vs: ['partire', 'arrivare'], prep: 'da', art: false, nouns: ['scuola'], en: 'from school' },
-    { vs: ['uscire'], prep: 'da', art: false, nouns: ['scuola'], en: 'school' },
-    { vs: ['arrivare'], prep: 'da', art: true, nouns: ['stazione', 'aeroporto', 'città', 'ufficio'], en: 'from the $' },
+    { vs: ['andare', 'venire', 'tornare'], prep: 'a', art: true, nouns: GO, en: 'to the $', who: PERS },
+    { vs: ['arrivare'], prep: 'a', art: true, nouns: ['stazione', 'aeroporto', 'museo', 'ristorante', 'albergo', 'hotel', 'ospedale'], en: 'at the $', who: PERS, sg: true },
+    { vs: ['correre'], prep: 'a', art: true, nouns: ['parco', 'stazione', 'spiaggia'], en: 'to the $', who: PERS, sg: true },
+    { vs: ['andare', 'venire', 'tornare', 'arrivare', 'correre'], prep: 'a', art: false, nouns: ['casa'], en: 'home', who: PERS },
+    { vs: ['andare', 'venire', 'tornare', 'arrivare'], prep: 'a', art: false, nouns: ['scuola'], en: 'to school', who: ['person'] },
+    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: true, nouns: GO_IN, en: 'to the $', who: PERS },
+    { vs: ['arrivare'], prep: 'in', art: true, nouns: ['ufficio', 'stazione', 'aeroporto', 'città'], en: 'in the $', who: PERS, sg: true },
+    { vs: ['entrare'], prep: 'in', art: true, nouns: GO_IN.concat(['casa', 'negozio']), en: 'the $', who: PERS },
+    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: false, nouns: ['città'], en: 'to town', who: PERS },
+    { vs: ['arrivare'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: PERS },
+    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: false, nouns: ['spiaggia'], en: 'to the beach', who: PERS },
+    { vs: ['andare', 'venire', 'tornare'], prep: 'in', art: false, nouns: ['montagna'], en: 'to the mountains', who: PERS },
+    { vs: ['partire'], prep: 'da', art: true, nouns: ['museo', 'ristorante', 'stazione', 'aeroporto', 'ufficio', 'chiesa', 'albergo', 'hotel', 'banca', 'parco'], en: 'from the $', who: ['person'], sg: true },
+    { vs: ['uscire'], prep: 'da', art: true, nouns: ['museo', 'ristorante', 'stazione', 'aeroporto', 'ufficio', 'chiesa', 'albergo', 'hotel', 'banca', 'parco'], en: 'the $', who: ['person'], sg: true },
+    { vs: ['partire', 'arrivare'], prep: 'da', art: false, nouns: ['casa'], en: 'from home', who: PERS },
+    { vs: ['uscire'], prep: 'da', art: false, nouns: ['casa'], en: 'home', who: PERS },
+    { vs: ['partire', 'arrivare'], prep: 'da', art: false, nouns: ['scuola'], en: 'from school', who: ['person'] },
+    { vs: ['uscire'], prep: 'da', art: false, nouns: ['scuola'], en: 'school', who: ['person'] },
+    { vs: ['arrivare'], prep: 'a', art: true, nouns: ['stazione', 'aeroporto'], en: 'at the $', who: ['vehicle'] },
+    { vs: ['arrivare'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: ['vehicle'] },
+    { vs: ['partire'], prep: 'da', art: true, nouns: ['stazione', 'aeroporto'], en: 'from the $', who: ['vehicle'], sg: true },
 
-    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: false, nouns: ['casa'], en: 'at home' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: false, nouns: ['scuola'], en: 'at school' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere', 'lavorare'], prep: 'a', art: true, nouns: P, en: 'at the $' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere', 'lavorare', 'dormire', 'vivere'], prep: 'in', art: true, nouns: IN.concat(['città', 'parco', 'museo', 'ristorante', 'albergo', 'hotel']), en: 'in the $' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere', 'vivere'], prep: 'in', art: false, nouns: ['città'], en: 'in town' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: false, nouns: ['spiaggia'], en: 'at the beach' },
-    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: false, nouns: ['montagna'], en: 'in the mountains' },
-    { vs: ['lavorare', 'dormire', 'vivere'], prep: 'a', art: false, nouns: ['casa'], en: 'at home' },
-    { vs: ['dormire'], prep: 'in', art: true, nouns: ['albergo', 'hotel', 'camera'], en: 'at the $' },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: false, nouns: ['casa'], en: 'at home', who: PERS },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: false, nouns: ['scuola'], en: 'at school', who: ['person'] },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: true, nouns: ['parco'], en: 'at the $', who: ['animal'] },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'a', art: true, nouns: BE, en: 'at the $', who: ['person'] },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: true, nouns: ['cucina', 'camera', 'bagno', 'ufficio', 'banca', 'museo', 'chiesa'], en: 'in the $', who: ['person'] },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: PERS },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: false, nouns: ['spiaggia'], en: 'at the beach', who: PERS },
+    { vs: ['essere', 'stare', 'restare', 'rimanere'], prep: 'in', art: false, nouns: ['montagna'], en: 'in the mountains', who: PERS },
+    { vs: ['essere', 'stare', 'restare'], prep: 'a', art: true, nouns: ['stazione', 'aeroporto'], en: 'at the $', who: ['vehicle'], sg: true },
+    { vs: ['essere', 'stare'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: ['vehicle'] },
 
-    { vs: ['salire'], prep: 'su', art: true, nouns: ['treno', 'autobus', 'aereo'], en: 'on the $' },
-    { vs: ['salire'], prep: 'in', art: false, nouns: ['macchina', 'auto', 'taxi'], en: 'in the $' },
-    { vs: ['scendere'], prep: 'da', art: true, nouns: ['treno', 'autobus', 'aereo', 'macchina', 'auto', 'taxi'], en: 'off the $' },
-    { vs: ['passare'], prep: 'da', art: true, nouns: ['museo', 'stazione', 'parco', 'piazza', 'chiesa', 'negozio'], en: 'by the $' },
-    { vs: ['parlare'], prep: 'con', art: true, plain: true, nouns: PEOPLE, en: 'with the $' }
+    { vs: ['lavorare'], prep: 'a', art: false, nouns: ['casa'], en: 'at home', who: ['person'] },
+    { vs: ['lavorare'], prep: 'a', art: false, nouns: ['scuola'], en: 'at school', who: ['person'] },
+    { vs: ['lavorare'], prep: 'in', art: true, nouns: WORK, en: 'at the $', who: ['person'] },
+    { vs: ['dormire'], prep: 'a', art: false, nouns: ['casa'], en: 'at home', who: PERS },
+    { vs: ['dormire'], prep: 'in', art: true, nouns: SLEEP, en: 'in the $', who: PERS },
+    { vs: ['vivere'], prep: 'a', art: false, nouns: ['casa'], en: 'at home', who: ['person'] },
+    { vs: ['vivere'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: ['person'] },
+
+    { vs: ['salire'], prep: 'su', art: true, nouns: RIDE, en: 'on the $', who: ['person'] },
+    { vs: ['salire'], prep: 'in', art: false, nouns: CAR, en: 'in the $', who: ['person'] },
+    { vs: ['scendere'], prep: 'da', art: true, nouns: RIDE.concat(CAR), en: 'off the $', who: ['person'] },
+    { vs: ['passare'], prep: 'da', art: true, nouns: ['museo', 'stazione', 'parco', 'piazza', 'chiesa', 'negozio'], en: 'by the $', who: ['person'] },
+    { vs: ['parlare'], prep: 'con', art: true, plain: true, nouns: PEOPLE, en: 'with the $', who: ['person'] }
   ];
 
   return { nouns: nouns, verbs: verbs, adjs: adjs, poss: poss, advs: advs, pp: pp };

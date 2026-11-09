@@ -357,7 +357,7 @@
     if (noun.mass && !noun.cup) return rng() < 0.5 ? 'part' : 'def';
     if (role === 'exist') return num === 'p' || noun.mass ? 'part' : (noun.cup || !noun.mass ? 'ind' : 'part');
     if (num === 'p') return rng() < 0.75 ? 'def' : 'part';
-    if (role === 'subj') return rng() < 0.82 ? 'def' : 'ind';
+    if (role === 'subj') return 'def';
     return rng() < 0.5 ? 'def' : 'ind';
   }
 
@@ -372,6 +372,7 @@
       if (spec.exclude && spec.exclude.has(n.it)) return false;
       if (spec.nouns && spec.nouns.indexOf(n) < 0 && spec.nounIts && spec.nounIts.indexOf(n.it) < 0) return false;
       if (spec.cls && !allows(spec.cls, n)) return false;
+      if (spec.poss && n.noposs) return false;
       if (spec.num === 'p' && (n.mass || n.w.sg)) return false;
       if (spec.num === 's' && n.w.pltant) return false;
       return true;
@@ -428,7 +429,7 @@
       if (!ps.length) return null;
       poss = pick(rng, ps);
     }
-    const possForm = poss ? M.adjAgree({ it: poss.it }, g, num) : null;
+    const possForm = poss ? possAgree(poss, g, num) : null;
     // The article agrees with the first word: possessive, else a preceding adjective, else the noun.
     const head = poss ? possForm : (pre ? adjForm : form);
 
@@ -440,6 +441,7 @@
     if (det === 'ind' && (num === 'p' || (noun.mass && !noun.cup))) det = num === 'p' ? 'def' : 'part';
     if (spec.frame && !spec.frame.f.art) det = 'none';
     if (spec.frame && spec.frame.f.art) det = 'def';
+    if (spec.role === 'subj' && !spec.art && det !== 'none') det = 'def';
     if (spec.art && det === 'none') return null;
 
     if (spec.art && det !== 'none') {
@@ -476,6 +478,14 @@
     };
   }
 
+  function possAgree(poss, g, n) {
+    if (poss.it === 'loro') return 'loro';
+    return M.adjAgree({ it: poss.it }, g, n);
+  }
+  function adjSplitsNumber(comp, g) {
+    if (!comp || !comp.adj) return false;
+    return M.adjAgree(comp.adj.w, g === 'f' ? 'f' : 'm', 's') !== M.adjAgree(comp.adj.w, g === 'f' ? 'f' : 'm', 'p');
+  }
   function artDet(combo) { return combo.split('|')[1].split('.')[0] === 'ind' ? 'ind' : 'def'; }
   function artG(combo) { return combo.split('|')[1].split('.')[1]; }
   function artNum(combo) {
@@ -575,13 +585,30 @@
     // Subject: pronoun (1st/2nd) or noun.
     const personOK = !verb.subj || verb.subj.indexOf('person') >= 0;
     const forceNoun = !(person && person[0] !== '3') && ((opts.needPoss && opts.possOn !== 'obj') || (opts.needAttr && opts.attrOn !== 'obj' && opts.attrOn !== 'pp') || (opts.art && opts.artOn === 'subj'));
-    const wantPron = personOK && !forceNoun && (person ? person[0] !== '3' : rng() < (shape === 'cop' ? 0.34 : 0.22));
-    if (wantPron || (person && person[0] !== '3')) {
-      const p = person && person[0] !== '3' ? person : pick(rng, ['1s', '2s', '1p', '2p']);
-      person = p;
-      pron = PRON[p];
-      num = pron.num;
-      gSub = (p === '1p' || p === '2p') ? (rng() < 0.75 ? 'm' : 'f') : (rng() < 0.5 ? 'm' : 'f');
+    const esserePron = verb.it === 'essere' && (shape === 'cop' || shape === 'svpp');
+    let pPick = null;
+    if (person === '3s' || person === '3p') pPick = esserePron ? person : null;
+    else if (person && person[0] !== '3') pPick = personOK ? person : null;
+    else if (personOK && !forceNoun && rng() < (shape === 'cop' ? 0.34 : 0.22)) {
+      const bag = ['1s', '2s', '1p', '2p'];
+      if (esserePron) bag.push('3s', '3p');
+      pPick = pick(rng, bag);
+    }
+    if (pPick) {
+      person = pPick;
+      if (pPick === '3s') {
+        gSub = rng() < 0.5 ? 'm' : 'f';
+        pron = gSub === 'f' ? { it: 'lei', en: ['she'], num: 's', formal: true } : { it: 'lui', en: ['he'], num: 's', formal: true };
+      } else if (pPick === '3p') {
+        gSub = rng() < 0.55 ? 'm' : 'f';
+        pron = { it: 'loro', en: ['they'], num: 'p' };
+        num = 'p';
+      } else {
+        pron = PRON[pPick];
+        num = pron.num;
+        gSub = (pPick === '1p' || pPick === '2p') ? (rng() < 0.75 ? 'm' : 'f') : (rng() < 0.5 ? 'm' : 'f');
+      }
+      if (pPick !== '3s' && pPick !== '3p') num = pron.num;
       if (opts.agr && opts.agrWhere === 'pred') { gSub = opts.agr.g; num = opts.agr.n; if ((num === 'p') !== (pron.num === 'p')) return null; }
     } else {
       let cls = verb.subj || ['person'];
@@ -627,10 +654,13 @@
       io = who;
     }
     if (shape === 'svpp') {
-      const frames = PP.filter(f => f.f.vs.indexOf(verb.it) >= 0);
+      const who = pron ? 'person' : (subj ? subj.noun.cls : '');
+      const frames = PP.filter(f => f.f.vs.indexOf(verb.it) >= 0 && (f.f.who || ['person', 'animal']).indexOf(who) >= 0);
       if (!frames.length) return null;
       const frame = pick(rng, frames);
-      const np = buildNP(rng, { role: 'pp', nouns: frame.nouns, frame: frame, exclude: ex, num: frame.f.en.indexOf('$') < 0 || !frame.f.art ? 's' : null, maybeAttr: frame.f.en.indexOf('$') >= 0 && opts.maybeAttr, attr: frame.f.en.indexOf('$') >= 0 && opts.needAttr && !subj && !obj, poss: false });
+      let ppNum = frame.f.sg || frame.f.en.indexOf('$') < 0 || !frame.f.art ? 's' : null;
+      if (verb.it === 'salire' || verb.it === 'scendere') ppNum = (subj && subj.num === 'p') || (pron && pron.num === 'p') ? 'p' : 's';
+      const np = buildNP(rng, { role: 'pp', nouns: frame.nouns, frame: frame, exclude: ex, num: ppNum, maybeAttr: frame.f.en.indexOf('$') >= 0 && opts.maybeAttr, attr: frame.f.en.indexOf('$') >= 0 && opts.needAttr && !subj && !obj, poss: false });
       if (!np) return null;
       if (frame.f.en.indexOf('$') < 0 && np.adj) return null;
       pp = np;
@@ -667,15 +697,30 @@
     }
     if (pp) pp.tokens.forEach(t => tokens.push(t));
 
-    const en = englishSlots({ pron: pron, subj: subj, verb: verb, obj: obj, io: io, pp: pp, comp: comp, person: person, tense: tense, neg: neg, g: gSub });
+    const slotArgs = { pron: pron, subj: subj, verb: verb, obj: obj, io: io, pp: pp, comp: comp, person: person, tense: tense, neg: neg, g: gSub };
+    const en = englishSlots(slotArgs);
     const slots = en.slots;
+    const alts = en.alt ? [en.alt] : [];
+    // "sono" is io or loro. Both English readings work when nothing else shows the number
+    // ("Sono a casa"). A plural adjective ("Sono stanchi") is only loro; a singular one only io.
+    if (verb.it === 'essere' && surface === 'sono' && !subj && !adjSplitsNumber(comp, gSub)) {
+      const other = person === '3p' ? '1s' : '3p';
+      const opron = other === '3p' ? { it: 'loro', en: ['they'], num: 'p' } : { it: 'io', en: ['I'], num: 's' };
+      const o = englishSlots(Object.assign({}, slotArgs, { pron: opron, person: other }));
+      alts.push(o.slots); if (o.alt) alts.push(o.alt);
+    }
+    // Bare "è" with lei/lui: she/he, and formal Lei ("you are").
+    if (pron && pron.formal && !subj && verb.it === 'essere') {
+      const o = englishSlots(Object.assign({}, slotArgs, { pron: { it: pron.it, en: ['you'], num: 's' }, person: '2s' }));
+      alts.push(o.slots); if (o.alt) alts.push(o.alt);
+    }
     const nps = [subj && tag(subj, 'S'), obj && tag(obj, 'O'), io && tag(io, 'IO'), pp && tag(pp, 'PP')].filter(Boolean);
     const verbs = [{ it: verb.it, id: verb.id, tense: tense, person: person, g: gSub, n: num, aux: aux, hasObj: hasObj, hasPP: hasPP, surface: surface, helper: verb.it === 'essere' || verb.it === 'stare' }];
     const targets = [];
     nps.forEach(np => targetsOf(np).forEach(t => targets.push(t)));
     if (comp && comp.adj) targets.push(adjTarget(comp.adj, comp.form, gSub, num, tokens));
     targets.push(verbTarget(verb, tense, person, surface, tokens));
-    return finishClause({ tokens: tokens, slots: slots, alt: en.alt, pronouns: pronouns, nps: nps, verbs: verbs, subjKey: pron ? person : subj.noun.it, ids: contentIds(tokens), targets: targets });
+    return finishClause({ tokens: tokens, slots: slots, alts: alts, pronouns: pronouns, nps: nps, verbs: verbs, subjKey: pron ? person : subj.noun.it, ids: contentIds(tokens), targets: targets });
   }
 
   function hasPoss(np) { return !!(np && np.poss); }
@@ -1015,7 +1060,7 @@
     const answers = pronounAnswers(c.tokens, c.pronouns || []);
     const la = capIt(answers[0]);
     const patterns = [compileSlots(c.slots)];
-    if (c.alt) patterns.push(compileSlots(c.alt));
+    (c.alts || []).forEach(s => { if (s) patterns.push(compileSlots(s)); });
     const en0 = c.slots.map(s => s[0]).join(' ');
     const also = answers.slice(1).map(capIt);
     return {
