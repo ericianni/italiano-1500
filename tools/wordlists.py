@@ -13,7 +13,7 @@ ADDED_BY_TOPIC = {
  'calendar': 'gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre martedì mercoledì giovedì primavera autunno inverno',
  'numbers': 'sei undici dodici tredici quattordici quindici sedici diciassette diciotto diciannove venti trenta quaranta cinquanta sessanta settanta ottanta novanta',
  'homographs': 'sale riso posta data fa menù buonanotte',
- 'restored': 'mica stanotte torta bugia bacio sigaretta viso scatola fumare',
+ 'restored': 'mica stanotte torta bugia bacio sigaretta viso scatola fumare parente',
  'food': 'pane pizza pasta olio formaggio frutta verdura insalata zucchero tè panino cioccolato cameriere mancia',
  'travel': 'albergo museo piazza fermata passaporto prenotare partenza binario',
  'shopping': 'euro cassa scontrino costo gratis chilo',
@@ -28,6 +28,9 @@ socio seduta attivare dipartimento protezione arresto completare rilasciare arma
 bomba concedere sindaco catturare pista comando mandato innocente club talento mossa lottare
 eseguire vicenda verificare giungere produrre comunità tecnologia sviluppare dedicare limitare disponibile assistere elettrico sostituire
 fase risorsa commissione inserire nominare visione operare compiere crisi basare concludere intervento proposta investire autorità formare
-avanzare contenere media confronto opporre scientifico materiale epoca figurare teoria universo sfuggire'''.split())
+avanzare contenere media confronto opporre scientifico materiale epoca figurare teoria universo sfuggire
+esprimere'''.split())
 PROTECTED = EVERYDAY | ADDED
-assert len(ADDED) == 98 and len(DROPPED) == 98 and not (PROTECTED & DROPPED)
+# parente is everyday family vocabulary; it fell just outside the cut when the noun stato took a slot.
+# esprimere is the lowest-frequency word the news corpus lifts into the cut (its spoken rank falls outside), so it makes room.
+assert len(ADDED) == 99 and len(DROPPED) == 99 and not (PROTECTED & DROPPED)

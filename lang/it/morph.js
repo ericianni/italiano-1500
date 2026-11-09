@@ -343,8 +343,13 @@
   }
   function isIrregular(v) { return !!irrOf(v.it) || !!PP[v.it] || (FAM_OF[v.it] && !!PP[FAM_OF[v.it]]); }
 
-  // Strip accents/apostrophe variants for lenient comparison; strict equality otherwise.
-  function norm(s) { return lower(s).trim().replace(/[’`´]/g, "'").replace(/\s+/g, ' '); }
+  // Same folding on the answer key and on what was typed, so a different dash or apostrophe
+  // glyph is not a wrong answer. Soft hyphens are layout, not letters. A real hyphen stays a hyphen:
+  // "parlo" does not match "par-lo". Accents are kept here; deaccent() drops them for the lenient check.
+  function norm(s) {
+    return lower(s).trim().replace(/[’`´]/g, "'").replace(/\u00AD/g, '')
+      .replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, '-').replace(/\s+/g, ' ');
+  }
   function deaccent(s) { return norm(s).normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
 
   return {

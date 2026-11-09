@@ -3,7 +3,7 @@
   "title": "Core 1500",
   "desc": "1,500 core Italian words: the most frequent dictionary words (OpenSubtitles 2018 and Leipzig Italian news 2023–24 frequencies, blended) plus everyday basics a word count misses (numbers, months, food, travel), with US English glosses, genders, plurals, adjective forms and verb classes.",
   "lang": "it",
-  "version": 3,
+  "version": 4,
   "words": "words.json",
   "count": 1500,
   "license": "CC BY-SA 4.0",

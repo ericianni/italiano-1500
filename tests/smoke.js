@@ -106,6 +106,81 @@ async function main() {
     A.W.slice(0,6).forEach(w=>{ A.S.cards['p:'+w.id]={box:1,due:0}; A.S.cards['r:'+w.id]={box:2,due:1e9}; }); A.S.set.newPerDay=0; A.S.set.strict=${strict};
     A.setTab('today'); document.querySelector('#go').click(); const r=await (${showtest})(/English → Italian/);
     A.S.cards=JSON.parse(keep); Object.assign(A.S.set, JSON.parse(keepSet)); A.setTab('today'); if(/^BAD/.test(r)) throw new Error(r); return r})()`);
+  await step('test mode and And…?', `(async()=>{
+    const A=window.__it1500, D=window.ItDrills;
+    const before=localStorage.getItem('italiano1500.v1');
+    const cards=JSON.stringify(A.S.cards), dst=JSON.stringify(A.S.dst), dq=A.S.dq;
+    const keep={dmode:A.S.set.dmode, dlen:A.S.set.dlen, andMore:A.S.set.andMore, df:JSON.stringify(A.S.set.df)};
+    for (const g of Object.keys(D.DF)) A.S.set.df[g]=D.DF[g].slice();
+    A.S.set.andMore=true; A.S.set.dlen=40;
+    A.enterTest('essere');
+    if (!document.querySelector('#texit') || !/nothing is saved/.test((document.querySelector('.prompt-kind')||{}).textContent||'')) throw new Error('no test panel');
+    if (!document.querySelector('[data-tm="type"]') || !document.querySelector('[data-tm="id"]') || !document.querySelector('[data-tm="mix"]')) throw new Error('missing modes');
+    const back = () => { if (!document.querySelector('#texit') || document.querySelector('#chk') || document.querySelector('#show')) throw new Error('not back on the test panel'); };
+    document.querySelector('#tf-r').click();
+    if (!/Test mode/.test(document.body.textContent)) throw new Error('card missing Test mode');
+    document.querySelector('#show').click(); document.querySelector('#ans button[data-r="0"]').click(); back();
+    document.querySelector('#tf-p').click();
+    const typed=document.querySelector('#typed'); if (!typed) throw new Error('no production box');
+    typed.value='zzz'; typed.dispatchEvent(new Event('input',{bubbles:true}));
+    if (document.querySelector('#show').textContent!=='Check') throw new Error('button '+document.querySelector('#show').textContent);
+    document.querySelector('#show').click();
+    const graded=document.querySelector('#ans button[data-r="0"]'); if (!graded) throw new Error('typed card did not grade'); graded.click(); back();
+    const advance = () => { if (document.querySelector('#andskip')) document.querySelector('#andskip').click(); const b=document.querySelector('#ans button[data-r]'); if (!b) return false; b.click(); return true; };
+    const play = (n) => { let k=0; const bad=[];
+      for (let i=0;i<n+15 && k<n;i++){
+        if (document.querySelector('#texit') && !document.querySelector('#chk') && !document.querySelector('#typed') && !document.querySelector('#show')) break;
+        const card=document.querySelector('.card'); const txt=card?card.textContent:'';
+        if (!/essere/.test(txt)) bad.push('not essere: '+txt.slice(0,80));
+        if (document.querySelector('#andskip')) { if (!advance()) { bad.push('and no grade'); break; } k++; continue; }
+        const t=document.querySelector('#typed');
+        if (t) { t.value='zzz'; document.querySelector('#chk').click(); }
+        else { document.querySelectorAll('#idrows .idrow').forEach(r=>{ const b=r.querySelector('button:not([disabled])'); if (b && !r.querySelector('button.on')) b.click(); });
+          const c=document.querySelector('#chk'); if (c && !c.disabled) c.click(); }
+        if (!advance()) { bad.push('no grade'); break; } k++;
+      }
+      if (bad.length) throw new Error(bad[0]); if (k<n) throw new Error('only '+k+' questions'); };
+    const stop = () => { const b=document.querySelector('#stop'); if (b) b.click(); };
+    document.querySelector('[data-tm="type"]').click(); play(3); stop();
+    document.querySelector('[data-tm="mix"]').click(); play(3); stop();
+    document.querySelector('[data-tm="id"]').click();
+    let saw=false;
+    for (let pass=0; pass<2 && !saw; pass++) {
+      if (document.querySelector('#texit') && !document.querySelector('#chk')) document.querySelector('[data-tm="id"]').click();
+      for (let i=0;i<90 && !saw;i++) {
+        if (document.querySelector('#texit') && !document.querySelector('#chk') && !document.querySelector('#typed')) break;
+        const card=document.querySelector('.card'); if (card && !/essere/.test(card.textContent)) throw new Error('identify other word');
+        const tl=document.querySelector('.tl');
+        if (tl && tl.textContent.trim()==='sono' && document.querySelector('#idrows') && !document.querySelector('#andskip')) {
+          const pick=(row,v)=>{ const b=[...document.querySelectorAll('.idrow[data-a="'+row+'"] button')].find(x=>x.dataset.v===v); if (b && !b.disabled) b.click(); };
+          pick('t','pres'); pick('p','1s');
+          const chk=document.querySelector('#chk'); if (chk && !chk.disabled && !document.querySelector('#andskip')) chk.click();
+          if (!document.querySelector('#andleft')) throw new Error('no And…? on sono: '+((document.querySelector('#ans')||{}).textContent||'').slice(0,160));
+          if (!/^1 guess left/.test(document.querySelector('#andleft').textContent)) throw new Error('counter '+document.querySelector('#andleft').textContent);
+          document.querySelector('#chk').click();
+          if (!document.querySelector('#andleft') || !/^1 guess left/.test(document.querySelector('#andleft').textContent)) throw new Error('repeat spent a guess');
+          if (!/already named/.test(document.querySelector('#ans').textContent)) throw new Error('no repeat message');
+          document.querySelector('#andskip').click();
+          const ans=(document.querySelector('#ans')||{}).textContent||'';
+          if (!/missed/.test(ans) || !/loro/.test(ans)) throw new Error('skip did not list loro: '+ans.slice(0,180));
+          const nxt=document.querySelector('#ans button[data-r="1"]'); if (!nxt) throw new Error('first answer not kept right'); nxt.click();
+          saw=true; break;
+        }
+        if (document.querySelector('#andskip')) { document.querySelector('#andskip').click(); }
+        else if (document.querySelector('#typed')) { document.querySelector('#typed').value='zzz'; document.querySelector('#chk').click(); }
+        else { document.querySelectorAll('#idrows .idrow').forEach(r=>{ const b=r.querySelector('button:not([disabled])'); if (b && !r.querySelector('button.on')) b.click(); });
+          const c=document.querySelector('#chk'); if (c && !c.disabled) c.click(); }
+        const b=document.querySelector('#ans button[data-r]'); if (b) b.click();
+      }
+    }
+    if (!saw) throw new Error('never asked sono');
+    if (localStorage.getItem('italiano1500.v1')!==before) throw new Error('progress written');
+    A.setTab('list');
+    if (A.test) throw new Error('still in test mode');
+    if (JSON.stringify(A.S.cards)!==cards || JSON.stringify(A.S.dst)!==dst || A.S.dq!==dq) throw new Error('progress changed in memory');
+    A.S.set.dmode=keep.dmode; A.S.set.dlen=keep.dlen; A.S.set.andMore=keep.andMore; A.S.set.df=JSON.parse(keep.df);
+    return 'flashcards, type, mix, And…? on sono; progress unchanged';
+  })()`);
   await step('sw', `navigator.serviceWorker.getRegistration().then(r=>r? 'registered':'none').then(async x=>x+' / caches: '+(await caches.keys()).join(','))`);
   for (const [n, v] of results) console.log('ok  ' + n + ': ' + JSON.stringify(v));
   for (const e of errors) console.log('ERR ' + e);

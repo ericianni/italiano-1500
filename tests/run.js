@@ -120,11 +120,29 @@ eq(D.check('citta', ['città'], true).ok, false, 'strict accents'); eq(D.check('
 eq(D.check('citta', ['città'], false).ok, true, 'lenient accents'); eq(D.check('  Parlo ', ['parlo'], true).ok, true, 'trim/case');
 eq(D.check('l’amico', ["l'amico"], true).ok, true, 'curly apostrophe'); eq(D.check("l' amico", ["l'amico"], true).ok, true, 'space after apostrophe');
 eq(D.check('perche', ['perché'], false).ok, true, 'é lenient'); eq(D.check('io parlo', ['parlo'], true).ok, true, 'optional subject pronoun');
+// dashes and similar punctuation are folded the same way on the key and on what was typed; a real hyphen still counts
+eq(D.check('e\u2013mail', ['e-mail'], true).ok, true, 'en dash matches hyphen');
+eq(D.check('e\u2014mail', ['e-mail'], true).ok, true, 'em dash matches hyphen');
+eq(D.check('e\u2212mail', ['e-mail'], true).ok, true, 'minus sign matches hyphen');
+eq(D.check('e-mail', ['e\u2013mail'], true).ok, true, 'key dash is folded too');
+eq(D.check('par\u00ADlo', ['parlo'], true).ok, true, 'soft hyphen is not a letter');
+eq(D.check('parlo', ['par-lo'], true).ok, false, 'a real hyphen is not optional');
+eq(D.check('par-lo', ['parlo'], true).ok, false, 'typing a hyphen does not match a plain word');
+// accent policy: strict (the app default) rejects a missing accent; lenient accepts it only when that setting is off
+eq(D.check('e', ['è'], true).ok, false, 'accents: strict rejects a missing accent');
+eq(D.check('e', ['è'], false).ok, true, 'accents: optional accepts a missing accent');
 
 // ---------- data integrity ----------
 eq(WORDS.length, 1500, 'word count'); eq(new Set(WORDS.map(w => w.id)).size, 1500, 'unique ids');
 eq(new Set(WORDS.map(w => w.it + '|' + w.pos)).size, 1500, 'unique headword+pos');
 ok(WORDS.every((w, i) => w.rank === i + 1), 'ranks 1..1500 in order');
+{
+  const par = BY.parente; ok(par && par.pos === 'n' && par.g === 'mf' && par.en === 'relative, family member', 'parente restored');
+  eq(par && par.pl, 'parenti', 'parente plural'); eq(M.nounPlural(par).pl, 'parenti', 'parente plural from the engine');
+  ok(!BY.esprimere, 'esprimere dropped (lowest news-lifted word)');
+  const i = WORDS.findIndex(w => w.it === 'parente');
+  ok(i > 0 && WORDS[i - 1].freq >= par.freq && WORDS[i + 1].freq <= par.freq, 'parente sits at its frequency');
+}
 ok(WORDS.every(w => w.en && w.en.trim() && !/[A-Z]{3,}|\bTODO\b|\?\?/.test(w.en)), 'every word has a clean gloss');
 ok(WORDS.every(w => /^[a-zàèéìòù']+$/.test(w.it)), 'headwords lowercase Italian letters');
 ok(WORDS.filter(w => w.pos === 'n').every(w => ['m', 'f', 'mf'].includes(w.g)), 'every noun has a gender');
@@ -263,6 +281,24 @@ for (const per of D.DF.persons) for (const num of D.DF.vnums) {
   eq(D.idSetup(qs).open, 0, 'identify agreement, masc. sing. only: nothing to pick -> typed');
   eq(D.makeQ('agr:o|m.s', adj, CTX, () => 0.3).rows[0].opts.length, 4, 'identify agreement, no pool: all four forms');
 }
+// "And…?": sono is both io and loro. Guesses: one per reading left; a repeat spends none.
+{
+  const es = BY.essere, q = D.makeQ('virr|pres.1s', es, CTX, () => 0.2), ps = D.andReadings(q);
+  eq(ps.map(p => p.t + '.' + p.p).sort(), ['pres.1s', 'pres.3p'], 'sono: io and loro');
+  eq(ps.map(p => p.p).sort(), ['1s', '3p'], 'sono readings are 1s and 3p');
+  const io = ps.find(p => p.p === '1s'), loro = ps.find(p => p.p === '3p');
+  eq(D.andGrade({ t: 'pres', p: '3p' }, ps, [io]).kind, 'new', 'And…?: loro is the other reading');
+  eq(D.andGrade({ t: 'pres', p: '1s' }, ps, [io]).kind, 'dup', 'And…?: repeating io is not a new reading');
+  eq(D.andGrade({ t: 'imp', p: '3s' }, ps, [io]).kind, 'no', 'And…?: era is not a reading of sono');
+  eq(D.idRight(q, { t: 'pres', p: '3p' }), true, 'sono: loro counts as right on the first answer');
+  const onlyIo = D.poolInfo(Object.keys(D.buildUnits(WORDS, Object.assign({}, D.DF, { types: ['verb'], persons: ['1'], vnums: ['s'] }))));
+  eq(D.andReadings(D.makeQ('virr|pres.1s', es, Object.assign({}, CTX, { pool: onlyIo }))).map(p => p.p), ['1s'], 'sono with only io: no second reading');
+  eq(D.andReadings(D.makeQ('vare|pres.1s', BY.parlare, CTX)).length, 1, 'parlo has one reading');
+  eq(D.andSpend(1, 'dup', 1, 2), { guesses: 1, named: 1, done: false }, 'And…?: a repeat spends no guess');
+  eq(D.andSpend(1, 'no', 1, 2), { guesses: 0, named: 1, done: true }, 'And…?: a wrong guess spends the last one');
+  eq(D.andSpend(1, 'new', 1, 2), { guesses: 0, named: 2, done: true }, 'And…?: naming the last reading ends it');
+  eq(D.andSpend(2, 'no', 1, 3), { guesses: 1, named: 1, done: false }, 'And…?: a wrong guess leaves the ones still left');
+}
 
 // ---------- lessons ----------
 eq(LESSONS.length >= 10, true, 'at least 10 lessons');
@@ -320,7 +356,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v7'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v8'/.test(sw), 'sw: cache name');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);

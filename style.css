@@ -82,6 +82,8 @@ td.en{font-family:inherit;color:var(--muted);white-space:normal}
 .idc button.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
 .idc button.want{border:2px dashed var(--good);color:var(--good);font-weight:600}
 .parses{padding-left:18px;margin:4px 0 8px}.parses li{margin:4px 0;line-height:1.4}.parses li.near{font-weight:600}
+.parses li.got,.parses li.missed{list-style:none;margin-left:-18px}.parses li.got{color:var(--good)}.parses li.missed{opacity:.85}
+.andq{margin:8px 0 2px;line-height:1.4}.andmsg{margin-top:4px}.andall{color:var(--good);font-weight:600;margin:2px 0 4px}
 .newtip{margin-top:12px;padding:8px 10px;border-radius:10px;background:var(--soft);border:1px dashed var(--line)}
 .newtags{display:flex;gap:6px;margin-top:6px}
 .weak td{vertical-align:top}.weak td:first-child{white-space:normal}

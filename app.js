@@ -11,17 +11,18 @@
   const POS = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', num: 'number', art: 'article' };
   const CONJ = { are: '-are', ere: '-ere', ire: '-ire', isc: '-ire (-isc-)' };
   let W = [], BY = {}, BYIT = {}, PACKS = [], S, U = {}, UALL = {}, CTX = {}, Q = null, TAB = 'today';
+  let TEST = null;   // Test mode: { id, snap }. Nothing is saved while it is on; leaving it restores the snapshot.
 
   function fix(s) {
     s = s || {};
     s.v = 1; s.cards = s.cards || {}; s.lessons = s.lessons || {}; s.dst = s.dst || {}; s.ds = s.ds || { w: {} }; s.ds.w = s.ds.w || {}; s.dq = s.dq || 0;
-    s.set = Object.assign({ newPerDay: 10, strict: true, dlen: 10, dmode: 'type' }, s.set || {});
+    s.set = Object.assign({ newPerDay: 10, strict: true, dlen: 10, dmode: 'type', andMore: true }, s.set || {});
     const df = s.set.df || {}; s.set.df = {};
     for (const g of Object.keys(D.DF)) s.set.df[g] = Array.isArray(df[g]) ? df[g].filter(x => D.DF[g].includes(x)) : D.DF[g].slice();
     s.day = SRS.dayState(s.day, SRS.dayNum());
     return s;
   }
-  const save = () => store.save(S);
+  const save = () => { if (TEST) return; store.save(S); };
   const today = () => SRS.dayNum();
   const day = () => (S.day = SRS.dayState(S.day, today()));
   const V = () => $('#view');
@@ -118,14 +119,18 @@
     q.items = q.items.slice(0, SESSION_MAX); q.total = q.items.length;
     Q = q; nextCard();
   }
-  function nextCard() { const it = Q && Q.items.shift(); if (!it) { Q = null; return renderToday(); } renderCard(it); }
-  function gradeCard(it, right) { SRS.answer({ cards: S.cards, day: day(), queue: Q }, it, right, today()); save(); nextCard(); }
+  function nextCard() { const it = Q && Q.items.shift(); if (!it) { Q = null; return TEST ? renderTest() : renderToday(); } renderCard(it); }
+  function gradeCard(it, right) {
+    if (TEST) { if (Q) Q.done++; return nextCard(); }   // one card, then back; the schedule is not touched
+    SRS.answer({ cards: S.cards, day: day(), queue: Q }, it, right, today()); save(); nextCard();
+  }
   function sessionHead() {
     if (!Q) return '';
     const pct = Q.total ? 100 * Q.done / Q.total : 0;
-    return `<div class="row small muted"><span class="grow">${Q.done} / ${Q.total}</span><button class="link" id="stop">Stop: progress is saved</button></div><div class="bar"><i style="width:${pct}%"></i></div>`;
+    const stop = TEST ? '<span class="pill" style="margin-right:8px">Test mode</span><button class="link" id="stop">Stop</button>' : '<button class="link" id="stop">Stop: progress is saved</button>';
+    return `<div class="row small muted"><span class="grow">${Q.done} / ${Q.total}</span>${stop}</div><div class="bar"><i style="width:${pct}%"></i></div>`;
   }
-  function bindStop(cb) { const b = $('#stop'); if (b) b.onclick = () => { Q = null; cb(); }; }
+  function bindStop(cb) { const b = $('#stop'); if (b) b.onclick = () => { Q = null; if (TEST) renderTest(); else cb(); }; }
   const goalBar = (n, of) => `<div class="bar"><i style="width:${Math.min(100, 100 * n / of).toFixed(1)}%"></i></div>`;
   function renderToday() {
     $('#sub').textContent = 'Flashcards';
@@ -209,7 +214,7 @@
       }
       return null;
     },
-    pickRedo(c, avoid) { const ids = UALL[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid])), Q && Q.pool) : null; },
+    pickRedo(c, avoid) { const ids = (TEST ? U : UALL)[c]; return ids ? mk(c, DrillPick.pickWord(cands(ids), new Set([avoid])), Q && Q.pool) : null; },
   };
   let drillEnd = null, showSet = false, drillMsg = '';
   function startDrills(only, len, label) {
@@ -219,13 +224,19 @@
   }
   function nextDrill() {
     const it = DrillSession.next(Q, SRC);
-    if (!it) { drillEnd = { n: Q.done, ok: Q.ok, only: Q.only, label: Q.label }; Q = null; return renderDrills(); }
+    if (!it) {
+      const fin = { n: Q.done, ok: Q.ok, only: Q.only, label: Q.label }; Q = null;
+      if (TEST) return renderTest(fin);
+      drillEnd = fin; return renderDrills();
+    }
     renderDrill(it);
   }
   function gradeDrill(it, right) {
-    const d = day();
-    S.dq++; S.dst[it.c] = DrillPick.record(S.dst[it.c], right, Date.now(), S.dq);
-    S.ds.w[it.id] = (S.ds.w[it.id] || 0) + 1; d.dn = (d.dn || 0) + 1; save();
+    if (!TEST) {
+      const d = day();
+      S.dq++; S.dst[it.c] = DrillPick.record(S.dst[it.c], right, Date.now(), S.dq);
+      S.ds.w[it.id] = (S.ds.w[it.id] || 0) + 1; d.dn = (d.dn || 0) + 1; save();
+    }
     DrillSession.answer(Q, it, right); nextDrill();
   }
   const chipRow = (g, title) => `<div class="small muted chiph">${title}</div>${UI.chips(g, CHIPS[g], S.set.df[g])}`;
@@ -260,7 +271,7 @@
       <div class="small muted" style="margin-top:4px">${esc(dfSummary())} · <b>${keys.length}</b> forms, <b>${nw}</b> words</div>
       ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}${chipRow('persons', 'Person')}${chipRow('vnums', 'Number')}<h3>Articles</h3>${chipRow('arts', 'Article')}${chipRow('agen', 'Noun gender')}${chipRow('anum', 'Number')}${chipRow('onsets', 'Word starts with')}<h3>Adjective agreement</h3>${chipRow('acls', 'Adjective type')}${chipRow('jgen', 'Noun gender')}${chipRow('jnum', 'Number')}
         <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
-        <p class="small muted">“Irregular” collects the tenses a verb forms irregularly (e.g. <i>fare</i> in the present, <i>prendere</i> in the passato prossimo); the rest of that verb stays in its regular group. Reflexive-only verbs are left out for now.</p>
+        <p class="small muted">“Irregular” collects the tenses a verb forms irregularly (e.g. <i>fare</i> in the present, <i>prendere</i> in the passato prossimo); the rest of that verb stays in its regular group. Reflexive-only verbs are left out for now. In Identify, a form with several readings (<i>sono</i>: io or loro) accepts any one of them; the optional <b>And…?</b> follow-up (on by default, see About) asks for the others, counting only readings these settings allow.</p>
         <button class="primary big" id="tdone">Done</button></div>` : ''}</div>
       <div class="card"><button class="big" id="opencs">📖 Cheat sheet</button></div>`;
     if ($('#dgo')) $('#dgo').onclick = () => startDrills(fin && fin.only ? fin.only : null, null, fin && fin.label);
@@ -302,7 +313,7 @@
   function newTip(it) {
     if (!it.nf) return '';
     const l = LS.find(x => x.id === D.comboLesson(it.c));
-    return `<div class="newtip small">New form for you. Quick refresher: <button class="link" data-tip="cs">📖 Cheat sheet</button>${l ? ` · <button class="link" data-tip="${l.id}">Lesson: ${esc(l.title)}</button> <span class="muted">(leaves the drill; progress is saved)</span>` : ''}</div>`;
+    return `<div class="newtip small">New form for you. Quick refresher: <button class="link" data-tip="cs">📖 Cheat sheet</button>${l ? ` · <button class="link" data-tip="${l.id}">Lesson: ${esc(l.title)}</button> <span class="muted">(${TEST ? 'leaves the drill' : 'leaves the drill; progress is saved'})</span>` : ''}</div>`;
   }
   const bindTip = it => $$('[data-tip]').forEach(b => b.onclick = () => b.dataset.tip === 'cs' ? openSheet(D.comboAnchor(it.c)) : (setTab('learn'), openLesson(b.dataset.tip)));
   function prompt(q) {
@@ -330,7 +341,12 @@
     $('#chk').onclick = go; bindStop(renderDrills); UI.bindTyped(go);
   }
   function renderIdentify(it) {
-    const { sel, fixed, open } = D.idSetup(it); let done = false;
+    const { sel, fixed, open } = D.idSetup(it);
+    const ps = D.andReadings(it);   // readings the current chips can name
+    let done = false, phase = 'ask', firstOk = false, guesses = 0, best = null;
+    const found = [];
+    const plur = (n, x) => `<b>${n}</b> ${x}${n === 1 ? '' : 's'}`;
+    const lbl = p => `<b>${esc(it.show)}</b> = ${esc(D.TENSES[p.t])}, ${esc(SUBJ6[M.PERSONS.indexOf(p.p)])}`;
     const top = it.kind === 'verb'
       ? `<div class="tl" lang="it">${esc(it.show)}</div><div class="small muted">from <b>${esc(it.head)}</b> · ${esc(it.gloss.slice(0, 80))}</div><div class="small muted">Which tense and person?</div>`
       : `<div class="tl" lang="it">${esc(it.idPrompt)}</div><div class="small muted"><b>${esc(it.head)}</b> · ${esc(it.gloss.slice(0, 80))}${it.kind === 'agr' ? ' · noun: ' + esc(it.noun.it) + ' (' + (it.noun.g === 'f' ? 'f.' : 'm.') + ')' : ''}</div><div class="small muted">Which ${it.kind === 'art' ? 'article' : 'form'} fills the gap?</div>`;
@@ -339,22 +355,58 @@
       <div id="ans"><button class="primary big" id="chk" style="margin-top:14px">Check</button></div>${it.nf ? '<div class="newtip small" id="pretip">New form for you: take your best guess. A refresher link comes with the answer.</div>' : ''}</div>`;
     const refresh = () => {
       $$('#idrows .idrow').forEach(r => r.querySelectorAll('button').forEach(b => { const on = sel[r.dataset.a] === b.dataset.v; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }));
-      $('#chk').disabled = !it.rows.every(r => sel[r.key] != null);
+      const chk = $('#chk'); if (chk) chk.disabled = !it.rows.every(r => sel[r.key] != null);
     };
     $$('#idrows button').forEach(b => { if (fixed.has(b.closest('.idrow').dataset.a)) b.disabled = true;
-      b.onclick = () => { const k = b.closest('.idrow').dataset.a; if (done || fixed.has(k)) return; sel[k] = b.dataset.v; refresh(); if (open === 1) go(); }; });
-    const go = () => {
-      if (done || $('#chk').disabled) return; done = true;
-      const ok = D.idRight(it, sel), best = it.valid.find(v => Object.keys(v).some(k => v[k] === sel[k])) || it.valid[0];
-      if ($('#pretip')) $('#pretip').remove();
-      $$('#idrows .idrow').forEach(r => { const k = r.dataset.a; r.querySelectorAll('button').forEach(b => { b.disabled = true; const v = b.dataset.v;
+      b.onclick = () => { const k = b.closest('.idrow').dataset.a; if (done || fixed.has(k)) return; sel[k] = b.dataset.v; refresh(); if (phase === 'ask' && open === 1) go(); }; });
+    // After a right answer on an ambiguous form, And…? asks for the other readings. One guess per reading left;
+    // repeating a reading already named spends nothing. Skip is free. The score uses only the first answer.
+    const andStep = msg => {
+      const left = ps.length - found.length;
+      $('#ans').innerHTML = `<div class="answer"><div class="ok">✓ Right</div><ul class="parses">${found.map(p => `<li class="got">✓ ${lbl(p)}</li>`).join('')}</ul>
+        <div class="andq"><b>And…?</b> This form has ${plur(left, 'more reading')} in your drill settings. Change the chips to name ${left === 1 ? 'it' : 'one'}, or skip (no penalty). <span id="andleft">${plur(guesses, 'guess')} left.</span></div>
+        ${msg ? `<div class="small andmsg">${esc(msg)}</div>` : ''}
+        <div class="row" style="margin-top:10px"><button class="grow" id="andskip">Skip</button><button class="primary grow" id="chk">Check</button></div></div>`;
+      $('#chk').onclick = go; $('#andskip').onclick = () => finish();
+      $$('#idrows button').forEach(b => { b.classList.remove('right', 'wrong', 'want'); if (!fixed.has(b.closest('.idrow').dataset.a)) b.disabled = false; });
+      done = false; refresh();
+    };
+    const finish = () => {
+      done = true; const ok = firstOk, andDone = phase === 'and'; phase = 'end';
+      $$('#idrows .idrow').forEach(r => { const k = r.dataset.a; r.querySelectorAll('button').forEach(b => { b.disabled = true; if (andDone) return; const v = b.dataset.v;
         if (v === sel[k]) b.classList.add(ok || v === best[k] ? 'right' : 'wrong'); else if (!ok && v === best[k]) b.classList.add('want'); }); });
-      const parses = it.kind === 'verb' ? `<div class="small muted chiph">${it.valid.length > 1 ? it.valid.length + ' valid answers (any one counts)' : 'The answer'}</div><ul class="parses">${it.valid.map(p => `<li><b>${esc(it.show)}</b> = ${esc(D.TENSES[p.t])}, ${esc(SUBJ6[M.PERSONS.indexOf(p.p)])}</li>`).join('')}</ul>`
+      const shown = andDone ? ps : it.valid;
+      const parses = it.kind === 'verb' ? `<div class="small muted chiph">${shown.length > 1 ? shown.length + ' valid answers (any one counts)' : 'The answer'}</div><ul class="parses">${shown.map(p => andDone
+        ? `<li class="${found.some(f => f.t === p.t && f.p === p.p) ? 'got' : 'missed'}">${found.some(f => f.t === p.t && f.p === p.p) ? '✓' : '○'} ${lbl(p)}${found.some(f => f.t === p.t && f.p === p.p) ? '' : ' <span class="muted">(missed)</span>'}</li>`
+        : `<li>${lbl(p)}</li>`).join('')}</ul>`
         : `<div class="tl" lang="it">${esc(it.show)}</div>`;
-      $('#ans').innerHTML = `<div class="answer">${ok ? '<div class="ok">✓ Right</div>' : '<div class="no">✗ Wrong</div>'}${parses}${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ''}${miniTable(it)}
+      const note = andDone ? (found.length === ps.length ? `<div class="small andall">★ All ${ps.length} readings. Nice!</div>`
+        : `<div class="small muted">You named ${found.length} of ${ps.length} readings. The others are below.</div>`) : '';
+      $('#ans').innerHTML = `<div class="answer">${ok ? '<div class="ok">✓ Right</div>' : '<div class="no">✗ Wrong</div>'}${note}${parses}${it.note ? `<div class="small muted">${esc(it.note)}</div>` : ''}${miniTable(it)}
         ${it.nf ? '' : `<div class="row" style="margin-top:10px">${cslink}</div>`}${newTip(it)}<div class="row" style="margin-top:10px"><button class="primary big" data-r="${ok ? 1 : 0}">Next</button></div></div>`;
       if ($('#cs')) $('#cs').onclick = () => openSheet(D.comboAnchor(it.c)); bindTip(it);
       UI.bindRW(x => gradeDrill(it, x)); UI.focusNext();
+    };
+    const go = () => {
+      if (done || !$('#chk') || $('#chk').disabled) return;
+      if (phase === 'and') {
+        const r = D.andGrade(sel, ps, found);
+        if (r.kind === 'dup') return andStep('You already named that one.');
+        const step = D.andSpend(guesses, r.kind, found.length, ps.length);
+        guesses = step.guesses;
+        if (r.kind === 'new') found.push(r.p);
+        if (step.done) return finish();
+        return andStep(r.kind === 'new' ? '✓ Yes, that’s another one.' : '✗ Wrong — that isn’t a reading of this form. Try again, or skip (no penalty).');
+      }
+      done = true;
+      firstOk = D.idRight(it, sel);
+      best = it.valid.find(v => Object.keys(v).some(k => v[k] === sel[k])) || it.valid[0];
+      if ($('#pretip')) $('#pretip').remove();
+      if (firstOk && it.kind === 'verb' && ps.length > 1 && S.set.andMore) {
+        const hit = ps.find(p => Object.keys(p).every(k => sel[k] === p[k]));
+        if (hit) { phase = 'and'; found.push(hit); guesses = ps.length - 1; return andStep(''); }
+      }
+      finish();
     };
     refresh(); $('#chk').onclick = go; bindStop(renderDrills);
   }
@@ -499,7 +551,43 @@
     else if (w.pos === 'v') f = `<div class="small muted">Past participle: ${esc(M.pastPart(w))}. Usually used ${w.refl ? 'reflexively' : 'impersonally'}; not drilled yet.</div>`;
     else if (w.pos === 'adj' && w.forms) f = adjTable([w.it]);
     else if (D.nounOk(w)) f = miniTable({ kind: 'art', id: w.id });
-    return `<div class="det"><div class="small">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${f}<div class="small muted" style="margin-top:6px">Card: ${status(w)}</div></div>`;
+    return `<div class="det"><div class="small">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${f}<div class="small muted" style="margin-top:6px">Card: ${status(w)}</div>
+      <button class="link small tbtn" data-t="${esc(w.id)}" style="margin-top:6px">Test this word ›</button></div>`;
+  }
+  // ---------- Test mode: every feature on one word, progress untouched ----------
+  function testWhy(w, n) {
+    if (n) return '';
+    if (w.pos === 'v' && w.refl) return 'Not in form drills: usually reflexive.';
+    if (w.pos === 'v' && w.impers) return 'Not in form drills: usually impersonal.';
+    if (w.pos === 'adj' && w.noagr) return 'Not in form drills: this adjective isn’t in the agreement drills.';
+    if (w.pos === 'v' || (w.pos === 'n' && D.nounOk(w)) || (w.pos === 'adj' && D.adjOk(w))) return 'No forms of this word match your drill settings (Drills › What to drill).';
+    return 'This word isn’t in the form drills (verbs, articles, and adjective agreement).';
+  }
+  function testUnits(id) {
+    const all = D.buildUnits(W, S.set.df), u = {};
+    for (const c of Object.keys(all)) if (all[c].includes(id)) u[c] = [id];
+    return u;
+  }
+  function enterTest(id) { if (!TEST) TEST = { id, snap: JSON.stringify(S) }; else TEST.id = id; Q = null; renderTest(); window.scrollTo(0, 0); }
+  function exitTest() { if (!TEST) return; S = fix(JSON.parse(TEST.snap)); TEST = null; rebuild(); }
+  function renderTest(fin) {
+    const w = BY[TEST.id];
+    S = fix(JSON.parse(TEST.snap)); U = testUnits(w.id);   // every run starts from the real progress, and only this word is asked
+    $('#sub').textContent = 'Test mode';
+    const why = testWhy(w, Object.keys(U).length);
+    V().innerHTML = `<div class="card"><div class="prompt-kind">Test mode · nothing is saved</div>
+      <div class="tl" lang="it" style="margin-top:6px">${esc(artHead(w))}</div><div class="small muted">${esc(w.en.length > 120 ? w.en.slice(0, 118) + '…' : w.en)}</div>
+      ${fin ? `<div class="small" id="tfin" style="margin-top:8px">Last set: ${fin.ok} of ${fin.n} right</div>` : ''}</div>
+      <div class="card"><div class="small muted chiph" style="margin-top:0">Flashcard</div>
+        <div class="row wrap"><button class="grow" id="tf-r">Italian → English</button><button class="grow" id="tf-p">English → Italian</button></div>
+        <div class="small muted chiph">Form drills${Object.keys(U).length ? ` (${Object.keys(U).length} forms)` : ''}</div>
+        ${why ? `<p class="small muted" id="tnod">${esc(why)}</p>` : `<div class="row wrap">${MODES.map(([m, l]) => `<button class="grow" data-tm="${m}">${l}</button>`).join('')}</div>
+        <p class="small muted" style="margin:6px 0 0">Uses your drill settings and the “And…?” setting on the About tab. Verbs, articles, or adjective agreement, for this word only.</p>`}</div>
+      <div class="center"><button class="link" id="texit">Exit test mode</button></div>`;
+    $('#tf-r').onclick = () => { Q = { kind: 'vocab', items: [{ k: 'r:' + w.id }], done: 0, total: 1 }; nextCard(); };
+    $('#tf-p').onclick = () => { Q = { kind: 'vocab', items: [{ k: 'p:' + w.id }], done: 0, total: 1 }; nextCard(); };
+    $$('[data-tm]').forEach(b => b.onclick = () => { S.set.dmode = b.dataset.tm; startDrills(); });
+    $('#texit').onclick = () => setTab('list');
   }
   function renderList() {
     $('#sub').textContent = W.length + ' words';
@@ -514,6 +602,7 @@
       $('#lmore').innerHTML = ws.length > LN ? `<button class="big" id="lmb" style="margin-top:10px">Show more (${ws.length - LN} left)</button>` : '';
       if ($('#lmb')) $('#lmb').onclick = () => { LN += 200; draw(); };
       $$('#ll li[data-id]').forEach(li => li.onclick = e => { if (e.target.closest('.det')) return; LOPEN = LOPEN === li.dataset.id ? null : li.dataset.id; draw(); });
+      $$('#ll .tbtn').forEach(b => b.onclick = e => { e.stopPropagation(); enterTest(b.dataset.t); });
     };
     $('#lq').oninput = e => { LQ = e.target.value; LN = 200; draw(); };
     $('#lpos').onchange = e => { LPOS = e.target.value; LN = 200; draw(); };
@@ -528,12 +617,14 @@
     V().innerHTML = `<div class="card"><h2 style="margin-top:0">Settings</h2>
       <div class="small muted chiph">New words per day</div>${UI.seg('snew', [[5, '5'], [10, '10'], [20, '20']], S.set.newPerDay)}
       <div class="small muted chiph">Typed answers</div>${UI.seg('sacc', [['1', 'Accents count'], ['0', 'Accents optional']], S.set.strict ? '1' : '0')}
-      <p class="small muted">With accents counting, <i>citta</i> for <i>città</i> or <i>e</i> for <i>è</i> is marked wrong (you can still tap “Count as correct”).</p></div>
+      <p class="small muted">With accents counting, <i>citta</i> for <i>città</i> or <i>e</i> for <i>è</i> is marked wrong (you can still tap “Count as correct”). Accents are optional only when that setting is on.</p>
+      <div class="small muted chiph">Identify drills: forms with more than one reading</div>${UI.seg('sand', [['1', 'Ask “And…?”'], ['0', 'Just show them']], S.set.andMore ? '1' : '0')}
+      <p class="small muted">Some forms are several readings at once (<i>sono</i>: io or loro). Any one counts as right. With <b>Ask “And…?”</b> on, a right answer is followed by an optional prompt to name the other readings, with one guess per reading left. Naming a reading you already gave doesn’t use a guess. Skipping costs nothing, and the score uses only your first answer.</p></div>
       <div class="card"><h2 style="margin-top:0">Your progress</h2><p class="small muted" style="margin-top:0">Progress is stored only on this device. Export it to back up or move to another device.</p>
       <div class="row wrap"><button class="grow" id="exp">Export</button><button class="grow" id="imp">Import</button><button class="grow" id="rst">Reset</button></div><input type="file" id="impf" accept=".json,application/json" hidden></div>
       <div class="card"><h2 style="margin-top:0">How it works</h2>
       <p class="small"><b>Cards.</b> Each word has two cards: Italian → English, and (after you get that one right) English → Italian, where you can type the answer. You grade yourself right or wrong, nothing more. Right moves a card up a box (next review in 1, 3, 7, 14, 30, 60, then 120 days); wrong sends it back to the start and it returns in a few cards. Words come in frequency order, ${S.set.newPerDay} new a day, and a session is at most ${SESSION_MAX} cards (about 5–10 minutes).</p>
-      <p class="small"><b>Drills.</b> Free practice on verb forms (present, passato prossimo, imperfetto, future), articles, and adjective agreement. Type the form, identify it with chips, or mix. Questions favor forms you miss, haven’t tried, or haven’t seen lately; a miss comes back a few questions later with another word. “New word” and “New form” tags mark first meetings. Drills don’t affect the flashcard schedule.</p>
+      <p class="small"><b>Drills.</b> Free practice on verb forms (present, passato prossimo, imperfetto, future), articles, and adjective agreement. Type the form, identify it with chips, or mix. Questions favor forms you miss, haven’t tried, or haven’t seen lately; a miss comes back a few questions later with another word. “New word” and “New form” tags mark first meetings. Drills don’t affect the flashcard schedule. From a word in the list, <b>Test this word</b> runs that word’s cards and drills without saving anything.</p>
       <p class="small"><b>Learn.</b> ${LS.length} short lessons with tables generated by the same grammar engine that checks your answers, plus a cheat sheet.</p></div>
       <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">More packs (Dante’s <i>Commedia</i>, Rome & travel) are planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
@@ -544,6 +635,7 @@
       <p class="small muted">App code: MIT license. Word list and glosses: CC BY-SA 4.0. Source: <a href="https://github.com/ericianni/italiano-1500" target="_blank" rel="noopener">github.com/ericianni/italiano-1500</a>. Sister app: <a href="https://ericianni.github.io/latin-diederich-vocab/" target="_blank" rel="noopener">Latin 1400</a>.</p></div>`;
     $$('#snew button').forEach(b => b.onclick = () => { S.set.newPerDay = +b.dataset.v; save(); renderAbout(); });
     $$('#sacc button').forEach(b => b.onclick = () => { S.set.strict = b.dataset.v === '1'; save(); renderAbout(); });
+    $$('#sand button').forEach(b => b.onclick = () => { S.set.andMore = b.dataset.v === '1'; save(); renderAbout(); });
     $('#exp').onclick = () => UI.download('italiano1500-progress-' + new Date().toISOString().slice(0, 10) + '.json', store.exportText(S));
     $('#imp').onclick = () => $('#impf').click();
     $('#impf').onchange = e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader();
@@ -556,6 +648,7 @@
   const TABS = { today: renderToday, learn: renderLearn, drills: renderDrills, cheat: renderCheat, list: renderList, about: renderAbout };
   function setTab(t) {
     if (!TABS[t]) t = 'today'; TAB = t;
+    exitTest();
     $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
     Q = null; UI.closeOverlay(); TABS[t](); window.scrollTo(0, 0);
     if (location.hash.slice(1) !== t) history.replaceState(null, '', '#' + t);
@@ -570,7 +663,7 @@
     CTX = { agrNouns: D.agrNouns(W) }; UALL = D.buildUnits(W, D.DF); rebuild();
     $$('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
     setTab(location.hash.slice(1) || 'today');
-    window.__it1500 = { get S() { return S; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet };   // for tests
+    window.__it1500 = { get S() { return S; }, get test() { return TEST; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet, enterTest };   // for tests
   }
   // Updates: the new service worker takes over as soon as it is installed (skipWaiting + clients.claim). When it does,
   // reload right away so the new code runs, unless a set is in progress: then offer a one-tap reload instead.

@@ -214,6 +214,26 @@
   }
   // identify: picked = {key: value}; right when it matches one valid parse on every row
   function idRight(q, picked) { return q.valid.some(v => Object.keys(v).every(k => picked[k] === v[k])); }
+  const sameParse = (a, b) => a && b && Object.keys(a).every(k => a[k] === b[k]) && Object.keys(b).every(k => a[k] === b[k]);
+  // readings the chips can actually name (drill settings already limit the options)
+  function andReadings(q) {
+    if (!q || !q.valid) return [];
+    return q.valid.filter(v => q.rows.every(r => r.opts.some(([x]) => x === v[r.key])));
+  }
+  // one follow-up guess: 'new' a reading not named yet, 'dup' one already named, 'no' not a reading
+  function andGrade(sel, ps, found) {
+    const match = p => Object.keys(p).every(k => sel[k] === p[k]);
+    const p = ps.find(q => !found.some(f => sameParse(f, q)) && match(q));
+    if (p) return { kind: 'new', p };
+    const d = found.find(match);
+    return d ? { kind: 'dup', p: d } : { kind: 'no', p: null };
+  }
+  // guess budget for the follow-up: one per reading still unnamed. Naming one already given spends nothing.
+  function andSpend(guesses, kind, named, total) {
+    if (kind === 'dup') return { guesses, named, done: false };
+    const g = guesses - 1, n = named + (kind === 'new' ? 1 : 0);
+    return { guesses: g, named: n, done: n >= total || g <= 0 };
+  }
   // Identify picker state: rows with a single option are pre-picked (and shown fixed); identify only makes sense when
   // at least one row is left to pick, otherwise the question is asked typed
   function idSetup(q) {
@@ -224,5 +244,5 @@
 
   return { TENSES, TENSE_IT, SUBJ, VGROUPS, ACLS, ONSET, GN, DF, DEF_ARTS, IND_ARTS, AGR_NOUNS,
     verbOk, nounOk, adjOk, aclass, irrTense, vgroup, auxes, ppAnswers, plOf,
-    buildUnits, entries, poolTenses, poolInfo, comboArt, idSetup, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight };
+    buildUnits, entries, poolTenses, poolInfo, comboArt, idSetup, kindOf, comboLabel, comboAnchor, comboLesson, makeQ, verbParses, agrNouns, check, clean, idRight, andReadings, andGrade, andSpend };
 });
