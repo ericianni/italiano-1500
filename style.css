@@ -23,6 +23,10 @@ button:disabled{opacity:.45}
 .bar{height:8px;background:var(--soft);border-radius:8px;overflow:hidden;margin:8px 0 2px}.bar i{display:block;height:100%;background:var(--accent);border-radius:8px}
 .prompt-kind{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .tl{font-family:Georgia,"Times New Roman",serif;font-size:1.65rem;line-height:1.25;margin:.35rem 0}
+.sentline{line-height:1.55}
+.sgloss{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.68rem;color:var(--muted);margin-left:.12em;font-weight:400}
+.stok.hl{background:#f6e7b8;border-radius:.15em;padding:0 .08em}
+@media (prefers-color-scheme:dark){.stok.hl{background:#4a3f1e}}
 .english{font-size:1.2rem;margin:.35rem 0}
 .answer{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px}
 .pill{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--muted);margin-right:4px}

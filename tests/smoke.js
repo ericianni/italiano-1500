@@ -181,6 +181,43 @@ async function main() {
     A.S.set.dmode=keep.dmode; A.S.set.dlen=keep.dlen; A.S.set.andMore=keep.andMore; A.S.set.df=JSON.parse(keep.df);
     return 'flashcards, type, mix, And…? on sono; progress unchanged';
   })()`);
+  await step('sentences in drills', `(async()=>{
+    const A=window.__it1500;
+    if (A.S.set.df.sent) throw new Error('sentences are on by default');
+    const dn0=A.S.day.dn||0;
+    A.W.forEach(w=>{ A.S.cards['r:'+w.id]={box:1,due:0}; });
+    A.S.set.df.sent=true; A.S.set.df.stype='both'; A.S.set.df.sdir='both'; A.S.set.dlen=20;
+    await A.loadSentences();
+    A.setTab('drills');
+    await A.startDrills();
+    let n=0, sent=0, prev=false, bb=0;
+    for (let i=0;i<20;i++) {
+      const chk=document.querySelector('#chk'); if (!chk) break;
+      const kind=(document.querySelector('.prompt-kind')||{}).textContent||'';
+      const isSent=/Sentence/.test(kind);
+      if (isSent && prev) bb++;
+      if (isSent) sent++;
+      prev=isSent;
+      const typed=document.querySelector('#typed');
+      if (typed) { typed.value='zzz'; typed.dispatchEvent(new Event('input',{bubbles:true})); chk.click(); }
+      else {
+        document.querySelectorAll('#idrows .idrow').forEach(r=>{ const b=r.querySelector('button:not([disabled])'); if (b && !r.querySelector('button.on')) b.click(); });
+        const c=document.querySelector('#chk'); if (c && !c.disabled) c.click();
+      }
+      const ans=document.querySelector('#ans');
+      if (isSent && !/Wrong/.test((ans||{}).textContent||'')) throw new Error('sentence was not graded: '+((ans||{}).textContent||'').slice(0,80));
+      if (isSent && !/Italian|English|è|il |la |un /.test((ans||{}).textContent||'') && !/[A-Z]/.test((ans||{}).textContent||'')) throw new Error('no model answer');
+      const nx=[...document.querySelectorAll('#ans button[data-r]')].pop();
+      if (!nx) throw new Error('no next');
+      nx.click(); n++;
+    }
+    const dn=(A.S.day.dn||0)-dn0;
+    A.S.set.df.sent=false;
+    if (bb) throw new Error('two sentences in a row');
+    if (!sent) throw new Error('no sentence in '+n+' questions');
+    if (dn!==n) throw new Error('daily count '+dn+' for '+n+' answers');
+    return n+' answered, '+sent+' sentences, daily +'+dn;
+  })()`);
   await step('sw', `navigator.serviceWorker.getRegistration().then(r=>r? 'registered':'none').then(async x=>x+' / caches: '+(await caches.keys()).join(','))`);
   for (const [n, v] of results) console.log('ok  ' + n + ': ' + JSON.stringify(v));
   for (const e of errors) console.log('ERR ' + e);

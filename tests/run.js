@@ -356,7 +356,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v8'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v9'/.test(sw), 'sw: cache name');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);
@@ -368,6 +368,8 @@ const SPOT = { casa: ['f', 'case'], uomo: ['m', 'uomini'], mano: ['f', 'mani'], 
   luogo: ['m', 'luoghi'], gioco: ['m', 'giochi'], medico: ['m', 'medici'], film: ['m', 'film'], foto: ['f', 'foto'], braccio: ['m', 'braccia'], dito: ['m', 'dita'], porta: ['f', 'porte'],
   acqua: ['f', 'acque'], cosa: ['f', 'cose'], posto: ['m', 'posti'], lavoro: ['m', 'lavori'], mondo: ['m', 'mondi'], parte: ['f', 'parti'], fine: ['f', 'fini'], amore: ['m', 'amori'] };
 for (const it in SPOT) { const w = BY[it]; if (!w) { ok(false, 'spot: missing ' + it); continue; } eq([w.g, M.nounPlural(w).pl], SPOT[it], 'spot noun ' + it); }
+
+require('./sentences.js')(eq, ok);
 
 pending.then(() => {
   console.log(fails.map(f => 'FAIL ' + f).join('\n'));

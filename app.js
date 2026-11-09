@@ -19,6 +19,10 @@
     s.set = Object.assign({ newPerDay: 10, strict: true, dlen: 10, dmode: 'type', andMore: true }, s.set || {});
     const df = s.set.df || {}; s.set.df = {};
     for (const g of Object.keys(D.DF)) s.set.df[g] = Array.isArray(df[g]) ? df[g].filter(x => D.DF[g].includes(x)) : D.DF[g].slice();
+    // Sentences in drills. Off until the learner turns them on. Not chip lists: three settings only.
+    s.set.df.sent = df.sent === true;
+    s.set.df.stype = df.stype === 'tr' || df.stype === 'id' || df.stype === 'both' ? df.stype : 'both';
+    s.set.df.sdir = df.sdir === 'ie' || df.sdir === 'ei' || df.sdir === 'both' ? df.sdir : 'ie';
     s.day = SRS.dayState(s.day, SRS.dayNum());
     return s;
   }
@@ -205,8 +209,31 @@
   const pct = st => st && st.n > 0 ? Math.round(100 * DrillPick.acc(st)) + '%' : '—';
   const cands = ids => ids.map(i => ({ id: i, r: BY[i].rank, fc: !!S.cards['r:' + i] }));
   function mk(c, id, pool) { const w = BY[id]; return w ? D.makeQ(c, w, Object.assign({}, CTX, { pool })) : null; }
+  let sentLoad = null;
+  function loadSentences() {
+    if (window.ItSentences) { window.ItSentences.bind(W); return Promise.resolve(window.ItSentences); }
+    if (sentLoad) return sentLoad;
+    const add = src => new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = src; s.onload = () => res(); s.onerror = () => rej(new Error(src));
+      document.body.appendChild(s);
+    });
+    sentLoad = add('lang/it/sentences_lexicon.js').then(() => add('lang/it/sentences.js')).then(() => {
+      window.ItSentences.bind(W); return window.ItSentences;
+    });
+    return sentLoad;
+  }
   const SRC = {
     pick(only, avoidC, avoidW) {
+      if (S.set.df.sent === true && !TEST && window.ItSentences && Q) {
+        const m = ItSentences.mixNext(Q.smix, true);
+        Q.smix = m.state;
+        if (m.take) {
+          const allow = new Set(only ? [...only] : Object.keys(U));
+          const item = ItSentences.pickDrill({ df: S.set.df, seen: ItSentences.seenIds(S), words: W, allow: allow, stats: S.dst, q: S.dq });
+          if (item) return item;
+        }
+      }
       const src = only ? UALL : U, es = D.entries(src).filter(e => !only || only.has(e.c)); if (!es.length) return null;
       for (let k = 0; k < 6; k++) {
         const c = DrillPick.pickCombo(es, S.dst, { q: S.dq, exclude: avoidC });
@@ -218,9 +245,14 @@
   };
   let drillEnd = null, showSet = false, drillMsg = '';
   function startDrills(only, len, label) {
-    Q = DrillSession.create(len || S.set.dlen, only); Q.label = label || '';
-    Q.pool = D.poolInfo(only ? [...only] : Object.keys(U));   // Identify offers only the choices being drilled
-    nextDrill();
+    const go = () => {
+      Q = DrillSession.create(len || S.set.dlen, only); Q.label = label || '';
+      Q.pool = D.poolInfo(only ? [...only] : Object.keys(U));   // Identify offers only the choices being drilled
+      Q.smix = null;
+      nextDrill();
+    };
+    if (S.set.df.sent === true && !TEST) return loadSentences().then(go).catch(() => go());
+    go();
   }
   function nextDrill() {
     const it = DrillSession.next(Q, SRC);
@@ -231,7 +263,17 @@
     }
     renderDrill(it);
   }
+  function gradeSentence(it, right) {
+    if (!TEST) {
+      const d = day();
+      const next = ItSentences.applyGrade({ dst: S.dst, dq: S.dq, dn: d.dn || 0 }, it, right, Date.now());
+      S.dst = next.dst; S.dq = next.dq; d.dn = next.dn; save();
+    }
+    if (Q) { Q.done++; if (right) Q.ok++; }
+    nextDrill();
+  }
   function gradeDrill(it, right) {
+    if (it && it.sent) return gradeSentence(it, right);
     if (!TEST) {
       const d = day();
       S.dq++; S.dst[it.c] = DrillPick.record(S.dst[it.c], right, Date.now(), S.dq);
@@ -247,6 +289,7 @@
     if (df.types.includes('verb')) p.push('verbs: ' + (df.tenses.length === 4 ? 'all tenses' : nm('tenses').join(', ') || 'no tense') + (lim(['groups', 'persons', 'vnums']) ? ' (' + lim(['groups', 'persons', 'vnums']) + ')' : ''));
     if (df.types.includes('art')) part('articles', ['arts', 'agen', 'anum', 'onsets']);
     if (df.types.includes('agr')) part('adjective agreement', ['acls', 'jgen', 'jnum']);
+    if (df.sent) p.push('sentences on');
     return p.join(' · ') || 'nothing selected';
   }
   function renderDrills() {
@@ -271,6 +314,10 @@
       <div class="small muted" style="margin-top:4px">${esc(dfSummary())} · <b>${keys.length}</b> forms, <b>${nw}</b> words</div>
       ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}${chipRow('persons', 'Person')}${chipRow('vnums', 'Number')}<h3>Articles</h3>${chipRow('arts', 'Article')}${chipRow('agen', 'Noun gender')}${chipRow('anum', 'Number')}${chipRow('onsets', 'Word starts with')}<h3>Adjective agreement</h3>${chipRow('acls', 'Adjective type')}${chipRow('jgen', 'Noun gender')}${chipRow('jnum', 'Number')}
         <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
+        <div class="small muted chiph">Sentences in drills</div>${UI.seg('ssent', [['0', 'Off'], ['1', 'On']], S.set.df.sent ? '1' : '0')}
+        <p class="small muted">About one question in seven is a short sentence for a trip to Rome, built only from words you have already seen. Off until you turn it on.</p>
+        ${S.set.df.sent ? `<div class="small muted chiph">Sentence question</div>${UI.seg('sstype', [['tr', 'Translate'], ['id', 'Identify'], ['both', 'Both']], S.set.df.stype)}
+        <div class="small muted chiph">Translate direction</div>${UI.seg('ssdir', [['ie', 'Italian → English'], ['ei', 'English → Italian'], ['both', 'Both']], S.set.df.sdir)}` : ''}
         <p class="small muted">“Irregular” collects the tenses a verb forms irregularly (e.g. <i>fare</i> in the present, <i>prendere</i> in the passato prossimo); the rest of that verb stays in its regular group. Reflexive-only verbs are left out for now. In Identify, a form with several readings (<i>sono</i>: io or loro) accepts any one of them; the optional <b>And…?</b> follow-up (on by default, see About) asks for the others, counting only readings these settings allow.</p>
         <button class="primary big" id="tdone">Done</button></div>` : ''}</div>
       <div class="card"><button class="big" id="opencs">📖 Cheat sheet</button></div>`;
@@ -284,6 +331,13 @@
       S.set.df[g] = a.includes(v) ? a.filter(x => x !== v) : a.concat(v); save(); rebuild(); renderDrills();
     });
     $$('#sdr button').forEach(b => b.onclick = () => { S.set.dlen = +b.dataset.v; save(); renderDrills(); });
+    $$('#ssent button').forEach(b => b.onclick = () => {
+      S.set.df.sent = b.dataset.v === '1'; save();
+      if (S.set.df.sent) loadSentences().catch(() => {});
+      renderDrills();
+    });
+    $$('#sstype button').forEach(b => b.onclick = () => { S.set.df.stype = b.dataset.v; save(); renderDrills(); });
+    $$('#ssdir button').forEach(b => b.onclick = () => { S.set.df.sdir = b.dataset.v; save(); renderDrills(); });
     $$('#dmode button').forEach(b => b.onclick = () => { S.set.dmode = b.dataset.v; save(); renderDrills(); });
   }
   function renderWeak() {
@@ -325,7 +379,75 @@
       <div class="english" style="margin-top:14px">Write <b>${esc(q.ask)}</b> <span class="small muted">(${q.noun.g === 'f' ? 'f.' : 'm.'}${q.noun.plg && q.noun.plg !== q.noun.g ? ', pl. ' + q.noun.plg + '.' : ''})</span></div>`;
   }
   const cslink = '<button class="link small" id="cs">📖 Cheat sheet</button>';
+  function sentHTML(tokens, hints, hi) {
+    const hint = {};
+    (hints || []).forEach(h => { hint[h.i] = h.en; });
+    let html = '';
+    tokens.forEach((t, i) => {
+      if (i && !tokens[i - 1].t.endsWith("'")) html += ' ';
+      const shown = i === 0 ? t.t.charAt(0).toUpperCase() + t.t.slice(1) : t.t;
+      const g = hint[i] ? `<span class="sgloss">${esc(hint[i])}</span>` : '';
+      html += `<span class="stok${i === hi ? ' hl' : ''}">${esc(shown)}${g}</span>`;
+    });
+    return html;
+  }
+  function renderSentence(it) {
+    if (it.ex === 'id') return renderSentId(it);
+    const s = it.sentence, enToIt = it.dir === 'ei';
+    const prompt = enToIt ? `<div class="english">${esc(s.en)}</div>` : `<div class="tl sentline">${sentHTML(s.tokens, it.hints)}</div>`;
+    const note = enToIt
+      ? `${s.note ? esc(s.note) + ' ' : ''}${S.set.strict ? 'Accents count.' : 'Accents optional.'}`
+      : 'Type the English. A, an, and the are optional.';
+    V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">${esc(it.kicker)}</div>${prompt}
+      <div id="ans"><input type="text" id="typed" lang="${enToIt ? 'it' : 'en'}" placeholder="${enToIt ? 'Type the Italian' : 'Type the English'}" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:8px">${enToIt ? UI.keyRow(ACC_KEYS) : ''}
+      <div class="small muted" style="margin-top:6px">${note}</div>
+      <button class="primary big" id="chk" style="margin-top:10px">Check</button></div></div>`;
+    const go = () => {
+      const v = $('#typed').value.trim();
+      const r = v ? (enToIt ? ItSentences.gradeIt(v, s, S.set.strict) : ItSentences.gradeEn(v, s)) : { ok: false };
+      $('#ans').innerHTML = `<div class="answer">${r.ok ? `<div class="ok">✓ Right${r.accent ? ' (watch the accents)' : ''}</div>` : wrongMsg(v, r)}
+        <div class="tl sentline">${sentHTML(s.tokens, it.hints)}</div>
+        <div class="english">${esc(s.en)}</div>
+        ${s.note ? `<div class="small muted">${esc(s.note)}</div>` : ''}${UI.afterTyped(r.ok)}</div>`;
+      UI.bindRW(x => gradeDrill(it, x)); UI.focusNext();
+    };
+    $('#chk').onclick = go; bindStop(renderDrills);
+    if (enToIt) UI.bindTyped(go);
+    else { const t = $('#typed'); t.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } }; t.focus({ preventScroll: true }); }
+  }
+  function renderSentId(it) {
+    const q = { rows: it.rows, valid: it.valid };
+    const { sel, fixed } = D.idSetup(q);
+    const s = it.sentence, hi = it.target ? it.target.i : -1;
+    const answerText = it.target && it.target.kind === 'verb'
+      ? D.TENSES[it.target.tense] + ', ' + D.SUBJ[M.PERSONS.indexOf(it.target.person)]
+      : D.GN[it.target.g + '.' + it.target.n];
+    V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">${esc(it.kicker)}</div>
+      <div class="tl sentline">${sentHTML(s.tokens, it.hints, hi)}</div>
+      <div class="small muted">${esc(it.prompt || '')}</div>
+      <div id="idrows">${it.rows.map(r => `<div class="idrow${fixed.has(r.key) ? ' fixed' : ''}" data-a="${r.key}"><div class="small muted chiph">${esc(r.title)}${fixed.has(r.key) ? ' <span class="muted">(only one in your drill settings)</span>' : ''}</div><div class="chips idc">${r.opts.map(([v, l]) => `<button type="button" data-v="${esc(v)}">${esc(l)}</button>`).join('')}</div></div>`).join('')}</div>
+      <div id="ans"><button class="primary big" id="chk" style="margin-top:14px">Check</button></div></div>`;
+    const refresh = () => {
+      $$('#idrows .idrow').forEach(r => r.querySelectorAll('button').forEach(b => { const on = sel[r.dataset.a] === b.dataset.v; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }));
+      const chk = $('#chk'); if (chk) chk.disabled = !it.rows.every(r => sel[r.key] != null);
+    };
+    $$('#idrows button').forEach(b => { if (fixed.has(b.closest('.idrow').dataset.a)) b.disabled = true;
+      b.onclick = () => { const k = b.closest('.idrow').dataset.a; if (fixed.has(k)) return; sel[k] = b.dataset.v; refresh(); }; });
+    const go = () => {
+      if (!$('#chk') || $('#chk').disabled) return;
+      const right = D.idRight(q, sel);
+      $('#ans').innerHTML = `<div class="answer">${right ? '<div class="ok">✓ Right</div>' : '<div class="no">✗ Wrong</div>'}
+        <div class="small">${esc(answerText)}</div>
+        <div class="small muted">${esc(D.comboLabel(it.combo))}</div>
+        <div class="tl sentline">${sentHTML(s.tokens, it.hints, hi)}</div>
+        <div class="english">${esc(s.en)}</div>${UI.afterTyped(right)}</div>`;
+      $$('#idrows button').forEach(b => { b.disabled = true; });
+      UI.bindRW(x => gradeDrill(it, x)); UI.focusNext();
+    };
+    refresh(); $('#chk').onclick = go; bindStop(renderDrills);
+  }
   function renderDrill(it) {
+    if (it.sent) return renderSentence(it);
     if ((S.set.dmode === 'id' || (S.set.dmode === 'mix' && Math.random() < 0.5)) && D.idSetup(it).open) return renderIdentify(it);
     V().innerHTML = `${sessionHead()}<div class="card"><div class="row"><div class="prompt-kind grow">${esc(it.kicker)}</div>${cslink}</div>${newTags(it)}${prompt(it)}
       <div id="ans"><input type="text" id="typed" lang="it" placeholder="Type the form" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:8px">${UI.keyRow(ACC_KEYS)}
@@ -624,7 +746,7 @@
       <div class="row wrap"><button class="grow" id="exp">Export</button><button class="grow" id="imp">Import</button><button class="grow" id="rst">Reset</button></div><input type="file" id="impf" accept=".json,application/json" hidden></div>
       <div class="card"><h2 style="margin-top:0">How it works</h2>
       <p class="small"><b>Cards.</b> Each word has two cards: Italian → English, and (after you get that one right) English → Italian, where you can type the answer. You grade yourself right or wrong, nothing more. Right moves a card up a box (next review in 1, 3, 7, 14, 30, 60, then 120 days); wrong sends it back to the start and it returns in a few cards. Words come in frequency order, ${S.set.newPerDay} new a day, and a session is at most ${SESSION_MAX} cards (about 5–10 minutes).</p>
-      <p class="small"><b>Drills.</b> Free practice on verb forms (present, passato prossimo, imperfetto, future), articles, and adjective agreement. Type the form, identify it with chips, or mix. Questions favor forms you miss, haven’t tried, or haven’t seen lately; a miss comes back a few questions later with another word. “New word” and “New form” tags mark first meetings. Drills don’t affect the flashcard schedule. From a word in the list, <b>Test this word</b> runs that word’s cards and drills without saving anything.</p>
+      <p class="small"><b>Drills.</b> Free practice on verb forms (present, passato prossimo, imperfetto, future), articles, and adjective agreement. Type the form, identify it with chips, or mix. Questions favor forms you miss, haven’t tried, or haven’t seen lately; a miss comes back a few questions later with another word. “New word” and “New form” tags mark first meetings. Drills don’t affect the flashcard schedule. Turn on <b>Sentences in drills</b> and about one question in seven is a short sentence for a trip to Rome, from words you have already seen. From a word in the list, <b>Test this word</b> runs that word’s cards and drills without saving anything.</p>
       <p class="small"><b>Learn.</b> ${LS.length} short lessons with tables generated by the same grammar engine that checks your answers, plus a cheat sheet.</p></div>
       <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">More packs (Dante’s <i>Commedia</i>, Rome & travel) are planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
@@ -663,7 +785,7 @@
     CTX = { agrNouns: D.agrNouns(W) }; UALL = D.buildUnits(W, D.DF); rebuild();
     $$('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
     setTab(location.hash.slice(1) || 'today');
-    window.__it1500 = { get S() { return S; }, get test() { return TEST; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet, enterTest };   // for tests
+    window.__it1500 = { get S() { return S; }, get test() { return TEST; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet, enterTest, loadSentences };   // for tests
   }
   // Updates: the new service worker takes over as soon as it is installed (skipWaiting + clients.claim). When it does,
   // reload right away so the new code runs, unless a set is in progress: then offer a one-tap reload instead.

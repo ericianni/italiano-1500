@@ -6,8 +6,8 @@ Offline PWA for the 1,500 most common Italian words (sister to Latin 1400). Tabs
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Shell; loads `core/*` then `lang/it/*` then `app.js` |
-| `app.js` | App shell: tabs, Cards, Drills UI, Cheat sheet, Words, Settings, Test mode |
+| `index.html` | Shell; loads `core/*` then `lang/it/*` then `app.js`. Sentence scripts are not blocking tags: `app.js` lazy-loads them the first time Sentences in drills is on |
+| `app.js` | App shell: tabs, Cards, Drills UI (including sentence items), Cheat sheet, Words, Settings, Test mode |
 | `style.css` | Styles |
 | `sw.js` | Service worker; **bump `CACHE` on every code/data release** |
 | `manifest.webmanifest` | PWA manifest |
@@ -19,6 +19,8 @@ Offline PWA for the 1,500 most common Italian words (sister to Latin 1400). Tabs
 | `core/ui.js` | DOM helpers: accent keys, chips, overlay, RW buttons (`UI`) |
 | `lang/it/morph.js` | Morphology (`ItMorph`) |
 | `lang/it/drills.js` | Drill units / questions / checking (`ItDrills` via factory → used as `D` in app) |
+| `lang/it/sentences_lexicon.js` | Hand-tagged Rome-trip lexicon for the sentence engine (`ItSentLex`) |
+| `lang/it/sentences.js` | Rule-based sentence engine (`ItSentences`); no model, no network |
 | `lang/it/lessons.js` | 11 lesson specs (`LESSONS`) |
 | `data/packs/index.json` | Pack list |
 | `data/packs/core/manifest.json` + `words.json` | Core 1,500-word pack |
@@ -43,6 +45,10 @@ There is **no** `standard`/`accepts` split like Latin; Italian shows the generat
 `buildUnits`, `makeQ`, `check(typed, answers, strict)` → `{ok, accent?}`, `idRight`, `idSetup`, `andReadings`, `andGrade`, `andSpend`, `verbOk` / `nounOk` / `adjOk`, pools, combo labels, …
 
 Accent rule: if letters match after `deaccent` but accents differ → `{ok: !strict, accent: true}` (wrong when accents count; soft note when optional).
+
+### ItSentences (`lang/it/sentences.js`)
+
+`generate` / `generateMany`, `gradeIt` / `gradeEn`, `pickDrill`, `mixNext`, `applyGrade`, `contract` / `artOf`. Built only from `ItSentLex` plus `ItMorph`. Subject pronouns are optional in the Italian; English always shows them. A wrong answer shows the model sentence.
 
 ### Core
 
@@ -82,7 +88,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 ## Architecture (brief)
 
 - **Cards:** Leitner (same intervals as Latin); IT→EN then EN→IT; right/wrong; optional typed Italian checked with `D.check` + accent keys.
-- **Drills:** Free practice via `DrillPick` + `DrillSession`. Units from `D.buildUnits(W, S.set.df)`. Modes `type` / `id` / `mix`. Weak spots list + reset.
+- **Drills:** Free practice via `DrillPick` + `DrillSession`. Units from `D.buildUnits(W, S.set.df)`. Modes `type` / `id` / `mix`. Weak spots list + reset. Optional sentences: see below.
 - **And…?:** Ambiguous verb forms (e.g. *sono*); toggle `S.set.andMore` (default on).
 - **Learn / Cheat sheet:** Tables generated from `ItMorph` (same engine that grades).
 - **Test mode:** Per-word flashcards + drills; progress snapshotted, not saved.
@@ -98,7 +104,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 
 ## Release / Git
 
-- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v8`) and extend `ASSETS` if new files are needed.
+- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v9`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
 - **Docs-only** commits do **not** need a cache bump.
 - No Android wrapper in this repo today.
 - Commit as `ericianni <ericianni@users.noreply.github.com>`; push straight to `main`; never rewrite pushed history.
@@ -110,7 +116,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 
 | Command | ~time | Notes |
 |---------|-------|-------|
-| `node tests/run.js` (or `npm test`) | ~0.3s | morph, data, SRS, drills, lessons, packs, SW asset list |
+| `node tests/run.js` (or `npm test`) | ~2s | morph, data, SRS, drills, lessons, packs, sentences (2,000 per tier), SW asset list |
 | `node tests/smoke.js` (`npm run smoke`) | slower | headless Chrome; needs `google-chrome` |
 
 ## Gotchas
@@ -120,3 +126,32 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 - Verb drills skip `refl` and `impers`; agreement drills skip `noagr` adjs.
 - Pack word ids outside `core` must use `Packs.gid` prefixing or progress keys collide.
 - Rebuild curated data via `tools/` (see README); do not hand-edit huge slices of `words.json` without updating sources/tests.
+
+## Sentences in drills
+
+Off until the learner turns it on. Three settings, all on `S.set.df` (no mix %, length, or pattern list):
+
+| Key | Values | Default |
+|-----|--------|---------|
+| `sent` | sentences in drills on / off | **off** (`false`) |
+| `stype` | `tr` translate, `id` identify, `both` | `both` |
+| `sdir` | `ie` Italian → English, `ei` English → Italian, `both` | `ie` |
+
+`app.js` lazy-loads `lang/it/sentences_lexicon.js` and `lang/it/sentences.js` the first time this is on (they are in the service-worker precache).
+
+**Mix.** `ItSentences.mixNext` draws how many ordinary drill items come before the next sentence from `[4, 5, 5, 6, 6, 7, 9]`. Each stretch is one sentence out of 5–10 items, so that stretch is 10–20% sentences. The mean gap is 6, so a long run is 1 sentence in 7 (about 14%). A sentence is never followed by another sentence. If the pool is too small, generation fails, or the drill filter cannot be matched, that slot is an ordinary drill item and the gap resets. Each sentence is one item in the set and adds **1** to the daily drill count (`S.day.dn`), whether it was right or wrong. A missed sentence is not re-asked.
+
+**Words.** Only lemmas in `sentences_lexicon.js`. The pool is lexicon content words the learner has a flashcard for (`r:` / `p:`) or has met in a drill (`S.ds.w`). Articles, the prepositions the templates use, essere / avere / stare, subject pronouns, non, e, ma, and ci (in c’è) are helpers: always allowed, and not counted toward the tier. A helper whose entry is not in that seen set is shown with a short English gloss. Definite articles share the `il` entry; indefinite articles share `un`.
+
+**Length tiers** use the count of seen lexicon content words (helpers do not count):
+
+| Seen content words | What unlocks |
+|--------------------|----------------|
+| under 40 | `COP` (essere/stare + adjective), `SV` (intransitive), `CE` (c’è / ci sono). Present only |
+| 40–79 | those, plus `SVO` (articles), `SVPP` (articulated di/a/da/in/su, and con), `POSS` (la mia casa; no article on a singular unmodified family noun: mia madre) |
+| 80–139 | those, plus imperfetto, futuro, and passato prossimo (aux from the word’s `aux`; essere participles agree), and `NADJ` (noun + adjective, including adjectives marked `pre`) |
+| 140 and up | those, plus `IO` (a + article), `COORD` (e / ma), `NEG` (non) |
+
+**Weak spots and filters.** The sentence is biased toward the weakest engine-feasible combo in the current drill chips (`DrillPick.weakest`). The engine builds present, imperfetto, futuro, and passato prossimo, article gender/number/onset, and adjective gender/number. Identify asks for the tense and person, or the gender and number, using the same labels as the other drills, and records that combo with `DrillPick.record`. Translate does not write a form stat. If the chips restrict the drill, the sentence must contain a matching target; otherwise the slot falls back to an ordinary item.
+
+**Grading.** Right/wrong only. English ignores a/an/the/some and expands contractions; a short synonym list comes from the lexicon glosses. Italian uses the same accent and dash rules as `ItDrills.check` (accents count unless `S.set.strict` is false) and accepts the sentence with or without its subject pronouns. A wrong answer shows the model Italian and English.
