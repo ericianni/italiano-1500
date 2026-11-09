@@ -104,7 +104,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 
 ## Release / Git
 
-- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v9`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
+- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v10`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
 - **Docs-only** commits do **not** need a cache bump.
 - No Android wrapper in this repo today.
 - Commit as `ericianni <ericianni@users.noreply.github.com>`; push straight to `main`; never rewrite pushed history.

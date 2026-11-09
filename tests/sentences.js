@@ -59,7 +59,7 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v9/.test(sw), 'cache v9');
+  ok(/italiano1500-v10/.test(sw), 'cache v10');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------

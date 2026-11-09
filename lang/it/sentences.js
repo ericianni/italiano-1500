@@ -630,7 +630,7 @@
       const frames = PP.filter(f => f.f.vs.indexOf(verb.it) >= 0);
       if (!frames.length) return null;
       const frame = pick(rng, frames);
-      const np = buildNP(rng, { role: 'pp', nouns: frame.nouns, frame: frame, exclude: ex, num: frame.f.en.indexOf('$') < 0 ? 's' : null, maybeAttr: frame.f.en.indexOf('$') >= 0 && opts.maybeAttr, attr: frame.f.en.indexOf('$') >= 0 && opts.needAttr && !subj && !obj, poss: false });
+      const np = buildNP(rng, { role: 'pp', nouns: frame.nouns, frame: frame, exclude: ex, num: frame.f.en.indexOf('$') < 0 || !frame.f.art ? 's' : null, maybeAttr: frame.f.en.indexOf('$') >= 0 && opts.maybeAttr, attr: frame.f.en.indexOf('$') >= 0 && opts.needAttr && !subj && !obj, poss: false });
       if (!np) return null;
       if (frame.f.en.indexOf('$') < 0 && np.adj) return null;
       pp = np;
