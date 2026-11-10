@@ -117,15 +117,39 @@
   function tensesForTier(tier) { return tierSpec(tier).tenses.slice(); }
   function templatesForTier(tier) { return tierSpec(tier).tpls.slice(); }
 
+  function semOf(noun) {
+    const s = [];
+    const add = x => { if (x && s.indexOf(x) < 0) s.push(x); };
+    if (!noun) return s;
+    (noun.sem || []).forEach(add);
+    add(noun.cls);
+    (noun.tags || []).forEach(add);
+    return s;
+  }
   function allows(list, noun) {
-    if (!list || !list.length) return false;
-    if (list.includes(noun.cls)) return true;
-    return noun.tags.some(t => list.includes(t));
+    if (!list || !list.length || !noun) return false;
+    const sem = semOf(noun);
+    return list.some(x => sem.indexOf(x) >= 0);
   }
   function adjFits(adj, noun) {
-    if (!adj.on || !adj.on.some(x => x === noun.cls || noun.tags.includes(x))) return false;
+    if (!allows(adj.on, noun)) return false;
     if (adj.notMass && noun.mass) return false;
     return true;
+  }
+  // Direct antonyms, plus near-contradictions on the same scale (a big river that is short).
+  function conflicts(a, b) {
+    if (!a || !b) return false;
+    if (a === b) return true;
+    const groups = LEX.antonyms || [];
+    for (let i = 0; i < groups.length; i++) {
+      if (groups[i].indexOf(a) >= 0 && groups[i].indexOf(b) >= 0) return true;
+    }
+    const near = LEX.near || [];
+    for (let i = 0; i < near.length; i++) {
+      const p = near[i];
+      if ((p[0] === a && p[1] === b) || (p[1] === a && p[0] === b)) return true;
+    }
+    return false;
   }
   function shapesOf(v) {
     if (!v || v.skip) return [];
@@ -302,9 +326,14 @@
       return ['good'];
     }
     if (adj.it === 'bravo') return ['good', 'skilled'];
+    if (adj.it === 'libero' && noun && (noun.cls === 'person' || noun.cls === 'animal')) return ['available', 'free'];
     if (adj.it === 'caro') return ['expensive'];
     if (adj.it === 'grande') return ['big', 'large'];
     if (adj.it === 'piccolo') return ['small', 'little'];
+    if (adj.it === 'alto') return (noun && (noun.cls === 'person' || noun.cls === 'animal')) ? ['tall'] : ['high'];
+    if (adj.it === 'basso') return (noun && (noun.cls === 'person' || noun.cls === 'animal')) ? ['short'] : ['low'];
+    if (adj.it === 'brutto') return ['ugly'];
+    if (adj.it === 'giovane') return ['young'];
     return [adj.en].concat(adj.alts || []).filter(Boolean);
   }
   // bello/buono shorten to bel/buon before a masculine singular noun. Full forms stay after it.
@@ -466,6 +495,10 @@
     if (spec.frame && !spec.frame.f.art) det = 'none';
     if (spec.frame && spec.frame.f.art) det = 'def';
     if (spec.role === 'subj' && !spec.art && det !== 'none') det = 'def';
+    if (adj && (adj.it === 'stesso' || adj.it === 'solito') && det !== 'def' && det !== 'none') {
+      if (spec.art && artDet(spec.art) !== 'def') return null;
+      det = 'def';
+    }
     if (spec.art && det === 'none') return null;
 
     if (spec.art && det !== 'none') {
@@ -564,7 +597,7 @@
   function glossesOf(verb, obj) {
     let en = verb.en;
     if (verb.enFor && obj) {
-      const tag = Object.keys(verb.enFor).find(k => obj.noun.tags.indexOf(k) >= 0 || obj.noun.cls === k);
+      const tag = Object.keys(verb.enFor).find(k => semOf(obj.noun).indexOf(k) >= 0);
       if (tag) en = verb.enFor[tag];
     }
     if (verb.ask && obj && obj.role === 'io-verb') en = 'ask';
@@ -585,11 +618,12 @@
     let gSub = 'm', num = 's';
 
     if (shape === 'ce') {
-      const np = buildNP(rng, { role: 'exist', cls: ['person', 'animal', 'place', 'thing', 'food', 'drink', 'vehicle'], num: person === '3p' ? 'p' : (person === '3s' ? 's' : null), art: opts.art, agr: opts.agrOnNoun, attr: opts.needAttr, poss: opts.needPoss, exclude: ex, maybeAttr: opts.maybeAttr });
+      const np = buildNP(rng, { role: 'exist', cls: LEX.classes, num: person === '3p' ? 'p' : (person === '3s' ? 's' : null), art: opts.art, agr: opts.agrOnNoun, attr: opts.needAttr, poss: opts.needPoss, exclude: ex, maybeAttr: opts.maybeAttr });
       if (!np) return null;
       if (np.noun.mass && np.num === 'p') return null;
       person = np.num === 'p' ? '3p' : '3s';
       gSub = np.g;
+      np.verb = 'essere';
       const form = ciSurface(tense, person, gSub);
       const neg = !!opts.neg;
       const tokens = [];
@@ -738,6 +772,11 @@
       const o = englishSlots(Object.assign({}, slotArgs, { pron: { it: pron.it, en: ['you'], num: 's' }, person: '2s' }));
       alts.push(o.slots); if (o.alt) alts.push(o.alt);
     }
+    if (subj) subj.verb = verb.it;
+    if (obj) obj.verb = verb.it;
+    if (pp) pp.verb = verb.it;
+    if (io) io.verb = verb.it;
+    if (subj && comp && comp.adj) subj.pred = comp.adj;
     const nps = [subj && tag(subj, 'S'), obj && tag(obj, 'O'), io && tag(io, 'IO'), pp && tag(pp, 'PP')].filter(Boolean);
     const verbs = [{ it: verb.it, id: verb.id, tense: tense, person: person, g: gSub, n: num, aux: aux, hasObj: hasObj, hasPP: hasPP, surface: surface, helper: verb.it === 'essere' || verb.it === 'stare' }];
     const targets = [];
@@ -754,7 +793,7 @@
   function pickComp(rng, verb, subj, g, num, opts) {
     const noun = subj ? subj.noun : { cls: 'person', tags: [], mass: false, kin: null, w: { g: g } };
     // A pronoun subject is a person (or a group of people).
-    const fake = subj ? subj.noun : { cls: 'person', tags: ['person'], mass: false, kin: null };
+    const fake = subj ? subj.noun : { cls: 'person', sem: ['person'], tags: [], mass: false, kin: null };
     if (verb.it === 'stare' && (opts.preferAdv || rng() < 0.45)) {
       const adv = ADVS.filter(inPool);
       if (adv.length && fake.cls === 'person') {
@@ -762,9 +801,8 @@
         return { adv: a, tokens: [{ t: a.it, id: a.id, content: true }], en: [a.en].concat(a.alts || []), agree: false };
       }
     }
-    const OPP = { grande: 'piccolo', piccolo: 'grande', lungo: 'corto', corto: 'lungo', aperto: 'chiuso', chiuso: 'aperto', pieno: 'vuoto', vuoto: 'pieno', caldo: 'freddo', freddo: 'caldo', nuovo: 'vecchio', vecchio: 'nuovo' };
     let as = ADJS.filter(a => inPool(a) && (verb.it === 'stare' ? (a.pred === 'stare' || a.pred === 'both') : (a.pred === 'essere' || a.pred === 'both')) && adjFits(a, fake));
-    if (subj && subj.adj) as = as.filter(a => a.it !== subj.adj.it && OPP[subj.adj.it] !== a.it);
+    if (subj && subj.adj) as = as.filter(a => !conflicts(subj.adj.it, a.it));
     if (opts.agr && opts.agrWhere === 'pred') as = as.filter(a => D.aclass(a.w) === opts.agr.cls);
     if (opts.needAttr && !opts.agr) { /* predicate is not attributive */ }
     if (!as.length) return null;
@@ -1135,6 +1173,8 @@
         try { s = generateOne(rng, tpl, Object.assign({}, opts, { tier: tier })); } catch (e) { s = null; }
         if (s) return s;
       }
+      // No legal combination in the seen words (the fit lists rejected every try).
+      // Same result as too few words: the caller drops this slot.
       return null;
     } finally { POOL = prev; }
   }
@@ -1433,6 +1473,7 @@
     gradeEn: gradeEn, gradeIt: gradeIt, normEn: normEn,
     contract: contract, artOf: artOf, artCombo: artCombo, auxChoice: auxChoice,
     tierOf: tierOf, templatesFor: templatesFor, tensesForTier: tensesForTier, templatesForTier: templatesForTier,
+    conflicts: conflicts, semOf: semOf, adjFits: adjFits, allows: allows,
     TIERS: TIERS, GAPS: GAPS, HELPERS: HELPERS, SETTINGS: SETTINGS, PERSONS: PERSONS,
     settings: settings, gap: gap, mixStart: mixStart, mixNext: mixNext, seenIds: seenIds,
     comboFits: comboFits, engineCan: engineCan, canRealize: canRealize, pickDrill: pickDrill,

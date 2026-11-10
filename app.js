@@ -5,6 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
+  const VERSION = 'v13';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -754,7 +755,7 @@
       <p class="small"><b>Lemmas and forms:</b> <a href="https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it" target="_blank" rel="noopener">Morph-it!</a> (Zanchetta &amp; Baroni, University of Bologna; CC BY-SA 2.0 / LGPL), used to group word forms under their dictionary headword and to cross-check genders and verb forms.</p>
       <p class="small"><b>Glosses, genders, plurals:</b> cross-checked against <a href="https://en.wiktionary.org/" target="_blank" rel="noopener">English Wiktionary</a> (CC BY-SA 4.0) via the <a href="https://kaikki.org/dictionary/Italian/" target="_blank" rel="noopener">kaikki.org</a> extract (Tatu Ylonen, Wiktextract). Glosses were written and edited for this app.</p>
       <p class="small">Proper names, fragments, and non-words were removed and inflected forms were merged into their headword, so each of the ${W.length} entries is a dictionary word ranked by its combined frequency.</p>
-      <p class="small muted">App code: MIT license. Word list and glosses: CC BY-SA 4.0. Source: <a href="https://github.com/ericianni/italiano-1500" target="_blank" rel="noopener">github.com/ericianni/italiano-1500</a>. Sister app: <a href="https://ericianni.github.io/latin-diederich-vocab/" target="_blank" rel="noopener">Latin 1400</a>.</p></div>`;
+      <p class="small muted">Version ${VERSION}. App code: MIT license. Word list and glosses: CC BY-SA 4.0. Source: <a href="https://github.com/ericianni/italiano-1500" target="_blank" rel="noopener">github.com/ericianni/italiano-1500</a>. Sister app: <a href="https://ericianni.github.io/latin-diederich-vocab/" target="_blank" rel="noopener">Latin 1400</a>.</p></div>`;
     $$('#snew button').forEach(b => b.onclick = () => { S.set.newPerDay = +b.dataset.v; save(); renderAbout(); });
     $$('#sacc button').forEach(b => b.onclick = () => { S.set.strict = b.dataset.v === '1'; save(); renderAbout(); });
     $$('#sand button').forEach(b => b.onclick = () => { S.set.andMore = b.dataset.v === '1'; save(); renderAbout(); });

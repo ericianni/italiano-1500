@@ -5,6 +5,7 @@ const fs = require('fs'), path = require('path');
 const M = require('../lang/it/morph.js');
 const D = require('../lang/it/drills.js');
 const E = require('../lang/it/sentences.js');
+const LEX = require('../lang/it/sentences_lexicon.js');
 const WORDS = require('../data/packs/core/words.json');
 
 function main(eq, ok) {
@@ -59,7 +60,8 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v12/.test(sw), 'cache v12');
+  ok(/italiano1500-v13/.test(sw), 'cache v13');
+  ok(/const VERSION = 'v13'/.test(app), 'app version v13');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------
@@ -367,6 +369,71 @@ function main(eq, ok) {
   if (outCar) both(outCar, 'out of the', 'off the');
   if (onTrain) both(onTrain, 'on the', 'into the');
   if (intoTaxi) both(intoTaxi, 'into the', 'on the');
+
+  // ---------- semantic classes, fit lists, antonyms ----------
+  const NARROW = LEX.narrow;
+  LEX.nouns.forEach(n => {
+    ok(n.sem && n.sem.length && n.sem.every(c => LEX.classes.indexOf(c) >= 0) && n.sem.indexOf(n.cls) >= 0, 'noun classes ' + n.it);
+    (n.tags || []).forEach(t => ok(NARROW.indexOf(t) >= 0, 'narrow tag ' + n.it + ' ' + t));
+  });
+  function listed(list, noun) {
+    const sem = (noun.sem || []).concat(noun.tags || []);
+    return list.some(x => sem.indexOf(x) >= 0);
+  }
+  LEX.adjs.forEach(a => {
+    ok(a.on && a.on.length && a.on.every(x => LEX.classes.indexOf(x) >= 0 || NARROW.indexOf(x) >= 0), 'adj classes ' + a.it);
+  });
+  LEX.verbs.forEach(v => {
+    (v.subj || []).forEach(x => ok(LEX.classes.indexOf(x) >= 0 || NARROW.indexOf(x) >= 0, 'subj class ' + v.it + ' ' + x));
+    (v.obj || []).forEach(x => ok(LEX.classes.indexOf(x) >= 0 || NARROW.indexOf(x) >= 0, 'obj class ' + v.it + ' ' + x));
+  });
+  ok(E.conflicts('grande', 'piccolo') && E.conflicts('grande', 'corto') && E.conflicts('bello', 'brutto') && E.conflicts('vecchio', 'giovane') && E.conflicts('alto', 'basso'), 'antonym and near pairs');
+  ok(!E.conflicts('grande', 'bello') && !E.conflicts('lungo', 'alto'), 'unrelated adjectives are not contradictions');
+  const byIt = {};
+  LEX.verbs.forEach(v => { byIt[v.it] = v; });
+  const fitBad = [];
+  function auditFit(s) {
+    const river = s.nps.some(np => np.noun.it === 'fiume' && np.adj && np.pred && E.conflicts(np.adj.it, np.pred.it));
+    const key = s.nps.some(np => np.noun.it === 'chiave' && np.verb === 'ricordare');
+    if (river) fitBad.push('river ' + s.la + ' / ' + s.en);
+    if (key) fitBad.push('key ' + s.la + ' / ' + s.en);
+    if (/il grande fiume era corto/i.test(s.la)) fitBad.push(s.la);
+    if (/ricorda una bella chiave/i.test(s.la)) fitBad.push(s.la);
+    s.nps.forEach(np => {
+      if (np.adj && !listed(np.adj.on, np.noun)) fitBad.push('adj ' + np.adj.it + ' ' + np.noun.it + ' ' + s.la);
+      if (np.pred && !listed(np.pred.on, np.noun)) fitBad.push('pred ' + np.pred.it + ' ' + np.noun.it + ' ' + s.la);
+      if (np.adj && np.pred && E.conflicts(np.adj.it, np.pred.it)) fitBad.push('clash ' + np.adj.it + '/' + np.pred.it + ' ' + s.la);
+      const v = byIt[np.verb];
+      if (np.role === 'O' && v && !listed(v.obj || [], np.noun)) fitBad.push('obj ' + np.verb + ' ' + np.noun.it + ' ' + s.la);
+      if (np.role === 'S' && v && v.subj && !listed(v.subj, np.noun)) fitBad.push('subj ' + np.verb + ' ' + np.noun.it + ' ' + s.la);
+    });
+  }
+  for (const tier of [1, 2, 3, 4]) {
+    const tpls = E.templatesForTier(tier);
+    tpls.forEach(tpl => {
+      const xs = E.generateMany(2000, { tier: tier, template: tpl, words: WORDS, rng: E.mulberry32(13000 + tier * 20 + tpl.length) });
+      eq(xs.length, 2000, 'fit ' + tpl + ' tier ' + tier + ' generated 2000');
+      const before = fitBad.length;
+      xs.forEach(auditFit);
+      if (fitBad.length > before && fitBad.length < before + 4) { /* keep the samples */ }
+      else if (fitBad.length > before + 3) fitBad.length = before + 3;
+    });
+  }
+  eq(fitBad, [], 'no adjective, object, or antonym violation');
+  const tiny = ['chiave', 'ricordare', 'bello'].map(it => BY[it].id);
+  eq(E.generate(E.mulberry32(7), { pool: tiny, template: 'SVO', tier: 2, words: WORDS, tries: 25 }), null, 'SVO with no fitting object falls back');
+  const bare = ['bello'].map(it => BY[it].id);
+  eq(E.generate(E.mulberry32(8), { pool: bare, template: 'SVO', tier: 2, words: WORDS, tries: 12 }), null, 'too few words for SVO also returns nothing');
+  let riverN = 0, riverBad = 0;
+  const riverPool = ['fiume', 'grande', 'corto', 'lungo', 'piccolo'].map(it => BY[it].id);
+  for (let i = 0; i < 80; i++) {
+    const s = E.generate(E.mulberry32(3000 + i), { pool: riverPool, template: 'COP', tier: 3, words: WORDS, tries: 12 });
+    if (!s) continue;
+    riverN++;
+    if (s.nps.some(np => np.noun.it === 'fiume' && np.adj && np.pred && E.conflicts(np.adj.it, np.pred.it))) riverBad++;
+    if (/grande fiume/i.test(s.it) && /cort/i.test(s.it)) riverBad++;
+  }
+  ok(riverN >= 20 && riverBad === 0, 'il grande fiume era corto cannot be built (' + riverN + ')');
 }
 
 if (require.main === module) {
