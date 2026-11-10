@@ -60,8 +60,8 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v13/.test(sw), 'cache v13');
-  ok(/const VERSION = 'v13'/.test(app), 'app version v13');
+  ok(/italiano1500-v14/.test(sw), 'cache v14');
+  ok(/const VERSION = 'v14'/.test(app), 'app version v14');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------
@@ -115,6 +115,8 @@ function main(eq, ok) {
       const kin = KIN[np.noun.it];
       if (np.poss && kin && np.num === 's' && !np.adj && np.det !== 'none') probs.push('article on ' + np.surface);
       if (np.poss && kin === 'pl' && np.num === 'p' && np.det === 'none') probs.push('bare plural kinship ' + np.surface);
+      if (np.adj && np.adj.it === 'stesso' && (np.poss || np.det !== 'def')) probs.push('stesso is not plain ' + np.surface);
+      if (np.exist && (np.det === 'def' || np.poss || np.det === 'none')) probs.push('definite after c\'è ' + np.surface);
       if (s.it.toLowerCase().indexOf(np.surface) < 0) probs.push('surface missing ' + np.surface + ' / ' + s.la);
     }
     for (const v of s.verbs) {
@@ -434,6 +436,30 @@ function main(eq, ok) {
     if (/grande fiume/i.test(s.it) && /cort/i.test(s.it)) riverBad++;
   }
   ok(riverN >= 20 && riverBad === 0, 'il grande fiume era corto cannot be built (' + riverN + ')');
+
+  // ---------- stesso stays plain; c'è / ci sono stay indefinite ----------
+  let plainSame = null, badSame = [], indefCe = null, badCe = [];
+  const DEFART = /^(il|lo|la|l'|i|gli|le)(\s|$)/;
+  for (let i = 0; i < 2500 && !(plainSame && indefCe); i++) {
+    const s = E.generate(E.mulberry32(14000 + i), { tier: i % 2 ? 4 : 3, template: i % 3 === 0 ? 'CE' : (i % 3 === 1 ? 'NADJ' : 'POSS'), words: WORDS, tries: 8 });
+    if (!s) continue;
+    s.nps.forEach(np => {
+      if (np.adj && np.adj.it === 'stesso') {
+        if (np.poss || np.det !== 'def' || !/^l[oa']|^il |^i |^gli |^le /.test(np.surface) || /\b(mio|tuo|suo|nostro|vostro|loro|mia|tua|sua)\b/.test(np.surface)) badSame.push(np.surface);
+        else if (!plainSame) plainSame = np.surface + ' | ' + s.la;
+      }
+      if (np.exist) {
+        if (np.det === 'def' || np.poss || DEFART.test(np.surface)) badCe.push(s.la + ' / ' + np.surface);
+        else if (!indefCe && (np.det === 'ind' || np.det === 'part')) indefCe = np.surface + ' | ' + s.la;
+      }
+    });
+    if (/suo stesso|stesso suo|mia stessa|loro stess/i.test(s.it)) badSame.push(s.la);
+    if (/\b(c'|ci )[a-zàèéìòù']*\s+(il|lo|la|i|gli|le)\b/i.test(s.it)) badCe.push(s.la);
+  }
+  eq(badSame, [], 'stesso never takes a possessive');
+  ok(!!plainSame && /stess/.test(plainSame), 'plain stesso survives: ' + plainSame);
+  eq(badCe, [], 'c\'è / ci sono never take a definite article');
+  ok(!!indefCe && /^(un|una|uno|del|dello|dell'|della|dei|degli|delle)\b/.test(indefCe), 'indefinite c\'è survives: ' + indefCe);
 }
 
 if (require.main === module) {

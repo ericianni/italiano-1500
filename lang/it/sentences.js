@@ -462,12 +462,15 @@
     }
 
     let adj = null;
+    // stesso is only "lo stesso X" / "la stessa X": never with a possessive, and never after c'è.
+    const plainSame = !!spec.poss || spec.role === 'exist';
+    const adjOK = a => inPool(a) && a.attr && adjFits(a, noun) && !(plainSame && a.it === 'stesso') && !(spec.role === 'exist' && a.it === 'solito') && (!spec.agr || D.aclass(a.w) === spec.agr.cls);
     if (spec.attr || spec.agr) {
-      const as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun) && (!spec.agr || D.aclass(a.w) === spec.agr.cls));
+      const as = ADJS.filter(adjOK);
       if (!as.length) return null;
       adj = pick(rng, as);
     } else if (spec.maybeAttr && rng() < 0.5) {
-      const as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun));
+      const as = ADJS.filter(adjOK);
       if (as.length) adj = pick(rng, as);
     }
     if ((spec.attr || spec.agr) && !adj) return null;
@@ -477,7 +480,7 @@
     const pre = placesBefore(adj, g, num);
 
     let poss = null;
-    if (spec.poss) {
+    if (spec.poss && spec.role !== 'exist') {
       const ps = POSS.filter(inPool);
       if (!ps.length) return null;
       poss = pick(rng, ps);
@@ -495,9 +498,15 @@
     if (spec.frame && !spec.frame.f.art) det = 'none';
     if (spec.frame && spec.frame.f.art) det = 'def';
     if (spec.role === 'subj' && !spec.art && det !== 'none') det = 'def';
+    if (adj && adj.it === 'stesso' && poss) return null;
     if (adj && (adj.it === 'stesso' || adj.it === 'solito') && det !== 'def' && det !== 'none') {
       if (spec.art && artDet(spec.art) !== 'def') return null;
       det = 'def';
+    }
+    // c'è / ci sono take un/una/uno or a partitive (dei/delle/del…), never il/lo/la/i.
+    if (spec.role === 'exist') {
+      if (poss || (adj && (adj.it === 'stesso' || adj.it === 'solito'))) return null;
+      det = (num === 'p' || (noun.mass && !noun.cup)) ? 'part' : 'ind';
     }
     if (spec.art && det === 'none') return null;
 
@@ -624,6 +633,7 @@
       person = np.num === 'p' ? '3p' : '3s';
       gSub = np.g;
       np.verb = 'essere';
+      np.exist = true;
       const form = ciSurface(tense, person, gSub);
       const neg = !!opts.neg;
       const tokens = [];
@@ -1047,7 +1057,7 @@
       agrCombo: opts.agrCombo || null,
       exclude: opts.exclude || null
     };
-    if (tier >= 2 && template !== 'POSS' && !innerOpts.needPoss && template !== 'COORD' && rng() < 0.22) innerOpts.needPoss = true;
+    if (tier >= 2 && template !== 'POSS' && template !== 'CE' && !innerOpts.needPoss && template !== 'COORD' && rng() < 0.22) innerOpts.needPoss = true;
     if (tier >= 3 && template !== 'NADJ' && !innerOpts.needAttr && template !== 'COORD' && rng() < 0.28) innerOpts.needAttr = true;
     if (tier >= 4 && !innerOpts.neg && BASE[template] && rng() < 0.18) innerOpts.neg = true;
     if (innerOpts.needAttr && tier < 3) return null;
