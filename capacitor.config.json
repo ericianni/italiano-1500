@@ -1,0 +1,6 @@
+{
+  "appId": "io.github.ericianni.italiano1500",
+  "appName": "Italiano 1500",
+  "webDir": "www",
+  "android": { "backgroundColor": "#faf7f2" }
+}

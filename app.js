@@ -791,7 +791,8 @@
   // Updates: the new service worker takes over as soon as it is installed (skipWaiting + clients.claim). When it does,
   // reload right away so the new code runs, unless a set is in progress: then offer a one-tap reload instead.
   // Also check for updates whenever the app comes back to the foreground (home-screen apps rarely navigate).
-  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // No service worker inside the Capacitor WebView: assets are already bundled in the APK.
+  if ('serviceWorker' in navigator && location.protocol !== 'file:' && !window.Capacitor) {
     const sw = navigator.serviceWorker; let had = !!sw.controller, reloading = false, lastCheck = Date.now();
     const reload = () => { if (!reloading) { reloading = true; location.reload(); } };
     sw.addEventListener('controllerchange', () => {

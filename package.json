@@ -2,11 +2,22 @@
   "name": "italiano-1500",
   "version": "1.0.0",
   "private": true,
-  "description": "Italiano 1500: a free offline PWA for the 1,500 most common Italian words, with spaced repetition and grammar drills.",
+  "description": "Italiano 1500: a free offline PWA for the 1,500 most common Italian words, with spaced repetition and grammar drills. Android wrapper via Capacitor.",
   "scripts": {
     "test": "node tests/run.js",
     "smoke": "node tests/smoke.js",
-    "update": "node tests/update.js"
+    "update": "node tests/update.js",
+    "build:web": "node tools/build_www.js",
+    "android:sync": "npm run build:web && npx cap sync android",
+    "android:debug": "npm run android:sync && cd android && ./gradlew assembleDebug"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.0"
+  }
 }

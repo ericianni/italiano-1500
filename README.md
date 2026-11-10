@@ -50,6 +50,22 @@ npm test          # morphology, data, SRS, drills, lessons, packs, sentences, se
 npm run smoke     # drives every tab in headless Chrome (needs google-chrome)
 ```
 
+## Android app (Capacitor)
+
+The same app is wrapped as a native Android app (`io.github.ericianni.italiano1500`, versionCode 1, versionName `v14-android-1`). Web files are bundled into the APK, so it works offline from first launch. The service worker still updates the site at GitHub Pages; inside the app it is not registered.
+
+This is the first Italian APK. It is signed locally with the existing debug keystore on the maintainer’s computer (the same key as the Latin 1400 APKs). No keystore is stored in this repo.
+
+Build (Node, JDK 21, Android SDK platform 36):
+
+```sh
+npm install
+JAVA_HOME=/opt/jdk21 ANDROID_HOME=/opt/android-sdk npm run android:debug
+# APK: android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+`npm run build:web` only copies the PWA into `www/`. `npm run android:sync` copies and syncs Capacitor, and does not compile or sign.
+
 ## Sources and licenses
 
 - Frequencies, blended (`tools/blend.py`: 0.6 × log subtitle frequency + 0.4 × log news frequency, news capped at 2× the subtitle frequency, plus hand-kept lists in `tools/wordlists.py`: everyday words, numbers, months and weekdays that a frequency count misses are always kept, and a few news/crime-heavy words are left out):
