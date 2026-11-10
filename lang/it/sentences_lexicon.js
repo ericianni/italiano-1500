@@ -226,12 +226,12 @@
   // on: noun cls or tag. pred essere / stare / both. attr: may modify a noun (tier 3).
   // pre adjectives (stesso, primo, …) come from the word's `pre` flag, not from here.
   const adjs = [
-    { it: 'grande', en: 'big', alts: ['large'], on: ['person', 'animal', 'place', 'thing', 'vehicle', 'food'], notMass: true, pred: 'essere', attr: true },
-    { it: 'piccolo', en: 'small', alts: ['little'], on: ['person', 'animal', 'place', 'thing', 'vehicle', 'food'], notMass: true, pred: 'essere', attr: true },
-    { it: 'buono', en: 'good', on: ['person', 'food', 'drink', 'thing'], pred: 'essere', attr: true },
-    { it: 'bello', en: 'nice', alts: ['beautiful'], on: ['person', 'animal', 'place', 'thing'], pred: 'essere', attr: true },
-    { it: 'nuovo', en: 'new', on: ['aged'], pred: 'essere', attr: true },
-    { it: 'vecchio', en: 'old', on: ['aged', 'person'], pred: 'essere', attr: true },
+    { it: 'grande', en: 'big', alts: ['large'], on: ['person', 'animal', 'place', 'thing', 'vehicle', 'food'], notMass: true, pred: 'essere', attr: true, pre: true },
+    { it: 'piccolo', en: 'small', alts: ['little'], on: ['person', 'animal', 'place', 'thing', 'vehicle', 'food'], notMass: true, pred: 'essere', attr: true, pre: true },
+    { it: 'buono', en: 'good', on: ['person', 'food', 'drink', 'thing'], pred: 'essere', attr: true, pre: true },
+    { it: 'bello', en: 'beautiful', alts: ['handsome'], on: ['person', 'animal', 'place', 'thing'], pred: 'essere', attr: true, pre: true },
+    { it: 'nuovo', en: 'new', on: ['aged'], pred: 'essere', attr: true, pre: true },
+    { it: 'vecchio', en: 'old', on: ['aged', 'person'], pred: 'essere', attr: true, pre: true },
     { it: 'lungo', en: 'long', on: ['long'], pred: 'essere', attr: true },
     { it: 'corto', en: 'short', on: ['long'], pred: 'essere', attr: true },
     { it: 'caldo', en: 'hot', alts: ['warm'], on: ['temp'], pred: 'essere', attr: true },
@@ -244,7 +244,7 @@
     { it: 'vuoto', en: 'empty', on: ['fill'], pred: 'essere', attr: true },
     { it: 'famoso', en: 'famous', on: ['person', 'famous'], pred: 'essere', attr: true },
     { it: 'caro', en: 'expensive', on: ['priced'], pred: 'essere', attr: true },
-    { it: 'bravo', en: 'good', alts: ['great'], on: ['person', 'animal'], pred: 'essere', attr: false },
+    { it: 'bravo', en: 'good', alts: ['skilled'], on: ['person', 'animal'], pred: 'essere', attr: true, pre: true },
     { it: 'tranquillo', en: 'calm', alts: ['quiet'], on: ['person', 'animal', 'place'], pred: 'both', attr: true },
     { it: 'comodo', en: 'comfortable', on: ['free'], pred: 'essere', attr: true },
     { it: 'stanco', en: 'tired', on: ['person', 'animal'], pred: 'essere', attr: true },
@@ -330,9 +330,10 @@
     { vs: ['vivere'], prep: 'a', art: false, nouns: ['casa'], en: 'at home', who: ['person'] },
     { vs: ['vivere'], prep: 'in', art: false, nouns: ['città'], en: 'in town', who: ['person'] },
 
-    { vs: ['salire'], prep: 'su', art: true, nouns: RIDE, en: 'on the $', who: ['person'] },
-    { vs: ['salire'], prep: 'in', art: false, nouns: CAR, en: 'in the $', who: ['person'] },
-    { vs: ['scendere'], prep: 'da', art: true, nouns: RIDE.concat(CAR), en: 'off the $', who: ['person'] },
+    { vs: ['salire'], prep: 'su', art: true, nouns: RIDE, en: 'on the $', enAlt: ['into the $'], who: ['person'] },
+    { vs: ['salire'], prep: 'in', art: false, nouns: CAR, en: 'into the $', enAlt: ['on the $'], who: ['person'] },
+    { vs: ['scendere'], prep: 'da', art: true, nouns: RIDE, en: 'off the $', enAlt: ['out of the $'], who: ['person'] },
+    { vs: ['scendere'], prep: 'da', art: true, nouns: CAR, en: 'out of the $', enAlt: ['off the $'], who: ['person'] },
     { vs: ['passare'], prep: 'da', art: true, nouns: ['museo', 'stazione', 'parco', 'piazza', 'chiesa', 'negozio'], en: 'by the $', who: ['person'] },
     { vs: ['parlare'], prep: 'con', art: true, plain: true, nouns: PEOPLE, en: 'with the $', who: ['person'] }
   ];

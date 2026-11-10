@@ -59,7 +59,7 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v11/.test(sw), 'cache v11');
+  ok(/italiano1500-v12/.test(sw), 'cache v12');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------
@@ -311,6 +311,62 @@ function main(eq, ok) {
     ok(E.gradeEn('You are ' + rest, lei).ok || E.gradeEn('You will be ' + rest, lei).ok || E.gradeEn('You were ' + rest, lei).ok || E.gradeEn('You have been ' + rest, lei).ok, 'formal Lei accepts you');
     ok(!E.gradeEn((fem ? 'He is ' : 'She is ') + rest, lei).ok, 'lei/lui rejects the other gender');
   }
+
+  // ---------- adjective sense and position; get on / get off ----------
+  let bella = null, belloMs = null, bravoStu = null, offBus = null, outCar = null, onTrain = null, intoTaxi = null;
+  const senseBad = [];
+  for (let i = 0; i < 4000 && !(bella && belloMs && bravoStu && offBus && outCar && onTrain && intoTaxi); i++) {
+    const s = E.generate(E.mulberry32(9000 + i), { tier: i % 5 === 0 ? 4 : 3, template: i % 3 === 0 ? 'NADJ' : undefined, words: WORDS, tries: 8 });
+    if (!s) continue;
+    s.nps.forEach(np => {
+      if (!np.adj) return;
+      if (np.adj.it === 'bello' && /\bnice\b/.test(s.en)) senseBad.push(s.la + ' / ' + s.en);
+      if (np.adj.it === 'bello' && np.g === 'f' && np.pre && !np.poss && !bella) bella = np.surface + ' | ' + s.en;
+      if ((np.adj.it === 'bello' || np.adj.it === 'buono') && np.g === 'm' && np.num === 's' && !belloMs) belloMs = np.surface;
+      if (np.adj.it === 'bravo' && np.g === 'm' && np.num === 's' && np.pre && !np.poss && M.onset(np.form) === 'z' && np.det === 'def' && !bravoStu) bravoStu = np.surface;
+      if (np.pre && np.art && !np.poss) {
+        const head = np.adjForm;
+        const want = np.det === 'ind' ? M.indefArt(head, np.g) : M.defArt(head, np.g, np.num);
+        if (np.art !== want) senseBad.push('art ' + np.surface + ' wanted ' + want);
+      }
+      if ((np.adj.it === 'bello' || np.adj.it === 'buono') && np.g === 'm' && np.num === 's' && np.pre) senseBad.push('short form risk ' + np.surface);
+      if (np.pre && np.surface.indexOf(np.adjForm) > np.surface.indexOf(np.form)) senseBad.push('pre follows ' + np.surface);
+    });
+    const pp = s.nps.find(np => np.role === 'PP');
+    if (s.verbs.some(v => v.it === 'scendere') && pp && pp.noun.it === 'autobus' && !offBus) offBus = s;
+    if (s.verbs.some(v => v.it === 'scendere') && pp && (pp.noun.it === 'taxi' || pp.noun.it === 'macchina') && !outCar) outCar = s;
+    if (s.verbs.some(v => v.it === 'salire') && pp && pp.noun.it === 'treno' && !onTrain) onTrain = s;
+    if (s.verbs.some(v => v.it === 'salire') && pp && pp.noun.it === 'taxi' && !intoTaxi) intoTaxi = s;
+  }
+  for (let i = 0; i < 8000 && !(bravoStu && offBus && outCar && onTrain && intoTaxi); i++) {
+    const s = E.generate(E.mulberry32(20000 + i), { tier: 3, template: i % 2 ? 'NADJ' : 'SVPP', words: WORDS, tries: 6 });
+    if (!s) continue;
+    s.nps.forEach(np => {
+      if (!np.adj || np.poss) return;
+      if (np.adj.it === 'bello' && /\bnice\b/.test(s.en)) senseBad.push(s.la + ' / ' + s.en);
+      if (np.adj.it === 'bravo' && np.g === 'm' && np.num === 's' && np.pre && np.det === 'def' && M.onset(np.form) === 'z') bravoStu = np.surface;
+      if ((np.adj.it === 'bello' || np.adj.it === 'buono') && np.g === 'm' && np.num === 's' && np.pre) senseBad.push('short form risk ' + np.surface);
+    });
+    const pp = s.nps.find(np => np.role === 'PP');
+    if (s.verbs.some(v => v.it === 'scendere') && pp && pp.noun.it === 'autobus') offBus = s;
+    if (s.verbs.some(v => v.it === 'scendere') && pp && (pp.noun.it === 'taxi' || pp.noun.it === 'macchina')) outCar = s;
+    if (s.verbs.some(v => v.it === 'salire') && pp && pp.noun.it === 'treno') onTrain = s;
+    if (s.verbs.some(v => v.it === 'salire') && pp && pp.noun.it === 'taxi') intoTaxi = s;
+  }
+  eq(senseBad.slice(0, 8), [], 'adjective sense and position');
+  ok(!!bella && /bella /.test(bella) && /beautiful/.test(bella), 'feminine bello precedes: ' + bella);
+  ok(!!belloMs && / (bello|buono)$/.test(belloMs) && !/^(il |lo )?(bello|buono) /.test(belloMs), 'masculine singular bello/buono follows: ' + belloMs);
+  ok(!!bravoStu && bravoStu.indexOf('il bravo') === 0, 'article agrees with bravo: ' + bravoStu);
+  function both(s, modelBit, altBit) {
+    ok(s.en.indexOf(modelBit) >= 0, s.it + ' shows ' + modelBit + ' (' + s.en + ')');
+    const alt = s.en.replace(modelBit, altBit);
+    ok(E.gradeEn(s.en, s).ok && E.gradeEn(alt, s).ok, s.it + ' accepts ' + altBit);
+  }
+  ok(!!offBus && !!outCar && !!onTrain && !!intoTaxi, 'found salire/scendere sentences');
+  if (offBus) both(offBus, 'off the', 'out of the');
+  if (outCar) both(outCar, 'out of the', 'off the');
+  if (onTrain) both(onTrain, 'on the', 'into the');
+  if (intoTaxi) both(intoTaxi, 'into the', 'on the');
 }
 
 if (require.main === module) {

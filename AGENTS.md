@@ -104,7 +104,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 
 ## Release / Git
 
-- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v11`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
+- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v12`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
 - **Docs-only** commits do **not** need a cache bump.
 - No Android wrapper in this repo today.
 - Commit as `ericianni <ericianni@users.noreply.github.com>`; push straight to `main`; never rewrite pushed history.
@@ -149,11 +149,11 @@ Off until the learner turns it on. Three settings, all on `S.set.df` (no mix %, 
 |--------------------|----------------|
 | under 40 | `COP` (essere/stare + adjective), `SV` (intransitive), `CE` (c’è / ci sono). Present only |
 | 40–79 | those, plus `SVO` (articles), `SVPP` (articulated di/a/da/in/su, and con; each verb+preposition lists only plausible prep objects, and the subject class has to match), `POSS` (la mia casa; no article on a singular unmodified family noun: mia madre) |
-| 80–139 | those, plus imperfetto, futuro, and passato prossimo (aux from the word’s `aux`; essere participles agree), and `NADJ` (noun + adjective, including adjectives marked `pre`) |
+| 80–139 | those, plus imperfetto, futuro, and passato prossimo (aux from the word’s `aux`; essere participles agree), and `NADJ` (noun + adjective). Adjectives marked `pre` (and bello, buono, grande, piccolo, nuovo, vecchio, bravo) come before the noun, and the article agrees with that adjective. Masculine singular bello/buono stay after the noun so the sentence never needs bel/buon |
 | 140 and up | those, plus `IO` (a + article), `COORD` (e / ma), `NEG` (non) |
 
 **Weak spots and filters.** The sentence is biased toward the weakest engine-feasible combo in the current drill chips (`DrillPick.weakest`). The engine builds present, imperfetto, futuro, and passato prossimo, article gender/number/onset, and adjective gender/number. Identify asks for the tense and person, or the gender and number, using the same labels as the other drills, and records that combo with `DrillPick.record`. Translate does not write a form stat. If the chips restrict the drill, the sentence must contain a matching target; otherwise the slot falls back to an ordinary item.
 
-Noun subjects take the definite article (mia madre still has none). Partitive *dei/delle* is for c’è / ci sono and for objects, not for “some daughters get on…”. *dormire* is only at home, in a room, or at a hotel; *salire/scendere* take vehicles, singular unless the subject is plural. *essere/stare* are not “at the store.”
+Noun subjects take the definite article (mia madre still has none). Partitive *dei/delle* is for c’è / ci sono and for objects, not for “some daughters get on…”. *dormire* is only at home, in a room, or at a hotel; *salire/scendere* take vehicles, singular unless the subject is plural. English is “gets on” a bus or train and “gets into” a car or taxi; “gets off” a bus, train, or plane and “gets out of” a car or taxi. Grading accepts either phrasing. *bello* is beautiful or handsome, not “nice.” *essere/stare* are not “at the store.”
 
 **Grading.** Right/wrong only. English ignores a/an/the/some and expands contractions; a short synonym list comes from the lexicon glosses. The model sentence shows one English wording. *suo* also accepts his/her/its/your (formal Lei); *loro* accepts their/your. Bare *sono* accepts both “I am” and “they are” when nothing else shows the number (*Sono a casa*); *Sono stanchi* is only “they are,” *Sono stanco* only “I am.” Bare *è* with *lei/lui* also accepts formal “you are.” Italian uses the same accent and dash rules as `ItDrills.check` (accents count unless `S.set.strict` is false) and accepts the sentence with or without its subject pronouns. A wrong answer shows the model Italian and English.

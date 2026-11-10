@@ -101,7 +101,7 @@
     });
     ADJS = LEX.adjs.map(a => {
       const w = take(a.it, 'adj');
-      return Object.assign({}, a, { w: w, id: w.id, alts: a.alts || [], pre: !!w.pre });
+      return Object.assign({}, a, { w: w, id: w.id, alts: a.alts || [], pre: !!(a.pre || w.pre) });
     });
     POSS = LEX.poss.map(p => { const w = take(p.it, 'det'); return Object.assign({}, p, { w: w, id: w.id, alts: p.alts || [] }); });
     ADVS = LEX.advs.map(a => { const w = take(a.it, 'adv'); return Object.assign({}, a, { w: w, id: w.id, alts: a.alts || [] }); });
@@ -293,9 +293,30 @@
     const base = [noun.en].concat(noun.alts || []);
     return base.map(w => one(w, num === 'p'));
   }
+  function adjGloss(adj, noun, g) {
+    if (!adj) return [''];
+    if (adj.it === 'bello') return (noun && noun.cls === 'person' && g !== 'f') ? ['handsome', 'beautiful'] : ['beautiful'];
+    if (adj.it === 'buono') {
+      if (noun && (noun.cls === 'food' || noun.cls === 'drink' || (noun.tags || []).indexOf('edible') >= 0)) return ['good', 'tasty'];
+      if (noun && (noun.cls === 'person' || noun.cls === 'animal')) return ['kind', 'good'];
+      return ['good'];
+    }
+    if (adj.it === 'bravo') return ['good', 'skilled'];
+    if (adj.it === 'caro') return ['expensive'];
+    if (adj.it === 'grande') return ['big', 'large'];
+    if (adj.it === 'piccolo') return ['small', 'little'];
+    return [adj.en].concat(adj.alts || []).filter(Boolean);
+  }
+  // bello/buono shorten to bel/buon before a masculine singular noun. Full forms stay after it.
+  // Feminine bella/buona and every plural (belli, belle, buoni, buone) are the full forms, so they come first.
+  function placesBefore(adj, g, n) {
+    if (!adj || !adj.pre) return false;
+    if (adj.it === 'bello' || adj.it === 'buono') return !(g === 'm' && n === 's');
+    return true;
+  }
   function cores(np) {
     const nouns = enWords(np.noun, np.num);
-    const adjs = np.adj ? [np.adj.en].concat(np.adj.alts || []) : [''];
+    const adjs = np.adj ? adjGloss(np.adj, np.noun, np.g) : [''];
     const out = [];
     for (const a of adjs) for (const n of nouns) {
       const s = [a, n].filter(Boolean).join(' ');
@@ -323,9 +344,15 @@
     return /^[aeiou]/.test(w);
   }
   function frameEn(frame, np) {
-    const pat = frame.en || (frame.f && frame.f.en) || '';
-    if (pat.indexOf('$') < 0) return [pat];
-    return cores(np).map(c => pat.replace('$', c));
+    const raw = frame.f || frame;
+    const pats = [raw.en].concat(raw.enAlt || []);
+    const out = [];
+    pats.forEach(pat => {
+      if (!pat) return;
+      if (pat.indexOf('$') < 0) { if (out.indexOf(pat) < 0) out.push(pat); return; }
+      cores(np).forEach(c => { const s = pat.replace('$', c); if (out.indexOf(s) < 0) out.push(s); });
+    });
+    return out;
   }
 
   // ---------- noun phrase ----------
@@ -407,12 +434,9 @@
 
     let adj = null;
     if (spec.attr || spec.agr) {
-      let as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun) && !a.pre === !spec.preferPre);
-      if (spec.agr) as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun) && D.aclass(a.w) === spec.agr.cls);
-      if (spec.preferPre) as = as.filter(a => a.pre);
-      if (!as.length) as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun) && (!spec.agr || D.aclass(a.w) === spec.agr.cls));
-      if (!as.length) { if (spec.attr || spec.agr) return null; }
-      else adj = pick(rng, as);
+      const as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun) && (!spec.agr || D.aclass(a.w) === spec.agr.cls));
+      if (!as.length) return null;
+      adj = pick(rng, as);
     } else if (spec.maybeAttr && rng() < 0.5) {
       const as = ADJS.filter(a => inPool(a) && a.attr && adjFits(a, noun));
       if (as.length) adj = pick(rng, as);
@@ -421,7 +445,7 @@
     if (noun.kin && adj) return null;
 
     const adjForm = adj ? M.adjAgree(adj.w, g, num) : null;
-    const pre = !!(adj && adj.pre);
+    const pre = placesBefore(adj, g, num);
 
     let poss = null;
     if (spec.poss) {
@@ -746,7 +770,7 @@
     if (!as.length) return null;
     const a = pick(rng, as);
     const form = M.adjAgree(a.w, g, num);
-    return { adj: a, form: form, tokens: [{ t: form, id: a.id, content: true, adj: true }], en: [a.en].concat(a.alts || []), agree: true };
+    return { adj: a, form: form, tokens: [{ t: form, id: a.id, content: true, adj: true }], en: adjGloss(a, fake, g), agree: true };
   }
 
   function ciSurface(tense, person, g) {
