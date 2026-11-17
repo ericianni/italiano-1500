@@ -356,7 +356,31 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v14'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v15'/.test(sw), 'sw: cache name');
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
+  ok(/const VERSION = 'v15'/.test(app), 'app version v15');
+  ok(/<b>Word list:<\/b> frequencies from FrequencyWords/.test(app) && /Made by Eric Ianni\. App code: MIT\. Word data: CC BY-SA 4\.0\. Source: github\.com\/ericianni\/italiano-1500\. Version \$\{VERSION\}\./.test(app), 'about credits');
+  ok(/<b>Cards:<\/b> learn a few new words a day/.test(app) && /<b>Cheat sheet:<\/b> all the tables in one place\./.test(app) && /Your progress stays on this device\./.test(app), 'how it works');
+  ok(/<b>Sentences in drills<\/b> stay off until you turn them on/.test(app), 'sentences hint');
+  ok(/<b>Irregular<\/b> covers only the tenses where a verb is irregular/.test(app), 'irregular hint');
+  ok(/With <b>Accents count<\/b>, <i>citta<\/i> for <i>città<\/i> is marked wrong/.test(app), 'accents hint');
+  ok(/Ask “And…\?”<\/b> then lets you name the others/.test(app), 'and-more hint');
+  ok(!/id="godr"/.test(app) && /Drill answers:/.test(app), 'today goals keep the drill count without a Drills link');
+  ok(/placeholder="Type Italian \(optional\)"/.test(app), 'card typing placeholder');
+  ok(/p === 'art' \? 'Articles'/.test(app), 'words filter lists Articles');
+  const about = app.slice(app.indexOf('function renderAbout'), app.indexOf('// ---------- shell'));
+  const drills = app.slice(app.indexOf('function renderDrills'), app.indexOf('function renderWeak'));
+  ok(!/id="sand"|Ask “And…\?”/.test(about), 'About no longer holds And…?');
+  ok(/UI\.seg\('sand'/.test(drills) && /S\.set\.andMore/.test(drills), 'And…? lives in What to drill');
+  ok(/Uses your drill settings\./.test(app) && !/About tab/.test(app), 'test mode points at drill settings');
+  ok(/Typed answers check accents unless you make them optional in Settings/.test(lessons), 'lesson 1 accent sentence');
+  ok(/input\[type=text\]\{font-family:Georgia,serif;font-size:1\.25rem\}/.test(css), 'typed answer font stays 1.25rem');
+  // 320px phone: main 16+16, card 18+18, input padding 14+14, border 1+1. Root font is 17px.
+  const inner = 320 - 16 * 2 - 18 * 2 - 14 * 2 - 1 * 2;
+  eq(inner, 222, 'card input inner width at 320px');
+  ok(inner > 212, 'Type Italian (optional) fits at 1.25rem without shrinking');
   const assets = [...sw.matchAll(/'([^']+\.(?:js|css|json|png|html|webmanifest))'/g)].map(m => m[1]);
   for (const a of assets) ok(fs.existsSync(path.join(root, a)), 'sw asset exists: ' + a);
   for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) ok(assets.includes(m[1]), 'index asset precached: ' + m[1]);

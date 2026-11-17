@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v14';
+  const VERSION = 'v15';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -145,7 +145,7 @@
     const goal = S.set.newPerDay + (d.extra || 0), dn = d.dn || 0;
     const goals = `<div class="card"><div class="prompt-kind">Today’s goals</div>
       <div class="small" style="margin-top:8px">New words: <b>${Math.min(d.nv || 0, goal)}</b> / ${goal}</div>${goalBar(d.nv || 0, goal)}
-      <div class="small" style="margin-top:8px">Drill answers: <b>${Math.min(dn, DAILY_DRILLS)}</b> / ${DAILY_DRILLS} <button class="link small" id="godr">Drills ›</button></div>${goalBar(dn, DAILY_DRILLS)}</div>`;
+      <div class="small" style="margin-top:8px">Drill answers: <b>${Math.min(dn, DAILY_DRILLS)}</b> / ${DAILY_DRILLS}</div>${goalBar(dn, DAILY_DRILLS)}</div>`;
     const prog = `<div class="card"><div class="small muted">Words started: <b>${started}</b> / ${W.length}</div>${goalBar(started, W.length)}</div>`;
     if (!tot) {
       V().innerHTML = `<div class="card done"><div class="check">✓</div><h2>Flashcards done for today</h2><p class="muted">Nice work. New words and reviews will be waiting tomorrow.</p>
@@ -158,8 +158,7 @@
         <p class="small muted center" style="margin:10px 0 0">Stop whenever you like: every answer is saved.</p></div>${goals}${prog}`;
       $('#go').onclick = startCards;
     }
-    $('#godr').onclick = () => setTab('drills');
-  }
+    }
   function renderCard(it) {
     const [dir, id] = SRS.split(it.k), w = BY[id];
     const pills = `<span class="pill">${esc(POS[w.pos] || w.pos)}</span><span class="pill">#${w.rank}</span>${it.isNew ? '<span class="pill">new</span>' : ''}`;
@@ -172,7 +171,7 @@
     } else {
       const hs = heads(w);
       V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">English → Italian</div><div class="english">${esc(w.en)}</div>${pills}
-        <div id="ans"><input type="text" id="typed" lang="it" placeholder="Optional: type the Italian to check yourself" aria-label="Optional: type the Italian to check yourself" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:14px">${UI.keyRow(ACC_KEYS)}
+        <div id="ans"><input type="text" id="typed" lang="it" placeholder="Type Italian (optional)" aria-label="Type Italian (optional)" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:14px">${UI.keyRow(ACC_KEYS)}
         <div class="small muted" style="margin-top:6px">${hasArt(w) ? 'The article is optional. ' : ''}${S.set.strict ? 'Accents count.' : 'Accents optional.'}</div>
         <button class="primary big" id="show" style="margin-top:10px">Show answer</button></div></div>`;
       const go = () => {
@@ -316,10 +315,12 @@
       ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}${chipRow('persons', 'Person')}${chipRow('vnums', 'Number')}<h3>Articles</h3>${chipRow('arts', 'Article')}${chipRow('agen', 'Noun gender')}${chipRow('anum', 'Number')}${chipRow('onsets', 'Word starts with')}<h3>Adjective agreement</h3>${chipRow('acls', 'Adjective type')}${chipRow('jgen', 'Noun gender')}${chipRow('jnum', 'Number')}
         <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
         <div class="small muted chiph">Sentences in drills</div>${UI.seg('ssent', [['0', 'Off'], ['1', 'On']], S.set.df.sent ? '1' : '0')}
-        <p class="small muted">About one question in seven is a short sentence for a trip to Rome, built only from words you have already seen. Off until you turn it on.</p>
+        <p class="small muted"><b>Sentences in drills</b> stay off until you turn them on. When they're on, about one question in seven is a short Rome-trip sentence made from words you've already seen.</p>
         ${S.set.df.sent ? `<div class="small muted chiph">Sentence question</div>${UI.seg('sstype', [['tr', 'Translate'], ['id', 'Identify'], ['both', 'Both']], S.set.df.stype)}
         <div class="small muted chiph">Translate direction</div>${UI.seg('ssdir', [['ie', 'Italian → English'], ['ei', 'English → Italian'], ['both', 'Both']], S.set.df.sdir)}` : ''}
-        <p class="small muted">“Irregular” collects the tenses a verb forms irregularly (e.g. <i>fare</i> in the present, <i>prendere</i> in the passato prossimo); the rest of that verb stays in its regular group. Reflexive-only verbs are left out for now. In Identify, a form with several readings (<i>sono</i>: io or loro) accepts any one of them; the optional <b>And…?</b> follow-up (on by default, see About) asks for the others, counting only readings these settings allow.</p>
+        <div class="small muted chiph">Identify drills: forms with more than one reading</div>${UI.seg('sand', [['1', 'Ask “And…?”'], ['0', 'Just show them']], S.set.andMore ? '1' : '0')}
+        <p class="small muted">Some forms have more than one reading (<i>sono</i>: io or loro). Any one is right. <b>Ask “And…?”</b> then lets you name the others; skipping is free.</p>
+        <p class="small muted"><b>Irregular</b> covers only the tenses where a verb is irregular. Reflexive verbs aren't drilled yet.</p>
         <button class="primary big" id="tdone">Done</button></div>` : ''}</div>
       <div class="card"><button class="big" id="opencs">📖 Cheat sheet</button></div>`;
     if ($('#dgo')) $('#dgo').onclick = () => startDrills(fin && fin.only ? fin.only : null, null, fin && fin.label);
@@ -339,6 +340,7 @@
     });
     $$('#sstype button').forEach(b => b.onclick = () => { S.set.df.stype = b.dataset.v; save(); renderDrills(); });
     $$('#ssdir button').forEach(b => b.onclick = () => { S.set.df.sdir = b.dataset.v; save(); renderDrills(); });
+    $$('#sand button').forEach(b => b.onclick = () => { S.set.andMore = b.dataset.v === '1'; save(); renderDrills(); });
     $$('#dmode button').forEach(b => b.onclick = () => { S.set.dmode = b.dataset.v; save(); renderDrills(); });
   }
   function renderWeak() {
@@ -705,7 +707,7 @@
         <div class="row wrap"><button class="grow" id="tf-r">Italian → English</button><button class="grow" id="tf-p">English → Italian</button></div>
         <div class="small muted chiph">Form drills${Object.keys(U).length ? ` (${Object.keys(U).length} forms)` : ''}</div>
         ${why ? `<p class="small muted" id="tnod">${esc(why)}</p>` : `<div class="row wrap">${MODES.map(([m, l]) => `<button class="grow" data-tm="${m}">${l}</button>`).join('')}</div>
-        <p class="small muted" style="margin:6px 0 0">Uses your drill settings and the “And…?” setting on the About tab. Verbs, articles, or adjective agreement, for this word only.</p>`}</div>
+        <p class="small muted" style="margin:6px 0 0">Uses your drill settings. Verbs, articles, or adjective agreement, for this word only.</p>`}</div>
       <div class="center"><button class="link" id="texit">Exit test mode</button></div>`;
     $('#tf-r').onclick = () => { Q = { kind: 'vocab', items: [{ k: 'r:' + w.id }], done: 0, total: 1 }; nextCard(); };
     $('#tf-p').onclick = () => { Q = { kind: 'vocab', items: [{ k: 'p:' + w.id }], done: 0, total: 1 }; nextCard(); };
@@ -715,7 +717,7 @@
   function renderList() {
     $('#sub').textContent = W.length + ' words';
     V().innerHTML = `<div class="lhead"><input type="search" id="lq" placeholder="Search Italian or English" value="${esc(LQ)}">
-      <div class="row" style="margin-top:8px"><select id="lpos"><option value="">All types</option>${['n', 'v', 'adj', 'adv', 'pron', 'prep', 'conj', 'det', 'num', 'int'].map(p => `<option value="${p}"${LPOS === p ? ' selected' : ''}>${POS[p]}s</option>`).join('')}</select>
+      <div class="row" style="margin-top:8px"><select id="lpos"><option value="">All types</option>${['n', 'v', 'adj', 'adv', 'art', 'pron', 'prep', 'conj', 'det', 'num', 'int'].map(p => `<option value="${p}"${LPOS === p ? ' selected' : ''}>${p === 'art' ? 'Articles' : POS[p] + 's'}</option>`).join('')}</select>
       <select id="lsort"><option value="rank"${LSORT === 'rank' ? ' selected' : ''}>By frequency</option><option value="az"${LSORT === 'az' ? ' selected' : ''}>A–Z</option></select></div></div><ul class="list" id="ll"></ul><div id="lmore"></div>`;
     const draw = () => {
       const q = M.deaccent(LQ.trim());
@@ -740,25 +742,22 @@
     V().innerHTML = `<div class="card"><h2 style="margin-top:0">Settings</h2>
       <div class="small muted chiph">New words per day</div>${UI.seg('snew', [[5, '5'], [10, '10'], [20, '20']], S.set.newPerDay)}
       <div class="small muted chiph">Typed answers</div>${UI.seg('sacc', [['1', 'Accents count'], ['0', 'Accents optional']], S.set.strict ? '1' : '0')}
-      <p class="small muted">With accents counting, <i>citta</i> for <i>città</i> or <i>e</i> for <i>è</i> is marked wrong (you can still tap “Count as correct”). Accents are optional only when that setting is on.</p>
-      <div class="small muted chiph">Identify drills: forms with more than one reading</div>${UI.seg('sand', [['1', 'Ask “And…?”'], ['0', 'Just show them']], S.set.andMore ? '1' : '0')}
-      <p class="small muted">Some forms are several readings at once (<i>sono</i>: io or loro). Any one counts as right. With <b>Ask “And…?”</b> on, a right answer is followed by an optional prompt to name the other readings, with one guess per reading left. Naming a reading you already gave doesn’t use a guess. Skipping costs nothing, and the score uses only your first answer.</p></div>
+      <p class="small muted">With <b>Accents count</b>, <i>citta</i> for <i>città</i> is marked wrong. You can still tap Count as correct.</p></div>
       <div class="card"><h2 style="margin-top:0">Your progress</h2><p class="small muted" style="margin-top:0">Progress is stored only on this device. Export it to back up or move to another device.</p>
       <div class="row wrap"><button class="grow" id="exp">Export</button><button class="grow" id="imp">Import</button><button class="grow" id="rst">Reset</button></div><input type="file" id="impf" accept=".json,application/json" hidden></div>
       <div class="card"><h2 style="margin-top:0">How it works</h2>
-      <p class="small"><b>Cards.</b> Each word has two cards: Italian → English, and (after you get that one right) English → Italian, where you can type the answer. You grade yourself right or wrong, nothing more. Right moves a card up a box (next review in 1, 3, 7, 14, 30, 60, then 120 days); wrong sends it back to the start and it returns in a few cards. Words come in frequency order, ${S.set.newPerDay} new a day, and a session is at most ${SESSION_MAX} cards (about 5–10 minutes).</p>
-      <p class="small"><b>Drills.</b> Free practice on verb forms (present, passato prossimo, imperfetto, future), articles, and adjective agreement. Type the form, identify it with chips, or mix. Questions favor forms you miss, haven’t tried, or haven’t seen lately; a miss comes back a few questions later with another word. “New word” and “New form” tags mark first meetings. Drills don’t affect the flashcard schedule. Turn on <b>Sentences in drills</b> and about one question in seven is a short sentence for a trip to Rome, from words you have already seen. From a word in the list, <b>Test this word</b> runs that word’s cards and drills without saving anything.</p>
-      <p class="small"><b>Learn.</b> ${LS.length} short lessons with tables generated by the same grammar engine that checks your answers, plus a cheat sheet.</p></div>
+      <p class="small"><b>Cards:</b> learn a few new words a day and review what's due. Mark each one Right or Wrong. Right answers come back later and later; wrong ones come back soon.</p>
+      <p class="small"><b>Learn:</b> short grammar lessons.</p>
+      <p class="small"><b>Drills:</b> practice verb forms, articles, and adjective endings anytime. The app asks more about the ones you miss.</p>
+      <p class="small"><b>Cheat sheet:</b> all the tables in one place.</p>
+      <p class="small"><b>Words:</b> search the list, or tap a word to test it.</p>
+      <p class="small">Your progress stays on this device. No account needed, and it works offline.</p></div>
       <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">More packs (Dante’s <i>Commedia</i>, Rome & travel) are planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
-      <p class="small"><b>Word frequency:</b> a blend of two lists. Spoken Italian: <a href="https://github.com/hermitdave/FrequencyWords" target="_blank" rel="noopener">FrequencyWords</a> by Hermit Dave (Italian, 2018 full list), built from <a href="http://opus.nlpl.eu/OpenSubtitles2018.php" target="_blank" rel="noopener">OpenSubtitles 2018</a> via OPUS; license <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Written Italian: the <a href="https://wortschatz.uni-leipzig.de/en/download/Italian" target="_blank" rel="noopener">Leipzig Corpora Collection</a> Italian news corpora 2023 and 2024 (1M sentences each; D. Goldhahn, T. Eckart &amp; U. Quasthoff, LREC 2012); license <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Each word is ranked by a weighted average of its log frequency in the two (60% subtitles, 40% news, with news able to lift a word at most to twice its subtitle frequency), so words common in both rise, film-and-TV oddities fall, and the list doesn’t tilt toward politics and business. A few everyday words that newspapers rarely print (salve, colazione, dente, valigia…) are kept by hand.</p>
-      <p class="small"><b>Lemmas and forms:</b> <a href="https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it" target="_blank" rel="noopener">Morph-it!</a> (Zanchetta &amp; Baroni, University of Bologna; CC BY-SA 2.0 / LGPL), used to group word forms under their dictionary headword and to cross-check genders and verb forms.</p>
-      <p class="small"><b>Glosses, genders, plurals:</b> cross-checked against <a href="https://en.wiktionary.org/" target="_blank" rel="noopener">English Wiktionary</a> (CC BY-SA 4.0) via the <a href="https://kaikki.org/dictionary/Italian/" target="_blank" rel="noopener">kaikki.org</a> extract (Tatu Ylonen, Wiktextract). Glosses were written and edited for this app.</p>
-      <p class="small">Proper names, fragments, and non-words were removed and inflected forms were merged into their headword, so each of the ${W.length} entries is a dictionary word ranked by its combined frequency.</p>
-      <p class="small muted">Version ${VERSION}. App code: MIT license. Word list and glosses: CC BY-SA 4.0. Source: <a href="https://github.com/ericianni/italiano-1500" target="_blank" rel="noopener">github.com/ericianni/italiano-1500</a>. Sister app: <a href="https://ericianni.github.io/latin-diederich-vocab/" target="_blank" rel="noopener">Latin 1400</a>.</p></div>`;
+      <p class="small"><b>Word list:</b> frequencies from FrequencyWords by Hermit Dave (OpenSubtitles 2018, CC BY-SA 4.0) and the Leipzig Corpora Collection Italian news 2023–24 (CC BY 4.0). Forms checked with Morph-it! (CC BY-SA 2.0 / LGPL) and English Wiktionary via kaikki.org (CC BY-SA). Glosses written for this app.</p>
+      <p class="small">Made by Eric Ianni. App code: MIT. Word data: CC BY-SA 4.0. Source: github.com/ericianni/italiano-1500. Version ${VERSION}.</p></div>`;
     $$('#snew button').forEach(b => b.onclick = () => { S.set.newPerDay = +b.dataset.v; save(); renderAbout(); });
     $$('#sacc button').forEach(b => b.onclick = () => { S.set.strict = b.dataset.v === '1'; save(); renderAbout(); });
-    $$('#sand button').forEach(b => b.onclick = () => { S.set.andMore = b.dataset.v === '1'; save(); renderAbout(); });
     $('#exp').onclick = () => UI.download('italiano1500-progress-' + new Date().toISOString().slice(0, 10) + '.json', store.exportText(S));
     $('#imp').onclick = () => $('#impf').click();
     $('#impf').onchange = e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader();
