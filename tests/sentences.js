@@ -60,8 +60,8 @@ function main(eq, ok) {
   ok(/s\.set\.df\.sent = df\.sent === true/.test(app), 'app stores sentences off unless explicitly on');
   ok(/Sentences in drills/.test(app), 'drills settings label');
   const sw = fs.readFileSync(path.join(__dirname, '../sw.js'), 'utf8');
-  ok(/italiano1500-v15/.test(sw), 'cache v15');
-  ok(/const VERSION = 'v15'/.test(app), 'app version v15');
+  ok(/italiano1500-v16/.test(sw), 'cache v16');
+  ok(/const VERSION = 'v16'/.test(app), 'app version v16');
   ok(sw.indexOf('lang/it/sentences.js') >= 0 && sw.indexOf('lang/it/sentences_lexicon.js') >= 0, 'sentence scripts precached');
 
   // ---------- mix: 1 in 7, each stretch 10–20%, never two in a row ----------

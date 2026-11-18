@@ -1,0 +1,26 @@
+{
+  "id": "dante",
+  "title": "Dante (Inferno)",
+  "desc": "Lemmas from the Inferno that are not in the core 1,500 and occur at least three times, plus names.",
+  "lang": "it",
+  "version": 1,
+  "words": "words.json",
+  "count": 601,
+  "license": "CC BY-SA 4.0",
+  "sources": [
+    {
+      "name": "Inferno text: Project Gutenberg eBook #997 (public domain in the USA)",
+      "url": "https://www.gutenberg.org/ebooks/997",
+      "license": "Public domain in the USA"
+    },
+    {
+      "name": "Morph-it! 0.4.8 (lemmatization)",
+      "url": "https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it",
+      "license": "CC BY-SA 2.0 / LGPL"
+    },
+    {
+      "name": "English glosses written for this app",
+      "license": "CC BY-SA 4.0"
+    }
+  ]
+}

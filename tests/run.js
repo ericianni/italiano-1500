@@ -351,16 +351,63 @@ for (const l of LESSONS) {
   threw = false; try { Store.create('other.v1', x => x, mem).importText(txt); } catch (e) { threw = true; } ok(threw, 'store: rejects other app exports');
 }
 const fs = require('fs'), path = require('path'), root = path.join(__dirname, '..');
-const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.readFileSync(path.join(root, u), 'utf8'))), new Set()).then(r => {
-  eq(r.words.length, 1500, 'packs: core loaded'); eq(r.packs.map(p => p.id), ['core'], 'packs: index'); ok(r.words.every(w => w.pack === 'core'), 'packs: tagged');
+const mem = { d: {}, getItem(k) { return this.d[k] || null; }, setItem(k, v) { this.d[k] = v; } };
+mem.setItem('italiano1500.v1', JSON.stringify({ v: 1, cards: { 'r:casa': { box: 1 } } }));
+const migrated = Store.create('italiano1500.v1', s => {
+  s.set = s.set || {};
+  const pack = Packs.normalize(s.set.pack);
+  s.set.pack = pack.id; s.packs = pack.packs;
+  return s;
+}, mem).load();
+eq(migrated.set.pack, 'core', 'saved progress with no pack stays on Modern Italian');
+eq(migrated.packs, [], 'saved progress loads no extra pack');
+mem.setItem('italiano1500.v1', JSON.stringify({ v: 1, cards: { 'r:casa': { box: 1 } }, set: { pack: 'dante' }, packs: ['core', 'dante'] }));
+const switched = Store.create('italiano1500.v1', s => {
+  s.set = s.set || {};
+  const pack = Packs.normalize(s.set.pack);
+  s.set.pack = pack.id; s.packs = pack.packs;
+  return s;
+}, mem).load();
+eq(switched.set.pack, 'dante', 'pack switch keeps Dante');
+eq(switched.packs, ['dante'], 'pack switch loads only the Dante extra pack');
+
+const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.readFileSync(path.join(root, u), 'utf8'))), new Set()).then(async r => {
+  eq(r.words.length, 1500, 'packs: core loaded'); eq(r.packs.map(p => p.id), ['core', 'dante'], 'packs: index');
+  ok(r.packs[0].loaded && r.packs[1].loaded === false, 'packs: dante off by default');
+  ok(r.words.every(w => w.pack === 'core'), 'packs: tagged');
   eq(Packs.gid('rome', 'x'), 'rome/x', 'packs: non-core ids prefixed');
+  eq(Packs.normalize(undefined).id, 'core', 'pack: missing choice is core');
+  eq(Packs.normalize('nope').packs.join(), '', 'pack: unknown choice drops extra packs');
+  eq(Packs.normalize('dante'), { id: 'dante', packs: ['dante'] }, 'pack: Dante choice');
+  const both = await Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.readFileSync(path.join(root, u), 'utf8'))), new Set(['dante']));
+  const coreIt = new Set(r.words.map(w => w.it));
+  const dante = both.words.filter(w => w.pack === 'dante');
+  ok(dante.length > 0 && dante.every(w => w.id.indexOf('dante/') === 0), 'dante ids are prefixed');
+  ok(dante.every(w => w.en && String(w.en).trim()), 'dante: every lemma has a gloss');
+  ok(dante.every(w => w.count >= 3 && w.ref && w.canto >= 1 && w.line >= 1), 'dante: count and first line');
+  ok(dante.every(w => !coreIt.has(w.it)), 'dante: no headword already in core');
+  const ids = dante.map(w => w.id); ok(new Set(ids).size === ids.length, 'dante: unique ids');
+  ok(dante.filter(w => w.name).every(w => w.nodrill && w.group === 'name'), 'dante names are not drilled');
+  ok(dante.filter(w => w.note).every(w => w.nodrill), 'dante notes stay out of form drills');
+  const UD = D.buildUnits(both.words, D.DF), inDrill = new Set();
+  Object.keys(UD).forEach(k => UD[k].forEach(id => inDrill.add(id)));
+  ok(dante.filter(w => w.nodrill).every(w => !inDrill.has(w.id)), 'nodrill words are absent from drill units');
+  ok(dante.some(w => !w.nodrill && inDrill.has(w.id)), 'drillable Dante words enter the same drills');
+  const ex = JSON.parse(fs.readFileSync(path.join(root, 'data/dante-excluded.json'), 'utf8'));
+  const danteIt = new Set(dante.map(w => w.it));
+  ok(ex.length > 0 && ex.every(w => w.count === 1 || w.count === 2), 'excluded: counts are 1 or 2');
+  ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v15'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v16'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v15'/.test(app), 'app version v15');
+  ok(/const VERSION = 'v16'/.test(app), 'app version v16');
+  const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
+  ok(/Modern Italian \+ Dante \(Inferno\)/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
+  ok(/Dante adds words from the Inferno/.test(app), 'how it works names Dante');
+  ok(/Project Gutenberg eBook #997/.test(app) && /indexOf\('dante'\)/.test(app), 'Dante credits are conditional');
   ok(/<b>Word list:<\/b> frequencies from FrequencyWords/.test(app) && /Made by Eric Ianni\. App code: MIT\. Word data: CC BY-SA 4\.0\. Source: github\.com\/ericianni\/italiano-1500\. Version \$\{VERSION\}\./.test(app), 'about credits');
   ok(/<b>Cards:<\/b> learn a few new words a day/.test(app) && /<b>Cheat sheet:<\/b> all the tables in one place\./.test(app) && /Your progress stays on this device\./.test(app), 'how it works');
   ok(/<b>Sentences in drills<\/b> stay off until you turn them on/.test(app), 'sentences hint');

@@ -1,0 +1,14717 @@
+[
+ {
+  "it": "Beatrice",
+  "count": 2,
+  "ref": "2.70"
+ },
+ {
+  "it": "Carlo",
+  "count": 2,
+  "ref": "19.99"
+ },
+ {
+  "it": "David",
+  "count": 2,
+  "ref": "4.58"
+ },
+ {
+  "it": "Duce",
+  "count": 2,
+  "ref": "7.78"
+ },
+ {
+  "it": "Francesca",
+  "count": 2,
+  "ref": "5.116"
+ },
+ {
+  "it": "Francesco",
+  "count": 2,
+  "ref": "15.110"
+ },
+ {
+  "it": "Gianni",
+  "count": 2,
+  "ref": "30.32"
+ },
+ {
+  "it": "Lucca",
+  "count": 2,
+  "ref": "18.122"
+ },
+ {
+  "it": "Lucia",
+  "count": 2,
+  "ref": "2.97"
+ },
+ {
+  "it": "Marte",
+  "count": 2,
+  "ref": "24.145"
+ },
+ {
+  "it": "Michel",
+  "count": 2,
+  "ref": "22.88"
+ },
+ {
+  "it": "Michele",
+  "count": 2,
+  "ref": "7.11"
+ },
+ {
+  "it": "Omero",
+  "count": 2,
+  "ref": "4.88"
+ },
+ {
+  "it": "Pier",
+  "count": 2,
+  "ref": "19.94"
+ },
+ {
+  "it": "Pro",
+  "count": 2,
+  "ref": "2.110"
+ },
+ {
+  "it": "Romagna",
+  "count": 2,
+  "ref": "27.37"
+ },
+ {
+  "it": "Roman",
+  "count": 2,
+  "ref": "15.77"
+ },
+ {
+  "it": "abbagliare",
+  "count": 2,
+  "ref": "23.64"
+ },
+ {
+  "it": "abbaiare",
+  "count": 2,
+  "ref": "6.28"
+ },
+ {
+  "it": "accorare",
+  "count": 2,
+  "ref": "13.84"
+ },
+ {
+  "it": "accorrere",
+  "count": 2,
+  "ref": "13.118"
+ },
+ {
+  "it": "acheronte",
+  "count": 2,
+  "ref": "3.78"
+ },
+ {
+  "it": "addentare",
+  "count": 2,
+  "ref": "21.52"
+ },
+ {
+  "it": "adunare",
+  "count": 2,
+  "ref": "4.94"
+ },
+ {
+  "it": "affannare",
+  "count": 2,
+  "ref": "1.22"
+ },
+ {
+  "it": "affiggere",
+  "count": 2,
+  "ref": "12.115"
+ },
+ {
+  "it": "agognare",
+  "count": 2,
+  "ref": "6.28"
+ },
+ {
+  "it": "aguto",
+  "count": 2,
+  "ref": "21.34"
+ },
+ {
+  "it": "alchimia",
+  "count": 2,
+  "ref": "29.119"
+ },
+ {
+  "it": "allato",
+  "count": 2,
+  "ref": "22.46"
+ },
+ {
+  "it": "allegra",
+  "count": 2,
+  "ref": "7.122"
+ },
+ {
+  "it": "ambascia",
+  "count": 2,
+  "ref": "24.52"
+ },
+ {
+  "it": "ammenda",
+  "count": 2,
+  "ref": "13.53"
+ },
+ {
+  "it": "angelico",
+  "count": 2,
+  "ref": "2.57"
+ },
+ {
+  "it": "angelo",
+  "count": 2,
+  "ref": "3.38"
+ },
+ {
+  "it": "animare",
+  "count": 2,
+  "ref": "2.2"
+ },
+ {
+  "it": "apersi",
+  "count": 2,
+  "ref": "10.44"
+ },
+ {
+  "it": "apparecchiare",
+  "count": 2,
+  "ref": "2.4"
+ },
+ {
+  "it": "approccia",
+  "count": 2,
+  "ref": "12.46"
+ },
+ {
+  "it": "arche",
+  "count": 2,
+  "ref": "9.125"
+ },
+ {
+  "it": "arginare",
+  "count": 2,
+  "ref": "15.3"
+ },
+ {
+  "it": "armare",
+  "count": 2,
+  "ref": "12.56"
+ },
+ {
+  "it": "arme",
+  "count": 2,
+  "ref": "27.67"
+ },
+ {
+  "it": "arpia",
+  "count": 2,
+  "ref": "13.10"
+ },
+ {
+  "it": "arso",
+  "count": 2,
+  "ref": "13.40"
+ },
+ {
+  "it": "arsura",
+  "count": 2,
+  "ref": "14.42"
+ },
+ {
+  "it": "ascella",
+  "count": 2,
+  "ref": "17.13"
+ },
+ {
+  "it": "ascondere",
+  "count": 2,
+  "ref": "9.62"
+ },
+ {
+  "it": "assettare",
+  "count": 2,
+  "ref": "17.22"
+ },
+ {
+  "it": "attienti",
+  "count": 2,
+  "ref": "18.75"
+ },
+ {
+  "it": "attila",
+  "count": 2,
+  "ref": "12.134"
+ },
+ {
+  "it": "attorcere",
+  "count": 2,
+  "ref": "25.115"
+ },
+ {
+  "it": "attuffare",
+  "count": 2,
+  "ref": "8.53"
+ },
+ {
+  "it": "augusto",
+  "count": 2,
+  "ref": "1.71"
+ },
+ {
+  "it": "avaccio",
+  "count": 2,
+  "ref": "10.116"
+ },
+ {
+  "it": "avaro",
+  "count": 2,
+  "ref": "15.68"
+ },
+ {
+  "it": "avei",
+  "count": 2,
+  "ref": "30.110"
+ },
+ {
+  "it": "avellere",
+  "count": 2,
+  "ref": "9.118"
+ },
+ {
+  "it": "averien",
+  "count": 2,
+  "ref": "19.27"
+ },
+ {
+  "it": "avvegna",
+  "count": 2,
+  "ref": "25.145"
+ },
+ {
+  "it": "avversare",
+  "count": 2,
+  "ref": "9.68"
+ },
+ {
+  "it": "avvinghiare",
+  "count": 2,
+  "ref": "5.6"
+ },
+ {
+  "it": "avvisare",
+  "count": 2,
+  "ref": "16.23"
+ },
+ {
+  "it": "avviso",
+  "count": 2,
+  "ref": "26.50"
+ },
+ {
+  "it": "balena",
+  "count": 2,
+  "ref": "22.24"
+ },
+ {
+  "it": "balestrare",
+  "count": 2,
+  "ref": "13.98"
+ },
+ {
+  "it": "barattare",
+  "count": 2,
+  "ref": "11.60"
+ },
+ {
+  "it": "batista",
+  "count": 2,
+  "ref": "13.143"
+ },
+ {
+  "it": "beare",
+  "count": 2,
+  "ref": "1.120"
+ },
+ {
+  "it": "beato",
+  "count": 2,
+  "ref": "2.112"
+ },
+ {
+  "it": "beccare",
+  "count": 2,
+  "ref": "17.73"
+ },
+ {
+  "it": "biasmo",
+  "count": 2,
+  "ref": "5.57"
+ },
+ {
+  "it": "bieco",
+  "count": 2,
+  "ref": "6.91"
+ },
+ {
+  "it": "bolognese",
+  "count": 2,
+  "ref": "18.58"
+ },
+ {
+  "it": "bontade",
+  "count": 2,
+  "ref": "11.48"
+ },
+ {
+  "it": "brievemente",
+  "count": 2,
+  "ref": "2.86"
+ },
+ {
+  "it": "brigata",
+  "count": 2,
+  "ref": "29.130"
+ },
+ {
+  "it": "buca",
+  "count": 2,
+  "ref": "32.125"
+ },
+ {
+  "it": "bue",
+  "count": 2,
+  "ref": "17.75"
+ },
+ {
+  "it": "buffare",
+  "count": 2,
+  "ref": "7.61"
+ },
+ {
+  "it": "buoso",
+  "count": 2,
+  "ref": "25.140"
+ },
+ {
+  "it": "burrato",
+  "count": 2,
+  "ref": "12.10"
+ },
+ {
+  "it": "busto",
+  "count": 2,
+  "ref": "17.8"
+ },
+ {
+  "it": "cagna",
+  "count": 2,
+  "ref": "13.125"
+ },
+ {
+  "it": "cagnazzo",
+  "count": 2,
+  "ref": "21.119"
+ },
+ {
+  "it": "caina",
+  "count": 2,
+  "ref": "5.107"
+ },
+ {
+  "it": "calcabrina",
+  "count": 2,
+  "ref": "21.118"
+ },
+ {
+  "it": "calcare",
+  "count": 2,
+  "ref": "19.105"
+ },
+ {
+  "it": "calere",
+  "count": 2,
+  "ref": "12.27"
+ },
+ {
+  "it": "cammilla",
+  "count": 2,
+  "ref": "1.107"
+ },
+ {
+  "it": "canna",
+  "count": 2,
+  "ref": "6.27"
+ },
+ {
+  "it": "capocchio",
+  "count": 2,
+  "ref": "29.136"
+ },
+ {
+  "it": "carca",
+  "count": 2,
+  "ref": "1.50"
+ },
+ {
+  "it": "carcere",
+  "count": 2,
+  "ref": "10.59"
+ },
+ {
+  "it": "cardinale",
+  "count": 2,
+  "ref": "7.47"
+ },
+ {
+  "it": "carro",
+  "count": 2,
+  "ref": "11.114"
+ },
+ {
+  "it": "castella",
+  "count": 2,
+  "ref": "22.8"
+ },
+ {
+  "it": "catalano",
+  "count": 2,
+  "ref": "23.104"
+ },
+ {
+  "it": "catena",
+  "count": 2,
+  "ref": "13.126"
+ },
+ {
+  "it": "ceffo",
+  "count": 2,
+  "ref": "17.50"
+ },
+ {
+  "it": "cera",
+  "count": 2,
+  "ref": "17.110"
+ },
+ {
+  "it": "cernere",
+  "count": 2,
+  "ref": "8.71"
+ },
+ {
+  "it": "cespuglio",
+  "count": 2,
+  "ref": "13.123"
+ },
+ {
+  "it": "cheggio",
+  "count": 2,
+  "ref": "15.120"
+ },
+ {
+  "it": "chiappa",
+  "count": 2,
+  "ref": "24.33"
+ },
+ {
+  "it": "chioccia",
+  "count": 2,
+  "ref": "7.2"
+ },
+ {
+  "it": "ciacco",
+  "count": 2,
+  "ref": "6.52"
+ },
+ {
+  "it": "cibare",
+  "count": 2,
+  "ref": "1.103"
+ },
+ {
+  "it": "cieca",
+  "count": 2,
+  "ref": "3.47"
+ },
+ {
+  "it": "cigne",
+  "count": 2,
+  "ref": "4.24"
+ },
+ {
+  "it": "cigolare",
+  "count": 2,
+  "ref": "13.42"
+ },
+ {
+  "it": "cinghiare",
+  "count": 2,
+  "ref": "18.7"
+ },
+ {
+  "it": "cinta",
+  "count": 2,
+  "ref": "3.31"
+ },
+ {
+  "it": "ciriatto",
+  "count": 2,
+  "ref": "21.122"
+ },
+ {
+  "it": "cocca",
+  "count": 2,
+  "ref": "12.77"
+ },
+ {
+  "it": "colle",
+  "count": 2,
+  "ref": "1.13"
+ },
+ {
+  "it": "comedìa",
+  "count": 2,
+  "ref": "16.128"
+ },
+ {
+  "it": "commettere",
+  "count": 2,
+  "ref": "7.62"
+ },
+ {
+  "it": "compiere",
+  "count": 2,
+  "ref": "21.114"
+ },
+ {
+  "it": "concetto",
+  "count": 2,
+  "ref": "26.73"
+ },
+ {
+  "it": "conio",
+  "count": 2,
+  "ref": "18.66"
+ },
+ {
+  "it": "consentire",
+  "count": 2,
+  "ref": "25.48"
+ },
+ {
+  "it": "conservare",
+  "count": 2,
+  "ref": "10.127"
+ },
+ {
+  "it": "consunto",
+  "count": 2,
+  "ref": "11.66"
+ },
+ {
+  "it": "contegno",
+  "count": 2,
+  "ref": "17.60"
+ },
+ {
+  "it": "convegno",
+  "count": 2,
+  "ref": "32.135"
+ },
+ {
+  "it": "convene",
+  "count": 2,
+  "ref": "4.91"
+ },
+ {
+  "it": "corneto",
+  "count": 2,
+  "ref": "12.137"
+ },
+ {
+  "it": "cornuto",
+  "count": 2,
+  "ref": "18.35"
+ },
+ {
+  "it": "coro",
+  "count": 2,
+  "ref": "3.37"
+ },
+ {
+  "it": "cortesia",
+  "count": 2,
+  "ref": "16.67"
+ },
+ {
+  "it": "costantin",
+  "count": 2,
+  "ref": "19.115"
+ },
+ {
+  "it": "costor",
+  "count": 2,
+  "ref": "16.15"
+ },
+ {
+  "it": "costumare",
+  "count": 2,
+  "ref": "15.69"
+ },
+ {
+  "it": "costume",
+  "count": 2,
+  "ref": "3.73"
+ },
+ {
+  "it": "cotale",
+  "count": 2,
+  "ref": "11.23"
+ },
+ {
+  "it": "cotto",
+  "count": 2,
+  "ref": "15.26"
+ },
+ {
+  "it": "coverto",
+  "count": 2,
+  "ref": "4.51"
+ },
+ {
+  "it": "crin",
+  "count": 2,
+  "ref": "7.57"
+ },
+ {
+  "it": "crucciato",
+  "count": 2,
+  "ref": "14.53"
+ },
+ {
+  "it": "crudelmente",
+  "count": 2,
+  "ref": "18.36"
+ },
+ {
+  "it": "cupo",
+  "count": 2,
+  "ref": "7.10"
+ },
+ {
+  "it": "dallato",
+  "count": 2,
+  "ref": "14.83"
+ },
+ {
+  "it": "dannoso",
+  "count": 2,
+  "ref": "6.53"
+ },
+ {
+  "it": "deggio",
+  "count": 2,
+  "ref": "15.118"
+ },
+ {
+  "it": "dibattere",
+  "count": 2,
+  "ref": "3.101"
+ },
+ {
+  "it": "dicean",
+  "count": 2,
+  "ref": "8.84"
+ },
+ {
+  "it": "dicere",
+  "count": 2,
+  "ref": "16.84"
+ },
+ {
+  "it": "dichina",
+  "count": 2,
+  "ref": "28.75"
+ },
+ {
+  "it": "difension",
+  "count": 2,
+  "ref": "7.81"
+ },
+ {
+  "it": "difetto",
+  "count": 2,
+  "ref": "22.125"
+ },
+ {
+  "it": "dileguare",
+  "count": 2,
+  "ref": "9.77"
+ },
+ {
+  "it": "diletto",
+  "count": 2,
+  "ref": "5.127"
+ },
+ {
+  "it": "dimandar",
+  "count": 2,
+  "ref": "33.39"
+ },
+ {
+  "it": "dimandare",
+  "count": 2,
+  "ref": "3.96"
+ },
+ {
+  "it": "dimandi",
+  "count": 2,
+  "ref": "4.31"
+ },
+ {
+  "it": "dinne",
+  "count": 2,
+  "ref": "13.89"
+ },
+ {
+  "it": "discoscesa",
+  "count": 2,
+  "ref": "12.8"
+ },
+ {
+  "it": "diserra",
+  "count": 2,
+  "ref": "12.136"
+ },
+ {
+  "it": "disiri",
+  "count": 2,
+  "ref": "5.120"
+ },
+ {
+  "it": "dismonta",
+  "count": 2,
+  "ref": "11.115"
+ },
+ {
+  "it": "dispaia",
+  "count": 2,
+  "ref": "7.45"
+ },
+ {
+  "it": "disperdere",
+  "count": 2,
+  "ref": "10.48"
+ },
+ {
+  "it": "dispregiare",
+  "count": 2,
+  "ref": "8.51"
+ },
+ {
+  "it": "distesa",
+  "count": 2,
+  "ref": "12.12"
+ },
+ {
+  "it": "distinto",
+  "count": 2,
+  "ref": "11.30"
+ },
+ {
+  "it": "distorcere",
+  "count": 2,
+  "ref": "17.74"
+ },
+ {
+  "it": "divin",
+  "count": 2,
+  "ref": "20.30"
+ },
+ {
+  "it": "doria",
+  "count": 2,
+  "ref": "33.137"
+ },
+ {
+  "it": "draghignazzo",
+  "count": 2,
+  "ref": "21.121"
+ },
+ {
+  "it": "drappo",
+  "count": 2,
+  "ref": "15.122"
+ },
+ {
+  "it": "dubitare",
+  "count": 2,
+  "ref": "28.97"
+ },
+ {
+  "it": "duole",
+  "count": 2,
+  "ref": "16.70"
+ },
+ {
+  "it": "duoli",
+  "count": 2,
+  "ref": "21.132"
+ },
+ {
+  "it": "ell",
+  "count": 2,
+  "ref": "2.11"
+ },
+ {
+  "it": "empiere",
+  "count": 2,
+  "ref": "1.98"
+ },
+ {
+  "it": "epa",
+  "count": 2,
+  "ref": "30.102"
+ },
+ {
+  "it": "esse",
+  "count": 2,
+  "ref": "25.9"
+ },
+ {
+  "it": "facci",
+  "count": 2,
+  "ref": "6.78"
+ },
+ {
+  "it": "faci",
+  "count": 2,
+  "ref": "10.16"
+ },
+ {
+  "it": "falcone",
+  "count": 2,
+  "ref": "17.127"
+ },
+ {
+  "it": "fallire",
+  "count": 2,
+  "ref": "13.122"
+ },
+ {
+  "it": "fallo",
+  "count": 2,
+  "ref": "28.83"
+ },
+ {
+  "it": "falsificare",
+  "count": 2,
+  "ref": "30.41"
+ },
+ {
+  "it": "fango",
+  "count": 2,
+  "ref": "7.129"
+ },
+ {
+  "it": "fangoso",
+  "count": 2,
+  "ref": "7.110"
+ },
+ {
+  "it": "fante",
+  "count": 2,
+  "ref": "18.130"
+ },
+ {
+  "it": "farfarello",
+  "count": 2,
+  "ref": "21.123"
+ },
+ {
+  "it": "farinata",
+  "count": 2,
+  "ref": "6.79"
+ },
+ {
+  "it": "fariseo",
+  "count": 2,
+  "ref": "23.116"
+ },
+ {
+  "it": "fassi",
+  "count": 2,
+  "ref": "20.75"
+ },
+ {
+  "it": "fastidioso",
+  "count": 2,
+  "ref": "3.69"
+ },
+ {
+  "it": "fattore",
+  "count": 2,
+  "ref": "3.4"
+ },
+ {
+  "it": "favilla",
+  "count": 2,
+  "ref": "6.75"
+ },
+ {
+  "it": "fedele",
+  "count": 2,
+  "ref": "2.98"
+ },
+ {
+  "it": "federigo",
+  "count": 2,
+  "ref": "13.59"
+ },
+ {
+  "it": "feggia",
+  "count": 2,
+  "ref": "15.39"
+ },
+ {
+  "it": "felli",
+  "count": 2,
+  "ref": "11.88"
+ },
+ {
+  "it": "feltro",
+  "count": 2,
+  "ref": "1.105"
+ },
+ {
+  "it": "ferute",
+  "count": 2,
+  "ref": "1.108"
+ },
+ {
+  "it": "fiacca",
+  "count": 2,
+  "ref": "7.14"
+ },
+ {
+  "it": "fialte",
+  "count": 2,
+  "ref": "31.94"
+ },
+ {
+  "it": "fiammella",
+  "count": 2,
+  "ref": "14.90"
+ },
+ {
+  "it": "figgere",
+  "count": 2,
+  "ref": "7.121"
+ },
+ {
+  "it": "figliuoi",
+  "count": 2,
+  "ref": "33.48"
+ },
+ {
+  "it": "fiorentino",
+  "count": 2,
+  "ref": "8.62"
+ },
+ {
+  "it": "fitta",
+  "count": 2,
+  "ref": "15.82"
+ },
+ {
+  "it": "fiumicello",
+  "count": 2,
+  "ref": "4.108"
+ },
+ {
+  "it": "flegetonta",
+  "count": 2,
+  "ref": "14.116"
+ },
+ {
+  "it": "foggia",
+  "count": 2,
+  "ref": "11.75"
+ },
+ {
+  "it": "foglia",
+  "count": 2,
+  "ref": "3.112"
+ },
+ {
+  "it": "folgore",
+  "count": 2,
+  "ref": "14.53"
+ },
+ {
+  "it": "fonda",
+  "count": 2,
+  "ref": "20.129"
+ },
+ {
+  "it": "forame",
+  "count": 2,
+  "ref": "27.13"
+ },
+ {
+  "it": "forca",
+  "count": 2,
+  "ref": "17.26"
+ },
+ {
+  "it": "formare",
+  "count": 2,
+  "ref": "14.106"
+ },
+ {
+  "it": "fosca",
+  "count": 2,
+  "ref": "23.78"
+ },
+ {
+  "it": "franceschi",
+  "count": 2,
+  "ref": "27.44"
+ },
+ {
+  "it": "fratei",
+  "count": 2,
+  "ref": "25.28"
+ },
+ {
+  "it": "fregiare",
+  "count": 2,
+  "ref": "8.47"
+ },
+ {
+  "it": "frodolente",
+  "count": 2,
+  "ref": "25.29"
+ },
+ {
+  "it": "fruttare",
+  "count": 2,
+  "ref": "15.66"
+ },
+ {
+  "it": "fuggirsi",
+  "count": 2,
+  "ref": "16.86"
+ },
+ {
+  "it": "furia",
+  "count": 2,
+  "ref": "9.38"
+ },
+ {
+  "it": "furore",
+  "count": 2,
+  "ref": "14.66"
+ },
+ {
+  "it": "furto",
+  "count": 2,
+  "ref": "25.29"
+ },
+ {
+  "it": "generare",
+  "count": 2,
+  "ref": "16.74"
+ },
+ {
+  "it": "gerion",
+  "count": 2,
+  "ref": "17.97"
+ },
+ {
+  "it": "ghermire",
+  "count": 2,
+  "ref": "21.36"
+ },
+ {
+  "it": "gissi",
+  "count": 2,
+  "ref": "18.45"
+ },
+ {
+  "it": "giudei",
+  "count": 2,
+  "ref": "23.123"
+ },
+ {
+  "it": "giugnemmo",
+  "count": 2,
+  "ref": "4.111"
+ },
+ {
+  "it": "giunta",
+  "count": 2,
+  "ref": "8.18"
+ },
+ {
+  "it": "gloria",
+  "count": 2,
+  "ref": "3.42"
+ },
+ {
+  "it": "glorioso",
+  "count": 2,
+  "ref": "13.62"
+ },
+ {
+  "it": "gocciare",
+  "count": 2,
+  "ref": "32.47"
+ },
+ {
+  "it": "gonfiare",
+  "count": 2,
+  "ref": "7.13"
+ },
+ {
+  "it": "governare",
+  "count": 2,
+  "ref": "28.126"
+ },
+ {
+  "it": "gravare",
+  "count": 2,
+  "ref": "6.86"
+ },
+ {
+  "it": "gravezza",
+  "count": 2,
+  "ref": "1.52"
+ },
+ {
+  "it": "greggio",
+  "count": 2,
+  "ref": "15.37"
+ },
+ {
+  "it": "grembo",
+  "count": 2,
+  "ref": "12.119"
+ },
+ {
+  "it": "gride",
+  "count": 2,
+  "ref": "1.94"
+ },
+ {
+  "it": "grifagno",
+  "count": 2,
+  "ref": "4.123"
+ },
+ {
+  "it": "guazzare",
+  "count": 2,
+  "ref": "12.139"
+ },
+ {
+  "it": "guerir",
+  "count": 2,
+  "ref": "27.95"
+ },
+ {
+  "it": "iasón",
+  "count": 2,
+  "ref": "18.86"
+ },
+ {
+  "it": "imo",
+  "count": 2,
+  "ref": "18.16"
+ },
+ {
+  "it": "imperare",
+  "count": 2,
+  "ref": "1.127"
+ },
+ {
+  "it": "impetuoso",
+  "count": 2,
+  "ref": "9.68"
+ },
+ {
+  "it": "imporre",
+  "count": 2,
+  "ref": "17.18"
+ },
+ {
+  "it": "impresa",
+  "count": 2,
+  "ref": "2.47"
+ },
+ {
+  "it": "incontenenza",
+  "count": 2,
+  "ref": "11.82"
+ },
+ {
+  "it": "increscere",
+  "count": 2,
+  "ref": "27.24"
+ },
+ {
+  "it": "indarno",
+  "count": 2,
+  "ref": "13.150"
+ },
+ {
+  "it": "indegno",
+  "count": 2,
+  "ref": "2.19"
+ },
+ {
+  "it": "indugiare",
+  "count": 2,
+  "ref": "21.28"
+ },
+ {
+  "it": "indurre",
+  "count": 2,
+  "ref": "13.51"
+ },
+ {
+  "it": "infernale",
+  "count": 2,
+  "ref": "5.31"
+ },
+ {
+  "it": "infiammare",
+  "count": 2,
+  "ref": "13.67"
+ },
+ {
+  "it": "ingombrare",
+  "count": 2,
+  "ref": "2.46"
+ },
+ {
+  "it": "insin",
+  "count": 2,
+  "ref": "17.13"
+ },
+ {
+  "it": "intento",
+  "count": 2,
+  "ref": "8.66"
+ },
+ {
+  "it": "intoppare",
+  "count": 2,
+  "ref": "7.23"
+ },
+ {
+  "it": "intrai",
+  "count": 2,
+  "ref": "2.142"
+ },
+ {
+  "it": "intrata",
+  "count": 2,
+  "ref": "5.5"
+ },
+ {
+  "it": "invidia",
+  "count": 2,
+  "ref": "6.50"
+ },
+ {
+  "it": "isnelle",
+  "count": 2,
+  "ref": "12.76"
+ },
+ {
+  "it": "lacca",
+  "count": 2,
+  "ref": "7.16"
+ },
+ {
+  "it": "ladrone",
+  "count": 2,
+  "ref": "12.90"
+ },
+ {
+  "it": "lagrimai",
+  "count": 2,
+  "ref": "3.24"
+ },
+ {
+  "it": "lagrimando",
+  "count": 2,
+  "ref": "2.116"
+ },
+ {
+  "it": "lama",
+  "count": 2,
+  "ref": "20.79"
+ },
+ {
+  "it": "largire",
+  "count": 2,
+  "ref": "14.92"
+ },
+ {
+  "it": "leccare",
+  "count": 2,
+  "ref": "17.75"
+ },
+ {
+  "it": "leone",
+  "count": 2,
+  "ref": "1.45"
+ },
+ {
+  "it": "letè",
+  "count": 2,
+  "ref": "14.131"
+ },
+ {
+  "it": "levorsi",
+  "count": 2,
+  "ref": "26.36"
+ },
+ {
+  "it": "libicocco",
+  "count": 2,
+  "ref": "21.121"
+ },
+ {
+  "it": "lieve",
+  "count": 2,
+  "ref": "3.93"
+ },
+ {
+  "it": "limare",
+  "count": 2,
+  "ref": "7.121"
+ },
+ {
+  "it": "lito",
+  "count": 2,
+  "ref": "3.116"
+ },
+ {
+  "it": "lodo",
+  "count": 2,
+  "ref": "3.36"
+ },
+ {
+  "it": "lonza",
+  "count": 2,
+  "ref": "1.32"
+ },
+ {
+  "it": "lordare",
+  "count": 2,
+  "ref": "7.127"
+ },
+ {
+  "it": "lucano",
+  "count": 2,
+  "ref": "4.90"
+ },
+ {
+  "it": "lucifero",
+  "count": 2,
+  "ref": "31.143"
+ },
+ {
+  "it": "lunge",
+  "count": 2,
+  "ref": "16.113"
+ },
+ {
+  "it": "lusinga",
+  "count": 2,
+  "ref": "11.58"
+ },
+ {
+  "it": "magnanimo",
+  "count": 2,
+  "ref": "2.44"
+ },
+ {
+  "it": "magno",
+  "count": 2,
+  "ref": "4.119"
+ },
+ {
+  "it": "magra",
+  "count": 2,
+  "ref": "24.145"
+ },
+ {
+  "it": "malacoda",
+  "count": 2,
+  "ref": "21.76"
+ },
+ {
+  "it": "maladetta",
+  "count": 2,
+  "ref": "6.8"
+ },
+ {
+  "it": "maladetti",
+  "count": 2,
+  "ref": "11.19"
+ },
+ {
+  "it": "maladetto",
+  "count": 2,
+  "ref": "7.8"
+ },
+ {
+  "it": "mammella",
+  "count": 2,
+  "ref": "17.31"
+ },
+ {
+  "it": "manifestare",
+  "count": 2,
+  "ref": "14.7"
+ },
+ {
+  "it": "maremma",
+  "count": 2,
+  "ref": "25.19"
+ },
+ {
+  "it": "marmo",
+  "count": 2,
+  "ref": "17.6"
+ },
+ {
+  "it": "maschiare",
+  "count": 2,
+  "ref": "18.90"
+ },
+ {
+  "it": "mastino",
+  "count": 2,
+  "ref": "21.44"
+ },
+ {
+  "it": "mastro",
+  "count": 2,
+  "ref": "24.16"
+ },
+ {
+  "it": "matta",
+  "count": 2,
+  "ref": "11.82"
+ },
+ {
+  "it": "medesma",
+  "count": 2,
+  "ref": "18.105"
+ },
+ {
+  "it": "merda",
+  "count": 2,
+  "ref": "18.116"
+ },
+ {
+  "it": "merto",
+  "count": 2,
+  "ref": "4.49"
+ },
+ {
+  "it": "meschino",
+  "count": 2,
+  "ref": "9.43"
+ },
+ {
+  "it": "mesta",
+  "count": 2,
+  "ref": "13.106"
+ },
+ {
+  "it": "miglio",
+  "count": 2,
+  "ref": "29.9"
+ },
+ {
+  "it": "ministra",
+  "count": 2,
+  "ref": "7.78"
+ },
+ {
+  "it": "mirabilmente",
+  "count": 2,
+  "ref": "20.11"
+ },
+ {
+  "it": "mirra",
+  "count": 2,
+  "ref": "24.111"
+ },
+ {
+  "it": "molare",
+  "count": 2,
+  "ref": "23.47"
+ },
+ {
+  "it": "molesto",
+  "count": 2,
+  "ref": "10.27"
+ },
+ {
+  "it": "molle",
+  "count": 2,
+  "ref": "19.86"
+ },
+ {
+  "it": "mora",
+  "count": 2,
+  "ref": "24.107"
+ },
+ {
+  "it": "mostrocci",
+  "count": 2,
+  "ref": "6.23"
+ },
+ {
+  "it": "movemmo",
+  "count": 2,
+  "ref": "9.104"
+ },
+ {
+  "it": "movi",
+  "count": 2,
+  "ref": "2.67"
+ },
+ {
+  "it": "mozzare",
+  "count": 2,
+  "ref": "7.57"
+ },
+ {
+  "it": "mozzo",
+  "count": 2,
+  "ref": "9.95"
+ },
+ {
+  "it": "mungere",
+  "count": 2,
+  "ref": "12.135"
+ },
+ {
+  "it": "musa",
+  "count": 2,
+  "ref": "2.7"
+ },
+ {
+  "it": "mäometto",
+  "count": 2,
+  "ref": "28.31"
+ },
+ {
+  "it": "natio",
+  "count": 2,
+  "ref": "10.26"
+ },
+ {
+  "it": "ncendio",
+  "count": 2,
+  "ref": "2.93"
+ },
+ {
+  "it": "ncontra",
+  "count": 2,
+  "ref": "8.99"
+ },
+ {
+  "it": "ncontro",
+  "count": 2,
+  "ref": "1.59"
+ },
+ {
+  "it": "necessità",
+  "count": 2,
+  "ref": "7.89"
+ },
+ {
+  "it": "neente",
+  "count": 2,
+  "ref": "22.143"
+ },
+ {
+  "it": "negro",
+  "count": 2,
+  "ref": "7.124"
+ },
+ {
+  "it": "nepote",
+  "count": 2,
+  "ref": "11.105"
+ },
+ {
+  "it": "nerbo",
+  "count": 2,
+  "ref": "9.73"
+ },
+ {
+  "it": "nfino",
+  "count": 2,
+  "ref": "12.116"
+ },
+ {
+  "it": "ngegno",
+  "count": 2,
+  "ref": "11.77"
+ },
+ {
+  "it": "nimico",
+  "count": 2,
+  "ref": "15.64"
+ },
+ {
+  "it": "nobile",
+  "count": 2,
+  "ref": "4.106"
+ },
+ {
+  "it": "nocchiero",
+  "count": 2,
+  "ref": "3.98"
+ },
+ {
+  "it": "noia",
+  "count": 2,
+  "ref": "1.76"
+ },
+ {
+  "it": "norma",
+  "count": 2,
+  "ref": "25.103"
+ },
+ {
+  "it": "nsieme",
+  "count": 2,
+  "ref": "5.74"
+ },
+ {
+  "it": "ntelletto",
+  "count": 2,
+  "ref": "11.100"
+ },
+ {
+  "it": "ntesi",
+  "count": 2,
+  "ref": "2.50"
+ },
+ {
+  "it": "nver",
+  "count": 2,
+  "ref": "15.5"
+ },
+ {
+  "it": "nvidia",
+  "count": 2,
+  "ref": "1.111"
+ },
+ {
+  "it": "obliare",
+  "count": 2,
+  "ref": "11.61"
+ },
+ {
+  "it": "ode",
+  "count": 2,
+  "ref": "7.94"
+ },
+ {
+  "it": "offesa",
+  "count": 2,
+  "ref": "2.45"
+ },
+ {
+  "it": "offeso",
+  "count": 2,
+  "ref": "7.111"
+ },
+ {
+  "it": "officio",
+  "count": 2,
+  "ref": "12.89",
+  "en": "task, office"
+ },
+ {
+  "it": "offizio",
+  "count": 2,
+  "ref": "5.18"
+ },
+ {
+  "it": "omor",
+  "count": 2,
+  "ref": "30.53"
+ },
+ {
+  "it": "onesto",
+  "count": 2,
+  "ref": "2.113"
+ },
+ {
+  "it": "onrata",
+  "count": 2,
+  "ref": "2.47"
+ },
+ {
+  "it": "onta",
+  "count": 2,
+  "ref": "29.33"
+ },
+ {
+  "it": "oprare",
+  "count": 2,
+  "ref": "19.82"
+ },
+ {
+  "it": "oramai",
+  "count": 2,
+  "ref": "11.112"
+ },
+ {
+  "it": "orazione",
+  "count": 2,
+  "ref": "10.87"
+ },
+ {
+  "it": "orbare",
+  "count": 2,
+  "ref": "15.67"
+ },
+ {
+  "it": "orecchiare",
+  "count": 2,
+  "ref": "16.105"
+ },
+ {
+  "it": "orgoglio",
+  "count": 2,
+  "ref": "16.74"
+ },
+ {
+  "it": "ornare",
+  "count": 2,
+  "ref": "2.67"
+ },
+ {
+  "it": "orto",
+  "count": 2,
+  "ref": "29.129"
+ },
+ {
+  "it": "ospizio",
+  "count": 2,
+  "ref": "5.16"
+ },
+ {
+  "it": "ottava",
+  "count": 2,
+  "ref": "24.80"
+ },
+ {
+  "it": "ovidio",
+  "count": 2,
+  "ref": "4.90"
+ },
+ {
+  "it": "pala",
+  "count": 2,
+  "ref": "19.47"
+ },
+ {
+  "it": "palma",
+  "count": 2,
+  "ref": "9.50"
+ },
+ {
+  "it": "panno",
+  "count": 2,
+  "ref": "15.40"
+ },
+ {
+  "it": "pape",
+  "count": 2,
+  "ref": "7.1"
+ },
+ {
+  "it": "partirsi",
+  "count": 2,
+  "ref": "16.90"
+ },
+ {
+  "it": "passeggiare",
+  "count": 2,
+  "ref": "17.6"
+ },
+ {
+  "it": "passione",
+  "count": 2,
+  "ref": "20.30"
+ },
+ {
+  "it": "patria",
+  "count": 2,
+  "ref": "1.69"
+ },
+ {
+  "it": "pecca",
+  "count": 2,
+  "ref": "32.137"
+ },
+ {
+  "it": "percotendo",
+  "count": 2,
+  "ref": "5.33"
+ },
+ {
+  "it": "piagni",
+  "count": 2,
+  "ref": "16.75"
+ },
+ {
+  "it": "piare",
+  "count": 2,
+  "ref": "2.24"
+ },
+ {
+  "it": "pietade",
+  "count": 2,
+  "ref": "5.140"
+ },
+ {
+  "it": "pio",
+  "count": 2,
+  "ref": "5.117"
+ },
+ {
+  "it": "piombare",
+  "count": 2,
+  "ref": "19.9"
+ },
+ {
+  "it": "piombo",
+  "count": 2,
+  "ref": "23.65"
+ },
+ {
+  "it": "pluto",
+  "count": 2,
+  "ref": "6.115"
+ },
+ {
+  "it": "podere",
+  "count": 2,
+  "ref": "7.5"
+ },
+ {
+  "it": "polso",
+  "count": 2,
+  "ref": "1.90"
+ },
+ {
+  "it": "pomo",
+  "count": 2,
+  "ref": "13.6"
+ },
+ {
+  "it": "ponno",
+  "count": 2,
+  "ref": "21.10"
+ },
+ {
+  "it": "poria",
+  "count": 2,
+  "ref": "20.69"
+ },
+ {
+  "it": "possente",
+  "count": 2,
+  "ref": "2.11"
+ },
+ {
+  "it": "potean",
+  "count": 2,
+  "ref": "29.42"
+ },
+ {
+  "it": "prato",
+  "count": 2,
+  "ref": "4.111"
+ },
+ {
+  "it": "preco",
+  "count": 2,
+  "ref": "15.34"
+ },
+ {
+  "it": "preda",
+  "count": 2,
+  "ref": "12.38"
+ },
+ {
+  "it": "priega",
+  "count": 2,
+  "ref": "5.77"
+ },
+ {
+  "it": "primaio",
+  "count": 2,
+  "ref": "5.1"
+ },
+ {
+  "it": "prora",
+  "count": 2,
+  "ref": "8.29"
+ },
+ {
+  "it": "puossi",
+  "count": 2,
+  "ref": "11.46"
+ },
+ {
+  "it": "quantunque",
+  "count": 2,
+  "ref": "5.12"
+ },
+ {
+  "it": "quatto",
+  "count": 2,
+  "ref": "21.89"
+ },
+ {
+  "it": "quinc",
+  "count": 2,
+  "ref": "10.17"
+ },
+ {
+  "it": "rachele",
+  "count": 2,
+  "ref": "2.102"
+ },
+ {
+  "it": "radere",
+  "count": 2,
+  "ref": "8.118"
+ },
+ {
+  "it": "radice",
+  "count": 2,
+  "ref": "5.124"
+ },
+ {
+  "it": "rado",
+  "count": 2,
+  "ref": "4.114"
+ },
+ {
+  "it": "raggio",
+  "count": 2,
+  "ref": "10.130"
+ },
+ {
+  "it": "ragionamento",
+  "count": 2,
+  "ref": "17.40"
+ },
+ {
+  "it": "ragionato",
+  "count": 2,
+  "ref": "2.115"
+ },
+ {
+  "it": "ramare",
+  "count": 2,
+  "ref": "9.70"
+ },
+ {
+  "it": "rame",
+  "count": 2,
+  "ref": "14.108"
+ },
+ {
+  "it": "randa",
+  "count": 2,
+  "ref": "14.12"
+ },
+ {
+  "it": "ravvolgere",
+  "count": 2,
+  "ref": "16.111"
+ },
+ {
+  "it": "remare",
+  "count": 2,
+  "ref": "21.14"
+ },
+ {
+  "it": "rezzo",
+  "count": 2,
+  "ref": "17.87"
+ },
+ {
+  "it": "ribattere",
+  "count": 2,
+  "ref": "20.43"
+ },
+ {
+  "it": "ricorrere",
+  "count": 2,
+  "ref": "8.114"
+ },
+ {
+  "it": "ricuopre",
+  "count": 2,
+  "ref": "20.52"
+ },
+ {
+  "it": "rietro",
+  "count": 2,
+  "ref": "13.124"
+ },
+ {
+  "it": "rima",
+  "count": 2,
+  "ref": "13.48"
+ },
+ {
+  "it": "rimbombare",
+  "count": 2,
+  "ref": "6.99"
+ },
+ {
+  "it": "rimembrare",
+  "count": 2,
+  "ref": "11.79"
+ },
+ {
+  "it": "rimirare",
+  "count": 2,
+  "ref": "1.26"
+ },
+ {
+  "it": "rimontare",
+  "count": 2,
+  "ref": "19.126"
+ },
+ {
+  "it": "rimuovere",
+  "count": 2,
+  "ref": "14.138"
+ },
+ {
+  "it": "rinier",
+  "count": 2,
+  "ref": "12.137"
+ },
+ {
+  "it": "rinova",
+  "count": 2,
+  "ref": "1.6"
+ },
+ {
+  "it": "rintoppo",
+  "count": 2,
+  "ref": "22.112"
+ },
+ {
+  "it": "rinverte",
+  "count": 2,
+  "ref": "30.57"
+ },
+ {
+  "it": "riprezzo",
+  "count": 2,
+  "ref": "17.85"
+ },
+ {
+  "it": "riscuotere",
+  "count": 2,
+  "ref": "4.2"
+ },
+ {
+  "it": "risonare",
+  "count": 2,
+  "ref": "3.23"
+ },
+ {
+  "it": "ritorcere",
+  "count": 2,
+  "ref": "19.27"
+ },
+ {
+  "it": "ritto",
+  "count": 2,
+  "ref": "19.52"
+ },
+ {
+  "it": "riviera",
+  "count": 2,
+  "ref": "3.78"
+ },
+ {
+  "it": "rocchi",
+  "count": 2,
+  "ref": "20.25"
+ },
+ {
+  "it": "rodare",
+  "count": 2,
+  "ref": "9.112"
+ },
+ {
+  "it": "roggia",
+  "count": 2,
+  "ref": "11.73"
+ },
+ {
+  "it": "rubicante",
+  "count": 2,
+  "ref": "21.123"
+ },
+ {
+  "it": "ruffiano",
+  "count": 2,
+  "ref": "11.60"
+ },
+ {
+  "it": "ruscel",
+  "count": 2,
+  "ref": "7.107"
+ },
+ {
+  "it": "rusticucci",
+  "count": 2,
+  "ref": "6.80"
+ },
+ {
+  "it": "sabbion",
+  "count": 2,
+  "ref": "14.28"
+ },
+ {
+  "it": "sabbione",
+  "count": 2,
+  "ref": "13.19"
+ },
+ {
+  "it": "saggio",
+  "count": 2,
+  "ref": "1.89"
+ },
+ {
+  "it": "sanguinoso",
+  "count": 2,
+  "ref": "27.44"
+ },
+ {
+  "it": "sardigna",
+  "count": 2,
+  "ref": "22.89"
+ },
+ {
+  "it": "sarta",
+  "count": 2,
+  "ref": "21.14"
+ },
+ {
+  "it": "satàn",
+  "count": 2,
+  "ref": "7.1"
+ },
+ {
+  "it": "sbigottire",
+  "count": 2,
+  "ref": "8.122"
+ },
+ {
+  "it": "scacciare",
+  "count": 2,
+  "ref": "18.81"
+ },
+ {
+  "it": "scaldare",
+  "count": 2,
+  "ref": "17.110"
+ },
+ {
+  "it": "scellerato",
+  "count": 2,
+  "ref": "20.29"
+ },
+ {
+  "it": "scemare",
+  "count": 2,
+  "ref": "4.148"
+ },
+ {
+  "it": "scempio",
+  "count": 2,
+  "ref": "10.85"
+ },
+ {
+  "it": "scheggiare",
+  "count": 2,
+  "ref": "21.60"
+ },
+ {
+  "it": "schiuma",
+  "count": 2,
+  "ref": "9.74"
+ },
+ {
+  "it": "schivare",
+  "count": 2,
+  "ref": "12.3"
+ },
+ {
+  "it": "scienza",
+  "count": 2,
+  "ref": "6.106"
+ },
+ {
+  "it": "sciocca",
+  "count": 2,
+  "ref": "7.70"
+ },
+ {
+  "it": "sciolto",
+  "count": 2,
+  "ref": "21.44"
+ },
+ {
+  "it": "scipa",
+  "count": 2,
+  "ref": "7.21"
+ },
+ {
+  "it": "scontrare",
+  "count": 2,
+  "ref": "18.41"
+ },
+ {
+  "it": "scoppiare",
+  "count": 2,
+  "ref": "17.46"
+ },
+ {
+  "it": "sdegnoso",
+  "count": 2,
+  "ref": "8.44"
+ },
+ {
+  "it": "secernere",
+  "count": 2,
+  "ref": "10.1"
+ },
+ {
+  "it": "segare",
+  "count": 2,
+  "ref": "8.29"
+ },
+ {
+  "it": "seggendo",
+  "count": 2,
+  "ref": "22.102"
+ },
+ {
+  "it": "seggio",
+  "count": 2,
+  "ref": "1.128"
+ },
+ {
+  "it": "sembianza",
+  "count": 2,
+  "ref": "4.84"
+ },
+ {
+  "it": "sementare",
+  "count": 2,
+  "ref": "15.76"
+ },
+ {
+  "it": "semo",
+  "count": 2,
+  "ref": "4.41"
+ },
+ {
+  "it": "seno",
+  "count": 2,
+  "ref": "18.63"
+ },
+ {
+  "it": "sentio",
+  "count": 2,
+  "ref": "28.13"
+ },
+ {
+  "it": "serenare",
+  "count": 2,
+  "ref": "6.51"
+ },
+ {
+  "it": "settima",
+  "count": 2,
+  "ref": "13.96"
+ },
+ {
+  "it": "sgridare",
+  "count": 2,
+  "ref": "18.118"
+ },
+ {
+  "it": "sieti",
+  "count": 2,
+  "ref": "15.119"
+ },
+ {
+  "it": "sinon",
+  "count": 2,
+  "ref": "30.98"
+ },
+ {
+  "it": "sire",
+  "count": 2,
+  "ref": "4.87"
+ },
+ {
+  "it": "smalto",
+  "count": 2,
+  "ref": "4.118"
+ },
+ {
+  "it": "smarrire",
+  "count": 2,
+  "ref": "1.3"
+ },
+ {
+  "it": "soccorrere",
+  "count": 2,
+  "ref": "2.104"
+ },
+ {
+  "it": "soffiare",
+  "count": 2,
+  "ref": "13.138"
+ },
+ {
+  "it": "solver",
+  "count": 2,
+  "ref": "14.135"
+ },
+ {
+  "it": "solvi",
+  "count": 2,
+  "ref": "11.92"
+ },
+ {
+  "it": "soperchio",
+  "count": 2,
+  "ref": "7.48"
+ },
+ {
+  "it": "sorte",
+  "count": 2,
+  "ref": "3.48"
+ },
+ {
+  "it": "sottosopra",
+  "count": 2,
+  "ref": "19.80"
+ },
+ {
+  "it": "sovente",
+  "count": 2,
+  "ref": "2.74"
+ },
+ {
+  "it": "soverchio",
+  "count": 2,
+  "ref": "21.51"
+ },
+ {
+  "it": "sovresso",
+  "count": 2,
+  "ref": "23.54"
+ },
+ {
+  "it": "sovvenire",
+  "count": 2,
+  "ref": "17.94"
+ },
+ {
+  "it": "sparto",
+  "count": 2,
+  "ref": "9.118"
+ },
+ {
+  "it": "spezia",
+  "count": 2,
+  "ref": "2.77"
+ },
+ {
+  "it": "spezzare",
+  "count": 2,
+  "ref": "19.27"
+ },
+ {
+  "it": "spicciare",
+  "count": 2,
+  "ref": "14.76"
+ },
+ {
+  "it": "splendere",
+  "count": 2,
+  "ref": "7.75"
+ },
+ {
+  "it": "sporgere",
+  "count": 2,
+  "ref": "17.120"
+ },
+ {
+  "it": "spregiare",
+  "count": 2,
+  "ref": "11.48"
+ },
+ {
+  "it": "spronare",
+  "count": 2,
+  "ref": "3.125"
+ },
+ {
+  "it": "stagnare",
+  "count": 2,
+  "ref": "9.112"
+ },
+ {
+  "it": "stagno",
+  "count": 2,
+  "ref": "14.119"
+ },
+ {
+  "it": "sterpi",
+  "count": 2,
+  "ref": "13.7"
+ },
+ {
+  "it": "storcere",
+  "count": 2,
+  "ref": "19.64"
+ },
+ {
+  "it": "strale",
+  "count": 2,
+  "ref": "12.77"
+ },
+ {
+  "it": "stremare",
+  "count": 2,
+  "ref": "17.43",
+  "en": "the edge"
+ },
+ {
+  "it": "strozzare",
+  "count": 2,
+  "ref": "7.125"
+ },
+ {
+  "it": "suggellare",
+  "count": 2,
+  "ref": "11.49"
+ },
+ {
+  "it": "superba",
+  "count": 2,
+  "ref": "15.68"
+ },
+ {
+  "it": "superbia",
+  "count": 2,
+  "ref": "6.74"
+ },
+ {
+  "it": "surger",
+  "count": 2,
+  "ref": "15.117"
+ },
+ {
+  "it": "t'adocchio",
+  "count": 2,
+  "ref": "18.123"
+ },
+ {
+  "it": "t'è",
+  "count": 2,
+  "ref": "2.81"
+ },
+ {
+  "it": "talor",
+  "count": 2,
+  "ref": "20.81"
+ },
+ {
+  "it": "tana",
+  "count": 2,
+  "ref": "21.126"
+ },
+ {
+  "it": "tapino",
+  "count": 2,
+  "ref": "24.11"
+ },
+ {
+  "it": "tardo",
+  "count": 2,
+  "ref": "11.10"
+ },
+ {
+  "it": "tegghia",
+  "count": 2,
+  "ref": "29.74"
+ },
+ {
+  "it": "tegghiaio",
+  "count": 2,
+  "ref": "6.79"
+ },
+ {
+  "it": "tegnon",
+  "count": 2,
+  "ref": "3.35"
+ },
+ {
+  "it": "tempra",
+  "count": 2,
+  "ref": "24.2"
+ },
+ {
+  "it": "tenace",
+  "count": 2,
+  "ref": "21.8"
+ },
+ {
+  "it": "tene",
+  "count": 2,
+  "ref": "11.109"
+ },
+ {
+  "it": "teschio",
+  "count": 2,
+  "ref": "32.132"
+ },
+ {
+  "it": "testimoniare",
+  "count": 2,
+  "ref": "18.62"
+ },
+ {
+  "it": "tetro",
+  "count": 2,
+  "ref": "7.31"
+ },
+ {
+  "it": "tigna",
+  "count": 2,
+  "ref": "15.111"
+ },
+ {
+  "it": "tingere",
+  "count": 2,
+  "ref": "9.38"
+ },
+ {
+  "it": "tirannia",
+  "count": 2,
+  "ref": "12.132"
+ },
+ {
+  "it": "tolle",
+  "count": 2,
+  "ref": "2.39"
+ },
+ {
+  "it": "tomo",
+  "count": 2,
+  "ref": "16.63"
+ },
+ {
+  "it": "tonda",
+  "count": 2,
+  "ref": "20.127"
+ },
+ {
+  "it": "torbido",
+  "count": 2,
+  "ref": "9.64"
+ },
+ {
+  "it": "torma",
+  "count": 2,
+  "ref": "16.5"
+ },
+ {
+  "it": "tormenta",
+  "count": 2,
+  "ref": "10.78"
+ },
+ {
+  "it": "tostare",
+  "count": 2,
+  "ref": "2.42"
+ },
+ {
+  "it": "trade",
+  "count": 2,
+  "ref": "11.66"
+ },
+ {
+  "it": "tradimento",
+  "count": 2,
+  "ref": "28.81"
+ },
+ {
+  "it": "tragge",
+  "count": 2,
+  "ref": "24.145"
+ },
+ {
+  "it": "travolgere",
+  "count": 2,
+  "ref": "20.11"
+ },
+ {
+  "it": "tremoto",
+  "count": 2,
+  "ref": "12.6"
+ },
+ {
+  "it": "troiani",
+  "count": 2,
+  "ref": "13.11"
+ },
+ {
+  "it": "turba",
+  "count": 2,
+  "ref": "4.29"
+ },
+ {
+  "it": "turbare",
+  "count": 2,
+  "ref": "11.91"
+ },
+ {
+  "it": "turbo",
+  "count": 2,
+  "ref": "3.30"
+ },
+ {
+  "it": "ubidir",
+  "count": 2,
+  "ref": "2.80"
+ },
+ {
+  "it": "ugolino",
+  "count": 2,
+  "ref": "33.13"
+ },
+ {
+  "it": "uncinare",
+  "count": 2,
+  "ref": "22.149"
+ },
+ {
+  "it": "v'eran",
+  "count": 2,
+  "ref": "4.112"
+ },
+ {
+  "it": "vaglia",
+  "count": 2,
+  "ref": "24.57"
+ },
+ {
+  "it": "vallare",
+  "count": 2,
+  "ref": "8.77"
+ },
+ {
+  "it": "vaneggiare",
+  "count": 2,
+  "ref": "18.5"
+ },
+ {
+  "it": "vanni",
+  "count": 2,
+  "ref": "24.125"
+ },
+ {
+  "it": "varcare",
+  "count": 2,
+  "ref": "23.135"
+ },
+ {
+  "it": "vederai",
+  "count": 2,
+  "ref": "1.118"
+ },
+ {
+  "it": "vegnon",
+  "count": 2,
+  "ref": "5.84"
+ },
+ {
+  "it": "velame",
+  "count": 2,
+  "ref": "9.63"
+ },
+ {
+  "it": "vello",
+  "count": 2,
+  "ref": "34.74"
+ },
+ {
+  "it": "velo",
+  "count": 2,
+  "ref": "32.25"
+ },
+ {
+  "it": "venian",
+  "count": 2,
+  "ref": "15.17"
+ },
+ {
+  "it": "verace",
+  "count": 2,
+  "ref": "1.12"
+ },
+ {
+  "it": "vergine",
+  "count": 2,
+  "ref": "1.107"
+ },
+ {
+  "it": "vergognoso",
+  "count": 2,
+  "ref": "1.81"
+ },
+ {
+  "it": "vicenda",
+  "count": 2,
+  "ref": "5.14"
+ },
+ {
+  "it": "viltade",
+  "count": 2,
+  "ref": "2.45"
+ },
+ {
+  "it": "visto",
+  "count": 2,
+  "ref": "15.14"
+ },
+ {
+  "it": "vivagno",
+  "count": 2,
+  "ref": "14.123"
+ },
+ {
+  "it": "viziare",
+  "count": 2,
+  "ref": "23.143"
+ },
+ {
+  "it": "vizio",
+  "count": 2,
+  "ref": "5.55"
+ },
+ {
+  "it": "volgare",
+  "count": 2,
+  "ref": "2.105"
+ },
+ {
+  "it": "volgiti",
+  "count": 2,
+  "ref": "9.55"
+ },
+ {
+  "it": "volontier",
+  "count": 2,
+  "ref": "18.52"
+ },
+ {
+  "it": "volontieri",
+  "count": 2,
+  "ref": "1.55"
+ },
+ {
+  "it": "volve",
+  "count": 2,
+  "ref": "3.126"
+ },
+ {
+  "it": "Alberto",
+  "count": 1,
+  "ref": "32.57"
+ },
+ {
+  "it": "Alessio",
+  "count": 1,
+  "ref": "18.122"
+ },
+ {
+  "it": "Andrea",
+  "count": 1,
+  "ref": "13.133"
+ },
+ {
+  "it": "Arezzo",
+  "count": 1,
+  "ref": "29.109"
+ },
+ {
+  "it": "Atene",
+  "count": 1,
+  "ref": "12.17"
+ },
+ {
+  "it": "Bologna",
+  "count": 1,
+  "ref": "23.142"
+ },
+ {
+  "it": "Brescia",
+  "count": 1,
+  "ref": "20.68"
+ },
+ {
+  "it": "Como",
+  "count": 1,
+  "ref": "24.112"
+ },
+ {
+  "it": "Elena",
+  "count": 1,
+  "ref": "5.64"
+ },
+ {
+  "it": "Elia",
+  "count": 1,
+  "ref": "26.35"
+ },
+ {
+  "it": "Etiopia",
+  "count": 1,
+  "ref": "24.89"
+ },
+ {
+  "it": "Federico",
+  "count": 1,
+  "ref": "10.119"
+ },
+ {
+  "it": "Filippo",
+  "count": 1,
+  "ref": "8.61"
+ },
+ {
+  "it": "Forlì",
+  "count": 1,
+  "ref": "16.99"
+ },
+ {
+  "it": "Francia",
+  "count": 1,
+  "ref": "19.87"
+ },
+ {
+  "it": "Garda",
+  "count": 1,
+  "ref": "20.65"
+ },
+ {
+  "it": "Giovanni",
+  "count": 1,
+  "ref": "19.17"
+ },
+ {
+  "it": "Grecia",
+  "count": 1,
+  "ref": "20.108"
+ },
+ {
+  "it": "Ida",
+  "count": 1,
+  "ref": "14.98"
+ },
+ {
+  "it": "Ita",
+  "count": 1,
+  "ref": "21.42"
+ },
+ {
+  "it": "Leon",
+  "count": 1,
+  "ref": "31.118"
+ },
+ {
+  "it": "Libia",
+  "count": 1,
+  "ref": "24.85"
+ },
+ {
+  "it": "Livio",
+  "count": 1,
+  "ref": "28.12"
+ },
+ {
+  "it": "Nino",
+  "count": 1,
+  "ref": "5.59"
+ },
+ {
+  "it": "Orazio",
+  "count": 1,
+  "ref": "4.89"
+ },
+ {
+  "it": "Paris",
+  "count": 1,
+  "ref": "5.67"
+ },
+ {
+  "it": "Paschi",
+  "count": 1,
+  "ref": "20.75"
+ },
+ {
+  "it": "Paulo",
+  "count": 1,
+  "ref": "2.32"
+ },
+ {
+  "it": "Pina",
+  "count": 1,
+  "ref": "31.59"
+ },
+ {
+  "it": "Pisa",
+  "count": 1,
+  "ref": "33.79"
+ },
+ {
+  "it": "Platone",
+  "count": 1,
+  "ref": "4.134"
+ },
+ {
+  "it": "Puglia",
+  "count": 1,
+  "ref": "28.9"
+ },
+ {
+  "it": "Ravenna",
+  "count": 1,
+  "ref": "27.40"
+ },
+ {
+  "it": "Reno",
+  "count": 1,
+  "ref": "18.61"
+ },
+ {
+  "it": "Rui",
+  "count": 1,
+  "ref": "20.33"
+ },
+ {
+  "it": "Siena",
+  "count": 1,
+  "ref": "29.109"
+ },
+ {
+  "it": "Silvio",
+  "count": 1,
+  "ref": "2.13"
+ },
+ {
+  "it": "Simon",
+  "count": 1,
+  "ref": "19.1"
+ },
+ {
+  "it": "Spagna",
+  "count": 1,
+  "ref": "26.103"
+ },
+ {
+  "it": "Trento",
+  "count": 1,
+  "ref": "12.5"
+ },
+ {
+  "it": "Ulisse",
+  "count": 1,
+  "ref": "26.56"
+ },
+ {
+  "it": "Vercelli",
+  "count": 1,
+  "ref": "28.75"
+ },
+ {
+  "it": "Verona",
+  "count": 1,
+  "ref": "15.122"
+ },
+ {
+  "it": "abbarbicare",
+  "count": 1,
+  "ref": "25.58"
+ },
+ {
+  "it": "abbattere",
+  "count": 1,
+  "ref": "9.70"
+ },
+ {
+  "it": "abbicare",
+  "count": 1,
+  "ref": "9.78"
+ },
+ {
+  "it": "abbo",
+  "count": 1,
+  "ref": "32.5"
+ },
+ {
+  "it": "abborra",
+  "count": 1,
+  "ref": "25.144"
+ },
+ {
+  "it": "abborri",
+  "count": 1,
+  "ref": "31.24"
+ },
+ {
+  "it": "abbracce",
+  "count": 1,
+  "ref": "17.93"
+ },
+ {
+  "it": "abbrusciato",
+  "count": 1,
+  "ref": "15.27"
+ },
+ {
+  "it": "abraàm",
+  "count": 1,
+  "ref": "4.58"
+ },
+ {
+  "it": "absalone",
+  "count": 1,
+  "ref": "28.137"
+ },
+ {
+  "it": "abèl",
+  "count": 1,
+  "ref": "4.56"
+ },
+ {
+  "it": "accaffi",
+  "count": 1,
+  "ref": "21.54"
+ },
+ {
+  "it": "accapriccia",
+  "count": 1,
+  "ref": "22.31"
+ },
+ {
+  "it": "accasciare",
+  "count": 1,
+  "ref": "24.54"
+ },
+ {
+  "it": "accattare",
+  "count": 1,
+  "ref": "11.84"
+ },
+ {
+  "it": "acceffa",
+  "count": 1,
+  "ref": "23.18"
+ },
+ {
+  "it": "accennare",
+  "count": 1,
+  "ref": "3.110"
+ },
+ {
+  "it": "accennolle",
+  "count": 1,
+  "ref": "17.5"
+ },
+ {
+  "it": "accentare",
+  "count": 1,
+  "ref": "3.26"
+ },
+ {
+  "it": "accidioso",
+  "count": 1,
+  "ref": "7.123"
+ },
+ {
+  "it": "accisma",
+  "count": 1,
+  "ref": "28.37"
+ },
+ {
+  "it": "accocchi",
+  "count": 1,
+  "ref": "21.102"
+ },
+ {
+  "it": "accoglitor",
+  "count": 1,
+  "ref": "4.139"
+ },
+ {
+  "it": "accoppiare",
+  "count": 1,
+  "ref": "23.8"
+ },
+ {
+  "it": "accorciare",
+  "count": 1,
+  "ref": "25.114"
+ },
+ {
+  "it": "accorgimento",
+  "count": 1,
+  "ref": "27.76"
+ },
+ {
+  "it": "accorso",
+  "count": 1,
+  "ref": "15.110"
+ },
+ {
+  "it": "accosciare",
+  "count": 1,
+  "ref": "18.132"
+ },
+ {
+  "it": "accumulare",
+  "count": 1,
+  "ref": "28.110"
+ },
+ {
+  "it": "achitofèl",
+  "count": 1,
+  "ref": "28.137"
+ },
+ {
+  "it": "acquacheta",
+  "count": 1,
+  "ref": "16.97"
+ },
+ {
+  "it": "acre",
+  "count": 1,
+  "ref": "27.89"
+ },
+ {
+  "it": "adagiare",
+  "count": 1,
+  "ref": "3.111"
+ },
+ {
+  "it": "addolcire",
+  "count": 1,
+  "ref": "6.84"
+ },
+ {
+  "it": "addotto",
+  "count": 1,
+  "ref": "33.44"
+ },
+ {
+  "it": "addur",
+  "count": 1,
+  "ref": "14.129"
+ },
+ {
+  "it": "addurre",
+  "count": 1,
+  "ref": "10.98"
+ },
+ {
+  "it": "adescare",
+  "count": 1,
+  "ref": "13.55"
+ },
+ {
+  "it": "adice",
+  "count": 1,
+  "ref": "12.5"
+ },
+ {
+  "it": "adirare",
+  "count": 1,
+  "ref": "8.121"
+ },
+ {
+  "it": "adocchiare",
+  "count": 1,
+  "ref": "15.22"
+ },
+ {
+  "it": "adona",
+  "count": 1,
+  "ref": "6.34"
+ },
+ {
+  "it": "adoperare",
+  "count": 1,
+  "ref": "24.25"
+ },
+ {
+  "it": "aduggiare",
+  "count": 1,
+  "ref": "15.2"
+ },
+ {
+  "it": "aequar",
+  "count": 1,
+  "ref": "28.20"
+ },
+ {
+  "it": "affanno",
+  "count": 1,
+  "ref": "6.58"
+ },
+ {
+  "it": "affaticare",
+  "count": 1,
+  "ref": "26.87"
+ },
+ {
+  "it": "affatturare",
+  "count": 1,
+  "ref": "11.58"
+ },
+ {
+  "it": "affermare",
+  "count": 1,
+  "ref": "28.98"
+ },
+ {
+  "it": "afferrare",
+  "count": 1,
+  "ref": "20.36"
+ },
+ {
+  "it": "affetto",
+  "count": 1,
+  "ref": "5.125"
+ },
+ {
+  "it": "affettuoso",
+  "count": 1,
+  "ref": "5.87"
+ },
+ {
+  "it": "affezione",
+  "count": 1,
+  "ref": "16.60"
+ },
+ {
+  "it": "affibbiare",
+  "count": 1,
+  "ref": "31.66"
+ },
+ {
+  "it": "affiguro",
+  "count": 1,
+  "ref": "24.75"
+ },
+ {
+  "it": "afflitto",
+  "count": 1,
+  "ref": "27.10"
+ },
+ {
+  "it": "affocare",
+  "count": 1,
+  "ref": "8.74"
+ },
+ {
+  "it": "affreno",
+  "count": 1,
+  "ref": "26.21"
+ },
+ {
+  "it": "affuoca",
+  "count": 1,
+  "ref": "25.24"
+ },
+ {
+  "it": "aggelava",
+  "count": 1,
+  "ref": "34.52"
+ },
+ {
+  "it": "aggiugnieno",
+  "count": 1,
+  "ref": "34.40"
+ },
+ {
+  "it": "aggradare",
+  "count": 1,
+  "ref": "2.79"
+ },
+ {
+  "it": "aggrappare",
+  "count": 1,
+  "ref": "16.134"
+ },
+ {
+  "it": "aggrappossi",
+  "count": 1,
+  "ref": "34.80"
+ },
+ {
+  "it": "aggrata",
+  "count": 1,
+  "ref": "11.93"
+ },
+ {
+  "it": "aggroppata",
+  "count": 1,
+  "ref": "16.111"
+ },
+ {
+  "it": "aggroppate",
+  "count": 1,
+  "ref": "24.96"
+ },
+ {
+  "it": "agguato",
+  "count": 1,
+  "ref": "26.59"
+ },
+ {
+  "it": "aggueffa",
+  "count": 1,
+  "ref": "23.16"
+ },
+ {
+  "it": "agnel",
+  "count": 1,
+  "ref": "25.68"
+ },
+ {
+  "it": "ago",
+  "count": 1,
+  "ref": "20.121"
+ },
+ {
+  "it": "agro",
+  "count": 1,
+  "ref": "24.147"
+ },
+ {
+  "it": "aguglia",
+  "count": 1,
+  "ref": "27.41"
+ },
+ {
+  "it": "agute",
+  "count": 1,
+  "ref": "33.35"
+ },
+ {
+  "it": "aguti",
+  "count": 1,
+  "ref": "26.121"
+ },
+ {
+  "it": "ahimé",
+  "count": 1,
+  "ref": "16.10"
+ },
+ {
+  "it": "aiutaro",
+  "count": 1,
+  "ref": "32.11"
+ },
+ {
+  "it": "alardo",
+  "count": 1,
+  "ref": "28.18"
+ },
+ {
+  "it": "alberga",
+  "count": 1,
+  "ref": "20.48"
+ },
+ {
+  "it": "alberigo",
+  "count": 1,
+  "ref": "33.118"
+ },
+ {
+  "it": "alcuni",
+  "count": 1,
+  "ref": "7.50"
+ },
+ {
+  "it": "aldobrandi",
+  "count": 1,
+  "ref": "16.41"
+ },
+ {
+  "it": "aleppe",
+  "count": 1,
+  "ref": "7.1"
+ },
+ {
+  "it": "alettare",
+  "count": 1,
+  "ref": "9.47"
+ },
+ {
+  "it": "alichin",
+  "count": 1,
+  "ref": "22.112"
+ },
+ {
+  "it": "alichino",
+  "count": 1,
+  "ref": "21.118"
+ },
+ {
+  "it": "alimento",
+  "count": 1,
+  "ref": "25.86"
+ },
+ {
+  "it": "alito",
+  "count": 1,
+  "ref": "18.107"
+ },
+ {
+  "it": "alleggiar",
+  "count": 1,
+  "ref": "22.22"
+ },
+ {
+  "it": "allegrammo",
+  "count": 1,
+  "ref": "26.136"
+ },
+ {
+  "it": "alleluia",
+  "count": 1,
+  "ref": "12.88"
+ },
+ {
+  "it": "allettare",
+  "count": 1,
+  "ref": "9.93"
+ },
+ {
+  "it": "allette",
+  "count": 1,
+  "ref": "2.122"
+ },
+ {
+  "it": "allungare",
+  "count": 1,
+  "ref": "25.114"
+ },
+ {
+  "it": "alpestro",
+  "count": 1,
+  "ref": "12.2"
+ },
+ {
+  "it": "altaforte",
+  "count": 1,
+  "ref": "29.29"
+ },
+ {
+  "it": "altresì",
+  "count": 1,
+  "ref": "19.76"
+ },
+ {
+  "it": "ameno",
+  "count": 1,
+  "ref": "16.88"
+ },
+ {
+  "it": "ammaestrare",
+  "count": 1,
+  "ref": "12.20"
+ },
+ {
+  "it": "ammalare",
+  "count": 1,
+  "ref": "29.71"
+ },
+ {
+  "it": "ammantare",
+  "count": 1,
+  "ref": "2.27"
+ },
+ {
+  "it": "ammogliare",
+  "count": 1,
+  "ref": "1.100"
+ },
+ {
+  "it": "ammortare",
+  "count": 1,
+  "ref": "14.90"
+ },
+ {
+  "it": "ammorza",
+  "count": 1,
+  "ref": "14.63"
+ },
+ {
+  "it": "amomo",
+  "count": 1,
+  "ref": "24.110"
+ },
+ {
+  "it": "amoroso",
+  "count": 1,
+  "ref": "5.61"
+ },
+ {
+  "it": "ampiezza",
+  "count": 1,
+  "ref": "5.20"
+ },
+ {
+  "it": "amècche",
+  "count": 1,
+  "ref": "31.67"
+ },
+ {
+  "it": "anassagora",
+  "count": 1,
+  "ref": "4.137"
+ },
+ {
+  "it": "anastasio",
+  "count": 1,
+  "ref": "11.8"
+ },
+ {
+  "it": "anchise",
+  "count": 1,
+  "ref": "1.74"
+ },
+ {
+  "it": "ancise",
+  "count": 1,
+  "ref": "5.61"
+ },
+ {
+  "it": "andi",
+  "count": 1,
+  "ref": "4.33"
+ },
+ {
+  "it": "andianci",
+  "count": 1,
+  "ref": "21.128"
+ },
+ {
+  "it": "andovvi",
+  "count": 1,
+  "ref": "2.28"
+ },
+ {
+  "it": "anella",
+  "count": 1,
+  "ref": "28.11"
+ },
+ {
+  "it": "anfiarao",
+  "count": 1,
+  "ref": "20.34"
+ },
+ {
+  "it": "anfione",
+  "count": 1,
+  "ref": "32.11"
+ },
+ {
+  "it": "anfisibena",
+  "count": 1,
+  "ref": "24.87"
+ },
+ {
+  "it": "angiolello",
+  "count": 1,
+  "ref": "28.77"
+ },
+ {
+  "it": "angoscioso",
+  "count": 1,
+  "ref": "20.6"
+ },
+ {
+  "it": "angue",
+  "count": 1,
+  "ref": "7.84"
+ },
+ {
+  "it": "anguilla",
+  "count": 1,
+  "ref": "17.104"
+ },
+ {
+  "it": "anguinaia",
+  "count": 1,
+  "ref": "30.50"
+ },
+ {
+  "it": "anibàl",
+  "count": 1,
+  "ref": "31.117"
+ },
+ {
+  "it": "animoso",
+  "count": 1,
+  "ref": "10.37"
+ },
+ {
+  "it": "anitra",
+  "count": 1,
+  "ref": "22.130"
+ },
+ {
+  "it": "annegare",
+  "count": 1,
+  "ref": "30.12"
+ },
+ {
+  "it": "annidare",
+  "count": 1,
+  "ref": "11.57"
+ },
+ {
+  "it": "annieghi",
+  "count": 1,
+  "ref": "33.84"
+ },
+ {
+  "it": "annodare",
+  "count": 1,
+  "ref": "24.99"
+ },
+ {
+  "it": "annottare",
+  "count": 1,
+  "ref": "34.5"
+ },
+ {
+  "it": "annoverare",
+  "count": 1,
+  "ref": "29.8"
+ },
+ {
+  "it": "ansare",
+  "count": 1,
+  "ref": "34.83"
+ },
+ {
+  "it": "anselmuccio",
+  "count": 1,
+  "ref": "33.50"
+ },
+ {
+  "it": "antecessor",
+  "count": 1,
+  "ref": "27.105"
+ },
+ {
+  "it": "antenora",
+  "count": 1,
+  "ref": "32.88"
+ },
+ {
+  "it": "anteriore",
+  "count": 1,
+  "ref": "25.53"
+ },
+ {
+  "it": "antiveder",
+  "count": 1,
+  "ref": "28.78"
+ },
+ {
+  "it": "anziana",
+  "count": 1,
+  "ref": "21.38"
+ },
+ {
+  "it": "aonti",
+  "count": 1,
+  "ref": "6.72"
+ },
+ {
+  "it": "apennino",
+  "count": 1,
+  "ref": "16.96"
+ },
+ {
+  "it": "apo",
+  "count": 1,
+  "ref": "18.135"
+ },
+ {
+  "it": "apparisce",
+  "count": 1,
+  "ref": "14.128"
+ },
+ {
+  "it": "appasta",
+  "count": 1,
+  "ref": "18.107"
+ },
+ {
+  "it": "appendere",
+  "count": 1,
+  "ref": "13.107"
+ },
+ {
+  "it": "appiattare",
+  "count": 1,
+  "ref": "13.127"
+ },
+ {
+  "it": "appigliare",
+  "count": 1,
+  "ref": "25.51"
+ },
+ {
+  "it": "appiglio",
+  "count": 1,
+  "ref": "34.73"
+ },
+ {
+  "it": "apporre",
+  "count": 1,
+  "ref": "24.139"
+ },
+ {
+  "it": "apportare",
+  "count": 1,
+  "ref": "10.104"
+ },
+ {
+  "it": "appressarne",
+  "count": 1,
+  "ref": "28.129"
+ },
+ {
+  "it": "approdare",
+  "count": 1,
+  "ref": "21.78"
+ },
+ {
+  "it": "appulcro",
+  "count": 1,
+  "ref": "7.60"
+ },
+ {
+  "it": "appuzza",
+  "count": 1,
+  "ref": "17.3"
+ },
+ {
+  "it": "aquario",
+  "count": 1,
+  "ref": "24.2"
+ },
+ {
+  "it": "aquila",
+  "count": 1,
+  "ref": "4.96"
+ },
+ {
+  "it": "aragne",
+  "count": 1,
+  "ref": "17.18"
+ },
+ {
+  "it": "arare",
+  "count": 1,
+  "ref": "26.30"
+ },
+ {
+  "it": "arbia",
+  "count": 1,
+  "ref": "10.86"
+ },
+ {
+  "it": "arcivescovo",
+  "count": 1,
+  "ref": "33.14"
+ },
+ {
+  "it": "aretin",
+  "count": 1,
+  "ref": "30.31"
+ },
+ {
+  "it": "aretini",
+  "count": 1,
+  "ref": "22.5"
+ },
+ {
+  "it": "aretusa",
+  "count": 1,
+  "ref": "25.97"
+ },
+ {
+  "it": "argentare",
+  "count": 1,
+  "ref": "8.61"
+ },
+ {
+  "it": "argolica",
+  "count": 1,
+  "ref": "28.84"
+ },
+ {
+  "it": "argomentare",
+  "count": 1,
+  "ref": "22.21"
+ },
+ {
+  "it": "arido",
+  "count": 1,
+  "ref": "14.13"
+ },
+ {
+  "it": "arli",
+  "count": 1,
+  "ref": "9.112"
+ },
+ {
+  "it": "armato",
+  "count": 1,
+  "ref": "4.123"
+ },
+ {
+  "it": "armento",
+  "count": 1,
+  "ref": "25.30"
+ },
+ {
+  "it": "arnese",
+  "count": 1,
+  "ref": "20.70"
+ },
+ {
+  "it": "arnia",
+  "count": 1,
+  "ref": "16.3"
+ },
+ {
+  "it": "aronta",
+  "count": 1,
+  "ref": "20.46"
+ },
+ {
+  "it": "arra",
+  "count": 1,
+  "ref": "15.94"
+ },
+ {
+  "it": "arredare",
+  "count": 1,
+  "ref": "24.138"
+ },
+ {
+  "it": "arricciare",
+  "count": 1,
+  "ref": "23.19"
+ },
+ {
+  "it": "arrigo",
+  "count": 1,
+  "ref": "6.80"
+ },
+ {
+  "it": "arrostarsi",
+  "count": 1,
+  "ref": "15.39"
+ },
+ {
+  "it": "arruncigliarmi",
+  "count": 1,
+  "ref": "21.75"
+ },
+ {
+  "it": "arruncigliò",
+  "count": 1,
+  "ref": "22.35"
+ },
+ {
+  "it": "arsiccia",
+  "count": 1,
+  "ref": "14.74"
+ },
+ {
+  "it": "artimon",
+  "count": 1,
+  "ref": "21.15"
+ },
+ {
+  "it": "arto",
+  "count": 1,
+  "ref": "19.42"
+ },
+ {
+  "it": "artù",
+  "count": 1,
+  "ref": "32.62"
+ },
+ {
+  "it": "arzanà",
+  "count": 1,
+  "ref": "21.7"
+ },
+ {
+  "it": "asbergo",
+  "count": 1,
+  "ref": "28.117"
+ },
+ {
+  "it": "ascian",
+  "count": 1,
+  "ref": "29.131"
+ },
+ {
+  "it": "asciugare",
+  "count": 1,
+  "ref": "30.68"
+ },
+ {
+  "it": "ascolte",
+  "count": 1,
+  "ref": "20.57"
+ },
+ {
+  "it": "ascosa",
+  "count": 1,
+  "ref": "26.27"
+ },
+ {
+  "it": "ascoso",
+  "count": 1,
+  "ref": "34.133"
+ },
+ {
+  "it": "asdente",
+  "count": 1,
+  "ref": "20.118"
+ },
+ {
+  "it": "assalto",
+  "count": 1,
+  "ref": "9.54"
+ },
+ {
+  "it": "assanna",
+  "count": 1,
+  "ref": "18.99"
+ },
+ {
+  "it": "assannò",
+  "count": 1,
+  "ref": "30.29"
+ },
+ {
+  "it": "asseggia",
+  "count": 1,
+  "ref": "15.35"
+ },
+ {
+  "it": "assempra",
+  "count": 1,
+  "ref": "24.4"
+ },
+ {
+  "it": "assentio",
+  "count": 1,
+  "ref": "18.45"
+ },
+ {
+  "it": "assessin",
+  "count": 1,
+  "ref": "19.50"
+ },
+ {
+  "it": "assise",
+  "count": 1,
+  "ref": "24.45"
+ },
+ {
+  "it": "assiser",
+  "count": 1,
+  "ref": "14.69"
+ },
+ {
+  "it": "assolvere",
+  "count": 1,
+  "ref": "27.118"
+ },
+ {
+  "it": "asticciuole",
+  "count": 1,
+  "ref": "12.60"
+ },
+ {
+  "it": "atamante",
+  "count": 1,
+  "ref": "30.4"
+ },
+ {
+  "it": "atra",
+  "count": 1,
+  "ref": "6.16"
+ },
+ {
+  "it": "atropòs",
+  "count": 1,
+  "ref": "33.126"
+ },
+ {
+  "it": "attempo",
+  "count": 1,
+  "ref": "26.12"
+ },
+ {
+  "it": "atterga",
+  "count": 1,
+  "ref": "20.46"
+ },
+ {
+  "it": "attinghe",
+  "count": 1,
+  "ref": "18.129"
+ },
+ {
+  "it": "attosca",
+  "count": 1,
+  "ref": "6.84"
+ },
+ {
+  "it": "attuffa",
+  "count": 1,
+  "ref": "22.131"
+ },
+ {
+  "it": "attuffata",
+  "count": 1,
+  "ref": "18.113"
+ },
+ {
+  "it": "attuffò",
+  "count": 1,
+  "ref": "21.46"
+ },
+ {
+  "it": "audivi",
+  "count": 1,
+  "ref": "26.78"
+ },
+ {
+  "it": "augel",
+  "count": 1,
+  "ref": "3.117"
+ },
+ {
+  "it": "augure",
+  "count": 1,
+  "ref": "20.110"
+ },
+ {
+  "it": "aulide",
+  "count": 1,
+  "ref": "20.111"
+ },
+ {
+  "it": "auna",
+  "count": 1,
+  "ref": "3.120"
+ },
+ {
+  "it": "aunasse",
+  "count": 1,
+  "ref": "28.7"
+ },
+ {
+  "it": "ausi",
+  "count": 1,
+  "ref": "11.11"
+ },
+ {
+  "it": "autore",
+  "count": 1,
+  "ref": "1.85"
+ },
+ {
+  "it": "autorità",
+  "count": 1,
+  "ref": "4.113"
+ },
+ {
+  "it": "aventino",
+  "count": 1,
+  "ref": "25.26"
+ },
+ {
+  "it": "averebbe",
+  "count": 1,
+  "ref": "13.49"
+ },
+ {
+  "it": "averei",
+  "count": 1,
+  "ref": "3.56"
+ },
+ {
+  "it": "averoìs",
+  "count": 1,
+  "ref": "4.144"
+ },
+ {
+  "it": "avicenna",
+  "count": 1,
+  "ref": "4.143"
+ },
+ {
+  "it": "avien",
+  "count": 1,
+  "ref": "9.41"
+ },
+ {
+  "it": "avolterate",
+  "count": 1,
+  "ref": "19.4"
+ },
+ {
+  "it": "avvallare",
+  "count": 1,
+  "ref": "34.45"
+ },
+ {
+  "it": "avventare",
+  "count": 1,
+  "ref": "15.5"
+ },
+ {
+  "it": "avvento",
+  "count": 1,
+  "ref": "24.98"
+ },
+ {
+  "it": "avviticchiare",
+  "count": 1,
+  "ref": "25.60"
+ },
+ {
+  "it": "azzolino",
+  "count": 1,
+  "ref": "12.110"
+ },
+ {
+  "it": "babbo",
+  "count": 1,
+  "ref": "32.9"
+ },
+ {
+  "it": "bacchiglione",
+  "count": 1,
+  "ref": "15.113"
+ },
+ {
+  "it": "baco",
+  "count": 1,
+  "ref": "20.59"
+ },
+ {
+  "it": "badare",
+  "count": 1,
+  "ref": "31.139"
+ },
+ {
+  "it": "baldanza",
+  "count": 1,
+  "ref": "8.119"
+ },
+ {
+  "it": "baleno",
+  "count": 1,
+  "ref": "3.134"
+ },
+ {
+  "it": "balia",
+  "count": 1,
+  "ref": "19.92"
+ },
+ {
+  "it": "banda",
+  "count": 1,
+  "ref": "18.80"
+ },
+ {
+  "it": "bando",
+  "count": 1,
+  "ref": "15.81"
+ },
+ {
+  "it": "baratro",
+  "count": 1,
+  "ref": "11.69"
+ },
+ {
+  "it": "baratteria",
+  "count": 1,
+  "ref": "22.53"
+ },
+ {
+  "it": "basciato",
+  "count": 1,
+  "ref": "5.134"
+ },
+ {
+  "it": "basciommi",
+  "count": 1,
+  "ref": "8.44"
+ },
+ {
+  "it": "basciò",
+  "count": 1,
+  "ref": "5.136"
+ },
+ {
+  "it": "bassando",
+  "count": 1,
+  "ref": "18.47"
+ },
+ {
+  "it": "battesmo",
+  "count": 1,
+  "ref": "4.35"
+ },
+ {
+  "it": "battezzatori",
+  "count": 1,
+  "ref": "19.18"
+ },
+ {
+  "it": "battien",
+  "count": 1,
+  "ref": "18.36"
+ },
+ {
+  "it": "battiensi",
+  "count": 1,
+  "ref": "9.50"
+ },
+ {
+  "it": "bava",
+  "count": 1,
+  "ref": "34.54"
+ },
+ {
+  "it": "beccheria",
+  "count": 1,
+  "ref": "32.119"
+ },
+ {
+  "it": "becco",
+  "count": 1,
+  "ref": "15.72"
+ },
+ {
+  "it": "bee",
+  "count": 1,
+  "ref": "33.141"
+ },
+ {
+  "it": "beffa",
+  "count": 1,
+  "ref": "23.14"
+ },
+ {
+  "it": "belletta",
+  "count": 1,
+  "ref": "7.124"
+ },
+ {
+  "it": "belzebù",
+  "count": 1,
+  "ref": "34.127"
+ },
+ {
+  "it": "benedetta",
+  "count": 1,
+  "ref": "8.45"
+ },
+ {
+  "it": "benedetto",
+  "count": 1,
+  "ref": "16.100"
+ },
+ {
+  "it": "benedire",
+  "count": 1,
+  "ref": "2.124"
+ },
+ {
+  "it": "bergamasco",
+  "count": 1,
+  "ref": "20.71"
+ },
+ {
+  "it": "bertram",
+  "count": 1,
+  "ref": "28.134"
+ },
+ {
+  "it": "berze",
+  "count": 1,
+  "ref": "18.37"
+ },
+ {
+  "it": "bestialitade",
+  "count": 1,
+  "ref": "11.83"
+ },
+ {
+  "it": "biado",
+  "count": 1,
+  "ref": "24.109"
+ },
+ {
+  "it": "biancheggiare",
+  "count": 1,
+  "ref": "24.9"
+ },
+ {
+  "it": "biasimo",
+  "count": 1,
+  "ref": "11.84"
+ },
+ {
+  "it": "biche",
+  "count": 1,
+  "ref": "29.66"
+ },
+ {
+  "it": "biece",
+  "count": 1,
+  "ref": "25.31"
+ },
+ {
+  "it": "bige",
+  "count": 1,
+  "ref": "7.104"
+ },
+ {
+  "it": "bilancia",
+  "count": 1,
+  "ref": "23.102"
+ },
+ {
+  "it": "biondo",
+  "count": 1,
+  "ref": "12.110"
+ },
+ {
+  "it": "biscazza",
+  "count": 1,
+  "ref": "11.44"
+ },
+ {
+  "it": "bisce",
+  "count": 1,
+  "ref": "25.20"
+ },
+ {
+  "it": "biscia",
+  "count": 1,
+  "ref": "9.77"
+ },
+ {
+  "it": "bisenzo",
+  "count": 1,
+  "ref": "32.56"
+ },
+ {
+  "it": "bivero",
+  "count": 1,
+  "ref": "17.22"
+ },
+ {
+  "it": "bizzarro",
+  "count": 1,
+  "ref": "8.62"
+ },
+ {
+  "it": "bogliente",
+  "count": 1,
+  "ref": "22.141"
+ },
+ {
+  "it": "boglienti",
+  "count": 1,
+  "ref": "21.124"
+ },
+ {
+  "it": "bona",
+  "count": 1,
+  "ref": "26.23"
+ },
+ {
+  "it": "bonatti",
+  "count": 1,
+  "ref": "20.118"
+ },
+ {
+  "it": "bonifazio",
+  "count": 1,
+  "ref": "19.53"
+ },
+ {
+  "it": "bontate",
+  "count": 1,
+  "ref": "19.2"
+ },
+ {
+  "it": "bonturo",
+  "count": 1,
+  "ref": "21.41"
+ },
+ {
+  "it": "bontà",
+  "count": 1,
+  "ref": "8.47"
+ },
+ {
+  "it": "bornio",
+  "count": 1,
+  "ref": "28.134"
+ },
+ {
+  "it": "borsiere",
+  "count": 1,
+  "ref": "16.70"
+ },
+ {
+  "it": "botto",
+  "count": 1,
+  "ref": "22.130"
+ },
+ {
+  "it": "bragia",
+  "count": 1,
+  "ref": "3.109"
+ },
+ {
+  "it": "brago",
+  "count": 1,
+  "ref": "8.50"
+ },
+ {
+  "it": "bramare",
+  "count": 1,
+  "ref": "30.63"
+ },
+ {
+  "it": "bramire",
+  "count": 1,
+  "ref": "1.49"
+ },
+ {
+  "it": "brancolare",
+  "count": 1,
+  "ref": "33.73"
+ },
+ {
+  "it": "branda",
+  "count": 1,
+  "ref": "30.78"
+ },
+ {
+  "it": "brenta",
+  "count": 1,
+  "ref": "15.7"
+ },
+ {
+  "it": "bresciano",
+  "count": 1,
+  "ref": "20.71"
+ },
+ {
+  "it": "briareo",
+  "count": 1,
+  "ref": "31.98"
+ },
+ {
+  "it": "brigare",
+  "count": 1,
+  "ref": "5.49"
+ },
+ {
+  "it": "brinare",
+  "count": 1,
+  "ref": "24.4"
+ },
+ {
+  "it": "broda",
+  "count": 1,
+  "ref": "8.53"
+ },
+ {
+  "it": "brollo",
+  "count": 1,
+  "ref": "16.30"
+ },
+ {
+  "it": "bronco",
+  "count": 1,
+  "ref": "13.26"
+ },
+ {
+  "it": "bruggia",
+  "count": 1,
+  "ref": "15.4"
+ },
+ {
+  "it": "brullo",
+  "count": 1,
+  "ref": "34.60"
+ },
+ {
+  "it": "brusciato",
+  "count": 1,
+  "ref": "16.49"
+ },
+ {
+  "it": "buccia",
+  "count": 1,
+  "ref": "19.29"
+ },
+ {
+  "it": "buco",
+  "count": 1,
+  "ref": "32.2"
+ },
+ {
+  "it": "bufera",
+  "count": 1,
+  "ref": "5.31"
+ },
+ {
+  "it": "burchi",
+  "count": 1,
+  "ref": "17.19"
+ },
+ {
+  "it": "burella",
+  "count": 1,
+  "ref": "34.98"
+ },
+ {
+  "it": "burlare",
+  "count": 1,
+  "ref": "7.30"
+ },
+ {
+  "it": "burro",
+  "count": 1,
+  "ref": "17.63"
+ },
+ {
+  "it": "caccianemico",
+  "count": 1,
+  "ref": "18.50"
+ },
+ {
+  "it": "caccianli",
+  "count": 1,
+  "ref": "3.40"
+ },
+ {
+  "it": "caco",
+  "count": 1,
+  "ref": "25.25"
+ },
+ {
+  "it": "cadmo",
+  "count": 1,
+  "ref": "25.97"
+ },
+ {
+  "it": "caggia",
+  "count": 1,
+  "ref": "6.67"
+ },
+ {
+  "it": "caggiono",
+  "count": 1,
+  "ref": "7.14"
+ },
+ {
+  "it": "cagnazzi",
+  "count": 1,
+  "ref": "32.70"
+ },
+ {
+  "it": "caino",
+  "count": 1,
+  "ref": "20.126"
+ },
+ {
+  "it": "calcagno",
+  "count": 1,
+  "ref": "19.30"
+ },
+ {
+  "it": "calcanta",
+  "count": 1,
+  "ref": "20.110"
+ },
+ {
+  "it": "caldaia",
+  "count": 1,
+  "ref": "21.56"
+ },
+ {
+  "it": "callo",
+  "count": 1,
+  "ref": "33.100"
+ },
+ {
+  "it": "camiscia",
+  "count": 1,
+  "ref": "23.42"
+ },
+ {
+  "it": "camiscion",
+  "count": 1,
+  "ref": "32.68"
+ },
+ {
+  "it": "camonica",
+  "count": 1,
+  "ref": "20.65"
+ },
+ {
+  "it": "campana",
+  "count": 1,
+  "ref": "22.7"
+ },
+ {
+  "it": "canale",
+  "count": 1,
+  "ref": "30.66"
+ },
+ {
+  "it": "cangiandosi",
+  "count": 1,
+  "ref": "20.42"
+ },
+ {
+  "it": "canicular",
+  "count": 1,
+  "ref": "25.80"
+ },
+ {
+  "it": "caninamente",
+  "count": 1,
+  "ref": "6.14"
+ },
+ {
+  "it": "canoscenza",
+  "count": 1,
+  "ref": "26.120"
+ },
+ {
+  "it": "cansar",
+  "count": 1,
+  "ref": "12.99"
+ },
+ {
+  "it": "caorsa",
+  "count": 1,
+  "ref": "11.50"
+ },
+ {
+  "it": "capaneo",
+  "count": 1,
+  "ref": "14.63"
+ },
+ {
+  "it": "capel",
+  "count": 1,
+  "ref": "32.99"
+ },
+ {
+  "it": "capestro",
+  "count": 1,
+  "ref": "27.92"
+ },
+ {
+  "it": "cappuccio",
+  "count": 1,
+  "ref": "23.61"
+ },
+ {
+  "it": "capraia",
+  "count": 1,
+  "ref": "33.82"
+ },
+ {
+  "it": "capre",
+  "count": 1,
+  "ref": "19.132"
+ },
+ {
+  "it": "caprona",
+  "count": 1,
+  "ref": "21.95"
+ },
+ {
+  "it": "caramente",
+  "count": 1,
+  "ref": "31.28"
+ },
+ {
+  "it": "caratare",
+  "count": 1,
+  "ref": "30.90"
+ },
+ {
+  "it": "carbone",
+  "count": 1,
+  "ref": "20.102"
+ },
+ {
+  "it": "carcata",
+  "count": 1,
+  "ref": "30.6"
+ },
+ {
+  "it": "carcava",
+  "count": 1,
+  "ref": "21.35"
+ },
+ {
+  "it": "carche",
+  "count": 1,
+  "ref": "9.129"
+ },
+ {
+  "it": "carentana",
+  "count": 1,
+  "ref": "15.9"
+ },
+ {
+  "it": "cariddi",
+  "count": 1,
+  "ref": "7.22"
+ },
+ {
+  "it": "carisenda",
+  "count": 1,
+  "ref": "31.136"
+ },
+ {
+  "it": "carità",
+  "count": 1,
+  "ref": "14.1"
+ },
+ {
+  "it": "carlin",
+  "count": 1,
+  "ref": "32.69"
+ },
+ {
+  "it": "carnale",
+  "count": 1,
+  "ref": "5.38"
+ },
+ {
+  "it": "carnaro",
+  "count": 1,
+  "ref": "9.113"
+ },
+ {
+  "it": "carpon",
+  "count": 1,
+  "ref": "25.141"
+ },
+ {
+  "it": "carpone",
+  "count": 1,
+  "ref": "29.68"
+ },
+ {
+  "it": "carrarese",
+  "count": 1,
+  "ref": "20.48"
+ },
+ {
+  "it": "casalodi",
+  "count": 1,
+  "ref": "20.95"
+ },
+ {
+  "it": "cascata",
+  "count": 1,
+  "ref": "12.36"
+ },
+ {
+  "it": "casentin",
+  "count": 1,
+  "ref": "30.65"
+ },
+ {
+  "it": "cassio",
+  "count": 1,
+  "ref": "34.67"
+ },
+ {
+  "it": "casto",
+  "count": 1,
+  "ref": "14.96"
+ },
+ {
+  "it": "caton",
+  "count": 1,
+  "ref": "14.15"
+ },
+ {
+  "it": "cattolico",
+  "count": 1,
+  "ref": "28.80"
+ },
+ {
+  "it": "catun",
+  "count": 1,
+  "ref": "26.48"
+ },
+ {
+  "it": "cauto",
+  "count": 1,
+  "ref": "16.118"
+ },
+ {
+  "it": "cava",
+  "count": 1,
+  "ref": "29.18"
+ },
+ {
+  "it": "caval",
+  "count": 1,
+  "ref": "26.59"
+ },
+ {
+  "it": "caòsso",
+  "count": 1,
+  "ref": "12.43"
+ },
+ {
+  "it": "cecina",
+  "count": 1,
+  "ref": "13.9"
+ },
+ {
+  "it": "cedere",
+  "count": 1,
+  "ref": "26.28"
+ },
+ {
+  "it": "celarlo",
+  "count": 1,
+  "ref": "14.101"
+ },
+ {
+  "it": "cencri",
+  "count": 1,
+  "ref": "24.87"
+ },
+ {
+  "it": "cennamella",
+  "count": 1,
+  "ref": "22.10"
+ },
+ {
+  "it": "centauri",
+  "count": 1,
+  "ref": "12.56"
+ },
+ {
+  "it": "ceperan",
+  "count": 1,
+  "ref": "28.16"
+ },
+ {
+  "it": "cerare",
+  "count": 1,
+  "ref": "9.41"
+ },
+ {
+  "it": "cerchiato",
+  "count": 1,
+  "ref": "4.107"
+ },
+ {
+  "it": "cerchietto",
+  "count": 1,
+  "ref": "11.17"
+ },
+ {
+  "it": "cerebro",
+  "count": 1,
+  "ref": "28.140"
+ },
+ {
+  "it": "cervel",
+  "count": 1,
+  "ref": "32.129"
+ },
+ {
+  "it": "cervia",
+  "count": 1,
+  "ref": "27.42"
+ },
+ {
+  "it": "cesso",
+  "count": 1,
+  "ref": "22.100"
+ },
+ {
+  "it": "cesto",
+  "count": 1,
+  "ref": "13.142"
+ },
+ {
+  "it": "ched",
+  "count": 1,
+  "ref": "31.138"
+ },
+ {
+  "it": "chelidri",
+  "count": 1,
+  "ref": "24.86"
+ },
+ {
+  "it": "cherco",
+  "count": 1,
+  "ref": "18.117"
+ },
+ {
+  "it": "chercuti",
+  "count": 1,
+  "ref": "7.39"
+ },
+ {
+  "it": "cherubino",
+  "count": 1,
+  "ref": "27.113"
+ },
+ {
+  "it": "chiamaro",
+  "count": 1,
+  "ref": "22.39"
+ },
+ {
+  "it": "chiavare",
+  "count": 1,
+  "ref": "33.46"
+ },
+ {
+  "it": "chiosare",
+  "count": 1,
+  "ref": "15.89"
+ },
+ {
+  "it": "chiostra",
+  "count": 1,
+  "ref": "29.40"
+ },
+ {
+  "it": "cianfa",
+  "count": 1,
+  "ref": "25.43"
+ },
+ {
+  "it": "ciascheduno",
+  "count": 1,
+  "ref": "20.36"
+ },
+ {
+  "it": "cicilia",
+  "count": 1,
+  "ref": "12.108"
+ },
+ {
+  "it": "cicilian",
+  "count": 1,
+  "ref": "27.7"
+ },
+ {
+  "it": "cicogna",
+  "count": 1,
+  "ref": "32.36"
+ },
+ {
+  "it": "cigner",
+  "count": 1,
+  "ref": "31.85"
+ },
+ {
+  "it": "cignesi",
+  "count": 1,
+  "ref": "5.11"
+ },
+ {
+  "it": "cimitero",
+  "count": 1,
+  "ref": "10.13"
+ },
+ {
+  "it": "cinghia",
+  "count": 1,
+  "ref": "5.2"
+ },
+ {
+  "it": "cinqu",
+  "count": 1,
+  "ref": "21.112"
+ },
+ {
+  "it": "cinquecentesimo",
+  "count": 1,
+  "ref": "24.108"
+ },
+ {
+  "it": "cinto",
+  "count": 1,
+  "ref": "27.68"
+ },
+ {
+  "it": "cintola",
+  "count": 1,
+  "ref": "10.33"
+ },
+ {
+  "it": "ciocca",
+  "count": 1,
+  "ref": "32.104"
+ },
+ {
+  "it": "cioncare",
+  "count": 1,
+  "ref": "9.18"
+ },
+ {
+  "it": "cipri",
+  "count": 1,
+  "ref": "28.82"
+ },
+ {
+  "it": "circe",
+  "count": 1,
+  "ref": "26.91"
+ },
+ {
+  "it": "circondare",
+  "count": 1,
+  "ref": "31.42"
+ },
+ {
+  "it": "cisterna",
+  "count": 1,
+  "ref": "33.133"
+ },
+ {
+  "it": "ciuffetto",
+  "count": 1,
+  "ref": "28.33"
+ },
+ {
+  "it": "cleopatràs",
+  "count": 1,
+  "ref": "5.63"
+ },
+ {
+  "it": "clugnì",
+  "count": 1,
+  "ref": "23.63"
+ },
+ {
+  "it": "cognato",
+  "count": 1,
+  "ref": "6.2"
+ },
+ {
+  "it": "colchi",
+  "count": 1,
+  "ref": "18.87"
+ },
+ {
+  "it": "collegio",
+  "count": 1,
+  "ref": "23.91"
+ },
+ {
+  "it": "colomba",
+  "count": 1,
+  "ref": "5.82"
+ },
+ {
+  "it": "coltel",
+  "count": 1,
+  "ref": "29.83"
+ },
+ {
+  "it": "coltre",
+  "count": 1,
+  "ref": "24.48"
+ },
+ {
+  "it": "coltura",
+  "count": 1,
+  "ref": "20.84"
+ },
+ {
+  "it": "comandamento",
+  "count": 1,
+  "ref": "2.79"
+ },
+ {
+  "it": "comandare",
+  "count": 1,
+  "ref": "2.54"
+ },
+ {
+  "it": "comandato",
+  "count": 1,
+  "ref": "16.110"
+ },
+ {
+  "it": "comando",
+  "count": 1,
+  "ref": "10.128"
+ },
+ {
+  "it": "combatteo",
+  "count": 1,
+  "ref": "5.66"
+ },
+ {
+  "it": "combusto",
+  "count": 1,
+  "ref": "1.75"
+ },
+ {
+  "it": "comento",
+  "count": 1,
+  "ref": "4.144"
+ },
+ {
+  "it": "cominciommi",
+  "count": 1,
+  "ref": "2.56"
+ },
+ {
+  "it": "commessa",
+  "count": 1,
+  "ref": "19.47"
+ },
+ {
+  "it": "compagna",
+  "count": 1,
+  "ref": "26.101"
+ },
+ {
+  "it": "comparte",
+  "count": 1,
+  "ref": "19.12"
+ },
+ {
+  "it": "compenso",
+  "count": 1,
+  "ref": "11.13"
+ },
+ {
+  "it": "compiangere",
+  "count": 1,
+  "ref": "2.94"
+ },
+ {
+  "it": "compianto",
+  "count": 1,
+  "ref": "5.35"
+ },
+ {
+  "it": "compiuto",
+  "count": 1,
+  "ref": "27.130"
+ },
+ {
+  "it": "compressa",
+  "count": 1,
+  "ref": "21.21"
+ },
+ {
+  "it": "conca",
+  "count": 1,
+  "ref": "9.16"
+ },
+ {
+  "it": "concesso",
+  "count": 1,
+  "ref": "29.11"
+ },
+ {
+  "it": "concetta",
+  "count": 1,
+  "ref": "12.13"
+ },
+ {
+  "it": "conciare",
+  "count": 1,
+  "ref": "30.33"
+ },
+ {
+  "it": "concilio",
+  "count": 1,
+  "ref": "23.122"
+ },
+ {
+  "it": "confare",
+  "count": 1,
+  "ref": "34.33"
+ },
+ {
+  "it": "confesso",
+  "count": 1,
+  "ref": "27.83"
+ },
+ {
+  "it": "configgere",
+  "count": 1,
+  "ref": "23.115"
+ },
+ {
+  "it": "confortarmi",
+  "count": 1,
+  "ref": "7.4"
+ },
+ {
+  "it": "congiungere",
+  "count": 1,
+  "ref": "31.25"
+ },
+ {
+  "it": "congiunto",
+  "count": 1,
+  "ref": "10.111"
+ },
+ {
+  "it": "congiurato",
+  "count": 1,
+  "ref": "9.23"
+ },
+ {
+  "it": "coniare",
+  "count": 1,
+  "ref": "30.111"
+ },
+ {
+  "it": "conoscitore",
+  "count": 1,
+  "ref": "5.9"
+ },
+ {
+  "it": "conseguire",
+  "count": 1,
+  "ref": "7.90"
+ },
+ {
+  "it": "consolare",
+  "count": 1,
+  "ref": "2.69"
+ },
+ {
+  "it": "consorzio",
+  "count": 1,
+  "ref": "20.85"
+ },
+ {
+  "it": "contarla",
+  "count": 1,
+  "ref": "28.114"
+ },
+ {
+  "it": "contastare",
+  "count": 1,
+  "ref": "28.14"
+ },
+ {
+  "it": "contasto",
+  "count": 1,
+  "ref": "7.85"
+ },
+ {
+  "it": "continuamente",
+  "count": 1,
+  "ref": "14.24"
+ },
+ {
+  "it": "contrada",
+  "count": 1,
+  "ref": "8.93"
+ },
+ {
+  "it": "contradizion",
+  "count": 1,
+  "ref": "27.120"
+ },
+ {
+  "it": "contrapasso",
+  "count": 1,
+  "ref": "28.142"
+ },
+ {
+  "it": "contraposto",
+  "count": 1,
+  "ref": "34.113"
+ },
+ {
+  "it": "contraro",
+  "count": 1,
+  "ref": "16.26"
+ },
+ {
+  "it": "contristare",
+  "count": 1,
+  "ref": "11.24"
+ },
+ {
+  "it": "convegna",
+  "count": 1,
+  "ref": "33.117"
+ },
+ {
+  "it": "convegnon",
+  "count": 1,
+  "ref": "3.123"
+ },
+ {
+  "it": "conven",
+  "count": 1,
+  "ref": "20.1"
+ },
+ {
+  "it": "convenette",
+  "count": 1,
+  "ref": "25.42"
+ },
+ {
+  "it": "conversione",
+  "count": 1,
+  "ref": "19.116"
+ },
+ {
+  "it": "converso",
+  "count": 1,
+  "ref": "12.43"
+ },
+ {
+  "it": "convertian",
+  "count": 1,
+  "ref": "27.15"
+ },
+ {
+  "it": "conviensi",
+  "count": 1,
+  "ref": "34.84"
+ },
+ {
+  "it": "convolto",
+  "count": 1,
+  "ref": "21.46"
+ },
+ {
+  "it": "coperchia",
+  "count": 1,
+  "ref": "23.136"
+ },
+ {
+  "it": "copersi",
+  "count": 1,
+  "ref": "29.45"
+ },
+ {
+  "it": "copia",
+  "count": 1,
+  "ref": "24.91"
+ },
+ {
+  "it": "coppa",
+  "count": 1,
+  "ref": "25.22"
+ },
+ {
+  "it": "coppo",
+  "count": 1,
+  "ref": "33.99"
+ },
+ {
+  "it": "corata",
+  "count": 1,
+  "ref": "28.26"
+ },
+ {
+  "it": "corca",
+  "count": 1,
+  "ref": "17.30"
+ },
+ {
+  "it": "cordigliero",
+  "count": 1,
+  "ref": "27.67"
+ },
+ {
+  "it": "core",
+  "count": 1,
+  "ref": "2.122"
+ },
+ {
+  "it": "corniglia",
+  "count": 1,
+  "ref": "4.128"
+ },
+ {
+  "it": "corona",
+  "count": 1,
+  "ref": "31.41"
+ },
+ {
+  "it": "coronare",
+  "count": 1,
+  "ref": "4.54"
+ },
+ {
+  "it": "corravam",
+  "count": 1,
+  "ref": "8.31"
+ },
+ {
+  "it": "correan",
+  "count": 1,
+  "ref": "24.92"
+ },
+ {
+  "it": "correggere",
+  "count": 1,
+  "ref": "5.60"
+ },
+ {
+  "it": "corridore",
+  "count": 1,
+  "ref": "22.4"
+ },
+ {
+  "it": "corrien",
+  "count": 1,
+  "ref": "12.56"
+ },
+ {
+  "it": "corruttibile",
+  "count": 1,
+  "ref": "2.14"
+ },
+ {
+  "it": "costei",
+  "count": 1,
+  "ref": "7.83"
+ },
+ {
+  "it": "costinci",
+  "count": 1,
+  "ref": "12.63"
+ },
+ {
+  "it": "costrigner",
+  "count": 1,
+  "ref": "23.131"
+ },
+ {
+  "it": "costrutto",
+  "count": 1,
+  "ref": "11.30"
+ },
+ {
+  "it": "cotesto",
+  "count": 1,
+  "ref": "29.90"
+ },
+ {
+  "it": "coto",
+  "count": 1,
+  "ref": "31.77"
+ },
+ {
+  "it": "cotta",
+  "count": 1,
+  "ref": "14.110"
+ },
+ {
+  "it": "covare",
+  "count": 1,
+  "ref": "27.41"
+ },
+ {
+  "it": "coverchia",
+  "count": 1,
+  "ref": "34.114"
+ },
+ {
+  "it": "coverta",
+  "count": 1,
+  "ref": "1.33"
+ },
+ {
+  "it": "cozzare",
+  "count": 1,
+  "ref": "7.55"
+ },
+ {
+  "it": "cozzaro",
+  "count": 1,
+  "ref": "32.51"
+ },
+ {
+  "it": "cozzo",
+  "count": 1,
+  "ref": "9.97"
+ },
+ {
+  "it": "credendomi",
+  "count": 1,
+  "ref": "27.68"
+ },
+ {
+  "it": "crepa",
+  "count": 1,
+  "ref": "30.121"
+ },
+ {
+  "it": "cresciemi",
+  "count": 1,
+  "ref": "31.39"
+ },
+ {
+  "it": "cresta",
+  "count": 1,
+  "ref": "34.42"
+ },
+ {
+  "it": "creta",
+  "count": 1,
+  "ref": "14.95"
+ },
+ {
+  "it": "cria",
+  "count": 1,
+  "ref": "11.63"
+ },
+ {
+  "it": "cricchiare",
+  "count": 1,
+  "ref": "32.30"
+ },
+ {
+  "it": "crine",
+  "count": 1,
+  "ref": "9.41"
+ },
+ {
+  "it": "crini",
+  "count": 1,
+  "ref": "27.117"
+ },
+ {
+  "it": "cristallo",
+  "count": 1,
+  "ref": "33.98"
+ },
+ {
+  "it": "cristianesmo",
+  "count": 1,
+  "ref": "4.37"
+ },
+ {
+  "it": "cristiano",
+  "count": 1,
+  "ref": "27.88"
+ },
+ {
+  "it": "croia",
+  "count": 1,
+  "ref": "30.102"
+ },
+ {
+  "it": "crollare",
+  "count": 1,
+  "ref": "22.107"
+ },
+ {
+  "it": "crollarsi",
+  "count": 1,
+  "ref": "26.86"
+ },
+ {
+  "it": "crollo",
+  "count": 1,
+  "ref": "25.9"
+ },
+ {
+  "it": "crosciare",
+  "count": 1,
+  "ref": "24.120"
+ },
+ {
+  "it": "crucifisso",
+  "count": 1,
+  "ref": "23.111"
+ },
+ {
+  "it": "cruna",
+  "count": 1,
+  "ref": "15.21"
+ },
+ {
+  "it": "cul",
+  "count": 1,
+  "ref": "21.139"
+ },
+ {
+  "it": "cuna",
+  "count": 1,
+  "ref": "14.100"
+ },
+ {
+  "it": "cune",
+  "count": 1,
+  "ref": "20.109"
+ },
+ {
+  "it": "cuoio",
+  "count": 1,
+  "ref": "20.119"
+ },
+ {
+  "it": "cuopre",
+  "count": 1,
+  "ref": "27.135"
+ },
+ {
+  "it": "cupidigia",
+  "count": 1,
+  "ref": "12.49"
+ },
+ {
+  "it": "cupido",
+  "count": 1,
+  "ref": "19.71"
+ },
+ {
+  "it": "curio",
+  "count": 1,
+  "ref": "28.102"
+ },
+ {
+  "it": "curro",
+  "count": 1,
+  "ref": "17.61"
+ },
+ {
+  "it": "cuticagna",
+  "count": 1,
+  "ref": "32.97"
+ },
+ {
+  "it": "dalfini",
+  "count": 1,
+  "ref": "22.19"
+ },
+ {
+  "it": "dammiata",
+  "count": 1,
+  "ref": "14.104"
+ },
+ {
+  "it": "danaro",
+  "count": 1,
+  "ref": "22.85"
+ },
+ {
+  "it": "dannaggio",
+  "count": 1,
+  "ref": "30.136"
+ },
+ {
+  "it": "dannare",
+  "count": 1,
+  "ref": "5.38"
+ },
+ {
+  "it": "danne",
+  "count": 1,
+  "ref": "12.93"
+ },
+ {
+  "it": "danoia",
+  "count": 1,
+  "ref": "32.26"
+ },
+ {
+  "it": "dattero",
+  "count": 1,
+  "ref": "33.120"
+ },
+ {
+  "it": "debbiare",
+  "count": 1,
+  "ref": "24.151"
+ },
+ {
+  "it": "debitamente",
+  "count": 1,
+  "ref": "4.38"
+ },
+ {
+  "it": "decina",
+  "count": 1,
+  "ref": "21.120"
+ },
+ {
+  "it": "decurio",
+  "count": 1,
+  "ref": "22.74"
+ },
+ {
+  "it": "dedalo",
+  "count": 1,
+  "ref": "29.116"
+ },
+ {
+  "it": "deianira",
+  "count": 1,
+  "ref": "12.68"
+ },
+ {
+  "it": "deidamìa",
+  "count": 1,
+  "ref": "26.62"
+ },
+ {
+  "it": "deitade",
+  "count": 1,
+  "ref": "11.46"
+ },
+ {
+  "it": "delirare",
+  "count": 1,
+  "ref": "11.76"
+ },
+ {
+  "it": "democrito",
+  "count": 1,
+  "ref": "4.136"
+ },
+ {
+  "it": "deon",
+  "count": 1,
+  "ref": "19.3"
+ },
+ {
+  "it": "derivare",
+  "count": 1,
+  "ref": "7.102"
+ },
+ {
+  "it": "desso",
+  "count": 1,
+  "ref": "28.96"
+ },
+ {
+  "it": "desto",
+  "count": 1,
+  "ref": "33.37"
+ },
+ {
+  "it": "dianzi",
+  "count": 1,
+  "ref": "10.112"
+ },
+ {
+  "it": "diascoride",
+  "count": 1,
+  "ref": "4.140"
+ },
+ {
+  "it": "dicerei",
+  "count": 1,
+  "ref": "16.17"
+ },
+ {
+  "it": "dicerolti",
+  "count": 1,
+  "ref": "3.45"
+ },
+ {
+  "it": "dicerò",
+  "count": 1,
+  "ref": "18.6"
+ },
+ {
+  "it": "diche",
+  "count": 1,
+  "ref": "25.6"
+ },
+ {
+  "it": "dido",
+  "count": 1,
+  "ref": "5.85"
+ },
+ {
+  "it": "diedemi",
+  "count": 1,
+  "ref": "24.24"
+ },
+ {
+  "it": "dien",
+  "count": 1,
+  "ref": "33.7"
+ },
+ {
+  "it": "dienne",
+  "count": 1,
+  "ref": "9.13"
+ },
+ {
+  "it": "dieno",
+  "count": 1,
+  "ref": "30.96"
+ },
+ {
+  "it": "dier",
+  "count": 1,
+  "ref": "12.105"
+ },
+ {
+  "it": "dierno",
+  "count": 1,
+  "ref": "30.94"
+ },
+ {
+  "it": "difettare",
+  "count": 1,
+  "ref": "4.40"
+ },
+ {
+  "it": "dificio",
+  "count": 1,
+  "ref": "34.7"
+ },
+ {
+  "it": "digradare",
+  "count": 1,
+  "ref": "6.114"
+ },
+ {
+  "it": "dilacco",
+  "count": 1,
+  "ref": "28.30"
+ },
+ {
+  "it": "dilaceraro",
+  "count": 1,
+  "ref": "13.128"
+ },
+ {
+  "it": "dilatare",
+  "count": 1,
+  "ref": "14.29"
+ },
+ {
+  "it": "dilettoso",
+  "count": 1,
+  "ref": "1.77"
+ },
+ {
+  "it": "dimagrare",
+  "count": 1,
+  "ref": "24.143"
+ },
+ {
+  "it": "dimandasti",
+  "count": 1,
+  "ref": "29.93"
+ },
+ {
+  "it": "dimane",
+  "count": 1,
+  "ref": "33.37"
+ },
+ {
+  "it": "dimesso",
+  "count": 1,
+  "ref": "29.15"
+ },
+ {
+  "it": "dimonio",
+  "count": 1,
+  "ref": "3.109"
+ },
+ {
+  "it": "dimorare",
+  "count": 1,
+  "ref": "22.78"
+ },
+ {
+  "it": "dimostrami",
+  "count": 1,
+  "ref": "28.91"
+ },
+ {
+  "it": "diogenès",
+  "count": 1,
+  "ref": "4.137"
+ },
+ {
+  "it": "diomede",
+  "count": 1,
+  "ref": "26.56"
+ },
+ {
+  "it": "dionisio",
+  "count": 1,
+  "ref": "12.107"
+ },
+ {
+  "it": "dipartilla",
+  "count": 1,
+  "ref": "1.111"
+ },
+ {
+  "it": "dipartille",
+  "count": 1,
+  "ref": "5.69"
+ },
+ {
+  "it": "dipartirci",
+  "count": 1,
+  "ref": "23.132"
+ },
+ {
+  "it": "dipartita",
+  "count": 1,
+  "ref": "4.81"
+ },
+ {
+  "it": "dipela",
+  "count": 1,
+  "ref": "25.120"
+ },
+ {
+  "it": "dipelato",
+  "count": 1,
+  "ref": "16.35"
+ },
+ {
+  "it": "dipigne",
+  "count": 1,
+  "ref": "4.20"
+ },
+ {
+  "it": "dipuose",
+  "count": 1,
+  "ref": "19.44"
+ },
+ {
+  "it": "diretani",
+  "count": 1,
+  "ref": "25.55"
+ },
+ {
+  "it": "diriva",
+  "count": 1,
+  "ref": "14.122"
+ },
+ {
+  "it": "dirizzò",
+  "count": 1,
+  "ref": "31.15"
+ },
+ {
+  "it": "diroccia",
+  "count": 1,
+  "ref": "14.115"
+ },
+ {
+  "it": "disagio",
+  "count": 1,
+  "ref": "34.99"
+ },
+ {
+  "it": "disbrigo",
+  "count": 1,
+  "ref": "33.116"
+ },
+ {
+  "it": "discarcate",
+  "count": 1,
+  "ref": "17.135"
+ },
+ {
+  "it": "discarno",
+  "count": 1,
+  "ref": "30.69"
+ },
+ {
+  "it": "discente",
+  "count": 1,
+  "ref": "11.104"
+ },
+ {
+  "it": "dischiomi",
+  "count": 1,
+  "ref": "32.100"
+ },
+ {
+  "it": "disciogliere",
+  "count": 1,
+  "ref": "31.101"
+ },
+ {
+  "it": "disconvenevole",
+  "count": 1,
+  "ref": "24.66"
+ },
+ {
+  "it": "disconvien",
+  "count": 1,
+  "ref": "15.66"
+ },
+ {
+  "it": "discordia",
+  "count": 1,
+  "ref": "6.63"
+ },
+ {
+  "it": "discoverse",
+  "count": 1,
+  "ref": "29.128"
+ },
+ {
+  "it": "discriver",
+  "count": 1,
+  "ref": "32.8"
+ },
+ {
+  "it": "diserrando",
+  "count": 1,
+  "ref": "13.60"
+ },
+ {
+  "it": "diserrare",
+  "count": 1,
+  "ref": "27.103"
+ },
+ {
+  "it": "disfatta",
+  "count": 1,
+  "ref": "3.57"
+ },
+ {
+  "it": "disfoga",
+  "count": 1,
+  "ref": "31.71"
+ },
+ {
+  "it": "disgiungere",
+  "count": 1,
+  "ref": "13.141"
+ },
+ {
+  "it": "disgrava",
+  "count": 1,
+  "ref": "30.144"
+ },
+ {
+  "it": "disiato",
+  "count": 1,
+  "ref": "5.133"
+ },
+ {
+  "it": "disiava",
+  "count": 1,
+  "ref": "30.140"
+ },
+ {
+  "it": "disiderio",
+  "count": 1,
+  "ref": "2.136"
+ },
+ {
+  "it": "disideroso",
+  "count": 1,
+  "ref": "10.43"
+ },
+ {
+  "it": "disii",
+  "count": 1,
+  "ref": "22.62"
+ },
+ {
+  "it": "dismaglie",
+  "count": 1,
+  "ref": "29.85"
+ },
+ {
+  "it": "dismisura",
+  "count": 1,
+  "ref": "16.74"
+ },
+ {
+  "it": "dismontiam",
+  "count": 1,
+  "ref": "24.73"
+ },
+ {
+  "it": "disonesto",
+  "count": 1,
+  "ref": "13.140"
+ },
+ {
+  "it": "disparire",
+  "count": 1,
+  "ref": "22.136"
+ },
+ {
+  "it": "disperare",
+  "count": 1,
+  "ref": "1.115"
+ },
+ {
+  "it": "disperato",
+  "count": 1,
+  "ref": "33.5"
+ },
+ {
+  "it": "dispetta",
+  "count": 1,
+  "ref": "9.91"
+ },
+ {
+  "it": "dispettoso",
+  "count": 1,
+  "ref": "14.47"
+ },
+ {
+  "it": "dispietati",
+  "count": 1,
+  "ref": "30.9"
+ },
+ {
+  "it": "dispitto",
+  "count": 1,
+  "ref": "10.36"
+ },
+ {
+  "it": "dispoglia",
+  "count": 1,
+  "ref": "16.54"
+ },
+ {
+  "it": "disposizione",
+  "count": 1,
+  "ref": "11.81"
+ },
+ {
+  "it": "dispregio",
+  "count": 1,
+  "ref": "23.93"
+ },
+ {
+  "it": "dissemi",
+  "count": 1,
+  "ref": "10.118"
+ },
+ {
+  "it": "dissipare",
+  "count": 1,
+  "ref": "31.34"
+ },
+ {
+  "it": "distillare",
+  "count": 1,
+  "ref": "23.97"
+ },
+ {
+  "it": "distinguere",
+  "count": 1,
+  "ref": "11.68"
+ },
+ {
+  "it": "distretto",
+  "count": 1,
+  "ref": "19.127"
+ },
+ {
+  "it": "distribuire",
+  "count": 1,
+  "ref": "7.76"
+ },
+ {
+  "it": "distruggitor",
+  "count": 1,
+  "ref": "22.51"
+ },
+ {
+  "it": "disvelta",
+  "count": 1,
+  "ref": "13.95"
+ },
+ {
+  "it": "disvolere",
+  "count": 1,
+  "ref": "2.37"
+ },
+ {
+  "it": "divalli",
+  "count": 1,
+  "ref": "16.98"
+ },
+ {
+  "it": "divellere",
+  "count": 1,
+  "ref": "34.100"
+ },
+ {
+  "it": "divizia",
+  "count": 1,
+  "ref": "22.109"
+ },
+ {
+  "it": "divorare",
+  "count": 1,
+  "ref": "31.142"
+ },
+ {
+  "it": "divorarlo",
+  "count": 1,
+  "ref": "6.30"
+ },
+ {
+  "it": "doga",
+  "count": 1,
+  "ref": "31.75"
+ },
+ {
+  "it": "doglienza",
+  "count": 1,
+  "ref": "6.108"
+ },
+ {
+  "it": "dogliose",
+  "count": 1,
+  "ref": "11.34"
+ },
+ {
+  "it": "dolcezza",
+  "count": 1,
+  "ref": "26.94"
+ },
+ {
+  "it": "dolcin",
+  "count": 1,
+  "ref": "28.55"
+ },
+ {
+  "it": "dolorare",
+  "count": 1,
+  "ref": "27.131"
+ },
+ {
+  "it": "dolsi",
+  "count": 1,
+  "ref": "26.19"
+ },
+ {
+  "it": "dolve",
+  "count": 1,
+  "ref": "2.51"
+ },
+ {
+  "it": "domandal",
+  "count": 1,
+  "ref": "13.82"
+ },
+ {
+  "it": "domandollo",
+  "count": 1,
+  "ref": "22.47"
+ },
+ {
+  "it": "domandommi",
+  "count": 1,
+  "ref": "27.98"
+ },
+ {
+  "it": "donare",
+  "count": 1,
+  "ref": "30.44"
+ },
+ {
+  "it": "dono",
+  "count": 1,
+  "ref": "6.78"
+ },
+ {
+  "it": "doppiare",
+  "count": 1,
+  "ref": "14.39"
+ },
+ {
+  "it": "dorare",
+  "count": 1,
+  "ref": "23.64"
+ },
+ {
+  "it": "dote",
+  "count": 1,
+  "ref": "19.116"
+ },
+ {
+  "it": "dotta",
+  "count": 1,
+  "ref": "31.110"
+ },
+ {
+  "it": "dottrina",
+  "count": 1,
+  "ref": "9.62"
+ },
+ {
+  "it": "dovre",
+  "count": 1,
+  "ref": "7.50"
+ },
+ {
+  "it": "dovria",
+  "count": 1,
+  "ref": "16.42"
+ },
+ {
+  "it": "dovrien",
+  "count": 1,
+  "ref": "7.92"
+ },
+ {
+  "it": "draco",
+  "count": 1,
+  "ref": "25.23"
+ },
+ {
+  "it": "drudo",
+  "count": 1,
+  "ref": "18.134"
+ },
+ {
+  "it": "dubbiar",
+  "count": 1,
+  "ref": "11.93"
+ },
+ {
+  "it": "dubbiare",
+  "count": 1,
+  "ref": "4.18"
+ },
+ {
+  "it": "dubbioso",
+  "count": 1,
+  "ref": "5.120"
+ },
+ {
+  "it": "duera",
+  "count": 1,
+  "ref": "32.116"
+ },
+ {
+  "it": "dugento",
+  "count": 1,
+  "ref": "21.113"
+ },
+ {
+  "it": "duo",
+  "count": 1,
+  "ref": "20.44"
+ },
+ {
+  "it": "duramente",
+  "count": 1,
+  "ref": "32.86"
+ },
+ {
+  "it": "ebbro",
+  "count": 1,
+  "ref": "27.99"
+ },
+ {
+  "it": "eccedere",
+  "count": 1,
+  "ref": "2.77"
+ },
+ {
+  "it": "ecuba",
+  "count": 1,
+  "ref": "30.16"
+ },
+ {
+  "it": "egina",
+  "count": 1,
+  "ref": "29.59"
+ },
+ {
+  "it": "elefante",
+  "count": 1,
+  "ref": "31.52"
+ },
+ {
+  "it": "eletra",
+  "count": 1,
+  "ref": "4.121"
+ },
+ {
+  "it": "elezione",
+  "count": 1,
+  "ref": "2.28"
+ },
+ {
+  "it": "elitropia",
+  "count": 1,
+  "ref": "24.93"
+ },
+ {
+  "it": "ellera",
+  "count": 1,
+  "ref": "25.58"
+ },
+ {
+  "it": "emisperi",
+  "count": 1,
+  "ref": "20.125"
+ },
+ {
+  "it": "empedoclès",
+  "count": 1,
+  "ref": "4.138"
+ },
+ {
+  "it": "empio",
+  "count": 1,
+  "ref": "10.83"
+ },
+ {
+  "it": "empire",
+  "count": 1,
+  "ref": "10.4"
+ },
+ {
+  "it": "empireo",
+  "count": 1,
+  "ref": "2.21"
+ },
+ {
+  "it": "enno",
+  "count": 1,
+  "ref": "5.38"
+ },
+ {
+  "it": "entre",
+  "count": 1,
+  "ref": "13.16"
+ },
+ {
+  "it": "epe",
+  "count": 1,
+  "ref": "25.82"
+ },
+ {
+  "it": "epicuro",
+  "count": 1,
+  "ref": "10.14"
+ },
+ {
+  "it": "eraclito",
+  "count": 1,
+  "ref": "4.138"
+ },
+ {
+  "it": "eresiarche",
+  "count": 1,
+  "ref": "9.127"
+ },
+ {
+  "it": "eretto",
+  "count": 1,
+  "ref": "14.111"
+ },
+ {
+  "it": "erigere",
+  "count": 1,
+  "ref": "32.45"
+ },
+ {
+  "it": "erine",
+  "count": 1,
+  "ref": "9.45"
+ },
+ {
+  "it": "eritón",
+  "count": 1,
+  "ref": "9.23"
+ },
+ {
+  "it": "eschi",
+  "count": 1,
+  "ref": "32.113"
+ },
+ {
+  "it": "escotendo",
+  "count": 1,
+  "ref": "14.42"
+ },
+ {
+  "it": "esprimere",
+  "count": 1,
+  "ref": "19.123"
+ },
+ {
+  "it": "essalto",
+  "count": 1,
+  "ref": "4.120"
+ },
+ {
+  "it": "essamina",
+  "count": 1,
+  "ref": "5.5"
+ },
+ {
+  "it": "essecutori",
+  "count": 1,
+  "ref": "31.51"
+ },
+ {
+  "it": "essercito",
+  "count": 1,
+  "ref": "18.28"
+ },
+ {
+  "it": "essilio",
+  "count": 1,
+  "ref": "23.126"
+ },
+ {
+  "it": "este",
+  "count": 1,
+  "ref": "13.29"
+ },
+ {
+  "it": "estimare",
+  "count": 1,
+  "ref": "24.25"
+ },
+ {
+  "it": "estimo",
+  "count": 1,
+  "ref": "29.35"
+ },
+ {
+  "it": "estremità",
+  "count": 1,
+  "ref": "11.1"
+ },
+ {
+  "it": "etade",
+  "count": 1,
+  "ref": "27.80"
+ },
+ {
+  "it": "eteòcle",
+  "count": 1,
+  "ref": "26.54"
+ },
+ {
+  "it": "etica",
+  "count": 1,
+  "ref": "11.80"
+ },
+ {
+  "it": "etico",
+  "count": 1,
+  "ref": "30.56"
+ },
+ {
+  "it": "etternale",
+  "count": 1,
+  "ref": "14.37"
+ },
+ {
+  "it": "etternalmente",
+  "count": 1,
+  "ref": "29.90"
+ },
+ {
+  "it": "etterni",
+  "count": 1,
+  "ref": "15.42"
+ },
+ {
+  "it": "ettòr",
+  "count": 1,
+  "ref": "4.122"
+ },
+ {
+  "it": "euclide",
+  "count": 1,
+  "ref": "4.142"
+ },
+ {
+  "it": "eurialo",
+  "count": 1,
+  "ref": "1.108"
+ },
+ {
+  "it": "euripilo",
+  "count": 1,
+  "ref": "20.112"
+ },
+ {
+  "it": "fabbro",
+  "count": 1,
+  "ref": "14.52"
+ },
+ {
+  "it": "facieno",
+  "count": 1,
+  "ref": "12.102"
+ },
+ {
+  "it": "facultade",
+  "count": 1,
+  "ref": "11.44"
+ },
+ {
+  "it": "faenza",
+  "count": 1,
+  "ref": "32.123"
+ },
+ {
+  "it": "falconiere",
+  "count": 1,
+  "ref": "17.129"
+ },
+ {
+  "it": "falde",
+  "count": 1,
+  "ref": "14.29"
+ },
+ {
+  "it": "fallare",
+  "count": 1,
+  "ref": "29.120"
+ },
+ {
+  "it": "falsador",
+  "count": 1,
+  "ref": "29.57"
+ },
+ {
+  "it": "falsamente",
+  "count": 1,
+  "ref": "24.139"
+ },
+ {
+  "it": "falsità",
+  "count": 1,
+  "ref": "11.59"
+ },
+ {
+  "it": "fannomi",
+  "count": 1,
+  "ref": "4.93"
+ },
+ {
+  "it": "fano",
+  "count": 1,
+  "ref": "28.76"
+ },
+ {
+  "it": "faree",
+  "count": 1,
+  "ref": "24.86"
+ },
+ {
+  "it": "farmisi",
+  "count": 1,
+  "ref": "5.26"
+ },
+ {
+  "it": "faròl",
+  "count": 1,
+  "ref": "15.36"
+ },
+ {
+  "it": "fascio",
+  "count": 1,
+  "ref": "31.135"
+ },
+ {
+  "it": "fata",
+  "count": 1,
+  "ref": "9.97"
+ },
+ {
+  "it": "fatale",
+  "count": 1,
+  "ref": "5.22"
+ },
+ {
+  "it": "faticoso",
+  "count": 1,
+  "ref": "23.67"
+ },
+ {
+  "it": "fato",
+  "count": 1,
+  "ref": "21.82"
+ },
+ {
+  "it": "favola",
+  "count": 1,
+  "ref": "23.4"
+ },
+ {
+  "it": "fazione",
+  "count": 1,
+  "ref": "18.49"
+ },
+ {
+  "it": "feceli",
+  "count": 1,
+  "ref": "4.61"
+ },
+ {
+  "it": "fecemi",
+  "count": 1,
+  "ref": "3.5"
+ },
+ {
+  "it": "fecersi",
+  "count": 1,
+  "ref": "20.122"
+ },
+ {
+  "it": "fecesi",
+  "count": 1,
+  "ref": "8.24"
+ },
+ {
+  "it": "feda",
+  "count": 1,
+  "ref": "12.40"
+ },
+ {
+  "it": "fedir",
+  "count": 1,
+  "ref": "22.6"
+ },
+ {
+  "it": "fedire",
+  "count": 1,
+  "ref": "22.95"
+ },
+ {
+  "it": "fele",
+  "count": 1,
+  "ref": "16.61"
+ },
+ {
+  "it": "fella",
+  "count": 1,
+  "ref": "8.18"
+ },
+ {
+  "it": "feminine",
+  "count": 1,
+  "ref": "9.39"
+ },
+ {
+  "it": "femmo",
+  "count": 1,
+  "ref": "17.32"
+ },
+ {
+  "it": "fenestra",
+  "count": 1,
+  "ref": "13.102"
+ },
+ {
+  "it": "fenice",
+  "count": 1,
+  "ref": "24.107"
+ },
+ {
+  "it": "feo",
+  "count": 1,
+  "ref": "4.144"
+ },
+ {
+  "it": "ferci",
+  "count": 1,
+  "ref": "7.42"
+ },
+ {
+  "it": "ferire",
+  "count": 1,
+  "ref": "23.135"
+ },
+ {
+  "it": "ferrare",
+  "count": 1,
+  "ref": "29.44"
+ },
+ {
+  "it": "ferrigno",
+  "count": 1,
+  "ref": "18.2"
+ },
+ {
+  "it": "fersa",
+  "count": 1,
+  "ref": "25.79"
+ },
+ {
+  "it": "fersi",
+  "count": 1,
+  "ref": "25.73"
+ },
+ {
+  "it": "ferza",
+  "count": 1,
+  "ref": "18.81"
+ },
+ {
+  "it": "ferze",
+  "count": 1,
+  "ref": "18.35"
+ },
+ {
+  "it": "festuca",
+  "count": 1,
+  "ref": "34.12"
+ },
+ {
+  "it": "fetonte",
+  "count": 1,
+  "ref": "17.107"
+ },
+ {
+  "it": "fiacco",
+  "count": 1,
+  "ref": "6.54"
+ },
+ {
+  "it": "fiammeggiare",
+  "count": 1,
+  "ref": "19.28"
+ },
+ {
+  "it": "fiammette",
+  "count": 1,
+  "ref": "8.4"
+ },
+ {
+  "it": "fiammingo",
+  "count": 1,
+  "ref": "15.4"
+ },
+ {
+  "it": "fiche",
+  "count": 1,
+  "ref": "25.2"
+ },
+ {
+  "it": "fico",
+  "count": 1,
+  "ref": "15.66"
+ },
+ {
+  "it": "fidanzare",
+  "count": 1,
+  "ref": "11.54"
+ },
+ {
+  "it": "fido",
+  "count": 1,
+  "ref": "5.19"
+ },
+ {
+  "it": "fiede",
+  "count": 1,
+  "ref": "10.135"
+ },
+ {
+  "it": "fieramente",
+  "count": 1,
+  "ref": "10.46"
+ },
+ {
+  "it": "fiesolane",
+  "count": 1,
+  "ref": "15.73"
+ },
+ {
+  "it": "fiesole",
+  "count": 1,
+  "ref": "15.62"
+ },
+ {
+  "it": "fievole",
+  "count": 1,
+  "ref": "24.64"
+ },
+ {
+  "it": "figliastro",
+  "count": 1,
+  "ref": "12.112"
+ },
+ {
+  "it": "figo",
+  "count": 1,
+  "ref": "33.120"
+ },
+ {
+  "it": "figurarlo",
+  "count": 1,
+  "ref": "18.43"
+ },
+ {
+  "it": "filosofia",
+  "count": 1,
+  "ref": "11.97"
+ },
+ {
+  "it": "filosofico",
+  "count": 1,
+  "ref": "4.132"
+ },
+ {
+  "it": "fio",
+  "count": 1,
+  "ref": "27.135"
+ },
+ {
+  "it": "fiorentina",
+  "count": 1,
+  "ref": "17.70"
+ },
+ {
+  "it": "fiorettare",
+  "count": 1,
+  "ref": "2.127"
+ },
+ {
+  "it": "fiorino",
+  "count": 1,
+  "ref": "30.89"
+ },
+ {
+  "it": "fiotto",
+  "count": 1,
+  "ref": "15.5"
+ },
+ {
+  "it": "fisamente",
+  "count": 1,
+  "ref": "21.22"
+ },
+ {
+  "it": "fiso",
+  "count": 1,
+  "ref": "4.5"
+ },
+ {
+  "it": "fiumana",
+  "count": 1,
+  "ref": "2.108"
+ },
+ {
+  "it": "flagello",
+  "count": 1,
+  "ref": "12.134"
+ },
+ {
+  "it": "flegra",
+  "count": 1,
+  "ref": "14.58"
+ },
+ {
+  "it": "focaccia",
+  "count": 1,
+  "ref": "32.63"
+ },
+ {
+  "it": "focara",
+  "count": 1,
+  "ref": "28.89"
+ },
+ {
+  "it": "focile",
+  "count": 1,
+  "ref": "14.39"
+ },
+ {
+  "it": "focina",
+  "count": 1,
+  "ref": "14.56"
+ },
+ {
+  "it": "folletto",
+  "count": 1,
+  "ref": "30.32"
+ },
+ {
+  "it": "folo",
+  "count": 1,
+  "ref": "12.72"
+ },
+ {
+  "it": "fondere",
+  "count": 1,
+  "ref": "11.44"
+ },
+ {
+  "it": "foracchiare",
+  "count": 1,
+  "ref": "19.42"
+ },
+ {
+  "it": "forbendola",
+  "count": 1,
+  "ref": "33.2"
+ },
+ {
+  "it": "forbire",
+  "count": 1,
+  "ref": "15.69"
+ },
+ {
+  "it": "forcata",
+  "count": 1,
+  "ref": "14.108"
+ },
+ {
+  "it": "forcuta",
+  "count": 1,
+  "ref": "25.134"
+ },
+ {
+  "it": "forcuto",
+  "count": 1,
+  "ref": "30.51"
+ },
+ {
+  "it": "formica",
+  "count": 1,
+  "ref": "29.64"
+ },
+ {
+  "it": "foro",
+  "count": 1,
+  "ref": "34.85"
+ },
+ {
+  "it": "forsennato",
+  "count": 1,
+  "ref": "30.20"
+ },
+ {
+  "it": "fosco",
+  "count": 1,
+  "ref": "13.4"
+ },
+ {
+  "it": "fossato",
+  "count": 1,
+  "ref": "7.102"
+ },
+ {
+  "it": "fotin",
+  "count": 1,
+  "ref": "11.9"
+ },
+ {
+  "it": "fracasso",
+  "count": 1,
+  "ref": "9.65"
+ },
+ {
+  "it": "francare",
+  "count": 1,
+  "ref": "2.132"
+ },
+ {
+  "it": "francheggia",
+  "count": 1,
+  "ref": "28.116"
+ },
+ {
+  "it": "franchezza",
+  "count": 1,
+  "ref": "2.123"
+ },
+ {
+  "it": "franco",
+  "count": 1,
+  "ref": "27.54"
+ },
+ {
+  "it": "frasca",
+  "count": 1,
+  "ref": "13.114"
+ },
+ {
+  "it": "fraschetta",
+  "count": 1,
+  "ref": "13.29"
+ },
+ {
+  "it": "fratel",
+  "count": 1,
+  "ref": "26.54"
+ },
+ {
+  "it": "frenare",
+  "count": 1,
+  "ref": "17.107"
+ },
+ {
+  "it": "frison",
+  "count": 1,
+  "ref": "31.64"
+ },
+ {
+  "it": "frodolenti",
+  "count": 1,
+  "ref": "11.27"
+ },
+ {
+  "it": "fronteggiare",
+  "count": 1,
+  "ref": "20.71"
+ },
+ {
+  "it": "frugare",
+  "count": 1,
+  "ref": "30.70"
+ },
+ {
+  "it": "frustare",
+  "count": 1,
+  "ref": "18.46"
+ },
+ {
+  "it": "frustatori",
+  "count": 1,
+  "ref": "18.23"
+ },
+ {
+  "it": "frutto",
+  "count": 1,
+  "ref": "20.19"
+ },
+ {
+  "it": "fucci",
+  "count": 1,
+  "ref": "24.125"
+ },
+ {
+  "it": "fuggiemi",
+  "count": 1,
+  "ref": "31.39"
+ },
+ {
+  "it": "fuia",
+  "count": 1,
+  "ref": "12.90"
+ },
+ {
+  "it": "fumman",
+  "count": 1,
+  "ref": "30.92"
+ },
+ {
+  "it": "fummavan",
+  "count": 1,
+  "ref": "25.93"
+ },
+ {
+  "it": "fune",
+  "count": 1,
+  "ref": "20.111"
+ },
+ {
+  "it": "fuorono",
+  "count": 1,
+  "ref": "22.38"
+ },
+ {
+  "it": "furioso",
+  "count": 1,
+  "ref": "8.48"
+ },
+ {
+  "it": "fuso",
+  "count": 1,
+  "ref": "20.122"
+ },
+ {
+  "it": "fusto",
+  "count": 1,
+  "ref": "17.12"
+ },
+ {
+  "it": "féne",
+  "count": 1,
+  "ref": "18.87"
+ },
+ {
+  "it": "gabbare",
+  "count": 1,
+  "ref": "32.7"
+ },
+ {
+  "it": "gaddo",
+  "count": 1,
+  "ref": "33.68"
+ },
+ {
+  "it": "gaeta",
+  "count": 1,
+  "ref": "26.92"
+ },
+ {
+  "it": "gaetta",
+  "count": 1,
+  "ref": "1.42"
+ },
+ {
+  "it": "galeoto",
+  "count": 1,
+  "ref": "8.17"
+ },
+ {
+  "it": "galeotto",
+  "count": 1,
+  "ref": "5.137"
+ },
+ {
+  "it": "galieno",
+  "count": 1,
+  "ref": "4.143"
+ },
+ {
+  "it": "gallare",
+  "count": 1,
+  "ref": "21.57"
+ },
+ {
+  "it": "gallura",
+  "count": 1,
+  "ref": "22.82"
+ },
+ {
+  "it": "ganellone",
+  "count": 1,
+  "ref": "32.122"
+ },
+ {
+  "it": "gardingo",
+  "count": 1,
+  "ref": "23.108"
+ },
+ {
+  "it": "garofano",
+  "count": 1,
+  "ref": "29.128"
+ },
+ {
+  "it": "garra",
+  "count": 1,
+  "ref": "15.92"
+ },
+ {
+  "it": "gastiga",
+  "count": 1,
+  "ref": "5.51"
+ },
+ {
+  "it": "gatta",
+  "count": 1,
+  "ref": "22.58"
+ },
+ {
+  "it": "gaville",
+  "count": 1,
+  "ref": "25.151"
+ },
+ {
+  "it": "gelatina",
+  "count": 1,
+  "ref": "32.60"
+ },
+ {
+  "it": "genera",
+  "count": 1,
+  "ref": "25.119"
+ },
+ {
+  "it": "genesi",
+  "count": 1,
+  "ref": "11.107"
+ },
+ {
+  "it": "genovese",
+  "count": 1,
+  "ref": "33.151"
+ },
+ {
+  "it": "geometra",
+  "count": 1,
+  "ref": "4.142"
+ },
+ {
+  "it": "geri",
+  "count": 1,
+  "ref": "29.27"
+ },
+ {
+  "it": "gerione",
+  "count": 1,
+  "ref": "17.133"
+ },
+ {
+  "it": "germogliare",
+  "count": 1,
+  "ref": "13.99"
+ },
+ {
+  "it": "gesto",
+  "count": 1,
+  "ref": "31.17"
+ },
+ {
+  "it": "gette",
+  "count": 1,
+  "ref": "18.48"
+ },
+ {
+  "it": "ghiotto",
+  "count": 1,
+  "ref": "16.51"
+ },
+ {
+  "it": "ghiottone",
+  "count": 1,
+  "ref": "22.15"
+ },
+ {
+  "it": "ghirlanda",
+  "count": 1,
+  "ref": "14.10"
+ },
+ {
+  "it": "ghisolabella",
+  "count": 1,
+  "ref": "18.55"
+ },
+ {
+  "it": "giacean",
+  "count": 1,
+  "ref": "6.37"
+ },
+ {
+  "it": "gibetto",
+  "count": 1,
+  "ref": "13.151"
+ },
+ {
+  "it": "gimmo",
+  "count": 1,
+  "ref": "10.134"
+ },
+ {
+  "it": "ginocchie",
+  "count": 1,
+  "ref": "10.54"
+ },
+ {
+  "it": "giocondo",
+  "count": 1,
+  "ref": "11.45"
+ },
+ {
+  "it": "giogo",
+  "count": 1,
+  "ref": "27.30"
+ },
+ {
+  "it": "gioseppo",
+  "count": 1,
+  "ref": "30.97"
+ },
+ {
+  "it": "giovanetto",
+  "count": 1,
+  "ref": "24.1"
+ },
+ {
+  "it": "giovinetta",
+  "count": 1,
+  "ref": "18.92"
+ },
+ {
+  "it": "girsene",
+  "count": 1,
+  "ref": "28.61"
+ },
+ {
+  "it": "gita",
+  "count": 1,
+  "ref": "16.69"
+ },
+ {
+  "it": "gite",
+  "count": 1,
+  "ref": "21.117"
+ },
+ {
+  "it": "gitta",
+  "count": 1,
+  "ref": "11.5"
+ },
+ {
+  "it": "gittan",
+  "count": 1,
+  "ref": "30.99"
+ },
+ {
+  "it": "gittansi",
+  "count": 1,
+  "ref": "3.116"
+ },
+ {
+  "it": "gittarsi",
+  "count": 1,
+  "ref": "22.108"
+ },
+ {
+  "it": "gittati",
+  "count": 1,
+  "ref": "28.79"
+ },
+ {
+  "it": "gittato",
+  "count": 1,
+  "ref": "16.47"
+ },
+ {
+  "it": "giubileo",
+  "count": 1,
+  "ref": "18.29"
+ },
+ {
+  "it": "giudecca",
+  "count": 1,
+  "ref": "34.117"
+ },
+ {
+  "it": "giudizio",
+  "count": 1,
+  "ref": "5.14"
+ },
+ {
+  "it": "giugne",
+  "count": 1,
+  "ref": "1.56"
+ },
+ {
+  "it": "giugnere",
+  "count": 1,
+  "ref": "31.63"
+ },
+ {
+  "it": "giugnieno",
+  "count": 1,
+  "ref": "34.42"
+ },
+ {
+  "it": "giuntura",
+  "count": 1,
+  "ref": "25.107"
+ },
+ {
+  "it": "giùe",
+  "count": 1,
+  "ref": "32.53"
+ },
+ {
+  "it": "glien",
+  "count": 1,
+  "ref": "32.104"
+ },
+ {
+  "it": "gliene",
+  "count": 1,
+  "ref": "25.33"
+ },
+ {
+  "it": "goccia",
+  "count": 1,
+  "ref": "14.113"
+ },
+ {
+  "it": "gocciolare",
+  "count": 1,
+  "ref": "30.63"
+ },
+ {
+  "it": "gomita",
+  "count": 1,
+  "ref": "22.81"
+ },
+ {
+  "it": "gora",
+  "count": 1,
+  "ref": "8.31"
+ },
+ {
+  "it": "gordo",
+  "count": 1,
+  "ref": "18.118"
+ },
+ {
+  "it": "gorgiera",
+  "count": 1,
+  "ref": "32.120"
+ },
+ {
+  "it": "gorgo",
+  "count": 1,
+  "ref": "17.118"
+ },
+ {
+  "it": "gorgogliare",
+  "count": 1,
+  "ref": "7.125"
+ },
+ {
+  "it": "gorgona",
+  "count": 1,
+  "ref": "33.82"
+ },
+ {
+  "it": "gorgón",
+  "count": 1,
+  "ref": "9.56"
+ },
+ {
+  "it": "governol",
+  "count": 1,
+  "ref": "20.78"
+ },
+ {
+  "it": "gozzo",
+  "count": 1,
+  "ref": "9.99"
+ },
+ {
+  "it": "gracidare",
+  "count": 1,
+  "ref": "32.31"
+ },
+ {
+  "it": "gradire",
+  "count": 1,
+  "ref": "16.42"
+ },
+ {
+  "it": "graffare",
+  "count": 1,
+  "ref": "21.50"
+ },
+ {
+  "it": "graffiacan",
+  "count": 1,
+  "ref": "22.34"
+ },
+ {
+  "it": "graffiacane",
+  "count": 1,
+  "ref": "21.122"
+ },
+ {
+  "it": "grandine",
+  "count": 1,
+  "ref": "6.10"
+ },
+ {
+  "it": "grasso",
+  "count": 1,
+  "ref": "9.82"
+ },
+ {
+  "it": "grattare",
+  "count": 1,
+  "ref": "30.30"
+ },
+ {
+  "it": "grattarmi",
+  "count": 1,
+  "ref": "22.93"
+ },
+ {
+  "it": "gravido",
+  "count": 1,
+  "ref": "18.94"
+ },
+ {
+  "it": "grazioso",
+  "count": 1,
+  "ref": "5.88"
+ },
+ {
+  "it": "gregge",
+  "count": 1,
+  "ref": "14.19"
+ },
+ {
+  "it": "greppo",
+  "count": 1,
+  "ref": "30.95"
+ },
+ {
+  "it": "gridandosi",
+  "count": 1,
+  "ref": "7.33"
+ },
+ {
+  "it": "grifo",
+  "count": 1,
+  "ref": "31.126"
+ },
+ {
+  "it": "grigia",
+  "count": 1,
+  "ref": "7.108"
+ },
+ {
+  "it": "grommate",
+  "count": 1,
+  "ref": "18.106"
+ },
+ {
+  "it": "groppone",
+  "count": 1,
+  "ref": "21.101"
+ },
+ {
+  "it": "gru",
+  "count": 1,
+  "ref": "5.46"
+ },
+ {
+  "it": "guadare",
+  "count": 1,
+  "ref": "12.94"
+ },
+ {
+  "it": "guaio",
+  "count": 1,
+  "ref": "5.3"
+ },
+ {
+  "it": "gualandi",
+  "count": 1,
+  "ref": "33.32"
+ },
+ {
+  "it": "gualdane",
+  "count": 1,
+  "ref": "22.5"
+ },
+ {
+  "it": "gualdrada",
+  "count": 1,
+  "ref": "16.37"
+ },
+ {
+  "it": "gualoppo",
+  "count": 1,
+  "ref": "22.114"
+ },
+ {
+  "it": "guarire",
+  "count": 1,
+  "ref": "8.113"
+ },
+ {
+  "it": "guastare",
+  "count": 1,
+  "ref": "29.91"
+ },
+ {
+  "it": "guastatore",
+  "count": 1,
+  "ref": "11.38"
+ },
+ {
+  "it": "guate",
+  "count": 1,
+  "ref": "29.4"
+ },
+ {
+  "it": "guerci",
+  "count": 1,
+  "ref": "7.40"
+ },
+ {
+  "it": "guiglielmo",
+  "count": 1,
+  "ref": "16.70"
+ },
+ {
+  "it": "guiscardo",
+  "count": 1,
+  "ref": "28.14"
+ },
+ {
+  "it": "guizzo",
+  "count": 1,
+  "ref": "27.17"
+ },
+ {
+  "it": "iaculi",
+  "count": 1,
+  "ref": "24.86"
+ },
+ {
+  "it": "iborni",
+  "count": 1,
+  "ref": "26.14"
+ },
+ {
+  "it": "icaro",
+  "count": 1,
+  "ref": "17.109"
+ },
+ {
+  "it": "idolatre",
+  "count": 1,
+  "ref": "19.113"
+ },
+ {
+  "it": "idre",
+  "count": 1,
+  "ref": "9.40"
+ },
+ {
+  "it": "idropesì",
+  "count": 1,
+  "ref": "30.52"
+ },
+ {
+  "it": "idropico",
+  "count": 1,
+  "ref": "30.112"
+ },
+ {
+  "it": "iernotte",
+  "count": 1,
+  "ref": "20.127"
+ },
+ {
+  "it": "ignoranza",
+  "count": 1,
+  "ref": "7.71"
+ },
+ {
+  "it": "igualmente",
+  "count": 1,
+  "ref": "7.76"
+ },
+ {
+  "it": "ilión",
+  "count": 1,
+  "ref": "1.75"
+ },
+ {
+  "it": "imaginata",
+  "count": 1,
+  "ref": "23.33"
+ },
+ {
+  "it": "imagini",
+  "count": 1,
+  "ref": "34.106"
+ },
+ {
+  "it": "imago",
+  "count": 1,
+  "ref": "20.123"
+ },
+ {
+  "it": "imboli",
+  "count": 1,
+  "ref": "29.103"
+ },
+ {
+  "it": "imborsa",
+  "count": 1,
+  "ref": "11.54"
+ },
+ {
+  "it": "immolle",
+  "count": 1,
+  "ref": "12.51"
+ },
+ {
+  "it": "immondo",
+  "count": 1,
+  "ref": "7.51"
+ },
+ {
+  "it": "immortale",
+  "count": 1,
+  "ref": "2.14"
+ },
+ {
+  "it": "imperadrice",
+  "count": 1,
+  "ref": "5.54"
+ },
+ {
+  "it": "imperatore",
+  "count": 1,
+  "ref": "1.124"
+ },
+ {
+  "it": "impero",
+  "count": 1,
+  "ref": "2.20"
+ },
+ {
+  "it": "impetrare",
+  "count": 1,
+  "ref": "33.49"
+ },
+ {
+  "it": "impregnare",
+  "count": 1,
+  "ref": "33.113"
+ },
+ {
+  "it": "inanzi",
+  "count": 1,
+  "ref": "2.119"
+ },
+ {
+  "it": "incarcerare",
+  "count": 1,
+  "ref": "13.87"
+ },
+ {
+  "it": "incenerarti",
+  "count": 1,
+  "ref": "25.11"
+ },
+ {
+  "it": "incenso",
+  "count": 1,
+  "ref": "24.110"
+ },
+ {
+  "it": "incesa",
+  "count": 1,
+  "ref": "22.18"
+ },
+ {
+  "it": "incese",
+  "count": 1,
+  "ref": "16.11"
+ },
+ {
+  "it": "inceso",
+  "count": 1,
+  "ref": "26.48"
+ },
+ {
+  "it": "inchinare",
+  "count": 1,
+  "ref": "9.87"
+ },
+ {
+  "it": "incidere",
+  "count": 1,
+  "ref": "11.55"
+ },
+ {
+  "it": "incinse",
+  "count": 1,
+  "ref": "8.45"
+ },
+ {
+  "it": "incontanente",
+  "count": 1,
+  "ref": "3.61"
+ },
+ {
+  "it": "incrocicchia",
+  "count": 1,
+  "ref": "18.101"
+ },
+ {
+  "it": "india",
+  "count": 1,
+  "ref": "14.32"
+ },
+ {
+  "it": "indugio",
+  "count": 1,
+  "ref": "27.35"
+ },
+ {
+  "it": "inebriate",
+  "count": 1,
+  "ref": "29.2"
+ },
+ {
+  "it": "infallibile",
+  "count": 1,
+  "ref": "29.56"
+ },
+ {
+  "it": "infante",
+  "count": 1,
+  "ref": "4.30"
+ },
+ {
+  "it": "infermo",
+  "count": 1,
+  "ref": "29.59"
+ },
+ {
+  "it": "infiata",
+  "count": 1,
+  "ref": "30.119"
+ },
+ {
+  "it": "infingere",
+  "count": 1,
+  "ref": "24.130"
+ },
+ {
+  "it": "infinito",
+  "count": 1,
+  "ref": "4.9"
+ },
+ {
+  "it": "infra",
+  "count": 1,
+  "ref": "6.68"
+ },
+ {
+  "it": "ingiuria",
+  "count": 1,
+  "ref": "11.23"
+ },
+ {
+  "it": "ingiusto",
+  "count": 1,
+  "ref": "13.72"
+ },
+ {
+  "it": "ingozzare",
+  "count": 1,
+  "ref": "7.129"
+ },
+ {
+  "it": "ingrato",
+  "count": 1,
+  "ref": "15.61"
+ },
+ {
+  "it": "ingrossare",
+  "count": 1,
+  "ref": "25.129"
+ },
+ {
+  "it": "innalzare",
+  "count": 1,
+  "ref": "4.130"
+ },
+ {
+  "it": "inno",
+  "count": 1,
+  "ref": "7.125"
+ },
+ {
+  "it": "innocente",
+  "count": 1,
+  "ref": "33.88"
+ },
+ {
+  "it": "insaccare",
+  "count": 1,
+  "ref": "7.18"
+ },
+ {
+  "it": "insano",
+  "count": 1,
+  "ref": "30.4"
+ },
+ {
+  "it": "insino",
+  "count": 1,
+  "ref": "17.29"
+ },
+ {
+  "it": "intanto",
+  "count": 1,
+  "ref": "4.79"
+ },
+ {
+  "it": "integrare",
+  "count": 1,
+  "ref": "7.126"
+ },
+ {
+  "it": "intentare",
+  "count": 1,
+  "ref": "23.69"
+ },
+ {
+  "it": "interminei",
+  "count": 1,
+  "ref": "18.122"
+ },
+ {
+  "it": "intra",
+  "count": 1,
+  "ref": "27.29"
+ },
+ {
+  "it": "intrambe",
+  "count": 1,
+  "ref": "19.25"
+ },
+ {
+  "it": "intrambi",
+  "count": 1,
+  "ref": "23.30"
+ },
+ {
+  "it": "intrate",
+  "count": 1,
+  "ref": "3.9"
+ },
+ {
+  "it": "introcque",
+  "count": 1,
+  "ref": "20.130"
+ },
+ {
+  "it": "intrò",
+  "count": 1,
+  "ref": "8.90"
+ },
+ {
+  "it": "invaghire",
+  "count": 1,
+  "ref": "22.134"
+ },
+ {
+  "it": "inveschi",
+  "count": 1,
+  "ref": "13.57"
+ },
+ {
+  "it": "invidiare",
+  "count": 1,
+  "ref": "26.24"
+ },
+ {
+  "it": "invidioso",
+  "count": 1,
+  "ref": "15.68"
+ },
+ {
+  "it": "inviscate",
+  "count": 1,
+  "ref": "22.144"
+ },
+ {
+  "it": "involare",
+  "count": 1,
+  "ref": "26.42"
+ },
+ {
+  "it": "involuto",
+  "count": 1,
+  "ref": "24.146"
+ },
+ {
+  "it": "iosafàt",
+  "count": 1,
+  "ref": "10.11"
+ },
+ {
+  "it": "ipocresia",
+  "count": 1,
+  "ref": "11.58"
+ },
+ {
+  "it": "ipocrita",
+  "count": 1,
+  "ref": "23.92"
+ },
+ {
+  "it": "ipocràte",
+  "count": 1,
+  "ref": "4.143"
+ },
+ {
+  "it": "irato",
+  "count": 1,
+  "ref": "22.133"
+ },
+ {
+  "it": "iscoglio",
+  "count": 1,
+  "ref": "21.107"
+ },
+ {
+  "it": "iscoia",
+  "count": 1,
+  "ref": "6.18"
+ },
+ {
+  "it": "iscorta",
+  "count": 1,
+  "ref": "8.93"
+ },
+ {
+  "it": "isifile",
+  "count": 1,
+  "ref": "18.92"
+ },
+ {
+  "it": "isnello",
+  "count": 1,
+  "ref": "17.130"
+ },
+ {
+  "it": "isopo",
+  "count": 1,
+  "ref": "23.4"
+ },
+ {
+  "it": "isperate",
+  "count": 1,
+  "ref": "3.85"
+ },
+ {
+  "it": "isquatra",
+  "count": 1,
+  "ref": "6.18"
+ },
+ {
+  "it": "israèl",
+  "count": 1,
+  "ref": "4.59"
+ },
+ {
+  "it": "issare",
+  "count": 1,
+  "ref": "23.7"
+ },
+ {
+  "it": "istava",
+  "count": 1,
+  "ref": "10.117"
+ },
+ {
+  "it": "istra",
+  "count": 1,
+  "ref": "27.21"
+ },
+ {
+  "it": "istrane",
+  "count": 1,
+  "ref": "22.9"
+ },
+ {
+  "it": "iti",
+  "count": 1,
+  "ref": "16.91"
+ },
+ {
+  "it": "iulia",
+  "count": 1,
+  "ref": "4.128"
+ },
+ {
+  "it": "iulio",
+  "count": 1,
+  "ref": "1.70"
+ },
+ {
+  "it": "iunone",
+  "count": 1,
+  "ref": "30.1"
+ },
+ {
+  "it": "lacciuolo",
+  "count": 1,
+  "ref": "22.109"
+ },
+ {
+  "it": "lacerto",
+  "count": 1,
+  "ref": "22.72"
+ },
+ {
+  "it": "ladroneccio",
+  "count": 1,
+  "ref": "11.59"
+ },
+ {
+  "it": "lagrimabil",
+  "count": 1,
+  "ref": "6.76"
+ },
+ {
+  "it": "lagrimosa",
+  "count": 1,
+  "ref": "3.133"
+ },
+ {
+  "it": "lai",
+  "count": 1,
+  "ref": "5.46"
+ },
+ {
+  "it": "laico",
+  "count": 1,
+  "ref": "18.117"
+ },
+ {
+  "it": "laido",
+  "count": 1,
+  "ref": "19.82"
+ },
+ {
+  "it": "lamagna",
+  "count": 1,
+  "ref": "20.62"
+ },
+ {
+  "it": "lamone",
+  "count": 1,
+  "ref": "27.49"
+ },
+ {
+  "it": "lancialotto",
+  "count": 1,
+  "ref": "5.128"
+ },
+ {
+  "it": "landa",
+  "count": 1,
+  "ref": "14.8"
+ },
+ {
+  "it": "lanfranchi",
+  "count": 1,
+  "ref": "33.32"
+ },
+ {
+  "it": "langue",
+  "count": 1,
+  "ref": "7.82"
+ },
+ {
+  "it": "languire",
+  "count": 1,
+  "ref": "29.66"
+ },
+ {
+  "it": "lano",
+  "count": 1,
+  "ref": "13.120"
+ },
+ {
+  "it": "lanoso",
+  "count": 1,
+  "ref": "3.97"
+ },
+ {
+  "it": "lanterna",
+  "count": 1,
+  "ref": "28.122"
+ },
+ {
+  "it": "lasciali",
+  "count": 1,
+  "ref": "21.134"
+ },
+ {
+  "it": "lasciolla",
+  "count": 1,
+  "ref": "18.94"
+ },
+ {
+  "it": "lasciolli",
+  "count": 1,
+  "ref": "22.85"
+ },
+ {
+  "it": "lascisi",
+  "count": 1,
+  "ref": "22.116"
+ },
+ {
+  "it": "lasciànlo",
+  "count": 1,
+  "ref": "31.79"
+ },
+ {
+  "it": "late",
+  "count": 1,
+  "ref": "13.13"
+ },
+ {
+  "it": "laterano",
+  "count": 1,
+  "ref": "27.86"
+ },
+ {
+  "it": "laudabile",
+  "count": 1,
+  "ref": "15.104"
+ },
+ {
+  "it": "lavina",
+  "count": 1,
+  "ref": "4.126"
+ },
+ {
+  "it": "lazzo",
+  "count": 1,
+  "ref": "15.65"
+ },
+ {
+  "it": "learco",
+  "count": 1,
+  "ref": "30.10"
+ },
+ {
+  "it": "lebbra",
+  "count": 1,
+  "ref": "27.95"
+ },
+ {
+  "it": "lebbroso",
+  "count": 1,
+  "ref": "29.124"
+ },
+ {
+  "it": "ledere",
+  "count": 1,
+  "ref": "13.47"
+ },
+ {
+  "it": "leggeramente",
+  "count": 1,
+  "ref": "18.70"
+ },
+ {
+  "it": "leggero",
+  "count": 1,
+  "ref": "5.75"
+ },
+ {
+  "it": "leggiavamo",
+  "count": 1,
+  "ref": "5.127"
+ },
+ {
+  "it": "legista",
+  "count": 1,
+  "ref": "4.57"
+ },
+ {
+  "it": "legnare",
+  "count": 1,
+  "ref": "21.9"
+ },
+ {
+  "it": "lembo",
+  "count": 1,
+  "ref": "15.24"
+ },
+ {
+  "it": "lenno",
+  "count": 1,
+  "ref": "18.88"
+ },
+ {
+  "it": "leoncino",
+  "count": 1,
+  "ref": "30.8"
+ },
+ {
+  "it": "leonessa",
+  "count": 1,
+  "ref": "30.8"
+ },
+ {
+  "it": "leonine",
+  "count": 1,
+  "ref": "27.75"
+ },
+ {
+  "it": "leppo",
+  "count": 1,
+  "ref": "30.99"
+ },
+ {
+  "it": "lerciare",
+  "count": 1,
+  "ref": "15.108"
+ },
+ {
+  "it": "letame",
+  "count": 1,
+  "ref": "15.75"
+ },
+ {
+  "it": "letane",
+  "count": 1,
+  "ref": "20.9"
+ },
+ {
+  "it": "lettura",
+  "count": 1,
+  "ref": "5.131"
+ },
+ {
+  "it": "leuto",
+  "count": 1,
+  "ref": "30.49"
+ },
+ {
+  "it": "leva'mi",
+  "count": 1,
+  "ref": "24.58"
+ },
+ {
+  "it": "levante",
+  "count": 1,
+  "ref": "16.95"
+ },
+ {
+  "it": "levatemi",
+  "count": 1,
+  "ref": "33.112"
+ },
+ {
+  "it": "lezzo",
+  "count": 1,
+  "ref": "10.136"
+ },
+ {
+  "it": "liberamente",
+  "count": 1,
+  "ref": "13.86"
+ },
+ {
+  "it": "libito",
+  "count": 1,
+  "ref": "5.56"
+ },
+ {
+  "it": "licenza",
+  "count": 1,
+  "ref": "27.3"
+ },
+ {
+  "it": "lici",
+  "count": 1,
+  "ref": "14.84"
+ },
+ {
+  "it": "licitare",
+  "count": 1,
+  "ref": "5.56"
+ },
+ {
+  "it": "lievemente",
+  "count": 1,
+  "ref": "31.142"
+ },
+ {
+  "it": "lievre",
+  "count": 1,
+  "ref": "23.18"
+ },
+ {
+  "it": "limbo",
+  "count": 1,
+  "ref": "4.45"
+ },
+ {
+  "it": "lino",
+  "count": 1,
+  "ref": "4.141"
+ },
+ {
+  "it": "lioncel",
+  "count": 1,
+  "ref": "27.50"
+ },
+ {
+  "it": "litterati",
+  "count": 1,
+  "ref": "15.107"
+ },
+ {
+  "it": "lode",
+  "count": 1,
+  "ref": "7.92"
+ },
+ {
+  "it": "loderingo",
+  "count": 1,
+  "ref": "23.104"
+ },
+ {
+  "it": "logodoro",
+  "count": 1,
+  "ref": "22.89"
+ },
+ {
+  "it": "logoro",
+  "count": 1,
+  "ref": "17.128"
+ },
+ {
+  "it": "lontra",
+  "count": 1,
+  "ref": "22.36"
+ },
+ {
+  "it": "loquela",
+  "count": 1,
+  "ref": "10.25"
+ },
+ {
+  "it": "lordura",
+  "count": 1,
+  "ref": "11.60"
+ },
+ {
+  "it": "loto",
+  "count": 1,
+  "ref": "8.21"
+ },
+ {
+  "it": "lucciola",
+  "count": 1,
+  "ref": "26.29"
+ },
+ {
+  "it": "lucerna",
+  "count": 1,
+  "ref": "28.124"
+ },
+ {
+  "it": "lucrezia",
+  "count": 1,
+  "ref": "4.128"
+ },
+ {
+  "it": "ludo",
+  "count": 1,
+  "ref": "22.118"
+ },
+ {
+  "it": "lulla",
+  "count": 1,
+  "ref": "28.22"
+ },
+ {
+  "it": "lumaccia",
+  "count": 1,
+  "ref": "25.132"
+ },
+ {
+  "it": "lumera",
+  "count": 1,
+  "ref": "4.103"
+ },
+ {
+  "it": "luminoso",
+  "count": 1,
+  "ref": "4.116"
+ },
+ {
+  "it": "lunare",
+  "count": 1,
+  "ref": "20.47"
+ },
+ {
+  "it": "lungamente",
+  "count": 1,
+  "ref": "16.64"
+ },
+ {
+  "it": "lupa",
+  "count": 1,
+  "ref": "1.49"
+ },
+ {
+  "it": "lupicini",
+  "count": 1,
+  "ref": "33.29"
+ },
+ {
+  "it": "lurchi",
+  "count": 1,
+  "ref": "17.21"
+ },
+ {
+  "it": "lusingare",
+  "count": 1,
+  "ref": "32.96"
+ },
+ {
+  "it": "lussuria",
+  "count": 1,
+  "ref": "5.55"
+ },
+ {
+  "it": "lussurioso",
+  "count": 1,
+  "ref": "5.63"
+ },
+ {
+  "it": "löico",
+  "count": 1,
+  "ref": "27.123"
+ },
+ {
+  "it": "maccabei",
+  "count": 1,
+  "ref": "19.86"
+ },
+ {
+  "it": "macigno",
+  "count": 1,
+  "ref": "15.63"
+ },
+ {
+  "it": "maciullare",
+  "count": 1,
+  "ref": "34.56"
+ },
+ {
+  "it": "macolati",
+  "count": 1,
+  "ref": "29.75"
+ },
+ {
+  "it": "macolato",
+  "count": 1,
+  "ref": "1.33"
+ },
+ {
+  "it": "macro",
+  "count": 1,
+  "ref": "27.93"
+ },
+ {
+  "it": "magagna",
+  "count": 1,
+  "ref": "33.152"
+ },
+ {
+  "it": "magico",
+  "count": 1,
+  "ref": "20.117"
+ },
+ {
+  "it": "maginare",
+  "count": 1,
+  "ref": "31.24"
+ },
+ {
+  "it": "magino",
+  "count": 1,
+  "ref": "23.24"
+ },
+ {
+  "it": "mago",
+  "count": 1,
+  "ref": "19.1"
+ },
+ {
+  "it": "magrezza",
+  "count": 1,
+  "ref": "1.50"
+ },
+ {
+  "it": "maiolica",
+  "count": 1,
+  "ref": "28.82"
+ },
+ {
+  "it": "maladette",
+  "count": 1,
+  "ref": "8.95"
+ },
+ {
+  "it": "malagevole",
+  "count": 1,
+  "ref": "24.62"
+ },
+ {
+  "it": "malia",
+  "count": 1,
+  "ref": "20.123"
+ },
+ {
+  "it": "malizioso",
+  "count": 1,
+  "ref": "22.110"
+ },
+ {
+  "it": "mancino",
+  "count": 1,
+  "ref": "26.126"
+ },
+ {
+  "it": "manduca",
+  "count": 1,
+  "ref": "32.127"
+ },
+ {
+  "it": "mane",
+  "count": 1,
+  "ref": "34.105"
+ },
+ {
+  "it": "manicar",
+  "count": 1,
+  "ref": "33.60"
+ },
+ {
+  "it": "mantoana",
+  "count": 1,
+  "ref": "2.58"
+ },
+ {
+  "it": "mantoani",
+  "count": 1,
+  "ref": "1.69"
+ },
+ {
+  "it": "mantüa",
+  "count": 1,
+  "ref": "20.93"
+ },
+ {
+  "it": "maravigliar",
+  "count": 1,
+  "ref": "23.124"
+ },
+ {
+  "it": "maravigliosa",
+  "count": 1,
+  "ref": "16.132"
+ },
+ {
+  "it": "maravigliose",
+  "count": 1,
+  "ref": "18.135"
+ },
+ {
+  "it": "marcabò",
+  "count": 1,
+  "ref": "28.75"
+ },
+ {
+  "it": "marchese",
+  "count": 1,
+  "ref": "18.56"
+ },
+ {
+  "it": "marcia",
+  "count": 1,
+  "ref": "30.122"
+ },
+ {
+  "it": "marcire",
+  "count": 1,
+  "ref": "29.51"
+ },
+ {
+  "it": "marina",
+  "count": 1,
+  "ref": "5.98"
+ },
+ {
+  "it": "marinare",
+  "count": 1,
+  "ref": "22.20"
+ },
+ {
+  "it": "marine",
+  "count": 1,
+  "ref": "26.129"
+ },
+ {
+  "it": "marra",
+  "count": 1,
+  "ref": "15.96"
+ },
+ {
+  "it": "martellare",
+  "count": 1,
+  "ref": "11.90"
+ },
+ {
+  "it": "martira",
+  "count": 1,
+  "ref": "26.55"
+ },
+ {
+  "it": "marturi",
+  "count": 1,
+  "ref": "14.48"
+ },
+ {
+  "it": "marzio",
+  "count": 1,
+  "ref": "4.128"
+ },
+ {
+  "it": "mascherone",
+  "count": 1,
+  "ref": "32.65"
+ },
+ {
+  "it": "maschile",
+  "count": 1,
+  "ref": "20.45"
+ },
+ {
+  "it": "maschio",
+  "count": 1,
+  "ref": "20.41"
+ },
+ {
+  "it": "masnada",
+  "count": 1,
+  "ref": "15.41"
+ },
+ {
+  "it": "matia",
+  "count": 1,
+  "ref": "19.94"
+ },
+ {
+  "it": "matre",
+  "count": 1,
+  "ref": "19.115"
+ },
+ {
+  "it": "mattia",
+  "count": 1,
+  "ref": "20.95"
+ },
+ {
+  "it": "mazza",
+  "count": 1,
+  "ref": "25.32"
+ },
+ {
+  "it": "mazzerati",
+  "count": 1,
+  "ref": "28.80"
+ },
+ {
+  "it": "mbedue",
+  "count": 1,
+  "ref": "25.56"
+ },
+ {
+  "it": "mbianca",
+  "count": 1,
+  "ref": "2.128"
+ },
+ {
+  "it": "mbocche",
+  "count": 1,
+  "ref": "7.72"
+ },
+ {
+  "it": "medea",
+  "count": 1,
+  "ref": "18.96"
+ },
+ {
+  "it": "medesme",
+  "count": 1,
+  "ref": "15.74"
+ },
+ {
+  "it": "medusa",
+  "count": 1,
+  "ref": "9.52"
+ },
+ {
+  "it": "mee",
+  "count": 1,
+  "ref": "26.15"
+ },
+ {
+  "it": "megera",
+  "count": 1,
+  "ref": "9.46"
+ },
+ {
+  "it": "membre",
+  "count": 1,
+  "ref": "29.51"
+ },
+ {
+  "it": "membruto",
+  "count": 1,
+  "ref": "34.67"
+ },
+ {
+  "it": "menalippo",
+  "count": 1,
+  "ref": "32.131"
+ },
+ {
+  "it": "menarlo",
+  "count": 1,
+  "ref": "28.49"
+ },
+ {
+  "it": "menarvi",
+  "count": 1,
+  "ref": "3.86"
+ },
+ {
+  "it": "mencio",
+  "count": 1,
+  "ref": "20.77"
+ },
+ {
+  "it": "menommi",
+  "count": 1,
+  "ref": "13.131"
+ },
+ {
+  "it": "mercatante",
+  "count": 1,
+  "ref": "27.90"
+ },
+ {
+  "it": "merce",
+  "count": 1,
+  "ref": "2.91"
+ },
+ {
+  "it": "mercedi",
+  "count": 1,
+  "ref": "4.34"
+ },
+ {
+  "it": "merdoso",
+  "count": 1,
+  "ref": "18.131"
+ },
+ {
+  "it": "meretrice",
+  "count": 1,
+  "ref": "13.64"
+ },
+ {
+  "it": "meschite",
+  "count": 1,
+  "ref": "8.70"
+ },
+ {
+  "it": "messer",
+  "count": 1,
+  "ref": "28.77"
+ },
+ {
+  "it": "mestare",
+  "count": 1,
+  "ref": "1.135"
+ },
+ {
+  "it": "metallo",
+  "count": 1,
+  "ref": "29.137"
+ },
+ {
+  "it": "mettine",
+  "count": 1,
+  "ref": "31.122"
+ },
+ {
+  "it": "mezzul",
+  "count": 1,
+  "ref": "28.22"
+ },
+ {
+  "it": "milia",
+  "count": 1,
+  "ref": "26.112"
+ },
+ {
+  "it": "minaccia",
+  "count": 1,
+  "ref": "17.89"
+ },
+ {
+  "it": "minorare",
+  "count": 1,
+  "ref": "6.105"
+ },
+ {
+  "it": "minotauro",
+  "count": 1,
+  "ref": "12.25"
+ },
+ {
+  "it": "minugia",
+  "count": 1,
+  "ref": "28.25"
+ },
+ {
+  "it": "miro",
+  "count": 1,
+  "ref": "25.88"
+ },
+ {
+  "it": "miseli",
+  "count": 1,
+  "ref": "25.56"
+ },
+ {
+  "it": "miseramente",
+  "count": 1,
+  "ref": "14.20"
+ },
+ {
+  "it": "miserere",
+  "count": 1,
+  "ref": "1.65"
+ },
+ {
+  "it": "misericordia",
+  "count": 1,
+  "ref": "3.50"
+ },
+ {
+  "it": "miso",
+  "count": 1,
+  "ref": "26.54"
+ },
+ {
+  "it": "mista",
+  "count": 1,
+  "ref": "25.71"
+ },
+ {
+  "it": "misto",
+  "count": 1,
+  "ref": "32.42"
+ },
+ {
+  "it": "mistura",
+  "count": 1,
+  "ref": "6.100"
+ },
+ {
+  "it": "misura",
+  "count": 1,
+  "ref": "7.42"
+ },
+ {
+  "it": "mmonito",
+  "count": 1,
+  "ref": "17.77"
+ },
+ {
+  "it": "moisè",
+  "count": 1,
+  "ref": "4.57"
+ },
+ {
+  "it": "monaco",
+  "count": 1,
+  "ref": "23.63"
+ },
+ {
+  "it": "moncherino",
+  "count": 1,
+  "ref": "28.104"
+ },
+ {
+  "it": "monco",
+  "count": 1,
+  "ref": "13.30"
+ },
+ {
+  "it": "mondano",
+  "count": 1,
+  "ref": "7.77"
+ },
+ {
+  "it": "mondiglia",
+  "count": 1,
+  "ref": "30.90"
+ },
+ {
+  "it": "moneta",
+  "count": 1,
+  "ref": "19.98"
+ },
+ {
+  "it": "monetier",
+  "count": 1,
+  "ref": "30.124"
+ },
+ {
+  "it": "mongibello",
+  "count": 1,
+  "ref": "14.56"
+ },
+ {
+  "it": "monimenti",
+  "count": 1,
+  "ref": "9.131"
+ },
+ {
+  "it": "montaperti",
+  "count": 1,
+  "ref": "32.81"
+ },
+ {
+  "it": "montereggion",
+  "count": 1,
+  "ref": "31.41"
+ },
+ {
+  "it": "montone",
+  "count": 1,
+  "ref": "18.87"
+ },
+ {
+  "it": "morale",
+  "count": 1,
+  "ref": "4.141"
+ },
+ {
+  "it": "mormorare",
+  "count": 1,
+  "ref": "26.86"
+ },
+ {
+  "it": "morrocco",
+  "count": 1,
+  "ref": "26.104"
+ },
+ {
+  "it": "morsa",
+  "count": 1,
+  "ref": "11.52"
+ },
+ {
+  "it": "morso",
+  "count": 1,
+  "ref": "29.79"
+ },
+ {
+  "it": "mortale",
+  "count": 1,
+  "ref": "12.23"
+ },
+ {
+  "it": "moscone",
+  "count": 1,
+  "ref": "3.66"
+ },
+ {
+  "it": "mosterrolti",
+  "count": 1,
+  "ref": "32.101"
+ },
+ {
+  "it": "mostrandomi",
+  "count": 1,
+  "ref": "24.58"
+ },
+ {
+  "it": "mostrommi",
+  "count": 1,
+  "ref": "5.68"
+ },
+ {
+  "it": "mova",
+  "count": 1,
+  "ref": "6.5"
+ },
+ {
+  "it": "movean",
+  "count": 1,
+  "ref": "34.51"
+ },
+ {
+  "it": "mover",
+  "count": 1,
+  "ref": "23.72"
+ },
+ {
+  "it": "movete",
+  "count": 1,
+  "ref": "26.83"
+ },
+ {
+  "it": "movien",
+  "count": 1,
+  "ref": "18.17"
+ },
+ {
+  "it": "moviensi",
+  "count": 1,
+  "ref": "12.29"
+ },
+ {
+  "it": "moviti",
+  "count": 1,
+  "ref": "17.97"
+ },
+ {
+  "it": "movo",
+  "count": 1,
+  "ref": "12.91"
+ },
+ {
+  "it": "mpacciati",
+  "count": 1,
+  "ref": "22.151"
+ },
+ {
+  "it": "mpaluda",
+  "count": 1,
+  "ref": "20.80"
+ },
+ {
+  "it": "mpaniati",
+  "count": 1,
+  "ref": "22.149"
+ },
+ {
+  "it": "mpedimento",
+  "count": 1,
+  "ref": "2.95"
+ },
+ {
+  "it": "mpedisce",
+  "count": 1,
+  "ref": "1.96"
+ },
+ {
+  "it": "mpediva",
+  "count": 1,
+  "ref": "1.35"
+ },
+ {
+  "it": "mpegolate",
+  "count": 1,
+  "ref": "22.35"
+ },
+ {
+  "it": "mperador",
+  "count": 1,
+  "ref": "34.28"
+ },
+ {
+  "it": "mpetro",
+  "count": 1,
+  "ref": "23.27"
+ },
+ {
+  "it": "mpiastro",
+  "count": 1,
+  "ref": "24.18"
+ },
+ {
+  "it": "mpresa",
+  "count": 1,
+  "ref": "2.41"
+ },
+ {
+  "it": "mucchio",
+  "count": 1,
+  "ref": "27.44"
+ },
+ {
+  "it": "mucci",
+  "count": 1,
+  "ref": "24.127"
+ },
+ {
+  "it": "muda",
+  "count": 1,
+  "ref": "33.22"
+ },
+ {
+  "it": "muffa",
+  "count": 1,
+  "ref": "18.106"
+ },
+ {
+  "it": "mulo",
+  "count": 1,
+  "ref": "24.125"
+ },
+ {
+  "it": "muovasi",
+  "count": 1,
+  "ref": "33.82"
+ },
+ {
+  "it": "nacqu",
+  "count": 1,
+  "ref": "20.56"
+ },
+ {
+  "it": "narcisso",
+  "count": 1,
+  "ref": "30.128"
+ },
+ {
+  "it": "nardo",
+  "count": 1,
+  "ref": "24.111"
+ },
+ {
+  "it": "nascimenti",
+  "count": 1,
+  "ref": "3.105"
+ },
+ {
+  "it": "nascosamente",
+  "count": 1,
+  "ref": "21.54"
+ },
+ {
+  "it": "nasidio",
+  "count": 1,
+  "ref": "25.95"
+ },
+ {
+  "it": "natica",
+  "count": 1,
+  "ref": "20.24"
+ },
+ {
+  "it": "navarra",
+  "count": 1,
+  "ref": "22.48"
+ },
+ {
+  "it": "navarrese",
+  "count": 1,
+  "ref": "22.121"
+ },
+ {
+  "it": "navicar",
+  "count": 1,
+  "ref": "21.10"
+ },
+ {
+  "it": "navicella",
+  "count": 1,
+  "ref": "17.100"
+ },
+ {
+  "it": "ncarcati",
+  "count": 1,
+  "ref": "23.147"
+ },
+ {
+  "it": "ndivine",
+  "count": 1,
+  "ref": "20.122"
+ },
+ {
+  "it": "nduce",
+  "count": 1,
+  "ref": "12.87"
+ },
+ {
+  "it": "nebuloso",
+  "count": 1,
+  "ref": "4.10"
+ },
+ {
+  "it": "nembrotto",
+  "count": 1,
+  "ref": "31.77"
+ },
+ {
+  "it": "nervo",
+  "count": 1,
+  "ref": "15.114"
+ },
+ {
+  "it": "nettuno",
+  "count": 1,
+  "ref": "28.83"
+ },
+ {
+  "it": "neun",
+  "count": 1,
+  "ref": "13.3"
+ },
+ {
+  "it": "nfamia",
+  "count": 1,
+  "ref": "3.36"
+ },
+ {
+  "it": "nfiammati",
+  "count": 1,
+  "ref": "13.68"
+ },
+ {
+  "it": "nfiata",
+  "count": 1,
+  "ref": "7.7"
+ },
+ {
+  "it": "nfin",
+  "count": 1,
+  "ref": "10.136"
+ },
+ {
+  "it": "nforco",
+  "count": 1,
+  "ref": "22.60"
+ },
+ {
+  "it": "nfuria",
+  "count": 1,
+  "ref": "12.27"
+ },
+ {
+  "it": "nganno",
+  "count": 1,
+  "ref": "19.56"
+ },
+ {
+  "it": "ngegni",
+  "count": 1,
+  "ref": "6.81"
+ },
+ {
+  "it": "nicchia",
+  "count": 1,
+  "ref": "18.103"
+ },
+ {
+  "it": "niccolò",
+  "count": 1,
+  "ref": "29.127"
+ },
+ {
+  "it": "niega",
+  "count": 1,
+  "ref": "5.81"
+ },
+ {
+  "it": "niego",
+  "count": 1,
+  "ref": "26.67"
+ },
+ {
+  "it": "nilo",
+  "count": 1,
+  "ref": "34.45"
+ },
+ {
+  "it": "niso",
+  "count": 1,
+  "ref": "1.108"
+ },
+ {
+  "it": "noarese",
+  "count": 1,
+  "ref": "28.59"
+ },
+ {
+  "it": "nobilitare",
+  "count": 1,
+  "ref": "2.9"
+ },
+ {
+  "it": "nocchi",
+  "count": 1,
+  "ref": "13.89"
+ },
+ {
+  "it": "nodoso",
+  "count": 1,
+  "ref": "13.5"
+ },
+ {
+  "it": "nodrì",
+  "count": 1,
+  "ref": "12.71"
+ },
+ {
+  "it": "nominanza",
+  "count": 1,
+  "ref": "4.76"
+ },
+ {
+  "it": "nominare",
+  "count": 1,
+  "ref": "29.27"
+ },
+ {
+  "it": "nominommi",
+  "count": 1,
+  "ref": "5.68"
+ },
+ {
+  "it": "nonché",
+  "count": 1,
+  "ref": "30.24"
+ },
+ {
+  "it": "nondimen",
+  "count": 1,
+  "ref": "9.13"
+ },
+ {
+  "it": "nono",
+  "count": 1,
+  "ref": "28.21"
+ },
+ {
+  "it": "nostrali",
+  "count": 1,
+  "ref": "22.9"
+ },
+ {
+  "it": "notabile",
+  "count": 1,
+  "ref": "14.89"
+ },
+ {
+  "it": "notturno",
+  "count": 1,
+  "ref": "2.127"
+ },
+ {
+  "it": "noè",
+  "count": 1,
+  "ref": "4.56"
+ },
+ {
+  "it": "nsegna",
+  "count": 1,
+  "ref": "3.52"
+ },
+ {
+  "it": "nsegni",
+  "count": 1,
+  "ref": "6.77"
+ },
+ {
+  "it": "nsembre",
+  "count": 1,
+  "ref": "29.49"
+ },
+ {
+  "it": "ntelletti",
+  "count": 1,
+  "ref": "9.61"
+ },
+ {
+  "it": "ntende",
+  "count": 1,
+  "ref": "11.97"
+ },
+ {
+  "it": "ntendi",
+  "count": 1,
+  "ref": "24.57"
+ },
+ {
+  "it": "ntesa",
+  "count": 1,
+  "ref": "22.16"
+ },
+ {
+  "it": "nteser",
+  "count": 1,
+  "ref": "3.102"
+ },
+ {
+  "it": "ntrammo",
+  "count": 1,
+  "ref": "9.106"
+ },
+ {
+  "it": "ntrati",
+  "count": 1,
+  "ref": "26.132"
+ },
+ {
+  "it": "ntrona",
+  "count": 1,
+  "ref": "6.32"
+ },
+ {
+  "it": "ntronan",
+  "count": 1,
+  "ref": "17.71"
+ },
+ {
+  "it": "ntrono",
+  "count": 1,
+  "ref": "4.9"
+ },
+ {
+  "it": "nuca",
+  "count": 1,
+  "ref": "32.129"
+ },
+ {
+  "it": "nuotare",
+  "count": 1,
+  "ref": "21.49"
+ },
+ {
+  "it": "nuvola",
+  "count": 1,
+  "ref": "31.137"
+ },
+ {
+  "it": "nuvoletta",
+  "count": 1,
+  "ref": "26.39"
+ },
+ {
+  "it": "nuvolo",
+  "count": 1,
+  "ref": "24.146"
+ },
+ {
+  "it": "nvetriate",
+  "count": 1,
+  "ref": "33.128"
+ },
+ {
+  "it": "nvidio",
+  "count": 1,
+  "ref": "25.99"
+ },
+ {
+  "it": "nvidiosi",
+  "count": 1,
+  "ref": "3.48"
+ },
+ {
+  "it": "nviluppata",
+  "count": 1,
+  "ref": "10.96"
+ },
+ {
+  "it": "nviscava",
+  "count": 1,
+  "ref": "21.18"
+ },
+ {
+  "it": "nvita",
+  "count": 1,
+  "ref": "6.59"
+ },
+ {
+  "it": "nvitar",
+  "count": 1,
+  "ref": "30.129"
+ },
+ {
+  "it": "nvolti",
+  "count": 1,
+  "ref": "13.5"
+ },
+ {
+  "it": "oca",
+  "count": 1,
+  "ref": "17.63"
+ },
+ {
+  "it": "occidente",
+  "count": 1,
+  "ref": "26.113"
+ },
+ {
+  "it": "occulto",
+  "count": 1,
+  "ref": "7.84"
+ },
+ {
+  "it": "offense",
+  "count": 1,
+  "ref": "5.109"
+ },
+ {
+  "it": "offension",
+  "count": 1,
+  "ref": "21.61"
+ },
+ {
+  "it": "offensione",
+  "count": 1,
+  "ref": "6.66"
+ },
+ {
+  "it": "offerse",
+  "count": 1,
+  "ref": "9.8"
+ },
+ {
+  "it": "officiare",
+  "count": 1,
+  "ref": "22.86",
+  "en": "office, task"
+ },
+ {
+  "it": "ognuna",
+  "count": 1,
+  "ref": "32.37"
+ },
+ {
+  "it": "oltra",
+  "count": 1,
+  "ref": "11.115"
+ },
+ {
+  "it": "oltracotanza",
+  "count": 1,
+  "ref": "9.93"
+ },
+ {
+  "it": "omeri",
+  "count": 1,
+  "ref": "17.42"
+ },
+ {
+  "it": "omicide",
+  "count": 1,
+  "ref": "11.37"
+ },
+ {
+  "it": "oncia",
+  "count": 1,
+  "ref": "30.83"
+ },
+ {
+  "it": "onesta",
+  "count": 1,
+  "ref": "24.77"
+ },
+ {
+  "it": "onranza",
+  "count": 1,
+  "ref": "4.74"
+ },
+ {
+  "it": "ontoso",
+  "count": 1,
+  "ref": "7.33"
+ },
+ {
+  "it": "opizzo",
+  "count": 1,
+  "ref": "12.111"
+ },
+ {
+  "it": "oppilazion",
+  "count": 1,
+  "ref": "24.114"
+ },
+ {
+  "it": "opposito",
+  "count": 1,
+  "ref": "7.32"
+ },
+ {
+  "it": "orare",
+  "count": 1,
+  "ref": "19.114"
+ },
+ {
+  "it": "ordigno",
+  "count": 1,
+  "ref": "18.6"
+ },
+ {
+  "it": "orfeo",
+  "count": 1,
+  "ref": "4.140"
+ },
+ {
+  "it": "originare",
+  "count": 1,
+  "ref": "20.98"
+ },
+ {
+  "it": "orizzontare",
+  "count": 1,
+  "ref": "11.113"
+ },
+ {
+  "it": "orlare",
+  "count": 1,
+  "ref": "31.18"
+ },
+ {
+  "it": "orranza",
+  "count": 1,
+  "ref": "26.6"
+ },
+ {
+  "it": "orrevol",
+  "count": 1,
+  "ref": "4.72"
+ },
+ {
+  "it": "orribilmente",
+  "count": 1,
+  "ref": "5.4"
+ },
+ {
+  "it": "orsa",
+  "count": 1,
+  "ref": "19.70"
+ },
+ {
+  "it": "orsatti",
+  "count": 1,
+  "ref": "19.71"
+ },
+ {
+  "it": "orso",
+  "count": 1,
+  "ref": "26.34"
+ },
+ {
+  "it": "osare",
+  "count": 1,
+  "ref": "15.43"
+ },
+ {
+  "it": "ossame",
+  "count": 1,
+  "ref": "28.15"
+ },
+ {
+  "it": "osterlicchi",
+  "count": 1,
+  "ref": "32.26"
+ },
+ {
+  "it": "otta",
+  "count": 1,
+  "ref": "21.112"
+ },
+ {
+  "it": "padoan",
+  "count": 1,
+  "ref": "15.7"
+ },
+ {
+  "it": "padoano",
+  "count": 1,
+  "ref": "17.70"
+ },
+ {
+  "it": "paglia",
+  "count": 1,
+  "ref": "23.66"
+ },
+ {
+  "it": "palagio",
+  "count": 1,
+  "ref": "34.97"
+ },
+ {
+  "it": "palare",
+  "count": 1,
+  "ref": "23.111"
+ },
+ {
+  "it": "palesarvi",
+  "count": 1,
+  "ref": "29.108"
+ },
+ {
+  "it": "palese",
+  "count": 1,
+  "ref": "27.39"
+ },
+ {
+  "it": "palladio",
+  "count": 1,
+  "ref": "26.63"
+ },
+ {
+  "it": "palmo",
+  "count": 1,
+  "ref": "31.65"
+ },
+ {
+  "it": "pantasilea",
+  "count": 1,
+  "ref": "4.124"
+ },
+ {
+  "it": "papale",
+  "count": 1,
+  "ref": "2.27"
+ },
+ {
+  "it": "papiro",
+  "count": 1,
+  "ref": "25.65"
+ },
+ {
+  "it": "pareggiare",
+  "count": 1,
+  "ref": "23.7"
+ },
+ {
+  "it": "parieno",
+  "count": 1,
+  "ref": "33.34"
+ },
+ {
+  "it": "parlamento",
+  "count": 1,
+  "ref": "28.88"
+ },
+ {
+  "it": "parlasia",
+  "count": 1,
+  "ref": "20.16"
+ },
+ {
+  "it": "partio",
+  "count": 1,
+  "ref": "27.131"
+ },
+ {
+  "it": "partirs",
+  "count": 1,
+  "ref": "23.57"
+ },
+ {
+  "it": "parvemi",
+  "count": 1,
+  "ref": "26.134"
+ },
+ {
+  "it": "paterno",
+  "count": 1,
+  "ref": "15.83"
+ },
+ {
+  "it": "patre",
+  "count": 1,
+  "ref": "19.117"
+ },
+ {
+  "it": "patriarca",
+  "count": 1,
+  "ref": "4.58"
+ },
+ {
+  "it": "patteggiare",
+  "count": 1,
+  "ref": "21.95"
+ },
+ {
+  "it": "patto",
+  "count": 1,
+  "ref": "21.93"
+ },
+ {
+  "it": "pauroso",
+  "count": 1,
+  "ref": "2.90"
+ },
+ {
+  "it": "peccaro",
+  "count": 1,
+  "ref": "4.34"
+ },
+ {
+  "it": "peccatrice",
+  "count": 1,
+  "ref": "14.80"
+ },
+ {
+  "it": "pecora",
+  "count": 1,
+  "ref": "32.15"
+ },
+ {
+  "it": "pecorella",
+  "count": 1,
+  "ref": "24.15"
+ },
+ {
+  "it": "pedone",
+  "count": 1,
+  "ref": "22.11"
+ },
+ {
+  "it": "pelago",
+  "count": 1,
+  "ref": "1.23"
+ },
+ {
+  "it": "pelare",
+  "count": 1,
+  "ref": "23.19"
+ },
+ {
+  "it": "pelato",
+  "count": 1,
+  "ref": "9.99"
+ },
+ {
+  "it": "peltro",
+  "count": 1,
+  "ref": "1.103"
+ },
+ {
+  "it": "pendente",
+  "count": 1,
+  "ref": "23.44"
+ },
+ {
+  "it": "pendice",
+  "count": 1,
+  "ref": "14.82"
+ },
+ {
+  "it": "penelopè",
+  "count": 1,
+  "ref": "26.96"
+ },
+ {
+  "it": "penestrino",
+  "count": 1,
+  "ref": "27.102"
+ },
+ {
+  "it": "penitenza",
+  "count": 1,
+  "ref": "11.87"
+ },
+ {
+  "it": "pennino",
+  "count": 1,
+  "ref": "20.65"
+ },
+ {
+  "it": "pennuto",
+  "count": 1,
+  "ref": "13.14"
+ },
+ {
+  "it": "pense",
+  "count": 1,
+  "ref": "5.111"
+ },
+ {
+  "it": "pentere",
+  "count": 1,
+  "ref": "27.119"
+ },
+ {
+  "it": "pentuta",
+  "count": 1,
+  "ref": "14.138"
+ },
+ {
+  "it": "pentuto",
+  "count": 1,
+  "ref": "27.83"
+ },
+ {
+  "it": "pepe",
+  "count": 1,
+  "ref": "25.84"
+ },
+ {
+  "it": "percosselo",
+  "count": 1,
+  "ref": "30.11"
+ },
+ {
+  "it": "percosso",
+  "count": 1,
+  "ref": "14.54"
+ },
+ {
+  "it": "percotean",
+  "count": 1,
+  "ref": "7.112"
+ },
+ {
+  "it": "percoteansi",
+  "count": 1,
+  "ref": "7.28"
+ },
+ {
+  "it": "perdei",
+  "count": 1,
+  "ref": "1.54"
+ },
+ {
+  "it": "perfezione",
+  "count": 1,
+  "ref": "6.110"
+ },
+ {
+  "it": "perfido",
+  "count": 1,
+  "ref": "19.50"
+ },
+ {
+  "it": "perigli",
+  "count": 1,
+  "ref": "26.113"
+ },
+ {
+  "it": "periglio",
+  "count": 1,
+  "ref": "8.99"
+ },
+ {
+  "it": "perigliosa",
+  "count": 1,
+  "ref": "1.24"
+ },
+ {
+  "it": "perizoma",
+  "count": 1,
+  "ref": "31.61"
+ },
+ {
+  "it": "permutare",
+  "count": 1,
+  "ref": "7.79"
+ },
+ {
+  "it": "permutazion",
+  "count": 1,
+  "ref": "7.88"
+ },
+ {
+  "it": "perseguire",
+  "count": 1,
+  "ref": "7.86"
+ },
+ {
+  "it": "pertratta",
+  "count": 1,
+  "ref": "11.80"
+ },
+ {
+  "it": "pertugia",
+  "count": 1,
+  "ref": "28.23"
+ },
+ {
+  "it": "perversa",
+  "count": 1,
+  "ref": "25.77"
+ },
+ {
+  "it": "perverso",
+  "count": 1,
+  "ref": "5.93"
+ },
+ {
+  "it": "peschiera",
+  "count": 1,
+  "ref": "20.70"
+ },
+ {
+  "it": "pesol",
+  "count": 1,
+  "ref": "28.122"
+ },
+ {
+  "it": "pessimo",
+  "count": 1,
+  "ref": "17.23"
+ },
+ {
+  "it": "pestare",
+  "count": 1,
+  "ref": "16.34"
+ },
+ {
+  "it": "peste",
+  "count": 1,
+  "ref": "32.79"
+ },
+ {
+  "it": "pestilenzie",
+  "count": 1,
+  "ref": "24.88"
+ },
+ {
+  "it": "piacciati",
+  "count": 1,
+  "ref": "10.24"
+ },
+ {
+  "it": "piagge",
+  "count": 1,
+  "ref": "7.108"
+ },
+ {
+  "it": "piangean",
+  "count": 1,
+  "ref": "14.20"
+ },
+ {
+  "it": "piangevisi",
+  "count": 1,
+  "ref": "26.61"
+ },
+ {
+  "it": "piantato",
+  "count": 1,
+  "ref": "19.81"
+ },
+ {
+  "it": "picchiare",
+  "count": 1,
+  "ref": "18.105"
+ },
+ {
+  "it": "piccioletta",
+  "count": 1,
+  "ref": "8.15"
+ },
+ {
+  "it": "picen",
+  "count": 1,
+  "ref": "24.148"
+ },
+ {
+  "it": "piega",
+  "count": 1,
+  "ref": "5.79"
+ },
+ {
+  "it": "piegaro",
+  "count": 1,
+  "ref": "32.44"
+ },
+ {
+  "it": "pienamente",
+  "count": 1,
+  "ref": "32.5"
+ },
+ {
+  "it": "pietate",
+  "count": 1,
+  "ref": "2.5"
+ },
+ {
+  "it": "pietoso",
+  "count": 1,
+  "ref": "2.133"
+ },
+ {
+  "it": "pietrapana",
+  "count": 1,
+  "ref": "32.29"
+ },
+ {
+  "it": "pilosa",
+  "count": 1,
+  "ref": "20.54"
+ },
+ {
+  "it": "pilose",
+  "count": 1,
+  "ref": "17.13"
+ },
+ {
+  "it": "piloso",
+  "count": 1,
+  "ref": "7.47"
+ },
+ {
+  "it": "pinamonte",
+  "count": 1,
+  "ref": "20.96"
+ },
+ {
+  "it": "pinghe",
+  "count": 1,
+  "ref": "18.127"
+ },
+ {
+  "it": "pingue",
+  "count": 1,
+  "ref": "11.70"
+ },
+ {
+  "it": "piote",
+  "count": 1,
+  "ref": "19.120"
+ },
+ {
+  "it": "piovean",
+  "count": 1,
+  "ref": "14.29"
+ },
+ {
+  "it": "pira",
+  "count": 1,
+  "ref": "26.53"
+ },
+ {
+  "it": "pirate",
+  "count": 1,
+  "ref": "28.84"
+ },
+ {
+  "it": "pirro",
+  "count": 1,
+  "ref": "12.135"
+ },
+ {
+  "it": "pisano",
+  "count": 1,
+  "ref": "33.30"
+ },
+ {
+  "it": "piuma",
+  "count": 1,
+  "ref": "24.47"
+ },
+ {
+  "it": "pizzicor",
+  "count": 1,
+  "ref": "29.81"
+ },
+ {
+  "it": "plebe",
+  "count": 1,
+  "ref": "32.13"
+ },
+ {
+  "it": "podestate",
+  "count": 1,
+  "ref": "3.5"
+ },
+ {
+  "it": "podestà",
+  "count": 1,
+  "ref": "6.96"
+ },
+ {
+  "it": "poggio",
+  "count": 1,
+  "ref": "26.25"
+ },
+ {
+  "it": "pola",
+  "count": 1,
+  "ref": "9.113"
+ },
+ {
+  "it": "polenta",
+  "count": 1,
+  "ref": "27.41"
+ },
+ {
+  "it": "polidoro",
+  "count": 1,
+  "ref": "30.18"
+ },
+ {
+  "it": "polissena",
+  "count": 1,
+  "ref": "30.17"
+ },
+ {
+  "it": "polmone",
+  "count": 1,
+  "ref": "24.43"
+ },
+ {
+  "it": "polo",
+  "count": 1,
+  "ref": "26.127"
+ },
+ {
+  "it": "polpa",
+  "count": 1,
+  "ref": "27.73"
+ },
+ {
+  "it": "polvere",
+  "count": 1,
+  "ref": "24.104"
+ },
+ {
+  "it": "polveroso",
+  "count": 1,
+  "ref": "9.71"
+ },
+ {
+  "it": "ponavam",
+  "count": 1,
+  "ref": "6.35"
+ },
+ {
+  "it": "pontan",
+  "count": 1,
+  "ref": "32.3"
+ },
+ {
+  "it": "porcil",
+  "count": 1,
+  "ref": "30.27"
+ },
+ {
+  "it": "porsila",
+  "count": 1,
+  "ref": "16.111"
+ },
+ {
+  "it": "portandosene",
+  "count": 1,
+  "ref": "23.50"
+ },
+ {
+  "it": "posare",
+  "count": 1,
+  "ref": "7.66"
+ },
+ {
+  "it": "posato",
+  "count": 1,
+  "ref": "1.28"
+ },
+ {
+  "it": "possendo",
+  "count": 1,
+  "ref": "30.139"
+ },
+ {
+  "it": "possuto",
+  "count": 1,
+  "ref": "16.88"
+ },
+ {
+  "it": "poteano",
+  "count": 1,
+  "ref": "24.71"
+ },
+ {
+  "it": "potemo",
+  "count": 1,
+  "ref": "9.33"
+ },
+ {
+  "it": "potien",
+  "count": 1,
+  "ref": "4.117"
+ },
+ {
+  "it": "potrebbesi",
+  "count": 1,
+  "ref": "10.8"
+ },
+ {
+  "it": "potti",
+  "count": 1,
+  "ref": "8.112"
+ },
+ {
+  "it": "poverello",
+  "count": 1,
+  "ref": "21.68"
+ },
+ {
+  "it": "pozza",
+  "count": 1,
+  "ref": "7.127"
+ },
+ {
+  "it": "precedere",
+  "count": 1,
+  "ref": "19.74"
+ },
+ {
+  "it": "precinto",
+  "count": 1,
+  "ref": "24.34"
+ },
+ {
+  "it": "predone",
+  "count": 1,
+  "ref": "11.38"
+ },
+ {
+  "it": "preghiera",
+  "count": 1,
+  "ref": "26.70"
+ },
+ {
+  "it": "pregiare",
+  "count": 1,
+  "ref": "14.70"
+ },
+ {
+  "it": "preseli",
+  "count": 1,
+  "ref": "22.71"
+ },
+ {
+  "it": "presemi",
+  "count": 1,
+  "ref": "13.130"
+ },
+ {
+  "it": "prestamente",
+  "count": 1,
+  "ref": "22.147"
+ },
+ {
+  "it": "prete",
+  "count": 1,
+  "ref": "27.70"
+ },
+ {
+  "it": "prieghi",
+  "count": 1,
+  "ref": "16.29"
+ },
+ {
+  "it": "priegoti",
+  "count": 1,
+  "ref": "6.89"
+ },
+ {
+  "it": "primaia",
+  "count": 1,
+  "ref": "7.41"
+ },
+ {
+  "it": "priscian",
+  "count": 1,
+  "ref": "15.109"
+ },
+ {
+  "it": "privadi",
+  "count": 1,
+  "ref": "18.114"
+ },
+ {
+  "it": "privare",
+  "count": 1,
+  "ref": "11.43"
+ },
+ {
+  "it": "privilegio",
+  "count": 1,
+  "ref": "23.89"
+ },
+ {
+  "it": "privo",
+  "count": 1,
+  "ref": "34.27"
+ },
+ {
+  "it": "procacciare",
+  "count": 1,
+  "ref": "32.39"
+ },
+ {
+  "it": "procurare",
+  "count": 1,
+  "ref": "22.111"
+ },
+ {
+  "it": "prodeunt",
+  "count": 1,
+  "ref": "34.1"
+ },
+ {
+  "it": "produrre",
+  "count": 1,
+  "ref": "24.87"
+ },
+ {
+  "it": "profanare",
+  "count": 1,
+  "ref": "6.21"
+ },
+ {
+  "it": "proferse",
+  "count": 1,
+  "ref": "29.132"
+ },
+ {
+  "it": "propinqua",
+  "count": 1,
+  "ref": "17.36"
+ },
+ {
+  "it": "proporzione",
+  "count": 1,
+  "ref": "31.60"
+ },
+ {
+  "it": "proseguire",
+  "count": 1,
+  "ref": "26.16"
+ },
+ {
+  "it": "prossimano",
+  "count": 1,
+  "ref": "33.146"
+ },
+ {
+  "it": "protesi",
+  "count": 1,
+  "ref": "15.114"
+ },
+ {
+  "it": "provede",
+  "count": 1,
+  "ref": "7.86"
+ },
+ {
+  "it": "provedenza",
+  "count": 1,
+  "ref": "23.55"
+ },
+ {
+  "it": "proveggia",
+  "count": 1,
+  "ref": "24.26"
+ },
+ {
+  "it": "provide",
+  "count": 1,
+  "ref": "14.34"
+ },
+ {
+  "it": "prun",
+  "count": 1,
+  "ref": "13.108"
+ },
+ {
+  "it": "pruno",
+  "count": 1,
+  "ref": "13.32"
+ },
+ {
+  "it": "pruova",
+  "count": 1,
+  "ref": "8.114"
+ },
+ {
+  "it": "pruovi",
+  "count": 1,
+  "ref": "8.92"
+ },
+ {
+  "it": "puccio",
+  "count": 1,
+  "ref": "25.148"
+ },
+ {
+  "it": "pugliese",
+  "count": 1,
+  "ref": "28.17"
+ },
+ {
+  "it": "pulce",
+  "count": 1,
+  "ref": "17.51"
+ },
+ {
+  "it": "pulcro",
+  "count": 1,
+  "ref": "7.58"
+ },
+ {
+  "it": "pullulare",
+  "count": 1,
+  "ref": "7.119"
+ },
+ {
+  "it": "punzelli",
+  "count": 1,
+  "ref": "28.138"
+ },
+ {
+  "it": "puoser",
+  "count": 1,
+  "ref": "6.81"
+ },
+ {
+  "it": "puosi",
+  "count": 1,
+  "ref": "25.45"
+ },
+ {
+  "it": "putire",
+  "count": 1,
+  "ref": "6.12"
+ },
+ {
+  "it": "puttana",
+  "count": 1,
+  "ref": "18.133"
+ },
+ {
+  "it": "puttaneggiar",
+  "count": 1,
+  "ref": "19.108"
+ },
+ {
+  "it": "putto",
+  "count": 1,
+  "ref": "13.65"
+ },
+ {
+  "it": "quare",
+  "count": 1,
+  "ref": "27.72"
+ },
+ {
+  "it": "quartana",
+  "count": 1,
+  "ref": "17.86"
+ },
+ {
+  "it": "queta'mi",
+  "count": 1,
+  "ref": "33.64"
+ },
+ {
+  "it": "quete",
+  "count": 1,
+  "ref": "3.97"
+ },
+ {
+  "it": "queto",
+  "count": 1,
+  "ref": "9.87"
+ },
+ {
+  "it": "quinta",
+  "count": 1,
+  "ref": "23.56"
+ },
+ {
+  "it": "quiv",
+  "count": 1,
+  "ref": "31.10"
+ },
+ {
+  "it": "rabbuffare",
+  "count": 1,
+  "ref": "7.63"
+ },
+ {
+  "it": "raccapricciare",
+  "count": 1,
+  "ref": "14.78"
+ },
+ {
+  "it": "raccesa",
+  "count": 1,
+  "ref": "10.79"
+ },
+ {
+  "it": "racceso",
+  "count": 1,
+  "ref": "26.130"
+ },
+ {
+  "it": "racchiudere",
+  "count": 1,
+  "ref": "33.138"
+ },
+ {
+  "it": "raccoglietele",
+  "count": 1,
+  "ref": "13.142"
+ },
+ {
+  "it": "raccomandare",
+  "count": 1,
+  "ref": "2.99"
+ },
+ {
+  "it": "raccomandato",
+  "count": 1,
+  "ref": "15.119"
+ },
+ {
+  "it": "raccoscio",
+  "count": 1,
+  "ref": "17.123"
+ },
+ {
+  "it": "raccostare",
+  "count": 1,
+  "ref": "11.6"
+ },
+ {
+  "it": "racqueta",
+  "count": 1,
+  "ref": "6.29"
+ },
+ {
+  "it": "raffigurare",
+  "count": 1,
+  "ref": "31.35"
+ },
+ {
+  "it": "raggelare",
+  "count": 1,
+  "ref": "33.114"
+ },
+ {
+  "it": "raggiare",
+  "count": 1,
+  "ref": "1.17"
+ },
+ {
+  "it": "ramarro",
+  "count": 1,
+  "ref": "25.79"
+ },
+ {
+  "it": "ramicel",
+  "count": 1,
+  "ref": "13.32"
+ },
+ {
+  "it": "rammarca",
+  "count": 1,
+  "ref": "8.23"
+ },
+ {
+  "it": "ramo",
+  "count": 1,
+  "ref": "3.113"
+ },
+ {
+  "it": "rampognare",
+  "count": 1,
+  "ref": "32.87"
+ },
+ {
+  "it": "rancio",
+  "count": 1,
+  "ref": "23.100"
+ },
+ {
+  "it": "rancuro",
+  "count": 1,
+  "ref": "27.129"
+ },
+ {
+  "it": "ranocchio",
+  "count": 1,
+  "ref": "22.26"
+ },
+ {
+  "it": "rapace",
+  "count": 1,
+  "ref": "19.3"
+ },
+ {
+  "it": "raphèl",
+  "count": 1,
+  "ref": "31.67"
+ },
+ {
+  "it": "rapina",
+  "count": 1,
+  "ref": "5.32"
+ },
+ {
+  "it": "rappaciati",
+  "count": 1,
+  "ref": "22.76"
+ },
+ {
+  "it": "raro",
+  "count": 1,
+  "ref": "8.117"
+ },
+ {
+  "it": "rattento",
+  "count": 1,
+  "ref": "9.69"
+ },
+ {
+  "it": "rattrappire",
+  "count": 1,
+  "ref": "16.136"
+ },
+ {
+  "it": "rauna",
+  "count": 1,
+  "ref": "32.74"
+ },
+ {
+  "it": "raunai",
+  "count": 1,
+  "ref": "14.2"
+ },
+ {
+  "it": "recalcitrare",
+  "count": 1,
+  "ref": "9.94"
+ },
+ {
+  "it": "recarne",
+  "count": 1,
+  "ref": "2.29"
+ },
+ {
+  "it": "recetto",
+  "count": 1,
+  "ref": "16.102"
+ },
+ {
+  "it": "rechiti",
+  "count": 1,
+  "ref": "11.86"
+ },
+ {
+  "it": "reda",
+  "count": 1,
+  "ref": "31.116"
+ },
+ {
+  "it": "reducemi",
+  "count": 1,
+  "ref": "15.54"
+ },
+ {
+  "it": "rege",
+  "count": 1,
+  "ref": "14.96"
+ },
+ {
+  "it": "reggia",
+  "count": 1,
+  "ref": "24.30"
+ },
+ {
+  "it": "regis",
+  "count": 1,
+  "ref": "34.1"
+ },
+ {
+  "it": "regnare",
+  "count": 1,
+  "ref": "1.124"
+ },
+ {
+  "it": "remo",
+  "count": 1,
+  "ref": "3.111"
+ },
+ {
+  "it": "remoto",
+  "count": 1,
+  "ref": "34.127"
+ },
+ {
+  "it": "rende'le",
+  "count": 1,
+  "ref": "14.3"
+ },
+ {
+  "it": "rendei",
+  "count": 1,
+  "ref": "27.83"
+ },
+ {
+  "it": "renduta",
+  "count": 1,
+  "ref": "8.98"
+ },
+ {
+  "it": "repente",
+  "count": 1,
+  "ref": "24.149"
+ },
+ {
+  "it": "repleta",
+  "count": 1,
+  "ref": "18.24"
+ },
+ {
+  "it": "restarmi",
+  "count": 1,
+  "ref": "34.19"
+ },
+ {
+  "it": "resurgeranno",
+  "count": 1,
+  "ref": "7.56"
+ },
+ {
+  "it": "retroso",
+  "count": 1,
+  "ref": "20.39"
+ },
+ {
+  "it": "reverente",
+  "count": 1,
+  "ref": "15.45"
+ },
+ {
+  "it": "reverenza",
+  "count": 1,
+  "ref": "19.101"
+ },
+ {
+  "it": "riandare",
+  "count": 1,
+  "ref": "28.42"
+ },
+ {
+  "it": "riavere",
+  "count": 1,
+  "ref": "20.45"
+ },
+ {
+  "it": "ribadire",
+  "count": 1,
+  "ref": "25.8"
+ },
+ {
+  "it": "ribaldo",
+  "count": 1,
+  "ref": "22.50"
+ },
+ {
+  "it": "ricadere",
+  "count": 1,
+  "ref": "10.72"
+ },
+ {
+  "it": "ricenti",
+  "count": 1,
+  "ref": "16.11"
+ },
+ {
+  "it": "richeggio",
+  "count": 1,
+  "ref": "1.130"
+ },
+ {
+  "it": "richesto",
+  "count": 1,
+  "ref": "30.114"
+ },
+ {
+  "it": "ricidemmo",
+  "count": 1,
+  "ref": "7.100"
+ },
+ {
+  "it": "ricidien",
+  "count": 1,
+  "ref": "18.17"
+ },
+ {
+  "it": "ricogliere",
+  "count": 1,
+  "ref": "3.69"
+ },
+ {
+  "it": "ricoperse",
+  "count": 1,
+  "ref": "9.10"
+ },
+ {
+  "it": "ricordera'ti",
+  "count": 1,
+  "ref": "28.106"
+ },
+ {
+  "it": "ricorditi",
+  "count": 1,
+  "ref": "30.118"
+ },
+ {
+  "it": "ricuopra",
+  "count": 1,
+  "ref": "19.84"
+ },
+ {
+  "it": "riddi",
+  "count": 1,
+  "ref": "7.24"
+ },
+ {
+  "it": "ridoglio",
+  "count": 1,
+  "ref": "26.19"
+ },
+ {
+  "it": "riedi",
+  "count": 1,
+  "ref": "21.90"
+ },
+ {
+  "it": "riempire",
+  "count": 1,
+  "ref": "33.99"
+ },
+ {
+  "it": "riessere",
+  "count": 1,
+  "ref": "28.67"
+ },
+ {
+  "it": "rifiede",
+  "count": 1,
+  "ref": "20.105"
+ },
+ {
+  "it": "rifondarno",
+  "count": 1,
+  "ref": "13.148"
+ },
+ {
+  "it": "riga",
+  "count": 1,
+  "ref": "5.47"
+ },
+ {
+  "it": "rigagno",
+  "count": 1,
+  "ref": "14.121"
+ },
+ {
+  "it": "rigare",
+  "count": 1,
+  "ref": "3.67"
+ },
+ {
+  "it": "rigido",
+  "count": 1,
+  "ref": "30.70"
+ },
+ {
+  "it": "rigiugnerò",
+  "count": 1,
+  "ref": "15.41"
+ },
+ {
+  "it": "riguardarmi",
+  "count": 1,
+  "ref": "28.53"
+ },
+ {
+  "it": "riguardommi",
+  "count": 1,
+  "ref": "15.98"
+ },
+ {
+  "it": "rilegollo",
+  "count": 1,
+  "ref": "25.7"
+ },
+ {
+  "it": "rimagna",
+  "count": 1,
+  "ref": "32.99"
+ },
+ {
+  "it": "rimagno",
+  "count": 1,
+  "ref": "8.110"
+ },
+ {
+  "it": "rimaso",
+  "count": 1,
+  "ref": "25.43"
+ },
+ {
+  "it": "rimbalzo",
+  "count": 1,
+  "ref": "29.99"
+ },
+ {
+  "it": "rimbombo",
+  "count": 1,
+  "ref": "16.1"
+ },
+ {
+  "it": "rimembriti",
+  "count": 1,
+  "ref": "28.73"
+ },
+ {
+  "it": "rimove",
+  "count": 1,
+  "ref": "14.9"
+ },
+ {
+  "it": "rimovea",
+  "count": 1,
+  "ref": "9.82"
+ },
+ {
+  "it": "rimpalmare",
+  "count": 1,
+  "ref": "21.9"
+ },
+ {
+  "it": "rinascere",
+  "count": 1,
+  "ref": "24.107"
+ },
+ {
+  "it": "rincalzo",
+  "count": 1,
+  "ref": "29.97"
+ },
+ {
+  "it": "rinfarcia",
+  "count": 1,
+  "ref": "30.126"
+ },
+ {
+  "it": "rinfrescare",
+  "count": 1,
+  "ref": "13.53"
+ },
+ {
+  "it": "ringavagna",
+  "count": 1,
+  "ref": "24.12"
+ },
+ {
+  "it": "ringhiare",
+  "count": 1,
+  "ref": "5.4"
+ },
+ {
+  "it": "rinovelli",
+  "count": 1,
+  "ref": "33.4"
+ },
+ {
+  "it": "rintoppa",
+  "count": 1,
+  "ref": "21.15"
+ },
+ {
+  "it": "riparo",
+  "count": 1,
+  "ref": "31.57"
+ },
+ {
+  "it": "ripassossi",
+  "count": 1,
+  "ref": "12.139"
+ },
+ {
+  "it": "ripe",
+  "count": 1,
+  "ref": "18.106"
+ },
+ {
+  "it": "ripensare",
+  "count": 1,
+  "ref": "10.122"
+ },
+ {
+  "it": "ripigliare",
+  "count": 1,
+  "ref": "6.98"
+ },
+ {
+  "it": "ripigneva",
+  "count": 1,
+  "ref": "1.60"
+ },
+ {
+  "it": "riporse",
+  "count": 1,
+  "ref": "31.3"
+ },
+ {
+  "it": "riposto",
+  "count": 1,
+  "ref": "10.19"
+ },
+ {
+  "it": "ripriego",
+  "count": 1,
+  "ref": "26.66"
+ },
+ {
+  "it": "risedere",
+  "count": 1,
+  "ref": "21.21"
+ },
+ {
+  "it": "riserrolli",
+  "count": 1,
+  "ref": "32.48"
+ },
+ {
+  "it": "risma",
+  "count": 1,
+  "ref": "28.39"
+ },
+ {
+  "it": "risplendere",
+  "count": 1,
+  "ref": "26.31"
+ },
+ {
+  "it": "rispondien",
+  "count": 1,
+  "ref": "21.102"
+ },
+ {
+  "it": "rispuoser",
+  "count": 1,
+  "ref": "16.80"
+ },
+ {
+  "it": "rispuosero",
+  "count": 1,
+  "ref": "25.103"
+ },
+ {
+  "it": "rissa",
+  "count": 1,
+  "ref": "23.5"
+ },
+ {
+  "it": "rissare",
+  "count": 1,
+  "ref": "30.132"
+ },
+ {
+  "it": "ristetti",
+  "count": 1,
+  "ref": "23.82"
+ },
+ {
+  "it": "ristoppa",
+  "count": 1,
+  "ref": "21.11"
+ },
+ {
+  "it": "ristorare",
+  "count": 1,
+  "ref": "29.64"
+ },
+ {
+  "it": "risurge",
+  "count": 1,
+  "ref": "34.68"
+ },
+ {
+  "it": "ritegno",
+  "count": 1,
+  "ref": "9.90"
+ },
+ {
+  "it": "ritene",
+  "count": 1,
+  "ref": "18.85"
+ },
+ {
+  "it": "ritese",
+  "count": 1,
+  "ref": "25.57"
+ },
+ {
+  "it": "ritrar",
+  "count": 1,
+  "ref": "4.145"
+ },
+ {
+  "it": "ritraén",
+  "count": 1,
+  "ref": "22.30"
+ },
+ {
+  "it": "rivederà",
+  "count": 1,
+  "ref": "6.97"
+ },
+ {
+  "it": "riverso",
+  "count": 1,
+  "ref": "12.45"
+ },
+ {
+  "it": "rivestire",
+  "count": 1,
+  "ref": "13.104"
+ },
+ {
+  "it": "rivivere",
+  "count": 1,
+  "ref": "15.76"
+ },
+ {
+  "it": "rivolsesi",
+  "count": 1,
+  "ref": "8.117"
+ },
+ {
+  "it": "rivolsilo",
+  "count": 1,
+  "ref": "30.48"
+ },
+ {
+  "it": "rivolto",
+  "count": 1,
+  "ref": "15.15"
+ },
+ {
+  "it": "rivolve",
+  "count": 1,
+  "ref": "2.47"
+ },
+ {
+  "it": "rivolvi",
+  "count": 1,
+  "ref": "11.94"
+ },
+ {
+  "it": "rocca",
+  "count": 1,
+  "ref": "17.134"
+ },
+ {
+  "it": "romagnuoli",
+  "count": 1,
+  "ref": "27.28"
+ },
+ {
+  "it": "romano",
+  "count": 1,
+  "ref": "26.60"
+ },
+ {
+  "it": "rombo",
+  "count": 1,
+  "ref": "16.3"
+ },
+ {
+  "it": "romena",
+  "count": 1,
+  "ref": "30.73"
+ },
+ {
+  "it": "romor",
+  "count": 1,
+  "ref": "13.111"
+ },
+ {
+  "it": "romore",
+  "count": 1,
+  "ref": "23.38"
+ },
+ {
+  "it": "rompieno",
+  "count": 1,
+  "ref": "13.117"
+ },
+ {
+  "it": "ronca",
+  "count": 1,
+  "ref": "20.47"
+ },
+ {
+  "it": "ronchion",
+  "count": 1,
+  "ref": "26.44"
+ },
+ {
+  "it": "ronchione",
+  "count": 1,
+  "ref": "24.28"
+ },
+ {
+  "it": "ronchioso",
+  "count": 1,
+  "ref": "24.62"
+ },
+ {
+  "it": "roso",
+  "count": 1,
+  "ref": "34.131"
+ },
+ {
+  "it": "rossore",
+  "count": 1,
+  "ref": "14.78"
+ },
+ {
+  "it": "rosta",
+  "count": 1,
+  "ref": "13.117"
+ },
+ {
+  "it": "rosé",
+  "count": 1,
+  "ref": "32.130"
+ },
+ {
+  "it": "rotella",
+  "count": 1,
+  "ref": "17.15"
+ },
+ {
+  "it": "rotollo",
+  "count": 1,
+  "ref": "30.11"
+ },
+ {
+  "it": "rottura",
+  "count": 1,
+  "ref": "13.132"
+ },
+ {
+  "it": "rovente",
+  "count": 1,
+  "ref": "9.36"
+ },
+ {
+  "it": "ruberto",
+  "count": 1,
+  "ref": "28.14"
+ },
+ {
+  "it": "rubesto",
+  "count": 1,
+  "ref": "31.106"
+ },
+ {
+  "it": "rugghiato",
+  "count": 1,
+  "ref": "27.58"
+ },
+ {
+  "it": "ruggieri",
+  "count": 1,
+  "ref": "33.14"
+ },
+ {
+  "it": "ruinare",
+  "count": 1,
+  "ref": "20.35"
+ },
+ {
+  "it": "ruine",
+  "count": 1,
+  "ref": "11.36"
+ },
+ {
+  "it": "runcigli",
+  "count": 1,
+  "ref": "21.71"
+ },
+ {
+  "it": "runciglio",
+  "count": 1,
+  "ref": "22.71"
+ },
+ {
+  "it": "ruota",
+  "count": 1,
+  "ref": "23.47"
+ },
+ {
+  "it": "ruppemi",
+  "count": 1,
+  "ref": "4.1"
+ },
+ {
+  "it": "ruscelletti",
+  "count": 1,
+  "ref": "30.64"
+ },
+ {
+  "it": "ruscelletto",
+  "count": 1,
+  "ref": "34.130"
+ },
+ {
+  "it": "ruscello",
+  "count": 1,
+  "ref": "14.79"
+ },
+ {
+  "it": "ruvidamente",
+  "count": 1,
+  "ref": "33.92"
+ },
+ {
+  "it": "sabello",
+  "count": 1,
+  "ref": "25.95"
+ },
+ {
+  "it": "sacchetto",
+  "count": 1,
+  "ref": "17.65"
+ },
+ {
+  "it": "sacro",
+  "count": 1,
+  "ref": "27.91"
+ },
+ {
+  "it": "saglia",
+  "count": 1,
+  "ref": "24.55"
+ },
+ {
+  "it": "sagrestia",
+  "count": 1,
+  "ref": "24.138"
+ },
+ {
+  "it": "saladino",
+  "count": 1,
+  "ref": "4.129"
+ },
+ {
+  "it": "saldo",
+  "count": 1,
+  "ref": "14.33"
+ },
+ {
+  "it": "sallo",
+  "count": 1,
+  "ref": "30.120"
+ },
+ {
+  "it": "salmo",
+  "count": 1,
+  "ref": "31.69"
+ },
+ {
+  "it": "salsa",
+  "count": 1,
+  "ref": "18.51"
+ },
+ {
+  "it": "saltellare",
+  "count": 1,
+  "ref": "12.24"
+ },
+ {
+  "it": "salutevol",
+  "count": 1,
+  "ref": "4.98"
+ },
+ {
+  "it": "salvazione",
+  "count": 1,
+  "ref": "2.30"
+ },
+ {
+  "it": "sanese",
+  "count": 1,
+  "ref": "29.122"
+ },
+ {
+  "it": "sanesi",
+  "count": 1,
+  "ref": "29.134"
+ },
+ {
+  "it": "sanguigno",
+  "count": 1,
+  "ref": "5.90"
+ },
+ {
+  "it": "sanguinenti",
+  "count": 1,
+  "ref": "13.132"
+ },
+ {
+  "it": "sanna",
+  "count": 1,
+  "ref": "22.56"
+ },
+ {
+  "it": "sanne",
+  "count": 1,
+  "ref": "6.23"
+ },
+ {
+  "it": "sannuto",
+  "count": 1,
+  "ref": "21.122"
+ },
+ {
+  "it": "santerno",
+  "count": 1,
+  "ref": "27.49"
+ },
+ {
+  "it": "sapem",
+  "count": 1,
+  "ref": "10.105"
+ },
+ {
+  "it": "sappie",
+  "count": 1,
+  "ref": "33.129"
+ },
+ {
+  "it": "sappiendo",
+  "count": 1,
+  "ref": "32.137"
+ },
+ {
+  "it": "saracino",
+  "count": 1,
+  "ref": "27.87"
+ },
+ {
+  "it": "sardo",
+  "count": 1,
+  "ref": "26.104"
+ },
+ {
+  "it": "sartor",
+  "count": 1,
+  "ref": "15.21"
+ },
+ {
+  "it": "sassol",
+  "count": 1,
+  "ref": "32.65"
+ },
+ {
+  "it": "satiro",
+  "count": 1,
+  "ref": "4.89"
+ },
+ {
+  "it": "satisfaccia",
+  "count": 1,
+  "ref": "13.83"
+ },
+ {
+  "it": "satisfare",
+  "count": 1,
+  "ref": "16.80"
+ },
+ {
+  "it": "satisfatto",
+  "count": 1,
+  "ref": "10.17"
+ },
+ {
+  "it": "savere",
+  "count": 1,
+  "ref": "6.83"
+ },
+ {
+  "it": "sbadigliare",
+  "count": 1,
+  "ref": "25.89"
+ },
+ {
+  "it": "sbarrare",
+  "count": 1,
+  "ref": "8.66"
+ },
+ {
+  "it": "sbigottito",
+  "count": 1,
+  "ref": "28.100"
+ },
+ {
+  "it": "scabbia",
+  "count": 1,
+  "ref": "29.82"
+ },
+ {
+  "it": "scagionare",
+  "count": 1,
+  "ref": "32.69"
+ },
+ {
+  "it": "scaglia",
+  "count": 1,
+  "ref": "29.83"
+ },
+ {
+  "it": "scalea",
+  "count": 1,
+  "ref": "26.13"
+ },
+ {
+  "it": "scalpitare",
+  "count": 1,
+  "ref": "14.34"
+ },
+ {
+  "it": "scampo",
+  "count": 1,
+  "ref": "22.3"
+ },
+ {
+  "it": "scandalo",
+  "count": 1,
+  "ref": "28.35"
+ },
+ {
+  "it": "scane",
+  "count": 1,
+  "ref": "33.35"
+ },
+ {
+  "it": "scanno",
+  "count": 1,
+  "ref": "2.112"
+ },
+ {
+  "it": "scapigliare",
+  "count": 1,
+  "ref": "18.130"
+ },
+ {
+  "it": "scarco",
+  "count": 1,
+  "ref": "12.28"
+ },
+ {
+  "it": "scardova",
+  "count": 1,
+  "ref": "29.83"
+ },
+ {
+  "it": "scariotto",
+  "count": 1,
+  "ref": "34.62"
+ },
+ {
+  "it": "scarmiglione",
+  "count": 1,
+  "ref": "21.105"
+ },
+ {
+  "it": "scemo",
+  "count": 1,
+  "ref": "17.36"
+ },
+ {
+  "it": "scernere",
+  "count": 1,
+  "ref": "15.87"
+ },
+ {
+  "it": "scerpi",
+  "count": 1,
+  "ref": "13.35"
+ },
+ {
+  "it": "scheggion",
+  "count": 1,
+  "ref": "21.89"
+ },
+ {
+  "it": "schermare",
+  "count": 1,
+  "ref": "21.81"
+ },
+ {
+  "it": "schernire",
+  "count": 1,
+  "ref": "23.14"
+ },
+ {
+  "it": "schiantare",
+  "count": 1,
+  "ref": "9.70"
+ },
+ {
+  "it": "schiante",
+  "count": 1,
+  "ref": "13.33"
+ },
+ {
+  "it": "schianze",
+  "count": 1,
+  "ref": "29.75"
+ },
+ {
+  "it": "schiara",
+  "count": 1,
+  "ref": "26.26"
+ },
+ {
+  "it": "schiatta",
+  "count": 1,
+  "ref": "28.109"
+ },
+ {
+  "it": "schicchi",
+  "count": 1,
+  "ref": "30.32"
+ },
+ {
+  "it": "schietto",
+  "count": 1,
+  "ref": "13.5"
+ },
+ {
+  "it": "schifo",
+  "count": 1,
+  "ref": "31.122"
+ },
+ {
+  "it": "schiudere",
+  "count": 1,
+  "ref": "30.27"
+ },
+ {
+  "it": "sciagurato",
+  "count": 1,
+  "ref": "22.44"
+ },
+ {
+  "it": "sciancato",
+  "count": 1,
+  "ref": "25.148"
+ },
+ {
+  "it": "sciaurati",
+  "count": 1,
+  "ref": "3.64"
+ },
+ {
+  "it": "scienzia",
+  "count": 1,
+  "ref": "4.73"
+ },
+ {
+  "it": "scimia",
+  "count": 1,
+  "ref": "29.139"
+ },
+ {
+  "it": "scioccare",
+  "count": 1,
+  "ref": "20.27"
+ },
+ {
+  "it": "sciorinare",
+  "count": 1,
+  "ref": "21.116"
+ },
+ {
+  "it": "scipion",
+  "count": 1,
+  "ref": "31.116"
+ },
+ {
+  "it": "scisma",
+  "count": 1,
+  "ref": "28.35"
+ },
+ {
+  "it": "scocca",
+  "count": 1,
+  "ref": "25.96"
+ },
+ {
+  "it": "scolare",
+  "count": 1,
+  "ref": "4.94"
+ },
+ {
+  "it": "scolorocci",
+  "count": 1,
+  "ref": "5.131"
+ },
+ {
+  "it": "sconcio",
+  "count": 1,
+  "ref": "19.131"
+ },
+ {
+  "it": "sconfortai",
+  "count": 1,
+  "ref": "8.94"
+ },
+ {
+  "it": "sconoscere",
+  "count": 1,
+  "ref": "7.53"
+ },
+ {
+  "it": "sconsolare",
+  "count": 1,
+  "ref": "8.77"
+ },
+ {
+  "it": "scoperchiare",
+  "count": 1,
+  "ref": "10.52"
+ },
+ {
+  "it": "scornare",
+  "count": 1,
+  "ref": "19.60"
+ },
+ {
+  "it": "scorpione",
+  "count": 1,
+  "ref": "17.27"
+ },
+ {
+  "it": "scoscendere",
+  "count": 1,
+  "ref": "24.42"
+ },
+ {
+  "it": "scostare",
+  "count": 1,
+  "ref": "14.139"
+ },
+ {
+  "it": "scottare",
+  "count": 1,
+  "ref": "20.116"
+ },
+ {
+  "it": "scovra",
+  "count": 1,
+  "ref": "16.123"
+ },
+ {
+  "it": "scrofa",
+  "count": 1,
+  "ref": "17.64"
+ },
+ {
+  "it": "scroscio",
+  "count": 1,
+  "ref": "17.119"
+ },
+ {
+  "it": "scudo",
+  "count": 1,
+  "ref": "22.116"
+ },
+ {
+  "it": "scuffa",
+  "count": 1,
+  "ref": "18.104"
+ },
+ {
+  "it": "scuoiare",
+  "count": 1,
+  "ref": "22.41"
+ },
+ {
+  "it": "scuotersi",
+  "count": 1,
+  "ref": "31.108"
+ },
+ {
+  "it": "scura",
+  "count": 1,
+  "ref": "31.37"
+ },
+ {
+  "it": "scuriada",
+  "count": 1,
+  "ref": "18.65"
+ },
+ {
+  "it": "scurire",
+  "count": 1,
+  "ref": "25.13"
+ },
+ {
+  "it": "sdegnare",
+  "count": 1,
+  "ref": "3.50"
+ },
+ {
+  "it": "sdruscia",
+  "count": 1,
+  "ref": "22.57"
+ },
+ {
+  "it": "sedare",
+  "count": 1,
+  "ref": "17.69"
+ },
+ {
+  "it": "segnorso",
+  "count": 1,
+  "ref": "29.77"
+ },
+ {
+  "it": "segretamente",
+  "count": 1,
+  "ref": "8.87"
+ },
+ {
+  "it": "seguette",
+  "count": 1,
+  "ref": "25.40"
+ },
+ {
+  "it": "seguitarmi",
+  "count": 1,
+  "ref": "28.57"
+ },
+ {
+  "it": "selvaggio",
+  "count": 1,
+  "ref": "1.93"
+ },
+ {
+  "it": "sembianti",
+  "count": 1,
+  "ref": "4.113"
+ },
+ {
+  "it": "sembiar",
+  "count": 1,
+  "ref": "16.87"
+ },
+ {
+  "it": "sembiava",
+  "count": 1,
+  "ref": "1.50"
+ },
+ {
+  "it": "semelè",
+  "count": 1,
+  "ref": "30.2"
+ },
+ {
+  "it": "seminatore",
+  "count": 1,
+  "ref": "28.35"
+ },
+ {
+  "it": "semiramìs",
+  "count": 1,
+  "ref": "5.58"
+ },
+ {
+  "it": "sempiterno",
+  "count": 1,
+  "ref": "30.96"
+ },
+ {
+  "it": "seneca",
+  "count": 1,
+  "ref": "4.141"
+ },
+ {
+  "it": "sensibilmente",
+  "count": 1,
+  "ref": "2.15"
+ },
+ {
+  "it": "sentenziare",
+  "count": 1,
+  "ref": "9.15"
+ },
+ {
+  "it": "sepe",
+  "count": 1,
+  "ref": "25.80"
+ },
+ {
+  "it": "sepolcro",
+  "count": 1,
+  "ref": "10.7"
+ },
+ {
+  "it": "sepolto",
+  "count": 1,
+  "ref": "9.130"
+ },
+ {
+  "it": "seppellire",
+  "count": 1,
+  "ref": "9.125"
+ },
+ {
+  "it": "sepulcri",
+  "count": 1,
+  "ref": "9.115"
+ },
+ {
+  "it": "sepulcro",
+  "count": 1,
+  "ref": "7.56"
+ },
+ {
+  "it": "sepulture",
+  "count": 1,
+  "ref": "10.38"
+ },
+ {
+  "it": "serba",
+  "count": 1,
+  "ref": "15.70"
+ },
+ {
+  "it": "serbolo",
+  "count": 1,
+  "ref": "15.89"
+ },
+ {
+  "it": "serchio",
+  "count": 1,
+  "ref": "21.49"
+ },
+ {
+  "it": "sermo",
+  "count": 1,
+  "ref": "13.138"
+ },
+ {
+  "it": "serpentelli",
+  "count": 1,
+  "ref": "9.41"
+ },
+ {
+  "it": "serpentello",
+  "count": 1,
+  "ref": "25.83"
+ },
+ {
+  "it": "serrame",
+  "count": 1,
+  "ref": "8.126"
+ },
+ {
+  "it": "settimo",
+  "count": 1,
+  "ref": "17.44"
+ },
+ {
+  "it": "severo",
+  "count": 1,
+  "ref": "24.119"
+ },
+ {
+  "it": "sezzo",
+  "count": 1,
+  "ref": "7.130"
+ },
+ {
+  "it": "sfavillare",
+  "count": 1,
+  "ref": "23.99"
+ },
+ {
+  "it": "sferzare",
+  "count": 1,
+  "ref": "18.74"
+ },
+ {
+  "it": "sfogare",
+  "count": 1,
+  "ref": "33.113"
+ },
+ {
+  "it": "sforzami",
+  "count": 1,
+  "ref": "18.53"
+ },
+ {
+  "it": "sgagliarda",
+  "count": 1,
+  "ref": "21.27"
+ },
+ {
+  "it": "sganni",
+  "count": 1,
+  "ref": "19.21"
+ },
+ {
+  "it": "sghermitor",
+  "count": 1,
+  "ref": "22.142"
+ },
+ {
+  "it": "sibilia",
+  "count": 1,
+  "ref": "26.110"
+ },
+ {
+  "it": "sicheo",
+  "count": 1,
+  "ref": "5.62"
+ },
+ {
+  "it": "sicurtà",
+  "count": 1,
+  "ref": "8.98"
+ },
+ {
+  "it": "siepe",
+  "count": 1,
+  "ref": "33.83"
+ },
+ {
+  "it": "silvestra",
+  "count": 1,
+  "ref": "13.100"
+ },
+ {
+  "it": "simigliante",
+  "count": 1,
+  "ref": "30.147"
+ },
+ {
+  "it": "simiglianza",
+  "count": 1,
+  "ref": "28.72"
+ },
+ {
+  "it": "simoneggiando",
+  "count": 1,
+  "ref": "19.74"
+ },
+ {
+  "it": "simonia",
+  "count": 1,
+  "ref": "11.59"
+ },
+ {
+  "it": "sipa",
+  "count": 1,
+  "ref": "18.61"
+ },
+ {
+  "it": "siratti",
+  "count": 1,
+  "ref": "27.95"
+ },
+ {
+  "it": "sismondi",
+  "count": 1,
+  "ref": "33.32"
+ },
+ {
+  "it": "slacciare",
+  "count": 1,
+  "ref": "12.22"
+ },
+ {
+  "it": "smagato",
+  "count": 1,
+  "ref": "25.146"
+ },
+ {
+  "it": "smisurato",
+  "count": 1,
+  "ref": "31.98"
+ },
+ {
+  "it": "smozzicare",
+  "count": 1,
+  "ref": "29.6"
+ },
+ {
+  "it": "snello",
+  "count": 1,
+  "ref": "8.14"
+ },
+ {
+  "it": "soavemente",
+  "count": 1,
+  "ref": "19.130"
+ },
+ {
+  "it": "sobilia",
+  "count": 1,
+  "ref": "20.126"
+ },
+ {
+  "it": "soccinto",
+  "count": 1,
+  "ref": "31.86"
+ },
+ {
+  "it": "soccorrien",
+  "count": 1,
+  "ref": "17.47"
+ },
+ {
+  "it": "socero",
+  "count": 1,
+  "ref": "23.121"
+ },
+ {
+  "it": "socrate",
+  "count": 1,
+  "ref": "4.134"
+ },
+ {
+  "it": "soddoma",
+  "count": 1,
+  "ref": "11.50"
+ },
+ {
+  "it": "sodisfammi",
+  "count": 1,
+  "ref": "10.6"
+ },
+ {
+  "it": "sodisfeci",
+  "count": 1,
+  "ref": "10.126"
+ },
+ {
+  "it": "sodo",
+  "count": 1,
+  "ref": "30.30"
+ },
+ {
+  "it": "sofferse",
+  "count": 1,
+  "ref": "28.99"
+ },
+ {
+  "it": "soffio",
+  "count": 1,
+  "ref": "13.91"
+ },
+ {
+  "it": "soffolge",
+  "count": 1,
+  "ref": "29.5"
+ },
+ {
+  "it": "soga",
+  "count": 1,
+  "ref": "31.73"
+ },
+ {
+  "it": "soggiugnendo",
+  "count": 1,
+  "ref": "29.18"
+ },
+ {
+  "it": "sogli",
+  "count": 1,
+  "ref": "18.14"
+ },
+ {
+  "it": "soglia",
+  "count": 1,
+  "ref": "9.92"
+ },
+ {
+  "it": "sogliare",
+  "count": 1,
+  "ref": "14.87"
+ },
+ {
+  "it": "soldan",
+  "count": 1,
+  "ref": "5.60"
+ },
+ {
+  "it": "soldanier",
+  "count": 1,
+  "ref": "32.121"
+ },
+ {
+  "it": "soldano",
+  "count": 1,
+  "ref": "27.90"
+ },
+ {
+  "it": "soletta",
+  "count": 1,
+  "ref": "18.94"
+ },
+ {
+  "it": "soletto",
+  "count": 1,
+  "ref": "12.85"
+ },
+ {
+  "it": "solien",
+  "count": 1,
+  "ref": "12.57"
+ },
+ {
+  "it": "solinga",
+  "count": 1,
+  "ref": "26.16"
+ },
+ {
+  "it": "solingo",
+  "count": 1,
+  "ref": "23.106"
+ },
+ {
+  "it": "sollo",
+  "count": 1,
+  "ref": "16.28"
+ },
+ {
+  "it": "soluto",
+  "count": 1,
+  "ref": "10.114"
+ },
+ {
+  "it": "solve",
+  "count": 1,
+  "ref": "2.49"
+ },
+ {
+  "it": "solvetemi",
+  "count": 1,
+  "ref": "10.95"
+ },
+ {
+  "it": "soma",
+  "count": 1,
+  "ref": "17.99"
+ },
+ {
+  "it": "sommare",
+  "count": 1,
+  "ref": "15.102"
+ },
+ {
+  "it": "sommerso",
+  "count": 1,
+  "ref": "18.125"
+ },
+ {
+  "it": "sommesso",
+  "count": 1,
+  "ref": "17.16"
+ },
+ {
+  "it": "sommettono",
+  "count": 1,
+  "ref": "5.39"
+ },
+ {
+  "it": "sonar",
+  "count": 1,
+  "ref": "32.107"
+ },
+ {
+  "it": "sonare",
+  "count": 1,
+  "ref": "31.12"
+ },
+ {
+  "it": "soperchia",
+  "count": 1,
+  "ref": "23.138"
+ },
+ {
+  "it": "soperchiava",
+  "count": 1,
+  "ref": "19.22"
+ },
+ {
+  "it": "soppressa",
+  "count": 1,
+  "ref": "14.15"
+ },
+ {
+  "it": "sora",
+  "count": 1,
+  "ref": "29.40"
+ },
+ {
+  "it": "sorbire",
+  "count": 1,
+  "ref": "15.65"
+ },
+ {
+  "it": "sorco",
+  "count": 1,
+  "ref": "22.58"
+ },
+ {
+  "it": "sordo",
+  "count": 1,
+  "ref": "6.33"
+ },
+ {
+  "it": "sormontare",
+  "count": 1,
+  "ref": "6.68"
+ },
+ {
+  "it": "sortille",
+  "count": 1,
+  "ref": "12.75"
+ },
+ {
+  "it": "sortire",
+  "count": 1,
+  "ref": "19.95"
+ },
+ {
+  "it": "sospecciar",
+  "count": 1,
+  "ref": "10.57"
+ },
+ {
+  "it": "sospigne",
+  "count": 1,
+  "ref": "4.22"
+ },
+ {
+  "it": "sostare",
+  "count": 1,
+  "ref": "16.8"
+ },
+ {
+  "it": "sostegna",
+  "count": 1,
+  "ref": "26.72"
+ },
+ {
+  "it": "sostegno",
+  "count": 1,
+  "ref": "12.6"
+ },
+ {
+  "it": "sostegnon",
+  "count": 1,
+  "ref": "11.87"
+ },
+ {
+  "it": "sottilmente",
+  "count": 1,
+  "ref": "31.53"
+ },
+ {
+  "it": "sottrarre",
+  "count": 1,
+  "ref": "26.91"
+ },
+ {
+  "it": "sovrana",
+  "count": 1,
+  "ref": "32.128"
+ },
+ {
+  "it": "sovraposte",
+  "count": 1,
+  "ref": "17.16"
+ },
+ {
+  "it": "sovrastare",
+  "count": 1,
+  "ref": "18.111"
+ },
+ {
+  "it": "sovvegna",
+  "count": 1,
+  "ref": "33.115"
+ },
+ {
+  "it": "spago",
+  "count": 1,
+  "ref": "20.119"
+ },
+ {
+  "it": "spaldi",
+  "count": 1,
+  "ref": "9.133"
+ },
+ {
+  "it": "spallacce",
+  "count": 1,
+  "ref": "17.91"
+ },
+ {
+  "it": "spanna",
+  "count": 1,
+  "ref": "6.25"
+ },
+ {
+  "it": "spartire",
+  "count": 1,
+  "ref": "20.88"
+ },
+ {
+  "it": "sparvier",
+  "count": 1,
+  "ref": "22.139"
+ },
+ {
+  "it": "spazzare",
+  "count": 1,
+  "ref": "14.13"
+ },
+ {
+  "it": "spaürato",
+  "count": 1,
+  "ref": "22.98"
+ },
+ {
+  "it": "specchiare",
+  "count": 1,
+  "ref": "32.54"
+ },
+ {
+  "it": "specchio",
+  "count": 1,
+  "ref": "30.128"
+ },
+ {
+  "it": "spedali",
+  "count": 1,
+  "ref": "29.46"
+ },
+ {
+  "it": "spedire",
+  "count": 1,
+  "ref": "26.18"
+ },
+ {
+  "it": "speglio",
+  "count": 1,
+  "ref": "14.105"
+ },
+ {
+  "it": "spelonca",
+  "count": 1,
+  "ref": "20.49"
+ },
+ {
+  "it": "spelta",
+  "count": 1,
+  "ref": "13.99"
+ },
+ {
+  "it": "speme",
+  "count": 1,
+  "ref": "4.42"
+ },
+ {
+  "it": "spendio",
+  "count": 1,
+  "ref": "7.42"
+ },
+ {
+  "it": "spene",
+  "count": 1,
+  "ref": "11.111"
+ },
+ {
+  "it": "spennare",
+  "count": 1,
+  "ref": "17.110"
+ },
+ {
+  "it": "sperdere",
+  "count": 1,
+  "ref": "33.153"
+ },
+ {
+  "it": "spergiurare",
+  "count": 1,
+  "ref": "30.118"
+ },
+ {
+  "it": "spezial",
+  "count": 1,
+  "ref": "11.63"
+ },
+ {
+  "it": "spezzato",
+  "count": 1,
+  "ref": "21.108"
+ },
+ {
+  "it": "spiacente",
+  "count": 1,
+  "ref": "6.48"
+ },
+ {
+  "it": "spiccare",
+  "count": 1,
+  "ref": "30.36"
+ },
+ {
+  "it": "spietata",
+  "count": 1,
+  "ref": "18.89"
+ },
+ {
+  "it": "spietato",
+  "count": 1,
+  "ref": "12.106"
+ },
+ {
+  "it": "spigolare",
+  "count": 1,
+  "ref": "32.33"
+ },
+ {
+  "it": "spina",
+  "count": 1,
+  "ref": "20.126"
+ },
+ {
+  "it": "spingava",
+  "count": 1,
+  "ref": "19.120"
+ },
+ {
+  "it": "splendore",
+  "count": 1,
+  "ref": "7.77"
+ },
+ {
+  "it": "spoltre",
+  "count": 1,
+  "ref": "24.46"
+ },
+ {
+  "it": "spose",
+  "count": 1,
+  "ref": "19.3"
+ },
+ {
+  "it": "spranga",
+  "count": 1,
+  "ref": "32.49"
+ },
+ {
+  "it": "spuola",
+  "count": 1,
+  "ref": "20.122"
+ },
+ {
+  "it": "spuose",
+  "count": 1,
+  "ref": "19.130"
+ },
+ {
+  "it": "sputare",
+  "count": 1,
+  "ref": "25.138"
+ },
+ {
+  "it": "squadrare",
+  "count": 1,
+  "ref": "25.3"
+ },
+ {
+  "it": "squarciare",
+  "count": 1,
+  "ref": "30.124"
+ },
+ {
+  "it": "squarcio",
+  "count": 1,
+  "ref": "33.27"
+ },
+ {
+  "it": "stagliare",
+  "count": 1,
+  "ref": "17.134"
+ },
+ {
+  "it": "stallo",
+  "count": 1,
+  "ref": "33.102"
+ },
+ {
+  "it": "stanziare",
+  "count": 1,
+  "ref": "25.10"
+ },
+ {
+  "it": "staria",
+  "count": 1,
+  "ref": "27.63"
+ },
+ {
+  "it": "stavvi",
+  "count": 1,
+  "ref": "5.4"
+ },
+ {
+  "it": "stea",
+  "count": 1,
+  "ref": "33.122"
+ },
+ {
+  "it": "steccare",
+  "count": 1,
+  "ref": "13.6"
+ },
+ {
+  "it": "stelo",
+  "count": 1,
+  "ref": "2.129"
+ },
+ {
+  "it": "stemmo",
+  "count": 1,
+  "ref": "33.65"
+ },
+ {
+  "it": "stendere",
+  "count": 1,
+  "ref": "16.136"
+ },
+ {
+  "it": "stentare",
+  "count": 1,
+  "ref": "23.121"
+ },
+ {
+  "it": "sterco",
+  "count": 1,
+  "ref": "18.113"
+ },
+ {
+  "it": "stetter",
+  "count": 1,
+  "ref": "21.77"
+ },
+ {
+  "it": "stieno",
+  "count": 1,
+  "ref": "22.100"
+ },
+ {
+  "it": "stilo",
+  "count": 1,
+  "ref": "1.87"
+ },
+ {
+  "it": "stimolare",
+  "count": 1,
+  "ref": "3.65"
+ },
+ {
+  "it": "stingueva",
+  "count": 1,
+  "ref": "14.36"
+ },
+ {
+  "it": "stizzo",
+  "count": 1,
+  "ref": "13.40"
+ },
+ {
+  "it": "stizzosamente",
+  "count": 1,
+  "ref": "8.83"
+ },
+ {
+  "it": "stola",
+  "count": 1,
+  "ref": "23.90"
+ },
+ {
+  "it": "stormire",
+  "count": 1,
+  "ref": "13.114"
+ },
+ {
+  "it": "stormo",
+  "count": 1,
+  "ref": "22.2"
+ },
+ {
+  "it": "stornei",
+  "count": 1,
+  "ref": "5.40"
+ },
+ {
+  "it": "storpiare",
+  "count": 1,
+  "ref": "28.31"
+ },
+ {
+  "it": "stoscio",
+  "count": 1,
+  "ref": "17.121"
+ },
+ {
+  "it": "stracciare",
+  "count": 1,
+  "ref": "22.72"
+ },
+ {
+  "it": "stralunare",
+  "count": 1,
+  "ref": "22.95"
+ },
+ {
+  "it": "stramba",
+  "count": 1,
+  "ref": "19.27"
+ },
+ {
+  "it": "strame",
+  "count": 1,
+  "ref": "15.73"
+ },
+ {
+  "it": "strascinare",
+  "count": 1,
+  "ref": "13.106"
+ },
+ {
+  "it": "stregghia",
+  "count": 1,
+  "ref": "29.76"
+ },
+ {
+  "it": "stremo",
+  "count": 1,
+  "ref": "17.32",
+  "en": "the edge"
+ },
+ {
+  "it": "stricca",
+  "count": 1,
+  "ref": "29.125"
+ },
+ {
+  "it": "strignete",
+  "count": 1,
+  "ref": "32.43"
+ },
+ {
+  "it": "stringare",
+  "count": 1,
+  "ref": "9.102"
+ },
+ {
+  "it": "strofade",
+  "count": 1,
+  "ref": "13.11"
+ },
+ {
+  "it": "strupo",
+  "count": 1,
+  "ref": "7.12"
+ },
+ {
+  "it": "stuccare",
+  "count": 1,
+  "ref": "18.126"
+ },
+ {
+  "it": "studioso",
+  "count": 1,
+  "ref": "33.31"
+ },
+ {
+  "it": "sub",
+  "count": 1,
+  "ref": "1.70"
+ },
+ {
+  "it": "subitamente",
+  "count": 1,
+  "ref": "10.28"
+ },
+ {
+  "it": "successore",
+  "count": 1,
+  "ref": "2.24"
+ },
+ {
+  "it": "succhiare",
+  "count": 1,
+  "ref": "27.48"
+ },
+ {
+  "it": "succia",
+  "count": 1,
+  "ref": "19.33"
+ },
+ {
+  "it": "sucide",
+  "count": 1,
+  "ref": "8.10"
+ },
+ {
+  "it": "suco",
+  "count": 1,
+  "ref": "32.4"
+ },
+ {
+  "it": "sudore",
+  "count": 1,
+  "ref": "3.132"
+ },
+ {
+  "it": "suffolando",
+  "count": 1,
+  "ref": "25.137"
+ },
+ {
+  "it": "suffolerò",
+  "count": 1,
+  "ref": "22.104"
+ },
+ {
+  "it": "suggel",
+  "count": 1,
+  "ref": "19.21"
+ },
+ {
+  "it": "summo",
+  "count": 1,
+  "ref": "7.119"
+ },
+ {
+  "it": "superno",
+  "count": 1,
+  "ref": "12.39"
+ },
+ {
+  "it": "surgea",
+  "count": 1,
+  "ref": "26.129"
+ },
+ {
+  "it": "surse",
+  "count": 1,
+  "ref": "10.52"
+ },
+ {
+  "it": "surto",
+  "count": 1,
+  "ref": "26.43"
+ },
+ {
+  "it": "svellere",
+  "count": 1,
+  "ref": "12.74"
+ },
+ {
+  "it": "svolazzare",
+  "count": 1,
+  "ref": "34.50"
+ },
+ {
+  "it": "sàvena",
+  "count": 1,
+  "ref": "18.61"
+ },
+ {
+  "it": "t'accoglia",
+  "count": 1,
+  "ref": "30.146"
+ },
+ {
+  "it": "t'acquatta",
+  "count": 1,
+  "ref": "21.59"
+ },
+ {
+  "it": "t'adizzo",
+  "count": 1,
+  "ref": "27.21"
+ },
+ {
+  "it": "t'aggrappa",
+  "count": 1,
+  "ref": "24.29"
+ },
+ {
+  "it": "t'agogna",
+  "count": 1,
+  "ref": "26.9"
+ },
+ {
+  "it": "t'aia",
+  "count": 1,
+  "ref": "21.60"
+ },
+ {
+  "it": "t'amò",
+  "count": 1,
+  "ref": "2.104"
+ },
+ {
+  "it": "t'apristi",
+  "count": 1,
+  "ref": "33.66"
+ },
+ {
+  "it": "t'armi",
+  "count": 1,
+  "ref": "34.21"
+ },
+ {
+  "it": "t'assenno",
+  "count": 1,
+  "ref": "20.97"
+ },
+ {
+  "it": "t'assiepa",
+  "count": 1,
+  "ref": "30.123"
+ },
+ {
+  "it": "t'assolvo",
+  "count": 1,
+  "ref": "27.101"
+ },
+ {
+  "it": "t'avrei",
+  "count": 1,
+  "ref": "15.60"
+ },
+ {
+  "it": "t'incresca",
+  "count": 1,
+  "ref": "27.23"
+ },
+ {
+  "it": "t'inganni",
+  "count": 1,
+  "ref": "5.20"
+ },
+ {
+  "it": "t'odo",
+  "count": 1,
+  "ref": "33.12"
+ },
+ {
+  "it": "tacerci",
+  "count": 1,
+  "ref": "15.104"
+ },
+ {
+  "it": "tacette",
+  "count": 1,
+  "ref": "2.75"
+ },
+ {
+  "it": "tacetti",
+  "count": 1,
+  "ref": "27.98"
+ },
+ {
+  "it": "tacitare",
+  "count": 1,
+  "ref": "23.1"
+ },
+ {
+  "it": "tafano",
+  "count": 1,
+  "ref": "17.51"
+ },
+ {
+  "it": "tagliacozzo",
+  "count": 1,
+  "ref": "28.17"
+ },
+ {
+  "it": "taide",
+  "count": 1,
+  "ref": "18.133"
+ },
+ {
+  "it": "talora",
+  "count": 1,
+  "ref": "16.134"
+ },
+ {
+  "it": "tambernicchi",
+  "count": 1,
+  "ref": "32.28"
+ },
+ {
+  "it": "tamburare",
+  "count": 1,
+  "ref": "22.8"
+ },
+ {
+  "it": "tamburo",
+  "count": 1,
+  "ref": "30.103"
+ },
+ {
+  "it": "tamisi",
+  "count": 1,
+  "ref": "12.120"
+ },
+ {
+  "it": "tanaglie",
+  "count": 1,
+  "ref": "29.87"
+ },
+ {
+  "it": "tanai",
+  "count": 1,
+  "ref": "32.27"
+ },
+ {
+  "it": "tange",
+  "count": 1,
+  "ref": "2.92"
+ },
+ {
+  "it": "tardavali",
+  "count": 1,
+  "ref": "23.84"
+ },
+ {
+  "it": "tarquino",
+  "count": 1,
+  "ref": "4.127"
+ },
+ {
+  "it": "tartaro",
+  "count": 1,
+  "ref": "17.17"
+ },
+ {
+  "it": "taverna",
+  "count": 1,
+  "ref": "22.15"
+ },
+ {
+  "it": "tebaldello",
+  "count": 1,
+  "ref": "32.122"
+ },
+ {
+  "it": "tebaldo",
+  "count": 1,
+  "ref": "22.52"
+ },
+ {
+  "it": "teban",
+  "count": 1,
+  "ref": "20.32"
+ },
+ {
+  "it": "tebano",
+  "count": 1,
+  "ref": "30.2"
+ },
+ {
+  "it": "tegna",
+  "count": 1,
+  "ref": "27.57"
+ },
+ {
+  "it": "tegno",
+  "count": 1,
+  "ref": "10.19"
+ },
+ {
+  "it": "tele",
+  "count": 1,
+  "ref": "17.18"
+ },
+ {
+  "it": "temperare",
+  "count": 1,
+  "ref": "29.126"
+ },
+ {
+  "it": "temperato",
+  "count": 1,
+  "ref": "27.9"
+ },
+ {
+  "it": "tempio",
+  "count": 1,
+  "ref": "10.87"
+ },
+ {
+  "it": "tenavamo",
+  "count": 1,
+  "ref": "21.3"
+ },
+ {
+  "it": "tenciona",
+  "count": 1,
+  "ref": "8.111"
+ },
+ {
+  "it": "tencione",
+  "count": 1,
+  "ref": "6.64"
+ },
+ {
+  "it": "tenean",
+  "count": 1,
+  "ref": "12.122"
+ },
+ {
+  "it": "tenebroso",
+  "count": 1,
+  "ref": "6.11"
+ },
+ {
+  "it": "terminare",
+  "count": 1,
+  "ref": "1.14"
+ },
+ {
+  "it": "terragno",
+  "count": 1,
+  "ref": "23.47"
+ },
+ {
+  "it": "terribilmente",
+  "count": 1,
+  "ref": "31.18"
+ },
+ {
+  "it": "terzeruolo",
+  "count": 1,
+  "ref": "21.15"
+ },
+ {
+  "it": "teseo",
+  "count": 1,
+  "ref": "9.54"
+ },
+ {
+  "it": "tesifón",
+  "count": 1,
+  "ref": "9.48"
+ },
+ {
+  "it": "testamento",
+  "count": 1,
+  "ref": "30.45"
+ },
+ {
+  "it": "testare",
+  "count": 1,
+  "ref": "30.45"
+ },
+ {
+  "it": "testimonianza",
+  "count": 1,
+  "ref": "32.39"
+ },
+ {
+  "it": "testo",
+  "count": 1,
+  "ref": "15.89"
+ },
+ {
+  "it": "tever",
+  "count": 1,
+  "ref": "27.30"
+ },
+ {
+  "it": "tideo",
+  "count": 1,
+  "ref": "32.130"
+ },
+ {
+  "it": "tienti",
+  "count": 1,
+  "ref": "31.71"
+ },
+ {
+  "it": "tifo",
+  "count": 1,
+  "ref": "31.124"
+ },
+ {
+  "it": "tignemmo",
+  "count": 1,
+  "ref": "5.90"
+ },
+ {
+  "it": "timido",
+  "count": 1,
+  "ref": "17.121"
+ },
+ {
+  "it": "tinto",
+  "count": 1,
+  "ref": "16.30"
+ },
+ {
+  "it": "tiralli",
+  "count": 1,
+  "ref": "20.63"
+ },
+ {
+  "it": "tiresia",
+  "count": 1,
+  "ref": "20.40"
+ },
+ {
+  "it": "tizio",
+  "count": 1,
+  "ref": "31.124"
+ },
+ {
+  "it": "tocco",
+  "count": 1,
+  "ref": "7.68"
+ },
+ {
+  "it": "tollette",
+  "count": 1,
+  "ref": "11.36"
+ },
+ {
+  "it": "tolomea",
+  "count": 1,
+  "ref": "33.124"
+ },
+ {
+  "it": "tolomeo",
+  "count": 1,
+  "ref": "4.142"
+ },
+ {
+  "it": "topo",
+  "count": 1,
+  "ref": "23.6"
+ },
+ {
+  "it": "toppo",
+  "count": 1,
+  "ref": "13.121"
+ },
+ {
+  "it": "tormentarlo",
+  "count": 1,
+  "ref": "28.47"
+ },
+ {
+  "it": "torna'mi",
+  "count": 1,
+  "ref": "17.78"
+ },
+ {
+  "it": "tornaro",
+  "count": 1,
+  "ref": "13.69"
+ },
+ {
+  "it": "torneamenti",
+  "count": 1,
+  "ref": "22.6"
+ },
+ {
+  "it": "toro",
+  "count": 1,
+  "ref": "12.22"
+ },
+ {
+  "it": "torreggiare",
+  "count": 1,
+  "ref": "31.43"
+ },
+ {
+  "it": "torrien",
+  "count": 1,
+  "ref": "13.21"
+ },
+ {
+  "it": "torrà",
+  "count": 1,
+  "ref": "7.6"
+ },
+ {
+  "it": "toscano",
+  "count": 1,
+  "ref": "24.122"
+ },
+ {
+  "it": "tostamente",
+  "count": 1,
+  "ref": "23.22"
+ },
+ {
+  "it": "tra'mene",
+  "count": 1,
+  "ref": "29.125"
+ },
+ {
+  "it": "tra'ne",
+  "count": 1,
+  "ref": "29.130"
+ },
+ {
+  "it": "tra'ti",
+  "count": 1,
+  "ref": "21.118"
+ },
+ {
+  "it": "traboccare",
+  "count": 1,
+  "ref": "6.50"
+ },
+ {
+  "it": "tracotanza",
+  "count": 1,
+  "ref": "8.124"
+ },
+ {
+  "it": "traemmoci",
+  "count": 1,
+  "ref": "4.115"
+ },
+ {
+  "it": "tragedia",
+  "count": 1,
+  "ref": "20.113"
+ },
+ {
+  "it": "tragetto",
+  "count": 1,
+  "ref": "19.129"
+ },
+ {
+  "it": "traggasi",
+  "count": 1,
+  "ref": "21.74"
+ },
+ {
+  "it": "tragitto",
+  "count": 1,
+  "ref": "34.105"
+ },
+ {
+  "it": "trangugiare",
+  "count": 1,
+  "ref": "28.27"
+ },
+ {
+  "it": "trar",
+  "count": 1,
+  "ref": "31.83"
+ },
+ {
+  "it": "trarmi",
+  "count": 1,
+  "ref": "34.102"
+ },
+ {
+  "it": "trarrotti",
+  "count": 1,
+  "ref": "1.114"
+ },
+ {
+  "it": "trascendere",
+  "count": 1,
+  "ref": "7.73"
+ },
+ {
+  "it": "trasmutare",
+  "count": 1,
+  "ref": "25.143"
+ },
+ {
+  "it": "trasmutato",
+  "count": 1,
+  "ref": "15.113"
+ },
+ {
+  "it": "trasmutava",
+  "count": 1,
+  "ref": "29.69"
+ },
+ {
+  "it": "trasmutò",
+  "count": 1,
+  "ref": "25.101"
+ },
+ {
+  "it": "trasparien",
+  "count": 1,
+  "ref": "34.12"
+ },
+ {
+  "it": "trasseci",
+  "count": 1,
+  "ref": "4.55"
+ },
+ {
+  "it": "trassel",
+  "count": 1,
+  "ref": "22.36"
+ },
+ {
+  "it": "travagliato",
+  "count": 1,
+  "ref": "34.91"
+ },
+ {
+  "it": "travaglie",
+  "count": 1,
+  "ref": "7.20"
+ },
+ {
+  "it": "traverso",
+  "count": 1,
+  "ref": "30.87"
+ },
+ {
+  "it": "treccia",
+  "count": 1,
+  "ref": "20.53"
+ },
+ {
+  "it": "trei",
+  "count": 1,
+  "ref": "16.21"
+ },
+ {
+  "it": "tremante",
+  "count": 1,
+  "ref": "5.136"
+ },
+ {
+  "it": "tremesse",
+  "count": 1,
+  "ref": "1.48"
+ },
+ {
+  "it": "trentino",
+  "count": 1,
+  "ref": "20.67"
+ },
+ {
+  "it": "tresca",
+  "count": 1,
+  "ref": "14.40"
+ },
+ {
+  "it": "triegue",
+  "count": 1,
+  "ref": "7.88"
+ },
+ {
+  "it": "triema",
+  "count": 1,
+  "ref": "17.87"
+ },
+ {
+  "it": "tristano",
+  "count": 1,
+  "ref": "5.67"
+ },
+ {
+  "it": "tristizia",
+  "count": 1,
+  "ref": "29.58"
+ },
+ {
+  "it": "tritare",
+  "count": 1,
+  "ref": "16.40"
+ },
+ {
+  "it": "triunfar",
+  "count": 1,
+  "ref": "27.111"
+ },
+ {
+  "it": "troian",
+  "count": 1,
+  "ref": "30.14"
+ },
+ {
+  "it": "troiane",
+  "count": 1,
+  "ref": "30.22"
+ },
+ {
+  "it": "trombetta",
+  "count": 1,
+  "ref": "21.139"
+ },
+ {
+  "it": "troncandosi",
+  "count": 1,
+  "ref": "7.114"
+ },
+ {
+  "it": "troncone",
+  "count": 1,
+  "ref": "28.141"
+ },
+ {
+  "it": "trovammoci",
+  "count": 1,
+  "ref": "18.20"
+ },
+ {
+  "it": "trulla",
+  "count": 1,
+  "ref": "28.24"
+ },
+ {
+  "it": "truono",
+  "count": 1,
+  "ref": "4.2"
+ },
+ {
+  "it": "truova",
+  "count": 1,
+  "ref": "33.95"
+ },
+ {
+  "it": "tui",
+  "count": 1,
+  "ref": "10.42"
+ },
+ {
+  "it": "tulio",
+  "count": 1,
+  "ref": "4.141"
+ },
+ {
+  "it": "tumulto",
+  "count": 1,
+  "ref": "3.28"
+ },
+ {
+  "it": "tuonare",
+  "count": 1,
+  "ref": "31.45"
+ },
+ {
+  "it": "tuono",
+  "count": 1,
+  "ref": "31.13"
+ },
+ {
+  "it": "turare",
+  "count": 1,
+  "ref": "23.45"
+ },
+ {
+  "it": "turbato",
+  "count": 1,
+  "ref": "23.146"
+ },
+ {
+  "it": "turco",
+  "count": 1,
+  "ref": "17.17"
+ },
+ {
+  "it": "ubidente",
+  "count": 1,
+  "ref": "4.57"
+ },
+ {
+  "it": "ubidisti",
+  "count": 1,
+  "ref": "2.134"
+ },
+ {
+  "it": "udi'mi",
+  "count": 1,
+  "ref": "32.19"
+ },
+ {
+  "it": "udirti",
+  "count": 1,
+  "ref": "26.49"
+ },
+ {
+  "it": "uguiccione",
+  "count": 1,
+  "ref": "33.89"
+ },
+ {
+  "it": "umbilico",
+  "count": 1,
+  "ref": "31.33"
+ },
+ {
+  "it": "umile",
+  "count": 1,
+  "ref": "1.106"
+ },
+ {
+  "it": "un'alta",
+  "count": 1,
+  "ref": "11.1"
+ },
+ {
+  "it": "unghiata",
+  "count": 1,
+  "ref": "6.17"
+ },
+ {
+  "it": "unghioni",
+  "count": 1,
+  "ref": "22.41"
+ },
+ {
+  "it": "unquanche",
+  "count": 1,
+  "ref": "33.140"
+ },
+ {
+  "it": "urto",
+  "count": 1,
+  "ref": "26.45"
+ },
+ {
+  "it": "usaro",
+  "count": 1,
+  "ref": "8.125"
+ },
+ {
+  "it": "uscicci",
+  "count": 1,
+  "ref": "4.49"
+ },
+ {
+  "it": "uscie",
+  "count": 1,
+  "ref": "27.78"
+ },
+ {
+  "it": "uscinci",
+  "count": 1,
+  "ref": "14.45"
+ },
+ {
+  "it": "uscirci",
+  "count": 1,
+  "ref": "23.130"
+ },
+ {
+  "it": "usciteci",
+  "count": 1,
+  "ref": "8.81"
+ },
+ {
+  "it": "usura",
+  "count": 1,
+  "ref": "11.95"
+ },
+ {
+  "it": "usuriere",
+  "count": 1,
+  "ref": "11.109"
+ },
+ {
+  "it": "v'annegava",
+  "count": 1,
+  "ref": "19.20"
+ },
+ {
+  "it": "v'avete",
+  "count": 1,
+  "ref": "19.112"
+ },
+ {
+  "it": "v'ebbe",
+  "count": 1,
+  "ref": "9.90"
+ },
+ {
+  "it": "v'ebbi",
+  "count": 1,
+  "ref": "3.58"
+ },
+ {
+  "it": "v'er",
+  "count": 1,
+  "ref": "12.2"
+ },
+ {
+  "it": "v'ha",
+  "count": 1,
+  "ref": "9.96"
+ },
+ {
+  "it": "v'ho",
+  "count": 1,
+  "ref": "1.9"
+ },
+ {
+  "it": "v'intoppa",
+  "count": 1,
+  "ref": "12.99"
+ },
+ {
+  "it": "v'intrai",
+  "count": 1,
+  "ref": "1.10"
+ },
+ {
+  "it": "v'offende",
+  "count": 1,
+  "ref": "7.71"
+ },
+ {
+  "it": "vacante",
+  "count": 1,
+  "ref": "16.99"
+ },
+ {
+  "it": "vacca",
+  "count": 1,
+  "ref": "12.13"
+ },
+ {
+  "it": "vaga",
+  "count": 1,
+  "ref": "29.3"
+ },
+ {
+  "it": "vaghezza",
+  "count": 1,
+  "ref": "29.114"
+ },
+ {
+  "it": "vagliami",
+  "count": 1,
+  "ref": "1.83"
+ },
+ {
+  "it": "vago",
+  "count": 1,
+  "ref": "8.52"
+ },
+ {
+  "it": "valdichiana",
+  "count": 1,
+  "ref": "29.47"
+ },
+ {
+  "it": "vallea",
+  "count": 1,
+  "ref": "26.29"
+ },
+ {
+  "it": "vangelista",
+  "count": 1,
+  "ref": "19.106"
+ },
+ {
+  "it": "vanità",
+  "count": 1,
+  "ref": "6.36"
+ },
+ {
+  "it": "vantare",
+  "count": 1,
+  "ref": "24.85"
+ },
+ {
+  "it": "vaporare",
+  "count": 1,
+  "ref": "17.48"
+ },
+ {
+  "it": "varo",
+  "count": 1,
+  "ref": "9.115"
+ },
+ {
+  "it": "vasel",
+  "count": 1,
+  "ref": "22.82"
+ },
+ {
+  "it": "vasello",
+  "count": 1,
+  "ref": "28.79"
+ },
+ {
+  "it": "vaso",
+  "count": 1,
+  "ref": "2.28"
+ },
+ {
+  "it": "vassallo",
+  "count": 1,
+  "ref": "21.55"
+ },
+ {
+  "it": "vassi",
+  "count": 1,
+  "ref": "12.21"
+ },
+ {
+  "it": "vedestù",
+  "count": 1,
+  "ref": "8.127"
+ },
+ {
+  "it": "veggendoci",
+  "count": 1,
+  "ref": "12.58"
+ },
+ {
+  "it": "vegghia",
+  "count": 1,
+  "ref": "29.78"
+ },
+ {
+  "it": "veggia",
+  "count": 1,
+  "ref": "28.22",
+  "en": "a cask"
+ },
+ {
+  "it": "vegliare",
+  "count": 1,
+  "ref": "14.103"
+ },
+ {
+  "it": "vegn",
+  "count": 1,
+  "ref": "21.121"
+ },
+ {
+  "it": "vegnan",
+  "count": 1,
+  "ref": "23.132"
+ },
+ {
+  "it": "vegne",
+  "count": 1,
+  "ref": "14.140"
+ },
+ {
+  "it": "vegnono",
+  "count": 1,
+  "ref": "7.44"
+ },
+ {
+  "it": "velare",
+  "count": 1,
+  "ref": "33.112"
+ },
+ {
+  "it": "velluto",
+  "count": 1,
+  "ref": "34.73"
+ },
+ {
+  "it": "veltri",
+  "count": 1,
+  "ref": "13.126"
+ },
+ {
+  "it": "veltro",
+  "count": 1,
+  "ref": "1.101"
+ },
+ {
+  "it": "vendemmia",
+  "count": 1,
+  "ref": "26.30"
+ },
+ {
+  "it": "vendicare",
+  "count": 1,
+  "ref": "29.32"
+ },
+ {
+  "it": "venedico",
+  "count": 1,
+  "ref": "18.50"
+ },
+ {
+  "it": "venendomi",
+  "count": 1,
+  "ref": "1.59"
+ },
+ {
+  "it": "venenosa",
+  "count": 1,
+  "ref": "17.26"
+ },
+ {
+  "it": "vengiammo",
+  "count": 1,
+  "ref": "9.54"
+ },
+ {
+  "it": "vengiò",
+  "count": 1,
+  "ref": "26.34"
+ },
+ {
+  "it": "venien",
+  "count": 1,
+  "ref": "18.26"
+ },
+ {
+  "it": "venieno",
+  "count": 1,
+  "ref": "23.28"
+ },
+ {
+  "it": "venirli",
+  "count": 1,
+  "ref": "28.88"
+ },
+ {
+  "it": "venta",
+  "count": 1,
+  "ref": "17.117"
+ },
+ {
+  "it": "ventesimo",
+  "count": 1,
+  "ref": "20.2"
+ },
+ {
+  "it": "ventidue",
+  "count": 1,
+  "ref": "29.9"
+ },
+ {
+  "it": "ventraia",
+  "count": 1,
+  "ref": "30.54"
+ },
+ {
+  "it": "ventura",
+  "count": 1,
+  "ref": "2.61"
+ },
+ {
+  "it": "verbo",
+  "count": 1,
+  "ref": "25.16"
+ },
+ {
+  "it": "verga",
+  "count": 1,
+  "ref": "20.44"
+ },
+ {
+  "it": "verghetta",
+  "count": 1,
+  "ref": "9.89"
+ },
+ {
+  "it": "verme",
+  "count": 1,
+  "ref": "3.69"
+ },
+ {
+  "it": "vermena",
+  "count": 1,
+  "ref": "13.100"
+ },
+ {
+  "it": "verna",
+  "count": 1,
+  "ref": "33.135"
+ },
+ {
+  "it": "veronese",
+  "count": 1,
+  "ref": "20.68"
+ },
+ {
+  "it": "verria",
+  "count": 1,
+  "ref": "28.4"
+ },
+ {
+  "it": "verrucchio",
+  "count": 1,
+  "ref": "27.46"
+ },
+ {
+  "it": "verun",
+  "count": 1,
+  "ref": "9.120"
+ },
+ {
+  "it": "vespa",
+  "count": 1,
+  "ref": "3.66"
+ },
+ {
+  "it": "vestigio",
+  "count": 1,
+  "ref": "24.50"
+ },
+ {
+  "it": "vexilla",
+  "count": 1,
+  "ref": "34.1"
+ },
+ {
+  "it": "vidila",
+  "count": 1,
+  "ref": "21.6"
+ },
+ {
+  "it": "vidili",
+  "count": 1,
+  "ref": "34.90"
+ },
+ {
+  "it": "vidimare",
+  "count": 1,
+  "ref": "32.22"
+ },
+ {
+  "it": "vidine",
+  "count": 1,
+  "ref": "17.62"
+ },
+ {
+  "it": "vidivi",
+  "count": 1,
+  "ref": "24.82"
+ },
+ {
+  "it": "viemmi",
+  "count": 1,
+  "ref": "19.93"
+ },
+ {
+  "it": "vienne",
+  "count": 1,
+  "ref": "20.124"
+ },
+ {
+  "it": "vigilia",
+  "count": 1,
+  "ref": "26.114"
+ },
+ {
+  "it": "vigna",
+  "count": 1,
+  "ref": "29.131"
+ },
+ {
+  "it": "villanello",
+  "count": 1,
+  "ref": "24.7"
+ },
+ {
+  "it": "vilmente",
+  "count": 1,
+  "ref": "23.126"
+ },
+ {
+  "it": "vincastro",
+  "count": 1,
+  "ref": "24.14"
+ },
+ {
+  "it": "vincia",
+  "count": 1,
+  "ref": "4.69"
+ },
+ {
+  "it": "viniziani",
+  "count": 1,
+  "ref": "21.7"
+ },
+ {
+  "it": "virare",
+  "count": 1,
+  "ref": "4.30"
+ },
+ {
+  "it": "virtude",
+  "count": 1,
+  "ref": "2.130"
+ },
+ {
+  "it": "visaggio",
+  "count": 1,
+  "ref": "16.25"
+ },
+ {
+  "it": "visiera",
+  "count": 1,
+  "ref": "33.98"
+ },
+ {
+  "it": "vispistrello",
+  "count": 1,
+  "ref": "34.49"
+ },
+ {
+  "it": "vitaliano",
+  "count": 1,
+  "ref": "17.68"
+ },
+ {
+  "it": "vituperio",
+  "count": 1,
+  "ref": "33.79"
+ },
+ {
+  "it": "vivanda",
+  "count": 1,
+  "ref": "28.58"
+ },
+ {
+  "it": "vivemo",
+  "count": 1,
+  "ref": "4.42"
+ },
+ {
+  "it": "vogl",
+  "count": 1,
+  "ref": "15.91"
+ },
+ {
+  "it": "volentieri",
+  "count": 1,
+  "ref": "33.127"
+ },
+ {
+  "it": "volgonsi",
+  "count": 1,
+  "ref": "6.21"
+ },
+ {
+  "it": "volpe",
+  "count": 1,
+  "ref": "27.75"
+ },
+ {
+  "it": "volsersi",
+  "count": 1,
+  "ref": "4.98"
+ },
+ {
+  "it": "volume",
+  "count": 1,
+  "ref": "1.84"
+ },
+ {
+  "it": "volvea",
+  "count": 1,
+  "ref": "8.63"
+ },
+ {
+  "it": "volvi",
+  "count": 1,
+  "ref": "10.5"
+ },
+ {
+  "it": "volè",
+  "count": 1,
+  "ref": "11.81"
+ },
+ {
+  "it": "vommi",
+  "count": 1,
+  "ref": "15.100"
+ },
+ {
+  "it": "vulcano",
+  "count": 1,
+  "ref": "14.57"
+ },
+ {
+  "it": "vuoli",
+  "count": 1,
+  "ref": "29.101"
+ },
+ {
+  "it": "vòte",
+  "count": 1,
+  "ref": "16.129"
+ },
+ {
+  "it": "zabì",
+  "count": 1,
+  "ref": "31.67"
+ },
+ {
+  "it": "zanca",
+  "count": 1,
+  "ref": "19.45"
+ },
+ {
+  "it": "zanzara",
+  "count": 1,
+  "ref": "26.28"
+ },
+ {
+  "it": "zavorra",
+  "count": 1,
+  "ref": "25.142"
+ },
+ {
+  "it": "zebe",
+  "count": 1,
+  "ref": "32.15"
+ },
+ {
+  "it": "zenone",
+  "count": 1,
+  "ref": "4.138"
+ },
+ {
+  "it": "zita",
+  "count": 1,
+  "ref": "21.38"
+ },
+ {
+  "it": "zucca",
+  "count": 1,
+  "ref": "18.124"
+ }
+]

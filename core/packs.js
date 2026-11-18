@@ -6,6 +6,15 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
   const gid = (pack, id) => pack === 'core' ? id : pack + '/' + id;
+  // One setting, not one switch per pack. core is always on; extra ids are loaded with it.
+  const CHOICES = {
+    core: { label: 'Modern Italian', packs: [] },
+    dante: { label: 'Modern Italian + Dante (Inferno)', packs: ['dante'] }
+  };
+  function normalize(id) {
+    if (!CHOICES[id]) id = 'core';
+    return { id: id, packs: CHOICES[id].packs.slice() };
+  }
   // fetchJSON(url) -> Promise<object>; enabled: Set of pack ids (core is always on)
   async function load(base, fetchJSON, enabled) {
     const idx = await fetchJSON(base + 'index.json');
@@ -19,5 +28,5 @@
     }
     return { packs, words };
   }
-  return { load, gid };
+  return { load, gid, CHOICES, normalize };
 });

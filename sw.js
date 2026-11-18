@@ -1,9 +1,10 @@
 // Offline-first service worker: precache the whole app, serve from cache, refresh in the background (revalidating with the server).
-const CACHE = 'italiano1500-v15';
+const CACHE = 'italiano1500-v16';
 const ASSETS = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest',
   'core/srs.js', 'core/drillpick.js', 'core/drillsession.js', 'core/store.js', 'core/packs.js', 'core/ui.js',
   'lang/it/morph.js', 'lang/it/drills.js', 'lang/it/lessons.js', 'lang/it/sentences_lexicon.js', 'lang/it/sentences.js',
   'data/packs/index.json', 'data/packs/core/manifest.json', 'data/packs/core/words.json',
+  'data/packs/dante/manifest.json', 'data/packs/dante/words.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-512-maskable.png', 'icons/apple-touch-icon.png'];
 // cache: 'reload' bypasses the browser's HTTP cache (GitHub Pages sends max-age=600), so a new version never precaches old files
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting())); });

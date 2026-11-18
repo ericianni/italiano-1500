@@ -38,7 +38,7 @@
   const pick = (a, rnd) => a[Math.floor((rnd || Math.random)() * a.length)];
   const regPP = it => { const c = M.cls(it); return it.slice(0, -3) + (c === 'are' ? 'ato' : c === 'ere' ? 'uto' : 'ito'); };
   const tbl = (v, t) => M.tense(v, t);
-  const verbOk = w => w.pos === 'v' && !w.refl && !w.impers;
+  const verbOk = w => w.pos === 'v' && !w.refl && !w.impers && !w.nodrill;
   // a verb tense counts as irregular when the engine uses an irregular table / stem / participle for it
   function irrTense(v, t) {
     const r = M.irrOf(v.it), d = r && r.d || {};
@@ -51,7 +51,7 @@
   const auxes = v => v.aux === 'a/e' ? ['a', 'e'] : [v.aux === 'e' ? 'e' : 'a'];
   // every accepted passato form for person i and subject gender g (both auxiliaries for a/e verbs)
   const ppAnswers = (v, i, g) => auxes(v).map(a => M.passato(v, i, g, a));
-  function nounOk(w) { return w.pos === 'n' && (w.g === 'm' || w.g === 'f'); }
+  function nounOk(w) { return w.pos === 'n' && !w.nodrill && (w.g === 'm' || w.g === 'f'); }
   const plOf = w => ({ pl: w.pl || w.it, g: w.plg || w.g });
   function aclass(w) {
     const f = w.forms;
@@ -60,7 +60,7 @@
     const st = f[0].slice(0, -1);
     return f[2] === st + 'i' && f[3] === st + 'e' ? 'o' : 'sp';
   }
-  const adjOk = w => w.pos === 'adj' && !w.noagr;
+  const adjOk = w => w.pos === 'adj' && !w.noagr && !w.nodrill && w.forms;
 
   // ---------- units: combo -> drillable word ids, limited to the drill settings ----------
   function buildUnits(words, df) {

@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v15';
+  const VERSION = 'v16';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -24,6 +24,9 @@
     s.set.df.sent = df.sent === true;
     s.set.df.stype = df.stype === 'tr' || df.stype === 'id' || df.stype === 'both' ? df.stype : 'both';
     s.set.df.sdir = df.sdir === 'ie' || df.sdir === 'ei' || df.sdir === 'both' ? df.sdir : 'ie';
+    const pack = Packs.normalize(s.set.pack);
+    s.set.pack = pack.id;
+    s.packs = pack.packs;
     s.day = SRS.dayState(s.day, SRS.dayNum());
     return s;
   }
@@ -50,7 +53,9 @@
     return out;
   }
   function info(w) {
+    if (w.name) return 'name';
     if (w.pos === 'n') {
+      if (w.nodrill) return 'noun' + (w.g === 'f' ? ', f.' : w.g === 'm' ? ', m.' : w.g === 'mf' ? ', m./f.' : '');
       if (w.g === 'mf') return 'noun, m./f.' + (w.pl && w.pl !== w.it ? ', pl. ' + w.pl : '');
       const g = w.g === 'f' ? 'f.' : 'm.';
       if (w.pltant) return 'noun, ' + g + ' pl. (plural only)';
@@ -60,7 +65,8 @@
       return 'noun, ' + g + ', pl. ' + M.withArt(M.defArt(p.pl, p.g, 'p'), p.pl) + (p.g !== w.g ? ' (' + p.g + '.)' : '') + (w.fem ? ' · female: ' + w.fem : '');
     }
     if (w.pos === 'adj' && w.forms) return 'adjective, ' + [...new Set(w.forms)].join(' / ');
-    if (w.pos === 'v') return 'verb, ' + CONJ[w.conj] + (w.irr ? ', irregular' : '') + (w.refl ? ', usually reflexive' : '') + ' · aux. ' + ({ a: 'avere', e: 'essere', 'a/e': 'avere or essere' })[w.aux || 'a'];
+    if (w.pos === 'v' && w.conj) return 'verb, ' + CONJ[w.conj] + (w.irr ? ', irregular' : '') + (w.refl ? ', usually reflexive' : '') + ' · aux. ' + ({ a: 'avere', e: 'essere', 'a/e': 'avere or essere' })[w.aux || 'a'];
+    if (w.pos === 'v') return 'verb';
     return POS[w.pos] || w.pos;
   }
   const verb = it => BYIT[it] && BYIT[it].pos === 'v' ? BYIT[it] : { it, conj: M.cls(it), aux: 'a' };
@@ -162,7 +168,8 @@
   function renderCard(it) {
     const [dir, id] = SRS.split(it.k), w = BY[id];
     const pills = `<span class="pill">${esc(POS[w.pos] || w.pos)}</span><span class="pill">#${w.rank}</span>${it.isNew ? '<span class="pill">new</span>' : ''}`;
-    const back = `<div class="small muted">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}`;
+    const danteMeta = w.count && w.ref ? `<div class="small muted">Inferno ${w.count}× · first ${esc(w.ref)}</div>` : '';
+    const back = `<div class="small muted">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${danteMeta}`;
     const rw = () => { $('#ans').innerHTML = `<div class="answer">${dir === 'r' ? `<div class="english">${esc(w.en)}</div>` : `<div class="tl">${esc(artHead(w))}</div>`}${back}<div class="small muted" style="margin-top:6px">Did you know it?</div>${UI.rwButtons(SRS.nextLabel(S.cards[it.k]))}</div>`; UI.bindRW(r => gradeCard(it, r)); };
     if (dir === 'r') {
       V().innerHTML = `${sessionHead()}<div class="card"><div class="prompt-kind">Italian → English</div><div class="tl" lang="it">${esc(artHead(w))}</div>${pills}
@@ -673,14 +680,16 @@
   function detail(w) {
     let f = '';
     if (w.pos === 'v' && D.verbOk(w)) f = `<div class="forms"><table><tr><th></th>${['pres', 'imp', 'fut', 'pp'].map(x => `<th>${D.TENSES[x]}</th>`).join('')}</tr>${SUBJ6.map((p, i) => `<tr><th>${p}</th>${['pres', 'imp', 'fut', 'pp'].map(x => `<td>${esc(x === 'pp' ? D.auxes(w).map(a => M.passato(w, i, 'm', a)).join(' / ') : M.tense(w, x)[i])}</td>`).join('')}</tr>`).join('')}</table></div>`;
-    else if (w.pos === 'v') f = `<div class="small muted">Past participle: ${esc(M.pastPart(w))}. Usually used ${w.refl ? 'reflexively' : 'impersonally'}; not drilled yet.</div>`;
+    else if (w.pos === 'v' && (w.refl || w.impers)) f = `<div class="small muted">Past participle: ${esc(M.pastPart(w))}. Usually used ${w.refl ? 'reflexively' : 'impersonally'}; not drilled yet.</div>`;
+    else if (w.pos === 'v') f = `<div class="small muted">Not in form drills.</div>`;
     else if (w.pos === 'adj' && w.forms) f = adjTable([w.it]);
     else if (D.nounOk(w)) f = miniTable({ kind: 'art', id: w.id });
-    return `<div class="det"><div class="small">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${f}<div class="small muted" style="margin-top:6px">Card: ${status(w)}</div>
+    return `<div class="det"><div class="small">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${w.count && w.ref ? `<div class="small muted">Inferno ${w.count}× · first ${esc(w.ref)}</div>` : ''}${f}<div class="small muted" style="margin-top:6px">Card: ${status(w)}</div>
       <button class="link small tbtn" data-t="${esc(w.id)}" style="margin-top:6px">Test this word ›</button></div>`;
   }
   // ---------- Test mode: every feature on one word, progress untouched ----------
   function testWhy(w, n) {
+    if (w.nodrill) return 'Not in form drills.';
     if (n) return '';
     if (w.pos === 'v' && w.refl) return 'Not in form drills: usually reflexive.';
     if (w.pos === 'v' && w.impers) return 'Not in form drills: usually impersonal.';
@@ -718,13 +727,22 @@
     $('#sub').textContent = W.length + ' words';
     V().innerHTML = `<div class="lhead"><input type="search" id="lq" placeholder="Search Italian or English" value="${esc(LQ)}">
       <div class="row" style="margin-top:8px"><select id="lpos"><option value="">All types</option>${['n', 'v', 'adj', 'adv', 'art', 'pron', 'prep', 'conj', 'det', 'num', 'int'].map(p => `<option value="${p}"${LPOS === p ? ' selected' : ''}>${p === 'art' ? 'Articles' : POS[p] + 's'}</option>`).join('')}</select>
-      <select id="lsort"><option value="rank"${LSORT === 'rank' ? ' selected' : ''}>By frequency</option><option value="az"${LSORT === 'az' ? ' selected' : ''}>A–Z</option></select></div></div><ul class="list" id="ll"></ul><div id="lmore"></div>`;
+      <select id="lsort"><option value="rank"${LSORT === 'rank' ? ' selected' : ''}>By frequency</option><option value="az"${LSORT === 'az' ? ' selected' : ''}>A–Z</option>${W.some(w => w.pack === 'dante') ? `<option value="canto"${LSORT === 'canto' ? ' selected' : ''}>By canto (first appearance)</option>` : ''}</select></div></div><ul class="list" id="ll"></ul><div id="lmore"></div>`;
     const draw = () => {
       const q = M.deaccent(LQ.trim());
-      let ws = W.filter(w => (!LPOS || w.pos === LPOS) && (!q || M.deaccent(w.it).includes(q) || w.en.toLowerCase().includes(q)));
-      if (LSORT === 'az') ws = ws.slice().sort((a, b) => a.it.localeCompare(b.it, 'it'));
-      $('#ll').innerHTML = ws.slice(0, LN).map(w => `<li data-id="${esc(w.id)}"><span class="rk">#${w.rank}</span><span class="tl-s" lang="it">${esc(artHead(w))}</span> <span class="pill">${esc(POS[w.pos] || w.pos)}</span><div class="en">${esc(w.en)}</div>${LOPEN === w.id ? detail(w) : ''}</li>`).join('') || '<li class="muted">No matches.</li>';
-      $('#lmore').innerHTML = ws.length > LN ? `<button class="big" id="lmb" style="margin-top:10px">Show more (${ws.length - LN} left)</button>` : '';
+      const match = w => (!LPOS || w.pos === LPOS) && (!q || M.deaccent(w.it).includes(q) || w.en.toLowerCase().includes(q));
+      const by = (a, b) => LSORT === 'az' ? a.it.localeCompare(b.it, 'it') : LSORT === 'canto' ? ((a.canto || 999) - (b.canto || 999) || (a.line || 0) - (b.line || 0) || a.rank - b.rank) : a.rank - b.rank;
+      const row = w => `<li data-id="${esc(w.id)}"><span class="rk">#${w.rank}</span><span class="tl-s" lang="it">${esc(artHead(w))}</span> <span class="pill">${esc(w.name ? 'name' : (POS[w.pos] || w.pos))}</span><div class="en">${esc(w.en)}</div>${LOPEN === w.id ? detail(w) : ''}</li>`;
+      const core = W.filter(w => w.pack !== 'dante' && match(w)).sort(by);
+      const dante = W.filter(w => w.pack === 'dante' && !w.name && match(w)).sort(by);
+      const names = W.filter(w => w.pack === 'dante' && w.name && match(w)).sort(by);
+      const chunks = [];
+      core.forEach(w => chunks.push(row(w)));
+      if (dante.length) { chunks.push('<li class="sec"><span class="sec2">Dante</span></li>'); dante.forEach(w => chunks.push(row(w))); }
+      if (names.length) { chunks.push('<li class="sec"><span class="sec2">Names</span></li>'); names.forEach(w => chunks.push(row(w))); }
+      const shown = chunks.slice(0, LN);
+      $('#ll').innerHTML = shown.join('') || '<li class="muted">No matches.</li>';
+      $('#lmore').innerHTML = chunks.length > LN ? `<button class="big" id="lmb" style="margin-top:10px">Show more (${chunks.length - LN} left)</button>` : '';
       if ($('#lmb')) $('#lmb').onclick = () => { LN += 200; draw(); };
       $$('#ll li[data-id]').forEach(li => li.onclick = e => { if (e.target.closest('.det')) return; LOPEN = LOPEN === li.dataset.id ? null : li.dataset.id; draw(); });
       $$('#ll .tbtn').forEach(b => b.onclick = e => { e.stopPropagation(); enterTest(b.dataset.t); });
@@ -741,6 +759,7 @@
     const packs = PACKS.map(p => `<li><b>${esc((p.manifest && p.manifest.title) || p.id)}</b>${p.loaded ? ` · ${W.filter(w => w.pack === p.id).length} words` : ' · not loaded'}${p.manifest && p.manifest.desc ? `<div class="small muted">${esc(p.manifest.desc)}</div>` : ''}</li>`).join('');
     V().innerHTML = `<div class="card"><h2 style="margin-top:0">Settings</h2>
       <div class="small muted chiph">New words per day</div>${UI.seg('snew', [[5, '5'], [10, '10'], [20, '20']], S.set.newPerDay)}
+      <div class="small muted chiph">Pack</div><div class="packseg">${UI.seg('spack', Object.keys(Packs.CHOICES).map(id => [id, Packs.CHOICES[id].label]), S.set.pack)}</div>
       <div class="small muted chiph">Typed answers</div>${UI.seg('sacc', [['1', 'Accents count'], ['0', 'Accents optional']], S.set.strict ? '1' : '0')}
       <p class="small muted">With <b>Accents count</b>, <i>citta</i> for <i>città</i> is marked wrong. You can still tap Count as correct.</p></div>
       <div class="card"><h2 style="margin-top:0">Your progress</h2><p class="small muted" style="margin-top:0">Progress is stored only on this device. Export it to back up or move to another device.</p>
@@ -751,11 +770,18 @@
       <p class="small"><b>Drills:</b> practice verb forms, articles, and adjective endings anytime. The app asks more about the ones you miss.</p>
       <p class="small"><b>Cheat sheet:</b> all the tables in one place.</p>
       <p class="small"><b>Words:</b> search the list, or tap a word to test it.</p>
-      <p class="small">Your progress stays on this device. No account needed, and it works offline.</p></div>
-      <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">More packs (Dante’s <i>Commedia</i>, Rome & travel) are planned.</p></div>
+      <p class="small">Your progress stays on this device. No account needed, and it works offline.</p>
+      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small">Dante adds words from the Inferno.</p>' : ''}</div>
+      <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">Rome &amp; travel is planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
       <p class="small"><b>Word list:</b> frequencies from FrequencyWords by Hermit Dave (OpenSubtitles 2018, CC BY-SA 4.0) and the Leipzig Corpora Collection Italian news 2023–24 (CC BY 4.0). Forms checked with Morph-it! (CC BY-SA 2.0 / LGPL) and English Wiktionary via kaikki.org (CC BY-SA). Glosses written for this app.</p>
+      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small"><b>Dante:</b> Inferno text from Project Gutenberg eBook #997 (public domain in the USA). Lemmas from Morph-it! (CC BY-SA 2.0 / LGPL). Glosses written for this app.</p>' : ''}
       <p class="small">Made by Eric Ianni. App code: MIT. Word data: CC BY-SA 4.0. Source: github.com/ericianni/italiano-1500. Version ${VERSION}.</p></div>`;
+    $$('#spack button').forEach(b => b.onclick = () => {
+      const n = Packs.normalize(b.dataset.v);
+      if (n.id === S.set.pack) return;
+      S.set.pack = n.id; S.packs = n.packs; save(); location.reload();
+    });
     $$('#snew button').forEach(b => b.onclick = () => { S.set.newPerDay = +b.dataset.v; save(); renderAbout(); });
     $$('#sacc button').forEach(b => b.onclick = () => { S.set.strict = b.dataset.v === '1'; save(); renderAbout(); });
     $('#exp').onclick = () => UI.download('italiano1500-progress-' + new Date().toISOString().slice(0, 10) + '.json', store.exportText(S));
