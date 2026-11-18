@@ -1,6 +1,6 @@
 # AGENTS.md — Italiano 1500
 
-Offline PWA for the 1,500 most common Italian words (sister to Latin 1400). Tabs: Cards, Learn (11 lessons), Drills (Type / Identify / Mix), Cheat sheet, Words, About. Live at https://ericianni.github.io/italiano-1500/. No backend; progress in `localStorage` key `italiano1500.v1`. Core modules are language-agnostic UMD; Italian lives under `lang/it/`.
+Offline PWA for the 1,500 most common Italian words (sister to Latin 1400). Tabs: Cards, Learn (11 lessons; Dante readings when that pack is on), Drills (Type / Identify / Mix), Cheat sheet, Words, About. Live at https://ericianni.github.io/italiano-1500/. No backend; progress in `localStorage` key `italiano1500.v1`. Core modules are language-agnostic UMD; Italian lives under `lang/it/`.
 
 ## File map
 
@@ -22,6 +22,7 @@ Offline PWA for the 1,500 most common Italian words (sister to Latin 1400). Tabs
 | `lang/it/sentences_lexicon.js` | Hand-tagged Rome-trip lexicon for the sentence engine (`ItSentLex`) |
 | `lang/it/sentences.js` | Rule-based sentence engine (`ItSentences`); no model, no network |
 | `lang/it/lessons.js` | 11 lesson specs (`LESSONS`) |
+| `lang/it/dante_lessons.js` | Dante readings for Learn: one language lesson and Inferno I–XXXIV. Shown only when the Dante pack is on |
 | `data/packs/index.json` | Pack list |
 | `data/packs/core/manifest.json` + `words.json` | Core 1,500-word pack |
 | `data/packs/dante/` | Dante Inferno pack (optional; lemmas not in the core list) |
@@ -110,7 +111,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 ## Release / Git
 
 - What the app does, in plain language: `docs/behavior.md`.
-- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v16`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
+- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v17`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
 - **Docs-only** commits do **not** need a cache bump.
 - Android wrapper (first APK): `io.github.ericianni.italiano1500`, display name Italiano 1500, `versionCode` 1, `versionName` `v14-android-1` (aligned with cache `italiano1500-v14`). Do **not** edit `android/` or `www/` for a web-only release. `www/` is gitignored; `npm run build:web` recopies the PWA (including `sw.js`, `core/`, `lang/`, `data/`, `icons/`, and `fonts/` when that directory exists). The service worker is not registered when `window.Capacitor` is set, because the APK already bundles the assets. The GitHub Pages PWA is unchanged.
 - APK build is local only. Do **not** sign, publish, or generate a keystore in the cloud. Signing uses the existing debug keystore on Eric’s computer (`~/.android/debug.keystore`, the same key as the delivered Latin APKs). Requires Node, JDK 21, and Android SDK platform 36: `JAVA_HOME=/opt/jdk21 ANDROID_HOME=/opt/android-sdk npm run android:debug`. Output: `android/app/build/outputs/apk/debug/app-debug.apk`. `npm run android:sync` stops before Gradle.

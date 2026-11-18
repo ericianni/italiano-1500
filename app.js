@@ -5,13 +5,13 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v16';
+  const VERSION = 'v17';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
   const POS = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', num: 'number', art: 'article' };
   const CONJ = { are: '-are', ere: '-ere', ire: '-ire', isc: '-ire (-isc-)' };
-  let W = [], BY = {}, BYIT = {}, PACKS = [], S, U = {}, UALL = {}, CTX = {}, Q = null, TAB = 'today';
+  let W = [], BY = {}, BYIT = {}, CARD = {}, PACKS = [], S, U = {}, UALL = {}, CTX = {}, Q = null, TAB = 'today';
   let TEST = null;   // Test mode: { id, snap }. Nothing is saved while it is on; leaving it restores the snapshot.
 
   function fix(s) {
@@ -576,12 +576,17 @@
 
   // ---------- learn ----------
   const lessonDone = id => !!S.lessons[id];
+  function lessonList() {
+    const extra = (S.packs || []).indexOf('dante') >= 0 && window.DANTE_LESSONS ? window.DANTE_LESSONS : [];
+    return extra.length ? LS.concat(extra) : LS;
+  }
   function renderLearn() {
-    $('#sub').textContent = 'Grammar lessons';
-    const n = LS.filter(l => lessonDone(l.id)).length, secs = [...new Set(LS.map(l => l.sec))];
-    V().innerHTML = `<div class="card"><div class="prompt-kind">Lessons · about 5–10 minutes each</div>
-      <p class="small muted" style="margin:6px 0 10px">The grammar behind the drills, with tables and a short quick check. <b>${n}</b> of ${LS.length} done.</p>${goalBar(n, LS.length)}</div>
-      ${secs.map(s => `<h3>${esc(s)}</h3><div class="card llist">${LS.filter(l => l.sec === s).map(l => `<button class="lrow" data-l="${l.id}"><span class="lck${lessonDone(l.id) ? ' on' : ''}" aria-label="${lessonDone(l.id) ? 'done' : 'not done'}">${lessonDone(l.id) ? '✓' : LS.indexOf(l) + 1}</span><span class="grow"><b>${esc(l.title)}</b><br><span class="small muted">${esc(l.sum)}</span></span></button>`).join('')}</div>`).join('')}`;
+    const all = lessonList(), reading = all.length !== LS.length;
+    $('#sub').textContent = reading ? 'Lessons' : 'Grammar lessons';
+    const n = all.filter(l => lessonDone(l.id)).length, secs = [...new Set(all.map(l => l.sec))];
+    V().innerHTML = `<div class="card"><div class="prompt-kind">${reading ? 'Lessons' : 'Lessons · about 5–10 minutes each'}</div>
+      <p class="small muted" style="margin:6px 0 10px">${reading ? 'Grammar lessons have tables and a short quick check. The Dante readings are the poem, with plain English under each tercet.' : 'The grammar behind the drills, with tables and a short quick check.'} <b>${n}</b> of ${all.length} done.</p>${goalBar(n, all.length)}</div>
+      ${secs.map(s => `<h3>${esc(s)}</h3><div class="card llist">${all.filter(l => l.sec === s).map(l => `<button class="lrow" data-l="${l.id}"><span class="lck${lessonDone(l.id) ? ' on' : ''}" aria-label="${lessonDone(l.id) ? 'done' : 'not done'}">${lessonDone(l.id) ? '✓' : all.indexOf(l) + 1}</span><span class="grow"><b>${esc(l.title)}</b><br><span class="small muted">${esc(l.sum)}</span></span></button>`).join('')}</div>`).join('')}`;
     $$('.lrow').forEach(b => b.onclick = () => openLesson(b.dataset.l));
   }
   function markLesson(id, score, total) { const o = S.lessons[id] || {}; S.lessons[id] = { d: today(), s: score != null ? Math.max(score, o.s || 0) : o.s, n: total || o.n }; save(); }
@@ -590,10 +595,42 @@
     const ids = new Set(); for (const c of Object.keys(UALL)) if (re.test(c)) UALL[c].forEach(i => ids.add(i));
     return [...ids].map(i => BY[i]).sort((a, b) => a.rank - b.rank).slice(0, 6);
   }
+  function glossHTML(row) {
+    return `<div class="gline">${row.map(tok => {
+      const w = tok.to && CARD[tok.to];
+      const it = w ? `<button type="button" class="wlink" data-card="${esc(w.id)}">${esc(tok.t)}</button>` : `<b lang="it">${esc(tok.t)}</b>`;
+      return `<span class="gw">${it}<span>${esc(tok.e)}</span></span>`;
+    }).join('')}</div>`;
+  }
+  function quoteHTML(q) {
+    const a = q.start, b = a + q.lines.length - 1;
+    const label = a === b ? 'Line ' + a : 'Lines ' + a + '–' + b;
+    return `<div class="tercet"><div class="small muted">${label}</div>
+      <div class="verse" lang="it">${q.lines.map(esc).join('<br>')}</div>
+      ${q.lines.map((_, i) => glossHTML(q.gloss[i])).join('')}
+      <p>${esc(q.en)}</p>${q.note ? `<p class="small muted">${esc(q.note)}</p>` : ''}</div>`;
+  }
+  function openReading(l, all, i) {
+    const nx = all[i + 1], st = S.lessons[l.id];
+    const tables = (l.tables || []).map(table).join('');
+    const quotes = (l.quotes || []).map(quoteHTML).join('');
+    $('#sub').textContent = 'Lesson ' + (i + 1) + ' of ' + all.length;
+    V().innerHTML = `<div class="row"><button class="link" id="lback">‹ All lessons</button><span class="grow"></span>${st ? '<span class="ok small">✓ Done</span>' : ''}</div>
+      <div class="card lesson"><div class="prompt-kind">${esc(l.sec)}</div><h2 style="margin:4px 0 8px">${esc(l.title)}</h2>${l.body || ''}${l.plot ? `<p>${esc(l.plot)}</p>` : ''}${quotes}</div>
+      ${tables ? `<div class="card"><h3 style="margin-top:0">Forms</h3>${tables}</div>` : ''}
+      <div class="card"><div class="row">${st ? '' : '<button class="grow" id="lmark">Mark as done</button>'}${nx ? `<button class="grow" id="lnext">Next: ${esc(nx.title)} ›</button>` : ''}</div></div>`;
+    $('#lback').onclick = renderLearn;
+    if ($('#lmark')) $('#lmark').onclick = () => { markLesson(l.id); openLesson(l.id); };
+    if ($('#lnext')) $('#lnext').onclick = () => { openLesson(nx.id); window.scrollTo(0, 0); };
+    $$('.wlink').forEach(b => b.onclick = () => enterTest(b.dataset.card));
+    window.scrollTo(0, 0);
+  }
   function openLesson(id) {
-    const i = LS.findIndex(l => l.id === id), l = LS[i]; if (!l) return renderLearn();
-    const nx = LS[i + 1], st = S.lessons[id], ex = lessonExamples(l);
-    $('#sub').textContent = 'Lesson ' + (i + 1) + ' of ' + LS.length;
+    const all = lessonList();
+    const i = all.findIndex(l => l.id === id), l = all[i]; if (!l) return renderLearn();
+    if (l.read) return openReading(l, all, i);
+    const nx = all[i + 1], st = S.lessons[id], ex = lessonExamples(l);
+    $('#sub').textContent = 'Lesson ' + (i + 1) + ' of ' + all.length;
     V().innerHTML = `<div class="row"><button class="link" id="lback">‹ All lessons</button><span class="grow"></span>${st ? '<span class="ok small">✓ Done</span>' : ''}</div>
       <div class="card lesson"><div class="prompt-kind">${esc(l.sec)}</div><h2 style="margin:4px 0 8px">${esc(l.title)}</h2>${l.body}</div>
       <div class="card"><h3 style="margin-top:0">Tables</h3>${l.tables.map(table).join('')}</div>
@@ -631,7 +668,7 @@
     const ask = () => {
       if (i >= qs.length) {
         markLesson(l.id, score, qs.length);
-        const nx = LS[LS.indexOf(l) + 1];
+        const nx = lessonList()[lessonList().indexOf(l) + 1];
         V().innerHTML = `<div class="card done"><div class="check">✓</div><h2>${score} / ${qs.length}</h2><p class="muted">${esc(l.title)} is marked done.${score < qs.length ? ' Look over the tables once more, then try again.' : ''}</p>
           <button class="big" id="lagain">Try another quick check</button><button class="big" id="lback2" style="margin-top:10px">Back to lesson</button>
           ${l.drill ? '<button class="big" id="ldr" style="margin-top:10px">Practice this in Drills</button>' : ''}
@@ -771,7 +808,7 @@
       <p class="small"><b>Cheat sheet:</b> all the tables in one place.</p>
       <p class="small"><b>Words:</b> search the list, or tap a word to test it.</p>
       <p class="small">Your progress stays on this device. No account needed, and it works offline.</p>
-      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small">Dante adds words from the Inferno.</p>' : ''}</div>
+      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small">Dante adds words from the Inferno, and a short reading for each canto.</p>' : ''}</div>
       <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">Rome &amp; travel is planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
       <p class="small"><b>Word list:</b> frequencies from FrequencyWords by Hermit Dave (OpenSubtitles 2018, CC BY-SA 4.0) and the Leipzig Corpora Collection Italian news 2023–24 (CC BY 4.0). Forms checked with Morph-it! (CC BY-SA 2.0 / LGPL) and English Wiktionary via kaikki.org (CC BY-SA). Glosses written for this app.</p>
@@ -807,7 +844,8 @@
       const r = await Packs.load('data/packs/', u => fetch(u).then(x => { if (!x.ok) throw new Error(u + ' ' + x.status); return x.json(); }), new Set(S.packs || []));
       PACKS = r.packs; W = r.words.sort((a, b) => (a.pack === 'core' ? 0 : 1) - (b.pack === 'core' ? 0 : 1) || a.rank - b.rank);
     } catch (e) { V().innerHTML = `<div class="card"><p class="no">Couldn’t load the word list.</p><p class="small muted">${esc(e.message)}</p></div>`; return; }
-    W.forEach(w => { BY[w.id] = w; if (w.pack === 'core') BYIT[w.it] = w; });
+    CARD = {};
+    W.forEach(w => { BY[w.id] = w; if (w.pack === 'core') BYIT[w.it] = w; if (!CARD[w.it] || w.pack === 'core') CARD[w.it] = w; });
     CTX = { agrNouns: D.agrNouns(W) }; UALL = D.buildUnits(W, D.DF); rebuild();
     $$('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
     setTab(location.hash.slice(1) || 'today');

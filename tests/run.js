@@ -310,6 +310,44 @@ for (const l of LESSONS) {
   if (l.quiz.t === 'mc') ok(l.quiz.qs.every(([q, o, a]) => q && o.length >= 2 && o[a] != null && new Set(o).size === o.length), 'mc quiz well-formed: ' + l.id);
   for (const t of l.tables) if (t.t === 'verbs') for (const v of t.vs) ok(t.tense === 'pp' ? M.pastPart(V(v)) : M.tense(V(v), t.tense).length === 6, 'lesson verb table: ' + v);
 }
+const DANTE_L = require('../lang/it/dante_lessons.js');
+eq(DANTE_L.length, 35, 'dante lessons: 35');
+eq(DANTE_L[0].id, 'd-lang', 'dante lessons: language lesson first');
+eq(DANTE_L[0].title, "Dante's Italian", 'dante lessons: title');
+ok(DANTE_L[0].read && DANTE_L[0].body && DANTE_L[0].tables && DANTE_L[0].tables.length, 'dante lessons: language lesson is a reading with a form table');
+eq(DANTE_L.slice(1).map(l => l.canto), Array.from({ length: 34 }, (_, i) => i + 1), 'dante lessons: cantos 1–34');
+ok(DANTE_L.every(l => l.read) && LESSONS.every(l => !String(l.id).startsWith('d-')), 'dante lessons stay out of the grammar list');
+{
+  const fs = require('fs'), path = require('path'), root = path.join(__dirname, '..');
+  const inf = {};
+  for (const line of fs.readFileSync(path.join(root, 'data/dante/inferno.txt'), 'utf8').split('\n')) {
+    if (!line) continue;
+    const tab = line.indexOf('\t');
+    inf[line.slice(0, tab)] = line.slice(tab + 1);
+  }
+  const heads = new Set();
+  for (const file of ['data/packs/core/words.json', 'data/packs/dante/words.json']) {
+    JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')).forEach(w => heads.add(w.it));
+  }
+  let quotes = 0;
+  for (const l of DANTE_L) {
+    if (!l.canto) continue;
+    ok(l.plot && (l.plot.match(/[.!?](?:\s|$)/g) || []).length <= 2 && (l.plot.match(/[.!?](?:\s|$)/g) || []).length >= 1, 'plot length ' + l.canto);
+    ok(l.quotes && l.quotes.length >= 2 && l.quotes.length <= 3, '2–3 passages ' + l.canto);
+    for (const q of l.quotes) {
+      quotes++;
+      ok(q.lines && q.lines.length >= 1 && q.gloss && q.gloss.length === q.lines.length && q.en, 'passage shape ' + l.canto + '.' + q.start);
+      q.lines.forEach((verse, i) => eq(verse, inf[l.canto + '.' + (q.start + i)], 'quote ' + l.canto + '.' + (q.start + i)));
+      q.gloss.forEach(row => row.forEach(tok => { if (tok.to) ok(heads.has(tok.to), 'gloss card ' + tok.to); }));
+    }
+  }
+  ok(quotes >= 68, 'dante lessons quote at least two tercets each');
+}
+{
+  const fs = require('fs'), path = require('path');
+  const appSrc = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
+  ok(/function lessonList\(\)/.test(appSrc) && /DANTE_LESSONS/.test(appSrc) && /indexOf\('dante'\)/.test(appSrc), 'dante lessons follow the pack');
+}
 
 // ---------- core: SRS ----------
 {
@@ -399,11 +437,11 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v16'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v17'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v16'/.test(app), 'app version v16');
+  ok(/const VERSION = 'v17'/.test(app), 'app version v17');
   const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
   ok(/Modern Italian \+ Dante \(Inferno\)/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
   ok(/Dante adds words from the Inferno/.test(app), 'how it works names Dante');

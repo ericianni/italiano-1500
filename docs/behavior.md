@@ -14,6 +14,8 @@ The Cards tab shows two daily counts: new words, and drill answers as N / 20. Th
 
 Eleven short grammar lessons. Tables are built by the same morphology engine that grades drills. A lesson can send you into a matching drill set.
 
+With the Dante pack on, Learn adds a short reading first, “Dante’s Italian,” then one reading for each canto of the Inferno. Each canto has a sentence or two of plot, then two or three tercets quoted from the stored text, with a word-by-word gloss and a plain English line. An underlined word opens that card. These readings have no quick check.
+
 ## Drills
 
 Free practice, separate from the card schedule.
@@ -55,7 +57,9 @@ When that choice is on, cards add lemmas from the Inferno that are not already i
 
 Drills use a Dante word only when the morphology engine can build the form. Other Dante words are marked not in form drills, instead of showing a made-up form. Names are not drilled.
 
-About shows the Dante text and dictionary credits, and the line “Dante adds words from the Inferno,” only while the pack is on.
+About shows the Dante text and dictionary credits, and the line “Dante adds words from the Inferno, and a short reading for each canto,” only while the pack is on.
+
+Learn, while the pack is on, adds Dante’s Italian and cantos I–XXXIV. The lines are quoted from the stored Inferno text.
 
 Lemmas that occur once or twice, and are not in the core list, are written out in `docs/dante-excluded.md`. They are not cards.
 
@@ -77,7 +81,6 @@ The same files can be wrapped as an Android app (`io.github.ericianni.italiano15
 
 ## Not built yet
 
-- Dante canto lessons (job 2)
 - Accuracy pass on the Dante glosses and lemmas (job 3)
 - Audio
 - Purgatorio and Paradiso
