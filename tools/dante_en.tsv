@@ -29,7 +29,7 @@ alcun	det	some; any	-	-	-
 tacere	v	to be silent	-	-	-
 inferno	n	Hell	-	m	-
 scoglio	n	rock, reef	-	m	-
-lasso	adj	weary	lasso = weary	-	-
+lasso	adj	weary; alas	lasso! = alas	-	-
 poeta	n	poet	-	m	-
 oh	int	oh	-	-	-
 cerchio	n	circle (of Hell)	-	m	-
@@ -52,7 +52,7 @@ riva	n	bank, shore	-	f	-
 costui	pron	this man	-	-	-
 monte	n	mountain	-	m	-
 sospirare	v	to sigh	-	-	-
-reo	adj	guilty, wicked	-	-	-
+reo	adj	guilty, wicked	also rio and ria	-	-
 coda	n	tail	-	f	-
 bolgia	n	bolgia, one of Malebolge’s ditches	-	f	-
 frate	n	friar	-	m	-
@@ -63,7 +63,7 @@ fama	n	fame	-	f	-
 domandare	v	to ask	-	-	-
 schiera	n	company, troop	-	f	-
 orribile	adj	horrible	-	-	-
-legno	n	ship (literally “wood”)	-	m	-
+legno	n	wood; a ship	-	m	-
 ciglio	n	brow; eyelid	-	m	-
 distendere	v	to stretch out	-	-	-
 mordere	v	to bite	-	-	-
@@ -78,7 +78,7 @@ savio	n	wise man	-	m	-
 bagnare	v	to wet, to bathe	-	-	-
 alquanto	adv	somewhat	-	-	-
 senno	n	sense, wisdom	-	m	-
-mirare	v	to gaze at	-	-	-
+mirare	v	to gaze at	the form mira is this verb	-	-
 percuotere	v	to strike	-	-	-
 novella	n	news; a tale	-	f	-
 vendetta	n	vengeance	-	f	-
@@ -87,8 +87,8 @@ ambo	det	both	-	-	-
 dosso	n	back; ridge	-	m	-
 principio	n	beginning	-	m	-
 cagione	n	cause	-	f	-
-rio	adj	wicked	also a stream	-	-
-ratto	adj	swift	-	-	-
+rio	n	stream	plural rii	m	-
+ratto	adj	swift; quickly	ratto che = as soon as	-	-
 colei	pron	that woman	-	-	-
 dolente	adj	grieving	-	-	-
 lagrima	n	tear	-	f	-
@@ -99,9 +99,9 @@ ventre	n	belly	-	m	-
 recare	v	to bring	-	-	-
 lento	adj	slow	-	-	-
 torre	n	tower	-	f	-
-scorta	n	escort	-	f	-
+scorta	n	escort; also seen	-	f	-
 fesso	adj	split	-	-	-
-ve	adv	there	ve = vi	-	-
+# ve is ’ve = dove (where), a core word, not a card
 giunto	adj	arrived	past participle of giungere	-	-
 calle	n	path	-	m	-
 animo	n	spirit, mind	-	m	-
@@ -116,12 +116,12 @@ dea	n	goddess	-	f	-
 crudele	adj	cruel	-	-	-
 lieto	adj	glad	-	-	-
 aura	n	breeze	-	f	-
-conte	adj	known	conte = known, not “count”	-	-
+conte	adj	known, clear	also trained, of the hounds (33.31). Not the title Count.	-	-
 crucciare	v	to anger	-	-	-
 colare	v	to strain; often colà, “over there”	uncertain: colà was sometimes read as this verb	-	-
 crudo	adj	harsh, cruel	-	-	-
 lungi	adv	far off	-	-	-
-mira	n	aim, goal	-	f	-
+# mira the form belongs to mirare
 roccia	n	rock, cliff	-	f	-
 bollire	v	to boil	-	-	-
 cima	n	summit	-	f	-
@@ -130,7 +130,6 @@ mo'	adv	now	mo = ora	-	-
 tosco	adj	Tuscan	-	-	-
 sasso	n	stone	-	m	-
 girone	n	ring (of Hell)	-	m	-
-fero	adj	fierce	-	-	-
 sermone	n	speech	-	m	-
 vergogna	n	shame	-	f	-
 cascare	v	to fall	-	-	-
@@ -143,8 +142,8 @@ vena	n	vein	-	f	-
 ivi	adv	there	-	-	-
 favellare	v	to speak	-	-	-
 chinare	v	to bow, to bend	-	-	-
-divina	adj	divine	-	-	-
-nuda	adj	naked	-	-	-
+# divina is the feminine of divino
+# nuda is the feminine of nudo
 cenno	n	a sign	-	m	-
 vermiglio	adj	vermilion, red	-	-	-
 accogliere	v	to receive	-	-	-
@@ -172,7 +171,7 @@ pendere	v	to hang	-	-	-
 muso	n	snout	-	m	-
 corno	n	horn	-	m	-
 gigante	n	giant	-	m	-
-oscurare	v	to darken	-	-	-
+# oscura and oscuro are the adjective oscuro, not the verb
 aspro	adj	harsh	-	-	-
 diserto	adj	deserted	diserto = deserto	-	-
 gramo	adj	wretched	-	-	-
@@ -187,10 +186,10 @@ smarrito	adj	lost	-	-	-
 minore	adj	lesser	-	-	-
 ardere	v	to burn	-	-	-
 miseria	n	misery	-	f	-
-somma	n	the height; the sum	-	f	-
+# somma sapienza is the adjective sommo
 confortare	v	to comfort; to strengthen	-	-	-
 aggirare	v	to circle	-	-	-
-fiero	adj	fierce	-	-	-
+fiero	adj	fierce	also fero and fier	-	-
 gota	n	cheek	-	f	-
 pigliare	v	to take	pigliare = prendere	-	-
 ficcare	v	to thrust	-	-	-
@@ -199,7 +198,7 @@ angoscia	n	anguish	-	f	-
 martire	n	torment	-	m	-
 offendere	v	to harm	-	-	-
 avanzare	v	to go beyond; to surpass	-	-	-
-latino	n	a Latin; the Latin language	-	m	-
+latino	n	Italian; a Latin	-	m	-
 nota	n	fame; a note	-	f	-
 muto	adj	mute	-	-	-
 universo	n	the universe	-	m	-
@@ -235,7 +234,7 @@ argine	n	embankment	-	m	-
 rotare	v	to wheel, to turn	-	-	-
 ingannare	v	to deceive	-	-	-
 ghiacciare	v	to freeze	-	-	-
-selvaggia	adj	wild	-	-	-
+selvaggio	adj	wild	-	-	-
 scorgere	v	to make out	-	-	-
 compunto	adj	pierced with grief	-	-	-
 lena	n	breath	-	f	-
@@ -253,7 +252,7 @@ sospendere	v	to leave hanging	-	-	-
 soave	adj	sweet, gentle	-	-	-
 lodare	v	to praise	-	-	-
 assalire	v	to attack	-	-	-
-ardire	v	to dare	-	-	-
+ardire	v	boldness; to dare	-	-	-
 gelo	n	frost, ice	-	m	-
 perduto	adj	lost	-	-	-
 sommo	adj	highest	-	-	-
@@ -289,7 +288,7 @@ sentenza	n	judgment	-	f	-
 nuocere	v	to harm	-	-	-
 vela	n	sail	-	f	-
 stipare	v	to pack tight	-	-	-
-potare	v	to prune	-	-	-
+# poterebbe, potero, and potavam are potere, not potare
 erba	n	grass	-	f	-
 croce	n	cross	-	f	-
 pantano	n	mire	-	m	-
@@ -318,7 +317,7 @@ artigliare	v	to claw	-	-	-
 ricominciare	v	to begin again	-	-	-
 scheggia	n	splinter	-	f	-
 convertire	v	to turn	-	-	-
-foce	n	river mouth	-	f	-
+foce	n	opening; a river mouth	-	f	-
 pascere	v	to feed, to graze	-	-	-
 nudo	adj	naked	-	-	-
 suolo	n	ground	-	m	-
@@ -339,7 +338,7 @@ penna	n	feather; pen	-	f	-
 osso	n	bone	-	m	-
 pece	n	pitch	-	f	-
 uncino	n	hook	-	m	-
-leva	n	lever	-	f	-
+# leva and leva sù are levare; leve here is easy
 trafiggere	v	to pierce through	-	-	-
 Pistoia	n	Pistoia	-	-	name
 coscia	n	thigh	-	f	-
@@ -387,7 +386,7 @@ viltà	n	cowardice	-	f	-
 Silvestro	n	Sylvester	-	-	name
 oscuro	adj	dark	-	-	-
 tinta	n	color, dye	-	f	-
-colorare	v	to color	-	-	-
+# coloro is the pronoun; colorata occurs once
 mischiare	v	to mix	-	-	-
 setta	n	sect	-	f	-
 spiacere	v	to displease	-	-	-
@@ -446,7 +445,7 @@ ristringere	v	to draw tight	-	-	-
 folto	adj	thick	-	-	-
 tardare	v	to delay	-	-	-
 puzzo	n	stench	-	m	-
-dritta	n	the right-hand side	-	f	-
+# dritte and dritta are the adjective dritto
 tempia	n	temple of the head	-	f	-
 feroce	adj	fierce	-	-	-
 fendere	v	to split	-	-	-
@@ -460,7 +459,7 @@ supino	adj	face up	-	-	-
 piegare	v	to bend	-	-	-
 deh	int	ah; pray	-	-	-
 nodo	n	knot	-	m	-
-tacciare	v	to blame	-	-	-
+# taccio and Taccia are tacere, to be silent
 sentiero	n	path	-	m	-
 violentare	v	to do violence to	-	-	-
 groppo	n	a knot	-	m	-
@@ -478,15 +477,15 @@ tiranno	n	tyrant	-	m	-
 Alessandro	n	Alexander	-	-	name
 premere	v	to press	-	-	-
 gemere	v	to groan	-	-	-
-cogliere	v	to seize	-	-	-
+cogliere	v	to gather; cólti means cultivated	-	-	-
 annunziare	v	to announce	-	-	-
 vece	n	stead (in vece di)	-	f	-
 riedere	v	to come back	-	-	-
 sorgere	v	to rise	-	-	-
 porco	n	pig	-	m	-
-misera	adj	wretched	-	-	-
+# misera is the feminine of misero
 acuto	adj	sharp	-	-	-
-muta	n	a pack of hounds	-	f	-
+# a muta a muta is shift after shift; the verb muta is mutare
 dispetto	n	scorn	-	m	-
 marginare	n	edge	margine, not a verb	m	-
 guasto	adj	ruined	-	-	-
@@ -523,7 +522,7 @@ appiccare	v	to fasten on	-	-	-
 richiudere	v	to shut again	-	-	-
 greco	n	a Greek	-	m	-
 linguaggio	n	speech	-	m	-
-latina	adj	Latin	-	-	-
+# latina is the feminine of latino
 traditore	n	traitor	-	m	-
 falsare	v	to falsify	-	-	-
 freddura	n	a cold joke	-	f	-
@@ -538,7 +537,7 @@ veggia	n	a cask	-	f	-
 disio	n	desire	disio = desiderio	m	-
 giudicio	n	judgment	giudicio = giudizio	m	-
 nimica	n	female enemy	nimica = nemica	f	-
-favelle	n	speech	favella = speech	f	-
+favelle	n	speech	favella = parola	f	-
 elle	pron	they (women)	elle = esse	-	-
 rena	n	sand	-	f	-
 cotesti	det	those	cotesti = codesti	-	-
@@ -582,7 +581,7 @@ ovra	n	work, a deed	ovra = opera	f	-
 lece	v	it is allowed	lece = è lecito	-	-
 disdegnoso	adj	scornful	-	-	-
 arno	n	the Arno	-	-	name
-alpe	n	the Alps	-	f	-
+alpe	n	a high mountain; the Alps	-	f	-
 giove	n	Jove	-	-	name
 tebe	n	Thebes	-	-	name
 cocito	n	Cocytus	-	-	name

@@ -2,7 +2,7 @@
 
 Lemmas attested in the Inferno that are not in the core 1,500 and occur only once or twice. They are not cards.
 
-Count: 2942.
+Count: 2941.
 
 | Lemma | Count | First | Gloss |
 | --- | --- | --- | --- |
@@ -2466,7 +2466,6 @@ Count: 2942.
 | segretamente | 1 | 8.87 |  |
 | seguette | 1 | 25.40 |  |
 | seguitarmi | 1 | 28.57 |  |
-| selvaggio | 1 | 1.93 |  |
 | sembianti | 1 | 4.113 |  |
 | sembiar | 1 | 16.87 |  |
 | sembiava | 1 | 1.50 |  |

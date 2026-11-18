@@ -437,11 +437,11 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v17'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v18'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v17'/.test(app), 'app version v17');
+  ok(/const VERSION = 'v18'/.test(app), 'app version v18');
   const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
   ok(/Modern Italian \+ Dante \(Inferno\)/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
   ok(/Dante adds words from the Inferno/.test(app), 'how it works names Dante');

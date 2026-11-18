@@ -73,15 +73,14 @@ The same files can be wrapped as an Android app (`io.github.ericianni.italiano15
 
 ## Known gaps
 
-- Many Dante verbs, adjectives, and archaic spellings are not in form drills. The engine would otherwise grade a modern pattern the line does not use.
-- A few Dante counts mix a rare second sense into one lemma (for example *torre*, “tower,” with the verb *tòrre*, “to take”). Those cards say so in the note.
+- The Inferno text is Project Gutenberg eBook #997, public domain in the United States, checked against the standard 4,720-line numbering. It is not Petrocchi’s critical edition.
+- 204 Dante words are marked not in form drills. Those are names, adjectives, and spellings the morphology engine would grade with a modern pattern the line does not use.
+- A few cards still mix two uses. *scorta* is both “escort” and “seen.” *lasso* is both “weary” and “alas.” *latino* also includes the surname Latino. The title Count occurs only twice, so it is not a card. *là ’ve* is *dove*, “where,” and is not a separate card.
 - Sentence drills use the Rome-trip lexicon only. They do not draw Dante pack words.
-- The Inferno text is the public-domain Project Gutenberg file, checked against the standard 4,720-line numbering. It is not Petrocchi’s copyrighted critical edition.
 - Words that occur only once or twice in the Inferno are listed, not taught.
 
 ## Not built yet
 
-- Accuracy pass on the Dante glosses and lemmas (job 3)
 - Audio
 - Purgatorio and Paradiso
 - A Rome pack

@@ -106,6 +106,10 @@ TO_CORE_OR_HEAD = {
     'attender': 'attendere', 'guardommi': 'guardare', 'volsimi': 'volgere', 'dilli': 'dire',
     'ntese': 'intendere', 'nnanzi': 'innanzi', 'ogn': 'ogni', 'gliel': None,
     'v': 'vedere', "v'è": 'essere', "v'era": 'essere', "t'ho": 'avere',
+    # ’ve in là ’ve is ove/dove, “where”, not the pronoun vi.
+    've': 'dove', "'ve": 'dove',
+    # Morph-it reads these as potare, “to prune”. In the Inferno they are potere.
+    'poterebbe': 'potere', 'potero': 'potere', 'potavam': 'potere',
 }
 
 # Dante headwords that must NOT collapse into a modern core word.

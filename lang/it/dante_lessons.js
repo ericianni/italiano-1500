@@ -947,7 +947,8 @@
       },
       {
        "t": "rio",
-       "e": "sin"
+       "e": "wickedness",
+       "to": "reo"
       }
      ],
      [
@@ -1009,7 +1010,7 @@
      ]
     ],
     "en": "For those faults, and for no other sin, we are lost, and hurt only in this: without hope we live in longing.",
-    "note": "Here rio means a sin, not a stream."
+    "note": "This rio means wickedness, the same word as reo. It is not the stream."
    },
    {
     "canto": 4,
@@ -1597,7 +1598,7 @@
      ]
     ],
     "en": "Two men are just, and no one listens to them. Pride, envy, and greed are the three sparks that have set hearts on fire.",
-    "note": "The poem does not name the two just men."
+    "note": "Commentators debate who the two just men are. The poem does not name them."
    }
   ]
  },
@@ -1622,23 +1623,23 @@
      [
       {
        "t": "Pape",
-       "e": "pape"
+       "e": "(no meaning)"
       },
       {
-       "t": "Satàn",
-       "e": "Satan"
+       "t": "Satàn,",
+       "e": "(no meaning)"
       },
       {
        "t": "pape",
-       "e": "pape"
+       "e": "(no meaning)"
       },
       {
        "t": "Satàn",
-       "e": "Satan"
+       "e": "(no meaning)"
       },
       {
-       "t": "aleppe",
-       "e": "aleppe"
+       "t": "aleppe!",
+       "e": "(no meaning)"
       }
      ],
      [
@@ -1699,8 +1700,8 @@
       }
      ]
     ],
-    "en": "Plutus began, in a clucking voice: Pape Satàn, pape Satàn aleppe. The wise, noble man who knew everything answered.",
-    "note": "Pape Satàn aleppe is a shout, not an ordinary sentence."
+    "en": "Plutus began in a clucking voice. The cry is an untranslatable shout, not a sentence. The wise, noble man who knew everything is about to answer.",
+    "note": "Pape Satàn aleppe is an untranslatable shout. Do not read it as a sentence."
    },
    {
     "canto": 7,
@@ -3224,7 +3225,13 @@
     "lines": [
      "Se Giove stanchi ’l suo fabbro da cui",
      "crucciato prese la folgore aguta",
-     "onde l’ultimo dì percosso fui;"
+     "onde l’ultimo dì percosso fui;",
+     "o s’elli stanchi li altri a muta a muta",
+     "in Mongibello a la focina negra,",
+     "chiamando “Buon Vulcano, aiuta, aiuta!”,",
+     "sì com’ el fece a la pugna di Flegra,",
+     "e me saetti con tutta sua forza:",
+     "non ne potrebbe aver vendetta allegra»."
     ],
     "gloss": [
      [
@@ -3305,10 +3312,191 @@
        "t": "fui",
        "e": "I was"
       }
+     ],
+     [
+      {
+       "t": "o",
+       "e": "or"
+      },
+      {
+       "t": "s’elli",
+       "e": "if he"
+      },
+      {
+       "t": "stanchi",
+       "e": "should weary"
+      },
+      {
+       "t": "li",
+       "e": "the"
+      },
+      {
+       "t": "altri",
+       "e": "others"
+      },
+      {
+       "t": "a",
+       "e": "in"
+      },
+      {
+       "t": "muta",
+       "e": "a shift"
+      },
+      {
+       "t": "a",
+       "e": "after"
+      },
+      {
+       "t": "muta",
+       "e": "a shift"
+      }
+     ],
+     [
+      {
+       "t": "in",
+       "e": "in"
+      },
+      {
+       "t": "Mongibello",
+       "e": "Mongibello"
+      },
+      {
+       "t": "a",
+       "e": "at"
+      },
+      {
+       "t": "la",
+       "e": "the"
+      },
+      {
+       "t": "focina",
+       "e": "forge"
+      },
+      {
+       "t": "negra",
+       "e": "black"
+      }
+     ],
+     [
+      {
+       "t": "chiamando",
+       "e": "calling"
+      },
+      {
+       "t": "Buon",
+       "e": "good"
+      },
+      {
+       "t": "Vulcano",
+       "e": "Vulcan"
+      },
+      {
+       "t": "aiuta",
+       "e": "help"
+      },
+      {
+       "t": "aiuta",
+       "e": "help"
+      }
+     ],
+     [
+      {
+       "t": "sì",
+       "e": "just"
+      },
+      {
+       "t": "com’",
+       "e": "as"
+      },
+      {
+       "t": "el",
+       "e": "he"
+      },
+      {
+       "t": "fece",
+       "e": "did"
+      },
+      {
+       "t": "a",
+       "e": "at"
+      },
+      {
+       "t": "la",
+       "e": "the"
+      },
+      {
+       "t": "pugna",
+       "e": "battle"
+      },
+      {
+       "t": "di",
+       "e": "of"
+      },
+      {
+       "t": "Flegra",
+       "e": "Phlegra"
+      }
+     ],
+     [
+      {
+       "t": "e",
+       "e": "and"
+      },
+      {
+       "t": "me",
+       "e": "me"
+      },
+      {
+       "t": "saetti",
+       "e": "should shoot"
+      },
+      {
+       "t": "con",
+       "e": "with"
+      },
+      {
+       "t": "tutta",
+       "e": "all"
+      },
+      {
+       "t": "sua",
+       "e": "his"
+      },
+      {
+       "t": "forza",
+       "e": "strength",
+       "to": "forza"
+      }
+     ],
+     [
+      {
+       "t": "non",
+       "e": "not"
+      },
+      {
+       "t": "ne",
+       "e": "from it"
+      },
+      {
+       "t": "potrebbe",
+       "e": "could"
+      },
+      {
+       "t": "aver",
+       "e": "have"
+      },
+      {
+       "t": "vendetta",
+       "e": "revenge",
+       "to": "vendetta"
+      },
+      {
+       "t": "allegra",
+       "e": "glad"
+      }
      ]
     ],
-    "en": "If Jove wears out his smith, from whom in anger he took the sharp bolt that struck me on my last day.",
-    "note": "The threat continues in the next lines."
+    "en": "If Jove should wear out his smith, from whom in anger he took the sharp bolt that struck me on my last day, or wear out the others, shift after shift, at the black forge in Mongibello, crying “Good Vulcan, help, help!” as he did at the battle of Phlegra, and shoot me with all his strength, he could not have a glad revenge."
    }
   ]
  },
@@ -4550,15 +4738,15 @@
       },
       {
        "t": "passion",
-       "e": "sorrow"
+       "e": "pity"
       },
       {
        "t": "comporta",
-       "e": "admits"
+       "e": "brings"
       }
      ]
     ],
-    "en": "Here pity lives when it is truly dead. Who is more criminal than the person who feels grief at God’s judgment?"
+    "en": "Here pity lives when it is truly dead. Who is more wicked than the person who brings pity to God’s judgment?"
    },
    {
     "canto": 20,
@@ -4870,7 +5058,7 @@
      ]
     ],
     "en": "To that city which is well supplied with them. Every man there is a grafter except Bonturo. There, for money, no becomes yes.",
-    "note": "Calling Bonturo the exception is a joke. ita is an old word for yes."
+    "note": "Bonturo Dati was Lucca’s most famous grafter, so “except Bonturo” means not even him. ita is an old word for yes: for money, no becomes yes."
    }
   ]
  },
@@ -7052,23 +7240,23 @@
      [
       {
        "t": "Raphèl",
-       "e": "Raphel"
+       "e": "(not Italian)"
       },
       {
        "t": "maì",
-       "e": "mai"
+       "e": "(not Italian)"
       },
       {
        "t": "amècche",
-       "e": "amecche"
+       "e": "(not Italian)"
       },
       {
        "t": "zabì",
-       "e": "zabi"
+       "e": "(not Italian)"
       },
       {
        "t": "almi",
-       "e": "almi"
+       "e": "(not Italian)"
       }
      ],
      [
@@ -7077,8 +7265,12 @@
        "e": "began"
       },
       {
-       "t": "a gridar",
-       "e": "to shout"
+       "t": "a",
+       "e": "to"
+      },
+      {
+       "t": "gridar",
+       "e": "shout"
       },
       {
        "t": "la",
@@ -7104,8 +7296,12 @@
        "e": "not"
       },
       {
-       "t": "si convenia",
-       "e": "it was fitting"
+       "t": "si",
+       "e": "it"
+      },
+      {
+       "t": "convenia",
+       "e": "was fitting"
       },
       {
        "t": "più",
@@ -7121,8 +7317,8 @@
       }
      ]
     ],
-    "en": "Raphèl maì amècche zabì almi, the fierce mouth began to shout, for which sweeter psalms were not fitting.",
-    "note": "Nimrod’s shout is not Italian."
+    "en": "The fierce mouth began to shout words that are not Italian and have no meaning. Sweeter psalms would not have suited it.",
+    "note": "Nimrod’s shout is not Italian. It has no meaning."
    }
   ]
  },
@@ -7644,7 +7840,7 @@
      ]
     ],
     "en": "Already blind, I went groping over each of them, and I called them for two days after they were dead. Then hunger could do more than grief.",
-    "note": "The line does not say what the hunger made him do."
+    "note": "The line can mean that hunger killed him, or that hunger drove him to eat the bodies. It does not say which."
    }
   ]
  },
@@ -7743,7 +7939,7 @@
      ]
     ],
     "en": "The banners of the king of Hell move forward toward us. Look ahead, my master said, and see if you can make him out.",
-    "note": "The first line is Latin, turned from a hymn."
+    "note": "The first line is Latin, the hymn Vexilla regis prodeunt, with inferni, “of Hell,” added. It is not Italian."
    },
    {
     "canto": 34,
@@ -7751,7 +7947,10 @@
     "lines": [
      "Lo ’mperador del doloroso regno",
      "da mezzo ’l petto uscia fuor de la ghiaccia;",
-     "e più con un gigante io mi convegno,"
+     "e più con un gigante io mi convegno,",
+     "che i giganti non fan con le sue braccia:",
+     "vedi oggimai quant’ esser dee quel tutto",
+     "ch’a così fatta parte si confaccia."
     ],
     "gloss": [
      [
@@ -7783,7 +7982,7 @@
       },
       {
        "t": "mezzo",
-       "e": "half"
+       "e": "mid"
       },
       {
        "t": "’l",
@@ -7796,7 +7995,7 @@
       },
       {
        "t": "uscia",
-       "e": "was issuing"
+       "e": "was coming out"
       },
       {
        "t": "fuor",
@@ -7842,13 +8041,112 @@
        "e": "I"
       },
       {
-       "t": "mi convegno",
-       "e": "I compare"
+       "t": "mi",
+       "e": "myself"
+      },
+      {
+       "t": "convegno",
+       "e": "compare"
+      }
+     ],
+     [
+      {
+       "t": "che",
+       "e": "than"
+      },
+      {
+       "t": "i",
+       "e": "the"
+      },
+      {
+       "t": "giganti",
+       "e": "giants",
+       "to": "gigante"
+      },
+      {
+       "t": "non",
+       "e": "not"
+      },
+      {
+       "t": "fan",
+       "e": "do"
+      },
+      {
+       "t": "con",
+       "e": "with"
+      },
+      {
+       "t": "le",
+       "e": "the"
+      },
+      {
+       "t": "sue",
+       "e": "his"
+      },
+      {
+       "t": "braccia",
+       "e": "arms",
+       "to": "braccio"
+      }
+     ],
+     [
+      {
+       "t": "vedi",
+       "e": "see"
+      },
+      {
+       "t": "oggimai",
+       "e": "now"
+      },
+      {
+       "t": "quant’",
+       "e": "how great"
+      },
+      {
+       "t": "esser",
+       "e": "to be"
+      },
+      {
+       "t": "dee",
+       "e": "must"
+      },
+      {
+       "t": "quel",
+       "e": "that"
+      },
+      {
+       "t": "tutto",
+       "e": "whole"
+      }
+     ],
+     [
+      {
+       "t": "ch’a",
+       "e": "which with"
+      },
+      {
+       "t": "così",
+       "e": "such"
+      },
+      {
+       "t": "fatta",
+       "e": "made"
+      },
+      {
+       "t": "parte",
+       "e": "a part"
+      },
+      {
+       "t": "si",
+       "e": "itself"
+      },
+      {
+       "t": "confaccia",
+       "e": "fits"
       }
      ]
     ],
-    "en": "The emperor of the painful kingdom was coming out of the ice from mid-chest, and I match a giant more nearly.",
-    "note": "The next line finishes it: more than the giants compare with his arms."
+    "en": "The emperor of the painful kingdom stood out of the ice from mid-chest. I am closer in size to a giant than the giants are to his arms. See now how huge the whole must be, to fit a part like that."
    },
    {
     "canto": 34,
