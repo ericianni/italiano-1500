@@ -116,3 +116,37 @@ td.en{font-family:inherit;color:var(--muted);white-space:normal}
 .jump a.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .ovbody .jump{top:-8px;margin:-8px -16px 8px;padding:8px 16px;background:var(--bg)}
 .sheet [id]{scroll-margin-top:calc(var(--jh,48px) + 8px)}
+/* Descent theme: only while the Dante pack is on. Moderate ember, not the hot variant. Georgia stands in for the mock’s display faces so the page stays offline. */
+.ico-flame,.circle-chip,.tab-ico,.gate-orn,.pack-badge{display:none}
+.tab-ico{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.tab-ico .fill{fill:currentColor;stroke:none}
+.tab-ico .wstem{stroke-width:2.2;fill:none}
+body.theme-descent{--bg:#f3eadc;--card:#fffaf3;--ink:#1f1612;--muted:#534338;--line:#e0b898;--accent:#9b2d12;--accent-ink:#fffaf3;--good:#7a2410;--bad:#8a1e18;--soft:#efe4d4;background:#f3eadc;color:#1f1612}
+body.theme-descent .top{align-items:center;gap:.45rem;margin:0 -0px;padding:calc(8px + env(safe-area-inset-top)) 14px 12px;background:radial-gradient(90% 70% at 50% 118%,rgba(255,160,70,.55) 0%,rgba(240,122,58,.32) 28%,rgba(194,65,12,.12) 55%,transparent 72%),linear-gradient(180deg,#2a1610 0%,#2e160f 62%,#3a1a10 100%);color:#f8efe4;box-shadow:inset 0 -3px 0 #c2410c,inset 0 -14px 22px rgba(240,122,58,.28)}
+body.theme-descent .brand{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .4rem;min-width:0;flex:1}
+body.theme-descent .ico-flame{display:block;width:15px;height:18px;flex:none;align-self:center;filter:drop-shadow(0 0 4px rgba(255,160,70,.85)) drop-shadow(0 0 8px rgba(240,122,58,.55))}
+body.theme-descent .flame-outer{fill:#f07a3a}body.theme-descent .flame-inner{fill:#ffe08a}
+body.theme-descent .top h1{color:#f8efe4;font-size:1.15rem;line-height:1.15}
+body.theme-descent .top .muted{color:#f0d4c0}
+body.theme-descent .circle-chip{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:none}
+body.theme-descent .circle-lab{font-family:Georgia,serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#f0a060;font-weight:600}
+body.theme-descent .ico-funnel{width:36px;height:26px;display:block}
+body.theme-descent .card{border-color:#e0b898;box-shadow:0 0 0 1px rgba(194,65,12,.10),0 0 18px rgba(240,122,58,.22),0 2px 8px rgba(80,30,10,.06)}
+body.theme-descent .bar{background:#e4d4c0}
+body.theme-descent .bar i{background:linear-gradient(90deg,#c2410c,#f07a3a 70%,#ffb060);box-shadow:0 0 8px 2px rgba(240,122,58,.65)}
+body.theme-descent .tabs{background:#efe4d4;border-top-color:#d4c0a8}
+body.theme-descent .tabs button{color:#534338;font-size:.62rem;white-space:normal;line-height:1.05;padding:6px 1px 8px;position:relative}
+body.theme-descent .tab-emoji{display:none}
+body.theme-descent .tab-ico{display:block}
+body.theme-descent .tabs button.on{color:#9b2d12;text-shadow:0 0 12px rgba(240,122,58,.35)}
+body.theme-descent .tabs button.on .tab-ico{filter:drop-shadow(0 0 4px rgba(240,122,58,.6))}
+body.theme-descent .pack-badge{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;letter-spacing:.02em;color:#7a2410;background:#fbf3ea;border:1px solid #d4a080;border-radius:99px;padding:2px 8px 2px 5px;margin-left:4px;vertical-align:middle}
+body.theme-descent .ico-laurel{width:17px;height:17px;flex:none;color:#9b2d12}
+body.theme-descent .gate-orn{display:block;text-align:center;margin:6px 0 2px}
+body.theme-descent .ico-gate{width:72px;height:60px;display:block;margin:0 auto;filter:drop-shadow(0 0 6px rgba(240,122,58,.28))}
+body.theme-descent .gate-inscr{font-family:Georgia,serif;font-style:italic;font-size:.9rem;color:#7a2410;letter-spacing:.03em}
+body.theme-descent .prose{background:#f6ecdf;border:1px solid #d4c0a8;border-left:3px solid #c2410c;border-radius:10px;padding:10px 12px;margin:8px 0}
+body.theme-descent .prose-label{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:#9b2d12;margin-bottom:4px}
+body.theme-descent .prose p{margin:0;font-family:Georgia,serif;font-size:1rem;line-height:1.45;color:#1f1612}
+body.theme-descent .verse{font-style:italic}
+body.theme-descent .en-line{color:#1f1612}

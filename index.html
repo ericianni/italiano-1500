@@ -16,15 +16,25 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top"><h1 id="title">Italiano 1500</h1><span id="sub" class="muted"></span></header>
+<header class="top">
+  <div class="brand">
+    <svg class="ico-flame" viewBox="0 0 20 24" aria-hidden="true" focusable="false"><path class="flame-outer" d="M10 23c-5 0-8.2-3.8-8.2-9 0-4 2.7-7.6 5.2-10.6C6.2 6.8 7.6 8.2 8.3 7.6 8 4.6 9.1 2 10.3.6 13 3.6 18.2 9 18.2 14.2 18.2 19.2 15 23 10 23z"/><path class="flame-inner" d="M10 20.4c-2.4 0-4-1.8-4-4.2 0-2.6 1.8-4.6 4-7 2.2 2.4 4 4.4 4 7 0 2.4-1.6 4.2-4 4.2z"/></svg>
+    <h1 id="title">Italiano 1500</h1>
+    <span id="sub" class="muted"></span>
+  </div>
+  <div class="circle-chip" title="The nine circles, cooler as they go down">
+    <div class="circle-lab">Circle</div>
+    <svg class="ico-funnel" viewBox="0 0 42 30" aria-hidden="true" focusable="false"><polygon fill="#f07a3a" points="1,1 41,1 39.22,4.11 2.78,4.11"/><polygon fill="#d2643c" points="2.78,4.11 39.22,4.11 37.44,7.22 4.56,7.22"/><polygon fill="#b45e48" points="4.56,7.22 37.44,7.22 35.67,10.33 6.33,10.33"/><polygon fill="#8f5e5c" points="6.33,10.33 35.67,10.33 33.89,13.44 8.11,13.44"/><polygon fill="#6e6670" points="8.11,13.44 33.89,13.44 32.11,16.56 9.89,16.56"/><polygon fill="#54707c" points="9.89,16.56 32.11,16.56 30.33,19.67 11.67,19.67"/><polygon fill="#3c7488" points="11.67,19.67 30.33,19.67 28.56,22.78 13.44,22.78"/><polygon fill="#2c6e8c" points="13.44,22.78 28.56,22.78 26.78,25.89 15.22,25.89"/><polygon fill="#3aa0c8" points="15.22,25.89 26.78,25.89 25,29 17,29"/></svg>
+  </div>
+</header>
 <main id="view" aria-live="polite"><p class="muted center">Loading…</p></main>
 <nav class="tabs" id="tabs">
-  <button data-tab="today" class="on"><span>☀︎</span>Cards</button>
-  <button data-tab="learn"><span>❦</span>Learn</button>
-  <button data-tab="drills"><span>✎</span>Drills</button>
-  <button data-tab="cheat"><span>▤</span>Cheat sheet</button>
-  <button data-tab="list"><span>≡</span>Words</button>
-  <button data-tab="about"><span>i</span>About</button>
+  <button data-tab="today" class="on"><span class="tab-emoji">☀︎</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" fill-rule="evenodd" d="M12 1.6C10.2 5.2 6.6 8.4 6.2 13C5.9 16.6 7.5 20 10.2 21.4C11.2 21.9 11.8 22.1 12.2 22.1C13.4 22.1 16.4 21.1 17.7 18.4C19 15.6 18.6 12.6 17.2 10C16 8 14.7 6.4 14.2 4.2C13.4 6.8 12.8 8.2 12.2 8.6C12.3 6 12.2 3.6 12 1.6ZM12.15 11.2C10.7 13.4 10.3 15.2 10.8 16.9C11.2 18.2 11.9 18.9 12.4 18.9C13.3 18.9 14.2 17.8 14.2 16C14.2 14.2 13.3 12.6 12.15 11.2Z"/></svg>Cards</button>
+  <button data-tab="learn"><span class="tab-emoji">❦</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" fill-rule="evenodd" d="M3.4 21.8V14.2Q3.5 8.4 12 1.1Q20.5 8.4 20.6 14.2V21.8ZM7.8 21.8V14.4Q8 10.2 12 5.4Q16 10.2 16.2 14.4V21.8Z"/><path d="M2.2 21.8h19.6"/></svg>Learn</button>
+  <button data-tab="drills"><span class="tab-emoji">✎</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.4" y="2.6" width="5.3" height="4.7" rx=".6"/><rect x="2.4" y="7.6" width="10.4" height="4.7" rx=".6"/><rect x="2.4" y="12.6" width="15.5" height="4.7" rx=".6"/><rect x="2.4" y="17.6" width="19.2" height="4.4" rx=".6"/></svg>Drills</button>
+  <button data-tab="cheat"><span class="tab-emoji">▤</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><polygon class="fill" points="2.2,2 21.8,2 20.94,3.73 3.06,3.73"/><polygon class="fill" points="3.06,4.28 20.94,4.28 20.09,6.02 3.91,6.02"/><polygon class="fill" points="3.91,6.57 20.09,6.57 19.23,8.3 4.77,8.3"/><polygon class="fill" points="4.77,8.85 19.23,8.85 18.38,10.58 5.62,10.58"/><polygon class="fill" points="5.62,11.13 18.38,11.13 17.52,12.87 6.48,12.87"/><polygon class="fill" points="6.48,13.42 17.52,13.42 16.67,15.15 7.33,15.15"/><polygon class="fill" points="7.33,15.7 16.67,15.7 15.81,17.43 8.19,17.43"/><polygon class="fill" points="8.19,17.98 15.81,17.98 14.96,19.72 9.04,19.72"/><polygon class="fill" points="9.04,20.27 14.96,20.27 14.1,22 9.9,22"/></svg>Cheat sheet</button>
+  <button data-tab="list"><span class="tab-emoji">≡</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="2.9" r="1.35"/><path d="M9.2 7.1c0-2 2.8-2.9 2.8-2.9s2.8.9 2.8 2.9"/><path d="M6.4 7.1 12 5.2l5.6 1.9-.8 1.9H7.2z"/><rect x="7.4" y="9" width="9.2" height="9" rx="1.1"/><rect x="8.7" y="10.3" width="6.6" height="6.4" rx=".7"/><path class="fill" d="M12 11.1c-.7 1.05-1.3 1.6-1.3 2.45 0 .7.55 1.2 1.3 1.2s1.3-.5 1.3-1.2c0-.85-.6-1.4-1.3-2.45z"/><path d="M7.2 18.1h9.6l.7 2.1H6.5z"/></svg>Words</button>
+  <button data-tab="about"><span class="tab-emoji">i</span><svg class="tab-ico" viewBox="0 0 24 24" aria-hidden="true"><path class="wstem" d="M15.66 7.35 16.55 8.01 17.32 8.81 17.96 9.72 18.44 10.73 18.76 11.79 18.89 12.9 18.85 14.01 18.63 15.1 18.24 16.14 17.69 17.11 16.98 17.97 16.15 18.71 15.21 19.31 14.19 19.74 13.11 20.01 12 20.1"/><path class="wstem" d="M8.34 7.35 7.45 8.01 6.68 8.81 6.04 9.72 5.56 10.73 5.24 11.79 5.11 12.9 5.15 14.01 5.37 15.1 5.76 16.14 6.31 17.11 7.02 17.97 7.85 18.71 8.79 19.31 9.81 19.74 10.89 20.01 12 20.1"/><path class="fill" d="M17.6 10.23Q19.18 7.34 16.56 5.34 14.97 8.23 17.6 10.23Z"/><path class="fill" d="M18.06 15.06Q21.22 14.13 20.78 10.87 17.62 11.79 18.06 15.06Z"/><path class="fill" d="M14.97 18.8Q17.86 20.38 19.86 17.76 16.97 16.17 14.97 18.8Z"/><path class="fill" d="M12 18.6Q9.85 21.1 12 23.6 14.15 21.1 12 18.6Z"/><path class="fill" d="M9.03 18.8Q7.03 16.17 4.14 17.76 6.14 20.38 9.03 18.8Z"/><path class="fill" d="M5.94 15.06Q6.38 11.79 3.22 10.87 2.78 14.13 5.94 15.06Z"/><path class="fill" d="M6.4 10.23Q9.03 8.23 7.44 5.34 4.82 7.34 6.4 10.23Z"/></svg>About</button>
 </nav>
 <script src="core/srs.js"></script>
 <script src="core/drillpick.js"></script>

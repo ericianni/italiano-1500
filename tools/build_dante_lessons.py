@@ -67,7 +67,10 @@ def canto(n, summary, plot, quotes):
             words = WORD.findall(TEXT[key])
             if len(q['gloss'][i]) + 1 < len(words):
                 thin.append('%s.%s (%s toks, %s words) %s' % (n, q['start'] + i, len(q['gloss'][i]), len(words), TEXT[key]))
-        item = {'canto': n, 'start': q['start'], 'lines': lines, 'gloss': q['gloss'], 'en': q['en']}
+        key = '%d.%d' % (n, q['start'])
+        if key not in PROSE:
+            sys.exit('missing prose order ' + key)
+        item = {'canto': n, 'start': q['start'], 'lines': lines, 'gloss': q['gloss'], 'en': q['en'], 'prose': PROSE[key]}
         if q.get('note'):
             item['note'] = q['note']
         built.append(item)
@@ -104,9 +107,29 @@ def emit():
                      ['pietate', 'pietà'], ['virtute', 'virtù'], ['cammin', 'cammino'], ['fecemi', 'mi fece']],
         }],
     }
-    lessons = [lang] + DATA
-    if len(lessons) != 35:
-        sys.exit('expected 35 lessons, got %s' % len(lessons))
+    order = {
+        'id': 'd-order', 'read': True, 'sec': 'Dante',
+        'title': "Reading Dante's word order",
+        'sum': 'Verb late, subject after the verb, a word moved for the rhyme, no subject, a sentence across the lines.',
+        'body': (
+            '<p>A line of the Inferno is often not in the order of a modern sentence. Five habits cover most of what you see. Under each example, Prose order is the same words in ordinary order. A few spellings are modernized only so the sentence is easier to read (<i lang="it">cammin</i> as cammino, <i lang="it">ché</i> as perché). The words stay Dante’s.</p>'
+            '<p><b>The verb comes late.</b> Italian can wait until the next line to say what happened.</p>'
+            '<p><b>The subject comes after the verb.</b> The doer is named once the action is already going.</p>'
+            '<p><b>A word moves for the rhyme.</b> An object or an adjective may sit at the end of the line.</p>'
+            '<p><b>The subject is left out.</b> If the ending shows the person, Dante often skips <i lang="it">io</i>.</p>'
+            '<p><b>One sentence runs across the lines.</b> Do not stop at the end of a line if the thought is still open.</p>'
+        ),
+        'quotes': [],
+    }
+    for spec in ORDER:
+        lines = [TEXT[(spec['canto'], spec['start'] + i)] for i in range(spec['n'])]
+        order['quotes'].append({
+            'kicker': spec['kicker'], 'canto': spec['canto'], 'start': spec['start'],
+            'lines': lines, 'prose': spec['prose'], 'en': spec['en'],
+        })
+    lessons = [lang, order] + DATA
+    if len(lessons) != 36:
+        sys.exit('expected 36 lessons, got %s' % len(lessons))
     if thin:
         sys.exit('thin glosses:\n' + '\n'.join(thin))
     if missing:
@@ -125,5 +148,6 @@ def emit():
         encoding='utf-8')
     print('wrote', len(lessons), 'lessons,', sum(len(l.get('quotes', [])) for l in lessons), 'passages')
 
+exec(compile((ROOT / 'tools/dante_prose.py').read_text(encoding='utf-8'), 'dante_prose.py', 'exec'), globals())
 exec(compile((ROOT / 'tools/dante_lesson_gloss.py').read_text(encoding='utf-8'), 'dante_lesson_gloss.py', 'exec'), globals())
 emit()

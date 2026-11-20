@@ -14,7 +14,7 @@ The Cards tab shows two daily counts: new words, and drill answers as N / 20. Th
 
 Eleven short grammar lessons. Tables are built by the same morphology engine that grades drills. A lesson can send you into a matching drill set.
 
-With the Dante pack on, Learn adds a short reading first, “Dante’s Italian,” then one reading for each canto of the Inferno. Each canto has a sentence or two of plot, then two or three tercets quoted from the stored text, with a word-by-word gloss and a plain English line. An underlined word opens that card. These readings have no quick check.
+With the Dante pack on, Learn adds “Dante’s Italian,” then “Reading Dante’s word order,” then one reading for each canto of the Inferno. Each canto has a sentence or two of plot, then two or three tercets quoted from the stored text, with a word-by-word gloss, a prose-order line (the same words in ordinary Italian order), and a plain English line. An underlined word opens that card. These readings have no quick check. The page uses the Descent theme: parchment, a dark header, and a moderate ember glow.
 
 ## Drills
 
@@ -38,7 +38,7 @@ The same tables as the lessons, in one place: articles, plurals, adjectives, ver
 
 ## Words
 
-Search Italian or English. Filter by type, including Articles (*il*, *un*, and the other articles). Sort by frequency or A–Z. Tap a word to test it without saving. With the Dante pack on, those words sit under a Dante heading, names under Names, and you can sort by canto (first appearance).
+Search Italian or English. Filter by type, including Articles (*il*, *un*, and the other articles). Sort by frequency or A–Z. Tap a word to test it without saving. With the Dante pack on, those words sit under a Dante: Inferno heading, names under Names, and you can sort by canto (first appearance).
 
 ## Settings
 
@@ -47,7 +47,7 @@ About keeps new words per day, the accent switch, and the pack choice. Export, i
 **Pack** is one choice, not a switch per pack:
 
 - Modern Italian (core only). This is the default, including for anyone who already has progress.
-- Modern Italian + Dante (Inferno).
+- Modern Italian + Dante: Inferno.
 
 Core stays on either way. A future pack such as Rome would be another choice in the same list.
 
@@ -57,9 +57,9 @@ When that choice is on, cards add lemmas from the Inferno that are not already i
 
 Drills use a Dante word only when the morphology engine can build the form. Other Dante words are marked not in form drills, instead of showing a made-up form. Names are not drilled.
 
-About shows the Dante text and dictionary credits, and the line “Dante adds words from the Inferno, and a short reading for each canto,” only while the pack is on.
+About shows the Dante text and dictionary credits, and the line “Dante: Inferno adds words from the poem, and a short reading for each canto,” only while the pack is on.
 
-Learn, while the pack is on, adds Dante’s Italian and cantos I–XXXIV. The lines are quoted from the stored Inferno text.
+Learn, while the pack is on, adds Dante’s Italian, a word-order lesson, and cantos I–XXXIV. The lines are quoted from the stored Inferno text, and each tercet has a prose-order line. The Descent theme (parchment page, dark header, moderate ember glow, Inferno tab icons) is on only then. With the pack off, the app keeps its ordinary look.
 
 Lemmas that occur once or twice, and are not in the core list, are written out in `docs/dante-excluded.md`. They are not cards.
 

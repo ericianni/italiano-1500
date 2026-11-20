@@ -5,10 +5,12 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v18';
+  const VERSION = 'v19';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
+  const PACK_BADGE = '<span class="pack-badge"><svg class="ico-laurel" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M12 21.2C7.2 18.2 5.6 13.2 6.8 6.4"/><path d="M12 21.2C16.8 18.2 18.4 13.2 17.2 6.4"/></g><g fill="currentColor"><path d="M8.16 18.31Q7.5 15.96 5.05 16.14Q5.72 18.49 8.16 18.31Z"/><path d="M6.99 14.67Q5.73 12.56 3.42 13.37Q4.67 15.48 6.99 14.67Z"/><path d="M6.6 11.03Q4.93 9.23 2.84 10.5Q4.5 12.3 6.6 11.03Z"/><path d="M7.39 7.55Q5.16 6.54 3.72 8.53Q5.96 9.54 7.39 7.55Z"/><path d="M15.84 18.31Q18.28 18.49 18.95 16.14Q16.5 15.96 15.84 18.31Z"/><path d="M17.01 14.67Q19.33 15.48 20.58 13.37Q18.27 12.56 17.01 14.67Z"/><path d="M17.4 11.03Q19.5 12.3 21.16 10.5Q19.07 9.23 17.4 11.03Z"/><path d="M16.61 7.55Q18.04 9.54 20.28 8.53Q18.84 6.54 16.61 7.55Z"/></g></svg>Dante: Inferno</span>';
+  const GATE_ORN = '<div class="gate-orn"><svg class="ico-gate" viewBox="0 0 72 60" aria-hidden="true"><path fill="#2a1610" d="M13 58V32C13 20 22 10 36 4.5 50 10 59 20 59 32v26z"/><path fill="#f07a3a" fill-opacity=".35" d="M13 58V32C13 20 22 10 36 4.5 50 10 59 20 59 32v26z"/><path fill="none" stroke="#7a2410" stroke-width="2.2" d="M8 58V33C8 19 20 8.5 36 2.5 52 8.5 64 19 64 33v25"/><path fill="none" stroke="#7a2410" stroke-width="1.2" d="M14 58V33C14 21.5 23 11.5 36 6.2 49 11.5 58 21.5 58 33v25"/><path fill="none" stroke="#c2410c" stroke-width="1.1" d="M36 5.5V58"/><path fill="none" stroke="#7a2410" stroke-width="1.8" d="M5 58h62"/><path fill="#ffb060" d="M36 51.5c-1.4 0-2.6-2.6-2.3-4.7.2 1.3 1.1 1.7 1.3 1.4C34.8 46.4 35.4 45 36.2 44c1.3 2 3.4 3.6 3.4 5.7 0 1.6-1.5 1.8-3.6 1.8z"/></svg><div class="gate-inscr">Lasciate ogne speranza</div></div>';
   const POS = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', num: 'number', art: 'article' };
   const CONJ = { are: '-are', ere: '-ere', ire: '-ire', isc: '-ire (-isc-)' };
   let W = [], BY = {}, BYIT = {}, CARD = {}, PACKS = [], S, U = {}, UALL = {}, CTX = {}, Q = null, TAB = 'today';
@@ -167,7 +169,7 @@
     }
   function renderCard(it) {
     const [dir, id] = SRS.split(it.k), w = BY[id];
-    const pills = `<span class="pill">${esc(POS[w.pos] || w.pos)}</span><span class="pill">#${w.rank}</span>${it.isNew ? '<span class="pill">new</span>' : ''}`;
+    const pills = `<span class="pill">${esc(POS[w.pos] || w.pos)}</span><span class="pill">#${w.rank}</span>${it.isNew ? '<span class="pill">new</span>' : ''}${w.pack === 'dante' ? PACK_BADGE : ''}`;
     const danteMeta = w.count && w.ref ? `<div class="small muted">Inferno ${w.count}× · first ${esc(w.ref)}</div>` : '';
     const back = `<div class="small muted">${esc(info(w))}</div>${w.note ? `<div class="small muted">${esc(w.note)}</div>` : ''}${danteMeta}`;
     const rw = () => { $('#ans').innerHTML = `<div class="answer">${dir === 'r' ? `<div class="english">${esc(w.en)}</div>` : `<div class="tl">${esc(artHead(w))}</div>`}${back}<div class="small muted" style="margin-top:6px">Did you know it?</div>${UI.rwButtons(SRS.nextLabel(S.cards[it.k]))}</div>`; UI.bindRW(r => gradeCard(it, r)); };
@@ -605,10 +607,12 @@
   function quoteHTML(q) {
     const a = q.start, b = a + q.lines.length - 1;
     const label = a === b ? 'Line ' + a : 'Lines ' + a + '–' + b;
-    return `<div class="tercet"><div class="small muted">${label}</div>
+    const where = q.canto ? 'Inferno ' + q.canto + '.' + a : '';
+    return `<div class="tercet">${q.kicker ? `<h3>${esc(q.kicker)}</h3>` : ''}<div class="small muted">${where ? esc(where) + ' · ' : ''}${label}</div>
       <div class="verse" lang="it">${q.lines.map(esc).join('<br>')}</div>
-      ${q.lines.map((_, i) => glossHTML(q.gloss[i])).join('')}
-      <p>${esc(q.en)}</p>${q.note ? `<p class="small muted">${esc(q.note)}</p>` : ''}</div>`;
+      ${(q.gloss || []).map(row => glossHTML(row)).join('')}
+      ${q.prose ? `<div class="prose"><div class="prose-label">Prose order</div><p lang="it">${esc(q.prose)}</p></div>` : ''}
+      <p class="en-line">${esc(q.en)}</p>${q.note ? `<p class="small muted">${esc(q.note)}</p>` : ''}</div>`;
   }
   function openReading(l, all, i) {
     const nx = all[i + 1], st = S.lessons[l.id];
@@ -616,7 +620,7 @@
     const quotes = (l.quotes || []).map(quoteHTML).join('');
     $('#sub').textContent = 'Lesson ' + (i + 1) + ' of ' + all.length;
     V().innerHTML = `<div class="row"><button class="link" id="lback">‹ All lessons</button><span class="grow"></span>${st ? '<span class="ok small">✓ Done</span>' : ''}</div>
-      <div class="card lesson"><div class="prompt-kind">${esc(l.sec)}</div><h2 style="margin:4px 0 8px">${esc(l.title)}</h2>${l.body || ''}${l.plot ? `<p>${esc(l.plot)}</p>` : ''}${quotes}</div>
+      <div class="card lesson"><div class="prompt-kind">Dante: Inferno</div>${GATE_ORN}<h2 style="margin:4px 0 8px">${esc(l.title)}</h2>${l.body || ''}${l.plot ? `<p>${esc(l.plot)}</p>` : ''}${quotes}</div>
       ${tables ? `<div class="card"><h3 style="margin-top:0">Forms</h3>${tables}</div>` : ''}
       <div class="card"><div class="row">${st ? '' : '<button class="grow" id="lmark">Mark as done</button>'}${nx ? `<button class="grow" id="lnext">Next: ${esc(nx.title)} ›</button>` : ''}</div></div>`;
     $('#lback').onclick = renderLearn;
@@ -775,7 +779,7 @@
       const names = W.filter(w => w.pack === 'dante' && w.name && match(w)).sort(by);
       const chunks = [];
       core.forEach(w => chunks.push(row(w)));
-      if (dante.length) { chunks.push('<li class="sec"><span class="sec2">Dante</span></li>'); dante.forEach(w => chunks.push(row(w))); }
+      if (dante.length) { chunks.push('<li class="sec"><span class="sec2">Dante: Inferno</span></li>'); dante.forEach(w => chunks.push(row(w))); }
       if (names.length) { chunks.push('<li class="sec"><span class="sec2">Names</span></li>'); names.forEach(w => chunks.push(row(w))); }
       const shown = chunks.slice(0, LN);
       $('#ll').innerHTML = shown.join('') || '<li class="muted">No matches.</li>';
@@ -808,11 +812,11 @@
       <p class="small"><b>Cheat sheet:</b> all the tables in one place.</p>
       <p class="small"><b>Words:</b> search the list, or tap a word to test it.</p>
       <p class="small">Your progress stays on this device. No account needed, and it works offline.</p>
-      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small">Dante adds words from the Inferno, and a short reading for each canto.</p>' : ''}</div>
+      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small">Dante: Inferno adds words from the poem, and a short reading for each canto.</p>' : ''}</div>
       <div class="card"><h2 style="margin-top:0">Word packs</h2><ul class="small" style="padding-left:18px">${packs}</ul><p class="small muted">Rome &amp; travel is planned.</p></div>
       <div class="card"><h2 style="margin-top:0">Sources &amp; credits</h2>
       <p class="small"><b>Word list:</b> frequencies from FrequencyWords by Hermit Dave (OpenSubtitles 2018, CC BY-SA 4.0) and the Leipzig Corpora Collection Italian news 2023–24 (CC BY 4.0). Forms checked with Morph-it! (CC BY-SA 2.0 / LGPL) and English Wiktionary via kaikki.org (CC BY-SA). Glosses written for this app.</p>
-      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small"><b>Dante:</b> Inferno text from Project Gutenberg eBook #997 (public domain in the USA). Lemmas from Morph-it! (CC BY-SA 2.0 / LGPL). Glosses written for this app.</p>' : ''}
+      ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small"><b>Dante: Inferno.</b> Text from Project Gutenberg eBook #997 (public domain in the USA). Lemmas from Morph-it! (CC BY-SA 2.0 / LGPL). Glosses written for this app.</p>' : ''}
       <p class="small">Made by Eric Ianni. App code: MIT. Word data: CC BY-SA 4.0. Source: github.com/ericianni/italiano-1500. Version ${VERSION}.</p></div>`;
     $$('#spack button').forEach(b => b.onclick = () => {
       const n = Packs.normalize(b.dataset.v);
@@ -846,6 +850,7 @@
     } catch (e) { V().innerHTML = `<div class="card"><p class="no">Couldn’t load the word list.</p><p class="small muted">${esc(e.message)}</p></div>`; return; }
     CARD = {};
     W.forEach(w => { BY[w.id] = w; if (w.pack === 'core') BYIT[w.it] = w; if (!CARD[w.it] || w.pack === 'core') CARD[w.it] = w; });
+    document.body.classList.toggle('theme-descent', (S.packs || []).indexOf('dante') >= 0);
     CTX = { agrNouns: D.agrNouns(W) }; UALL = D.buildUnits(W, D.DF); rebuild();
     $$('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
     setTab(location.hash.slice(1) || 'today');

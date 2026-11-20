@@ -2,6 +2,6 @@
   "version": 1,
   "packs": [
     { "id": "core", "path": "core/", "title": "Core 1500" },
-    { "id": "dante", "path": "dante/", "title": "Dante (Inferno)" }
+    { "id": "dante", "path": "dante/", "title": "Dante: Inferno" }
   ]
 }

@@ -56,6 +56,72 @@
   ]
  },
  {
+  "id": "d-order",
+  "read": true,
+  "sec": "Dante",
+  "title": "Reading Dante's word order",
+  "sum": "Verb late, subject after the verb, a word moved for the rhyme, no subject, a sentence across the lines.",
+  "body": "<p>A line of the Inferno is often not in the order of a modern sentence. Five habits cover most of what you see. Under each example, Prose order is the same words in ordinary order. A few spellings are modernized only so the sentence is easier to read (<i lang=\"it\">cammin</i> as cammino, <i lang=\"it\">ché</i> as perché). The words stay Dante’s.</p><p><b>The verb comes late.</b> Italian can wait until the next line to say what happened.</p><p><b>The subject comes after the verb.</b> The doer is named once the action is already going.</p><p><b>A word moves for the rhyme.</b> An object or an adjective may sit at the end of the line.</p><p><b>The subject is left out.</b> If the ending shows the person, Dante often skips <i lang=\"it\">io</i>.</p><p><b>One sentence runs across the lines.</b> Do not stop at the end of a line if the thought is still open.</p>",
+  "quotes": [
+   {
+    "kicker": "The verb comes late",
+    "canto": 1,
+    "start": 1,
+    "lines": [
+     "Nel mezzo del cammin di nostra vita",
+     "mi ritrovai per una selva oscura,"
+    ],
+    "prose": "Nel mezzo del cammino della nostra vita mi ritrovai per una selva oscura,",
+    "en": "The verb ritrovai waits until the second line. In ordinary order it follows the “when” phrase at once."
+   },
+   {
+    "kicker": "The subject comes after the verb",
+    "canto": 33,
+    "start": 1,
+    "lines": [
+     "La bocca sollevò dal fiero pasto",
+     "quel peccator, forbendola a’ capelli",
+     "del capo ch’elli avea di retro guasto."
+    ],
+    "prose": "Quel peccatore sollevò la bocca dal fiero pasto, forbendola ai capelli del capo che egli aveva guastato di dietro.",
+    "en": "Quel peccatore is the one who lifts his mouth. Dante names him after the verb."
+   },
+   {
+    "kicker": "A word moves for the rhyme",
+    "canto": 1,
+    "start": 79,
+    "lines": [
+     "«Or se’ tu quel Virgilio e quella fonte",
+     "che spandi di parlar sì largo fiume?»,"
+    ],
+    "prose": "Or sei tu quel Virgilio e quella fonte che spandi un fiume sì largo di parlar?",
+    "en": "Fiume is the object, and it sits at the end of the line so it can rhyme. Largo belongs with fiume."
+   },
+   {
+    "kicker": "The subject is left out",
+    "canto": 1,
+    "start": 2,
+    "lines": [
+     "mi ritrovai per una selva oscura,"
+    ],
+    "prose": "Io mi ritrovai per una selva oscura,",
+    "en": "There is no io in the line. The ending of ritrovai already says “I.”"
+   },
+   {
+    "kicker": "One sentence runs across the lines",
+    "canto": 1,
+    "start": 4,
+    "lines": [
+     "Ahi quanto a dir qual era è cosa dura",
+     "esta selva selvaggia e aspra e forte",
+     "che nel pensier rinova la paura!"
+    ],
+    "prose": "Ahi, quanto è cosa dura a dire qual era esta selva selvaggia e aspra e forte, che rinnova la paura nel pensier!",
+    "en": "Do not stop at the comma. The wood is named on the next line, and the che clause finishes the thought."
+   }
+  ]
+ },
+ {
   "id": "d-1",
   "read": true,
   "canto": 1,
@@ -160,7 +226,8 @@
       }
      ]
     ],
-    "en": "In the middle of the journey of our life, I came to myself in a dark wood, because the straight way was lost."
+    "en": "In the middle of the journey of our life, I came to myself in a dark wood, because the straight way was lost.",
+    "prose": "Nel mezzo del cammino della nostra vita mi ritrovai per una selva oscura, perché la via diritta era smarrita."
    },
    {
     "canto": 1,
@@ -270,7 +337,8 @@
       }
      ]
     ],
-    "en": "It is hard to say what that wood was. It was wild, harsh, and thick, and thinking of it brings the fear back."
+    "en": "It is hard to say what that wood was. It was wild, harsh, and thick, and thinking of it brings the fear back.",
+    "prose": "Ahi, quanto è cosa dura a dire qual era esta selva selvaggia e aspra e forte, che rinnova la paura nel pensier!"
    },
    {
     "canto": 1,
@@ -376,7 +444,8 @@
       }
      ]
     ],
-    "en": "Are you that Virgil, the spring that pours out so wide a river of speech? I answered him with an ashamed face."
+    "en": "Are you that Virgil, the spring that pours out so wide a river of speech? I answered him with an ashamed face.",
+    "prose": "Or sei tu quel Virgilio e quella fonte che spandi un fiume sì largo di parlar? Io gli risposi con fronte vergognosa."
    }
   ]
  },
@@ -495,7 +564,8 @@
       }
      ]
     ],
-    "en": "The day was leaving, and the dark air was taking the animals of the earth off their work, and I alone."
+    "en": "The day was leaving, and the dark air was taking the animals of the earth off their work, and I alone.",
+    "prose": "Lo giorno se ne andava, e l’aere bruno toglieva da le fatiche loro li animai che sono in terra; e io sol uno"
    },
    {
     "canto": 2,
@@ -593,7 +663,8 @@
       }
      ]
     ],
-    "en": "I am Beatrice, who sends you. I come from the place I long to return to. Love moved me, and it makes me speak."
+    "en": "I am Beatrice, who sends you. I come from the place I long to return to. Love moved me, and it makes me speak.",
+    "prose": "Io son Beatrice, che ti faccio andare; vengo del loco ove disio tornar; amor mi mosse, che mi fa parlare."
    }
   ]
  },
@@ -717,7 +788,8 @@
       }
      ]
     ],
-    "en": "Through me the way goes to the city of sorrow, to eternal pain, and among the lost people."
+    "en": "Through me the way goes to the city of sorrow, to eternal pain, and among the lost people.",
+    "prose": "Per me si va ne la città dolente, per me si va ne l’eterno dolore, per me si va tra la perduta gente."
    },
    {
     "canto": 3,
@@ -807,7 +879,8 @@
       }
      ]
     ],
-    "en": "Justice moved my high maker. Divine power made me, the highest wisdom, and the first love."
+    "en": "Justice moved my high maker. Divine power made me, the highest wisdom, and the first love.",
+    "prose": "Giustizia mosse il mio alto fattore; la divina podestate, la somma sapienza e ’l primo amore mi fece."
    },
    {
     "canto": 3,
@@ -898,7 +971,8 @@
       }
      ]
     ],
-    "en": "Before me nothing was made except eternal things, and I last forever. Leave all hope, you who enter."
+    "en": "Before me nothing was made except eternal things, and I last forever. Leave all hope, you who enter.",
+    "prose": "Dinanzi a me non furono create cose se non etterne, e io duro etterno. Lasciate ogni speranza, voi che intrate."
    }
   ]
  },
@@ -1010,6 +1084,7 @@
      ]
     ],
     "en": "For those faults, and for no other sin, we are lost, and hurt only in this: without hope we live in longing.",
+    "prose": "Per tai difetti, non per altro rio, siamo perduti, e offesi sol di tanto che viviamo in disio sanza speme.",
     "note": "This rio means wickedness, the same word as reo. It is not the stream."
    },
    {
@@ -1086,7 +1161,8 @@
       }
      ]
     ],
-    "en": "A voice said: Honor the highest poet. His shade returns, the one that had gone away."
+    "en": "A voice said: Honor the highest poet. His shade returns, the one that had gone away.",
+    "prose": "Intanto una voce fu udita da me: «Onorate l’altissimo poeta; l’ombra sua, che era dipartita, torna»."
    }
   ]
  },
@@ -1200,7 +1276,8 @@
       }
      ]
     ],
-    "en": "Love, which quickly takes hold of a gentle heart, seized this man for my beautiful body, which was taken from me, and the way it happened still hurts me."
+    "en": "Love, which quickly takes hold of a gentle heart, seized this man for my beautiful body, which was taken from me, and the way it happened still hurts me.",
+    "prose": "Amor, che s’apprende ratto al cor gentil, prese costui de la bella persona che mi fu tolta; e ’l modo ancor m’offende."
    },
    {
     "canto": 5,
@@ -1295,7 +1372,8 @@
       }
      ]
     ],
-    "en": "Love, which excuses no one who is loved from loving back, seized me so hard for his beauty that it still has not let me go."
+    "en": "Love, which excuses no one who is loved from loving back, seized me so hard for his beauty that it still has not let me go.",
+    "prose": "Amor, che non perdona amar a nullo amato, mi prese sì forte del piacer di costui, che, come vedi, ancor non m’abbandona."
    },
    {
     "canto": 5,
@@ -1397,7 +1475,8 @@
       }
      ]
     ],
-    "en": "There is no greater pain than remembering a happy time in the middle of misery, and your teacher knows that."
+    "en": "There is no greater pain than remembering a happy time in the middle of misery, and your teacher knows that.",
+    "prose": "E quella a me: «Non c’è nessun dolor maggior che ricordarsi del tempo felice nella miseria; e ciò sa ’l tuo dottore.»"
    }
   ]
  },
@@ -1497,7 +1576,8 @@
       }
      ]
     ],
-    "en": "Cerberus, a cruel unnatural beast, barks doglike with three throats over the people buried there."
+    "en": "Cerberus, a cruel unnatural beast, barks doglike with three throats over the people buried there.",
+    "prose": "Cerbero, fiera crudele e diversa, latra caninamente con tre gole sovra la gente che quivi è sommersa."
    },
    {
     "canto": 6,
@@ -1598,6 +1678,7 @@
      ]
     ],
     "en": "Two men are just, and no one listens to them. Pride, envy, and greed are the three sparks that have set hearts on fire.",
+    "prose": "Due son giusti, e non vi sono intesi; superbia, invidia e avarizia sono le tre faville che hanno i cuori accesi.",
     "note": "Commentators debate who the two just men are. The poem does not name them."
    }
   ]
@@ -1701,6 +1782,7 @@
      ]
     ],
     "en": "Plutus began in a clucking voice. The cry is an untranslatable shout, not a sentence. The wise, noble man who knew everything is about to answer.",
+    "prose": "«Pape Satàn, pape Satàn aleppe!», cominciò Pluto con la voce chioccia; e quel savio gentil, che seppe tutto,",
     "note": "Pape Satàn aleppe is an untranslatable shout. Do not read it as a sentence."
    },
    {
@@ -1801,7 +1883,8 @@
       }
      ]
     ],
-    "en": "To steady me he said: Do not let your fear hurt you. Whatever power that one has, he will not keep us from going down this rock."
+    "en": "To steady me he said: Do not let your fear hurt you. Whatever power that one has, he will not keep us from going down this rock.",
+    "prose": "Disse per confortarmi: «Non ti noccia la tua paura; ché, poter ch’egli abbia, questa roccia non ci torrà lo scendere»."
    }
   ]
  },
@@ -1914,7 +1997,8 @@
       }
      ]
     ],
-    "en": "While we were hurrying over the dead channel, someone full of mud rose before me and said: Who are you, coming before your time?"
+    "en": "While we were hurrying over the dead channel, someone full of mud rose before me and said: Who are you, coming before your time?",
+    "prose": "Mentre noi corravam la morta gora, un pien di fango si fece dinanzi a me, e disse: «Chi sei tu che vieni anzi ora?»"
    },
    {
     "canto": 8,
@@ -2024,7 +2108,8 @@
       }
      ]
     ],
-    "en": "I said: If I come, I do not stay. But who are you, made so filthy? He answered: See, I am one who weeps."
+    "en": "I said: If I come, I do not stay. But who are you, made so filthy? He answered: See, I am one who weeps.",
+    "prose": "E io a lui: «S’io vengo, non rimango; ma tu chi sei, che ti sei fatto sì brutto?» Rispose: «Vedi che son un che piango»."
    }
   ]
  },
@@ -2125,7 +2210,8 @@
       }
      ]
     ],
-    "en": "O you who have healthy minds, look at the teaching hidden under the veil of the strange verses."
+    "en": "O you who have healthy minds, look at the teaching hidden under the veil of the strange verses.",
+    "prose": "O voi che avete li intelletti sani, mirate la dottrina che s’asconde sotto ’l velame de li versi strani."
    },
    {
     "canto": 9,
@@ -2228,7 +2314,8 @@
       }
      ]
     ],
-    "en": "And already, up over the muddy waves, came a crash of sound full of terror, which made both shores shake."
+    "en": "And already, up over the muddy waves, came a crash of sound full of terror, which made both shores shake.",
+    "prose": "E già veniva su per le torbide onde un fracasso d’un suon, pien di spavento, per cui tremavano amendue le sponde,"
    }
   ]
  },
@@ -2335,7 +2422,8 @@
       }
      ]
     ],
-    "en": "O Tuscan, who go alive through the city of fire speaking so honorably, please stop in this place."
+    "en": "O Tuscan, who go alive through the city of fire speaking so honorably, please stop in this place.",
+    "prose": "O Tosco che vai vivo, parlando così onesto, per la città del foco, piacciati di restare in questo loco."
    },
    {
     "canto": 10,
@@ -2425,7 +2513,8 @@
       }
      ]
     ],
-    "en": "Your speech makes it plain that you come from that noble homeland which I perhaps harmed too much."
+    "en": "Your speech makes it plain that you come from that noble homeland which I perhaps harmed too much.",
+    "prose": "La tua loquela ti fa manifesto natio di quella nobil patria, a la quale forse fui troppo molesto."
    }
   ]
  },
@@ -2545,7 +2634,8 @@
       }
      ]
     ],
-    "en": "Of every malice that earns hatred in Heaven, the end is injury, and every such end hurts someone, by force or by fraud."
+    "en": "Of every malice that earns hatred in Heaven, the end is injury, and every such end hurts someone, by force or by fraud.",
+    "prose": "D’ogni malizia che acquista odio in cielo, il fine è ingiuria, e ogni fin cotale contrista altrui o con forza o con frode."
    },
    {
     "canto": 11,
@@ -2658,7 +2748,8 @@
       }
      ]
     ],
-    "en": "But because fraud is the evil that belongs to man, it displeases God more, so the fraudulent are lower, and more pain attacks them."
+    "en": "But because fraud is the evil that belongs to man, it displeases God more, so the fraudulent are lower, and more pain attacks them.",
+    "prose": "Ma perché frode è male proprio de l’uomo, spiace più a Dio; e però li frodolenti stan di sotto, e più dolor li assale."
    }
   ]
  },
@@ -2773,7 +2864,8 @@
       }
      ]
     ],
-    "en": "Fix your eyes downhill, for the river of blood is coming near, where anyone who harmed another by violence boils."
+    "en": "Fix your eyes downhill, for the river of blood is coming near, where anyone who harmed another by violence boils.",
+    "prose": "Ma ficca li occhi a valle, ché s’approccia la riviera del sangue ne la quale bolle qual che noccia in altrui per violenza."
    },
    {
     "canto": 12,
@@ -2879,7 +2971,8 @@
       }
      ]
     ],
-    "en": "O blind greed and mad anger, which spur us so in the short life, and then soak us so badly in the eternal one."
+    "en": "O blind greed and mad anger, which spur us so in the short life, and then soak us so badly in the eternal one.",
+    "prose": "Oh cieca cupidigia e ira folle, che sì ci sproni ne la vita corta, e poi ci immolli sì mal ne l’eterna!"
    }
   ]
  },
@@ -2998,7 +3091,8 @@
       }
      ]
     ],
-    "en": "Then I put my hand out a little and picked a twig from a great thornbush, and its trunk cried: Why do you break me?"
+    "en": "Then I put my hand out a little and picked a twig from a great thornbush, and its trunk cried: Why do you break me?",
+    "prose": "Allor porsi la mano un poco avante e colsi un ramicel da un gran pruno; e ’l suo tronco gridò: «Perché mi schiante?»"
    },
    {
     "canto": 13,
@@ -3097,7 +3191,8 @@
       }
      ]
     ],
-    "en": "Once it was dark with blood, it spoke again: Why do you tear me? Do you have no spirit of pity?"
+    "en": "Once it was dark with blood, it spoke again: Why do you tear me? Do you have no spirit of pity?",
+    "prose": "Da che fu poi fatto bruno di sangue, ricominciò a dire: «Perché mi scerpi? Non hai tu alcuno spirto di pietade?»"
    }
   ]
  },
@@ -3217,7 +3312,8 @@
       }
      ]
     ],
-    "en": "The same man, noticing that I was asking my leader about him, shouted: As I was alive, so I am dead."
+    "en": "The same man, noticing that I was asking my leader about him, shouted: As I was alive, so I am dead.",
+    "prose": "E quel medesmo, che si fu accorto che io domandavo il mio duca di lui, gridò: «Qual io fui vivo, tal son morto.»"
    },
    {
     "canto": 14,
@@ -3496,7 +3592,8 @@
       }
      ]
     ],
-    "en": "If Jove should wear out his smith, from whom in anger he took the sharp bolt that struck me on my last day, or wear out the others, shift after shift, at the black forge in Mongibello, crying “Good Vulcan, help, help!” as he did at the battle of Phlegra, and shoot me with all his strength, he could not have a glad revenge."
+    "en": "If Jove should wear out his smith, from whom in anger he took the sharp bolt that struck me on my last day, or wear out the others, shift after shift, at the black forge in Mongibello, crying “Good Vulcan, help, help!” as he did at the battle of Phlegra, and shoot me with all his strength, he could not have a glad revenge.",
+    "prose": "Se Giove stanchi ’l suo fabbro, da cui crucciato prese la folgore aguta onde fui percosso l’ultimo dì; o s’egli stanchi li altri a muta a muta in Mongibello a la focina negra, chiamando «Buon Vulcano, aiuta, aiuta!», sì come el fece a la pugna di Flegra, e saetti me con tutta sua forza: non ne potrebbe aver vendetta allegra."
    }
   ]
  },
@@ -3602,7 +3699,8 @@
       }
      ]
     ],
-    "en": "Eyed that way by such a company, I was recognized by one who took me by the hem and cried: What a wonder!"
+    "en": "Eyed that way by such a company, I was recognized by one who took me by the hem and cried: What a wonder!",
+    "prose": "Così adocchiato da cotal famiglia, fui conosciuto da un, che mi prese per lo lembo e gridò: «Qual maraviglia!»"
    },
    {
     "canto": 15,
@@ -3697,7 +3795,8 @@
       }
      ]
     ],
-    "en": "You used to teach me how a man makes himself eternal. How grateful I am, while I live, has to show in my speech."
+    "en": "You used to teach me how a man makes himself eternal. How grateful I am, while I live, has to show in my speech.",
+    "prose": "m’insegnavate come l’uomo s’etterna; e quant’io l’abbia in grado, mentre io vivo, convien che si scerna ne la mia lingua."
    }
   ]
  },
@@ -3805,7 +3904,8 @@
       }
      ]
     ],
-    "en": "I had a cord girt around me, and with it I had once thought to catch the leopard by its painted hide."
+    "en": "I had a cord girt around me, and with it I had once thought to catch the leopard by its painted hide.",
+    "prose": "Io avea una corda cinta intorno, e con essa pensai alcuna volta di prender la lonza a la pelle dipinta."
    },
    {
     "canto": 16,
@@ -3892,7 +3992,8 @@
       }
      ]
     ],
-    "en": "After I had untied it completely, just as my leader had ordered, I handed it to him knotted and coiled."
+    "en": "After I had untied it completely, just as my leader had ordered, I handed it to him knotted and coiled.",
+    "prose": "Poscia che io l’ebbi tutta sciolta da me, sì come ’l duca m’avea comandato, la porsi a lui aggroppata e ravvolta."
    }
   ]
  },
@@ -4021,7 +4122,8 @@
       }
      ]
     ],
-    "en": "Behold the beast with the pointed tail, who passes mountains and breaks walls and armor. Behold the one who makes the whole world stink."
+    "en": "Behold the beast with the pointed tail, who passes mountains and breaks walls and armor. Behold the one who makes the whole world stink.",
+    "prose": "Ecco la fiera con la coda aguzza, che passa i monti e rompe i muri e l’armi! Ecco colei che appuzza tutto ’l mondo!"
    },
    {
     "canto": 17,
@@ -4120,7 +4222,8 @@
       }
      ]
     ],
-    "en": "And he said: Geryon, move now. Let the circles be wide and the descent small. Think of the new load you have."
+    "en": "And he said: Geryon, move now. Let the circles be wide and the descent small. Think of the new load you have.",
+    "prose": "e disse: «Gerione, moviti omai: le rote larghe, e lo scendere sia poco; pensa la nova soma che tu hai»."
    }
   ]
  },
@@ -4228,7 +4331,8 @@
       }
      ]
     ],
-    "en": "There is a place in Hell called Malebolge, all of iron-colored stone, like the circle of wall that surrounds it."
+    "en": "There is a place in Hell called Malebolge, all of iron-colored stone, like the circle of wall that surrounds it.",
+    "prose": "È un luogo in inferno, detto Malebolge, tutto di pietra di color ferrigno, come la cerchia che lo volge dintorno."
    },
    {
     "canto": 18,
@@ -4326,7 +4430,8 @@
       }
      ]
     ],
-    "en": "In the exact middle of the evil field a very wide, deep well gapes, whose arrangement I will describe in its place."
+    "en": "In the exact middle of the evil field a very wide, deep well gapes, whose arrangement I will describe in its place.",
+    "prose": "Nel mezzo dritto del campo maligno vaneggia un pozzo assai largo e profondo, di cui dicerò l’ordigno a suo loco."
    }
   ]
  },
@@ -4432,7 +4537,8 @@
       }
      ]
     ],
-    "en": "O Simon Magus, O wretched followers: the things of God, which ought to be brides of goodness, and you, greedy."
+    "en": "O Simon Magus, O wretched followers: the things of God, which ought to be brides of goodness, and you, greedy.",
+    "prose": "O Simon mago, o miseri seguaci che le cose di Dio, che deon essere spose di bontate, e voi rapaci"
    },
    {
     "canto": 19,
@@ -4533,7 +4639,8 @@
       }
      ]
     ],
-    "en": "For gold and silver you make them adulterous. Now the trumpet must sound for you, since you are in the third ditch."
+    "en": "For gold and silver you make them adulterous. Now the trumpet must sound for you, since you are in the third ditch.",
+    "prose": "avolterate per oro e per argento; or convien che la tromba suoni per voi, però che state ne la terza bolgia."
    },
    {
     "canto": 19,
@@ -4636,7 +4743,8 @@
       }
      ]
     ],
-    "en": "And he shouted: Are you already standing there, are you already standing there, Boniface? The writing lied to me by several years."
+    "en": "And he shouted: Are you already standing there, are you already standing there, Boniface? The writing lied to me by several years.",
+    "prose": "Ed egli gridò: «Sei tu già ritto costì, sei tu già ritto costì, Bonifazio? Lo scritto mi mentì di parecchi anni.»"
    }
   ]
  },
@@ -4746,7 +4854,8 @@
       }
      ]
     ],
-    "en": "Here pity lives when it is truly dead. Who is more wicked than the person who brings pity to God’s judgment?"
+    "en": "Here pity lives when it is truly dead. Who is more wicked than the person who brings pity to God’s judgment?",
+    "prose": "Qui la pietà vive quando è ben morta; chi è più scellerato che colui che comporta passion al giudicio divino?"
    },
    {
     "canto": 20,
@@ -4851,7 +4960,8 @@
       }
      ]
     ],
-    "en": "Raise your head, raise it, and see the one at whom the earth opened before the Thebans’ eyes, so that they all cried: Where are you rushing?"
+    "en": "Raise your head, raise it, and see the one at whom the earth opened before the Thebans’ eyes, so that they all cried: Where are you rushing?",
+    "prose": "Drizza la testa, drizza, e vedi colui a cui la terra s’aperse a li occhi de’ Teban; perché essi gridavan tutti: «Dove rui,»"
    }
   ]
  },
@@ -4954,7 +5064,8 @@
       }
      ]
     ],
-    "en": "From our bridge he said: O Malebranche, here is one of the elders of Santa Zita. Put him under, for I am going back for more."
+    "en": "From our bridge he said: O Malebranche, here is one of the elders of Santa Zita. Put him under, for I am going back for more.",
+    "prose": "Disse del nostro ponte: «O Malebranche, ecco un de li anziani di Santa Zita! Mettetelo sotto, ch’io torno per anche"
    },
    {
     "canto": 21,
@@ -5058,6 +5169,7 @@
      ]
     ],
     "en": "To that city which is well supplied with them. Every man there is a grafter except Bonturo. There, for money, no becomes yes.",
+    "prose": "a quella terra, che n’è ben fornita: ogni uomo v’è barattiere, fuor che Bonturo; per li denar vi si fa ita del no».",
     "note": "Bonturo Dati was Lucca’s most famous grafter, so “except Bonturo” means not even him. ita is an old word for yes: for money, no becomes yes."
    }
   ]
@@ -5163,7 +5275,8 @@
       }
      ]
     ],
-    "en": "As dolphins, when they signal the sailors with the arch of the back that they should try to save their ship,"
+    "en": "As dolphins, when they signal the sailors with the arch of the back that they should try to save their ship,",
+    "prose": "Come i dalfini, quando fanno segno a’ marinai con l’arco de la schiena che s’argomentino di campar lor legno,"
    },
    {
     "canto": 22,
@@ -5259,7 +5372,8 @@
       }
      ]
     ],
-    "en": "so, sometimes, to lighten the punishment, one of the sinners showed his back and hid it quicker than a flash."
+    "en": "so, sometimes, to lighten the punishment, one of the sinners showed his back and hid it quicker than a flash.",
+    "prose": "talora così, ad alleggiare la pena, alcun de’ peccatori mostrava ’l dosso e lo nascondeva in men che non balena."
    }
   ]
  },
@@ -5354,7 +5468,8 @@
       }
      ]
     ],
-    "en": "Silent, alone, with no companion, we walked one ahead and the other behind, as Franciscan friars go along a road."
+    "en": "Silent, alone, with no companion, we walked one ahead and the other behind, as Franciscan friars go along a road.",
+    "prose": "Taciti, soli, sanza compagnia, n’andavamo l’un dinanzi e l’altro dopo, come i frati minori vanno per via."
    },
    {
     "canto": 23,
@@ -5453,7 +5568,8 @@
       }
      ]
     ],
-    "en": "He said to me: That nailed man you are staring at counseled the Pharisees that it was fitting to put one man to torture for the people."
+    "en": "He said to me: That nailed man you are staring at counseled the Pharisees that it was fitting to put one man to torture for the people.",
+    "prose": "mi disse: «Quel confitto che tu miri consigliò i Farisei che conveniva porre un uomo a’ martìri per lo popolo.»"
    }
   ]
  },
@@ -5572,7 +5688,8 @@
       }
      ]
     ],
-    "en": "Then he said: It grieves me more that you have caught me in the misery where you see me than when I was taken from the other life."
+    "en": "Then he said: It grieves me more that you have caught me in the misery where you see me than when I was taken from the other life.",
+    "prose": "poi disse: «Mi duole più che tu m’hai colto ne la miseria dove tu mi vedi, che quando fui tolto de l’altra vita.»"
    },
    {
     "canto": 24,
@@ -5675,7 +5792,8 @@
       }
      ]
     ],
-    "en": "I cannot deny what you ask. I am put this far down because I was a thief at the sacristy of the fine vestments."
+    "en": "I cannot deny what you ask. I am put this far down because I was a thief at the sacristy of the fine vestments.",
+    "prose": "Io non posso negare quel che tu chiedi; son messo in giù tanto perché io fui ladro a la sagrestia de’ belli arredi,"
    }
   ]
  },
@@ -5780,7 +5898,8 @@
       }
      ]
     ],
-    "en": "Let Lucan now be silent where he tells of wretched Sabellus and Nasidius, and wait to hear what is released now."
+    "en": "Let Lucan now be silent where he tells of wretched Sabellus and Nasidius, and wait to hear what is released now.",
+    "prose": "Taccia ormai Lucano là dove egli tocca del misero Sabello e di Nasidio, e attenda a udire quel che ora si scocca."
    },
    {
     "canto": 25,
@@ -5884,7 +6003,8 @@
       }
      ]
     ],
-    "en": "Let Ovid be silent about Cadmus and Arethusa, for if in his poem he turns the man into a snake and the woman into a spring, I do not envy him."
+    "en": "Let Ovid be silent about Cadmus and Arethusa, for if in his poem he turns the man into a snake and the woman into a spring, I do not envy him.",
+    "prose": "Taccia Ovidio di Cadmo e d’Aretusa, ché, se quello poetando converte in serpente e quella in fonte, io non lo invidio;"
    }
   ]
  },
@@ -5982,7 +6102,8 @@
       }
      ]
     ],
-    "en": "O brothers, I said, who through a hundred thousand dangers have reached the west, to this so short watch"
+    "en": "O brothers, I said, who through a hundred thousand dangers have reached the west, to this so short watch",
+    "prose": "«O frati», dissi, «che per cento milia perigli siete giunti a l’occidente, a questa vigilia tanto picciola"
    },
    {
     "canto": 26,
@@ -6069,7 +6190,8 @@
       }
      ]
     ],
-    "en": "of our senses that remains, do not refuse the experience, following the sun, of the world without people."
+    "en": "of our senses that remains, do not refuse the experience, following the sun, of the world without people.",
+    "prose": "de’ nostri sensi, ch’è del rimanente, non vogliate negare l’esperienza, di retro al sol, del mondo sanza gente."
    },
    {
     "canto": 26,
@@ -6155,7 +6277,8 @@
       }
      ]
     ],
-    "en": "Consider your origin. You were not made to live as beasts do, but to follow virtue and knowledge."
+    "en": "Consider your origin. You were not made to live as beasts do, but to follow virtue and knowledge.",
+    "prose": "Considerate la vostra semenza: non foste fatti a vivere come bruti, ma per seguir virtute e canoscenza."
    }
   ]
  },
@@ -6263,7 +6386,8 @@
       }
      ]
     ],
-    "en": "If I believed that my answer were to a person who might ever return to the world, this flame would stand without shaking any more."
+    "en": "If I believed that my answer were to a person who might ever return to the world, this flame would stand without shaking any more.",
+    "prose": "Se io credessi che la mia risposta fosse a persona che mai tornasse al mondo, questa fiamma staria sanza più scosse;"
    },
    {
     "canto": 27,
@@ -6369,7 +6493,8 @@
       }
      ]
     ],
-    "en": "But since never from this depth has anyone returned alive, if I hear the truth, I answer you without fear of infamy."
+    "en": "But since never from this depth has anyone returned alive, if I hear the truth, I answer you without fear of infamy.",
+    "prose": "ma però che già mai alcun vivo non tornò di questo fondo, se io odo il vero, ti rispondo sanza tema d’infamia."
    }
   ]
  },
@@ -6487,7 +6612,8 @@
       }
      ]
     ],
-    "en": "I truly saw it, and it still seems that I see it: a trunk without a head going along just as the others of that sad flock went."
+    "en": "I truly saw it, and it still seems that I see it: a trunk without a head going along just as the others of that sad flock went.",
+    "prose": "Io vidi certo, e ancor pare che io lo veggia, un busto sanza capo andar sì come andavano li altri de la trista greggia;"
    },
    {
     "canto": 28,
@@ -6592,7 +6718,8 @@
       }
      ]
     ],
-    "en": "And the severed head held itself by the hair, hanging from the hand like a lantern, and that head looked at us and said: Oh me."
+    "en": "And the severed head held itself by the hair, hanging from the hand like a lantern, and that head looked at us and said: Oh me.",
+    "prose": "e tenea ’l capo tronco per le chiome, pesol con la mano a guisa di lanterna; e quel mirava noi e diceva: «Oh me!»"
    },
    {
     "canto": 28,
@@ -6686,7 +6813,8 @@
       }
      ]
     ],
-    "en": "Divided, I carry my brain, alas, away from its source, which is in this stump. So the counterpenalty is observed in me."
+    "en": "Divided, I carry my brain, alas, away from its source, which is in this stump. So the counterpenalty is observed in me.",
+    "prose": "Porto il mio cerebro partito, lasso!, dal suo principio che è in questo troncone. Così lo contrapasso s’osserva in me."
    }
   ]
  },
@@ -6801,7 +6929,8 @@
       }
      ]
     ],
-    "en": "So many people and such strange wounds had made my eyes so drunk that they longed to stay and weep."
+    "en": "So many people and such strange wounds had made my eyes so drunk that they longed to stay and weep.",
+    "prose": "La molta gente e le diverse piaghe avevano sì inebriate le luci mie, che erano vaghe di stare a piangere."
    },
    {
     "canto": 29,
@@ -6892,7 +7021,8 @@
       }
      ]
     ],
-    "en": "But Virgil said to me: Why do you keep staring? Why does your sight still rest down there among the sad, chopped shades?"
+    "en": "But Virgil said to me: Why do you keep staring? Why does your sight still rest down there among the sad, chopped shades?",
+    "prose": "Ma Virgilio mi disse: «Che guati pur? perché la vista tua si soffolge pur là giù tra l’ombre triste smozzicate?»"
    }
   ]
  },
@@ -7010,7 +7140,8 @@
       }
      ]
     ],
-    "en": "To the misery of Master Adam. Alive I had plenty of what I wanted, and now, alas, I crave a little drop of water."
+    "en": "To the misery of Master Adam. Alive I had plenty of what I wanted, and now, alas, I crave a little drop of water.",
+    "prose": "a la miseria del maestro Adamo; io ebbi, vivo, assai di quel ch’io volli, e ora, lasso!, bramo un gocciol d’acqua."
    },
    {
     "canto": 30,
@@ -7105,7 +7236,8 @@
       }
      ]
     ],
-    "en": "The little brooks that come down from the green hills of the Casentino into the Arno, making their channels cold and soft."
+    "en": "The little brooks that come down from the green hills of the Casentino into the Arno, making their channels cold and soft.",
+    "prose": "Li ruscelletti che dai verdi colli del Casentin discendono giù in Arno, facendo i lor canali freddi e molli,"
    }
   ]
  },
@@ -7226,7 +7358,8 @@
       }
      ]
     ],
-    "en": "His face seemed to me long and thick as the pinecone of Saint Peter’s in Rome, and his other bones were in proportion."
+    "en": "His face seemed to me long and thick as the pinecone of Saint Peter’s in Rome, and his other bones were in proportion.",
+    "prose": "La sua faccia mi parea lunga e grossa come la pina di San Pietro a Roma, e l’altre ossa erano a sua proporzione;"
    },
    {
     "canto": 31,
@@ -7318,6 +7451,7 @@
      ]
     ],
     "en": "The fierce mouth began to shout words that are not Italian and have no meaning. Sweeter psalms would not have suited it.",
+    "prose": "«Raphèl maì amècche zabì almi», cominciò a gridare la fiera bocca, a cui non si convenivano più dolci salmi.",
     "note": "Nimrod’s shout is not Italian. It has no meaning."
    }
   ]
@@ -7431,7 +7565,8 @@
       }
      ]
     ],
-    "en": "Then I took him by the scruff and said: You will have to name yourself, or not a hair up here will be left on you."
+    "en": "Then I took him by the scruff and said: You will have to name yourself, or not a hair up here will be left on you.",
+    "prose": "Allor lo presi per la cuticagna e dissi: «Converrà che tu ti nomi, o che non ti rimagna capello qui sù»."
    },
    {
     "canto": 32,
@@ -7538,7 +7673,8 @@
       }
      ]
     ],
-    "en": "Then he said to me: Even if you scalp me, I will not tell you who I am, nor show you, though you strike me a thousand times on the head."
+    "en": "Then he said to me: Even if you scalp me, I will not tell you who I am, nor show you, though you strike me a thousand times on the head.",
+    "prose": "Onde egli a me: «Perché tu mi dischiomi, non ti dirò chi io sia, né te lo mostrerò, se mille fiate mi tomi in sul capo»."
    }
   ]
  },
@@ -7638,7 +7774,8 @@
       }
      ]
     ],
-    "en": "That sinner raised his mouth from the fierce meal, wiping it on the hair of the head he had wrecked from behind."
+    "en": "That sinner raised his mouth from the fierce meal, wiping it on the hair of the head he had wrecked from behind.",
+    "prose": "Quel peccatore sollevò la bocca dal fiero pasto, forbendola ai capelli del capo che egli aveva guastato di dietro."
    },
    {
     "canto": 33,
@@ -7736,7 +7873,8 @@
       }
      ]
     ],
-    "en": "Then he began: You want me to renew a desperate grief that squeezes my heart even in the mere thinking, before I speak of it."
+    "en": "Then he began: You want me to renew a desperate grief that squeezes my heart even in the mere thinking, before I speak of it.",
+    "prose": "Poi cominciò: «Tu vuoi che io rinovelli il dolor disperato che mi preme il cor già pur nel pensare, prima che io ne parli.»"
    },
    {
     "canto": 33,
@@ -7840,6 +7978,7 @@
      ]
     ],
     "en": "Already blind, I went groping over each of them, and I called them for two days after they were dead. Then hunger could do more than grief.",
+    "prose": "già cieco, a brancolare sopra ciascuno, e li chiamai due giorni dopo che furono morti. Poi il digiuno poté più che il dolor.",
     "note": "The line can mean that hunger killed him, or that hunger drove him to eat the bodies. It does not say which."
    }
   ]
@@ -7939,6 +8078,7 @@
      ]
     ],
     "en": "The banners of the king of Hell move forward toward us. Look ahead, my master said, and see if you can make him out.",
+    "prose": "«Vexilla regis prodeunt inferni verso di noi; però mira dinanzi», disse il mio maestro, «se tu lo discerni».",
     "note": "The first line is Latin, the hymn Vexilla regis prodeunt, with inferni, “of Hell,” added. It is not Italian."
    },
    {
@@ -8146,7 +8286,8 @@
       }
      ]
     ],
-    "en": "The emperor of the painful kingdom stood out of the ice from mid-chest. I am closer in size to a giant than the giants are to his arms. See now how huge the whole must be, to fit a part like that."
+    "en": "The emperor of the painful kingdom stood out of the ice from mid-chest. I am closer in size to a giant than the giants are to his arms. See now how huge the whole must be, to fit a part like that.",
+    "prose": "Lo imperatore del doloroso regno usciva fuori della ghiaccia da mezzo il petto; e io mi convengo con un gigante più che i giganti non fanno con le sue braccia: vedi ormai quanto deve essere quel tutto che si confaccia a una parte fatta così."
    },
    {
     "canto": 34,
@@ -8287,7 +8428,8 @@
       }
      ]
     ],
-    "en": "We climbed up, he first and I second, until through a round opening I saw the beautiful things the heavens carry. From there we came out to see the stars again."
+    "en": "We climbed up, he first and I second, until through a round opening I saw the beautiful things the heavens carry. From there we came out to see the stars again.",
+    "prose": "Salimmo su, egli primo e io secondo, tanto che io vidi, per un pertugio tondo, delle cose belle che porta il cielo. E quindi uscimmo a rivedere le stelle."
    }
   ]
  }

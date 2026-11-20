@@ -9,7 +9,7 @@
   // One setting, not one switch per pack. core is always on; extra ids are loaded with it.
   const CHOICES = {
     core: { label: 'Modern Italian', packs: [] },
-    dante: { label: 'Modern Italian + Dante (Inferno)', packs: ['dante'] }
+    dante: { label: 'Modern Italian + Dante: Inferno', packs: ['dante'] }
   };
   function normalize(id) {
     if (!CHOICES[id]) id = 'core';
