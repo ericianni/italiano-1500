@@ -442,12 +442,12 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v22'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v23'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const ui = fs.readFileSync(path.join(root, 'core/ui.js'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v22'/.test(app), 'app version v22');
+  ok(/const VERSION = 'v23'/.test(app), 'app version v23');
   const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
   ok(/Modern Italian \+ Dante: Inferno/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
   ok(/Dante: Inferno adds words from the poem/.test(app), 'how it works names Dante: Inferno');
@@ -483,7 +483,7 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(how >= 0 && sandAt > how && sandAt < what, 'And…? sits above What to drill');
   ok(/<h3>Sentences<\/h3>[\s\S]*Questions per set[\s\S]*id="tdone"[\s\S]*Your choices are saved automatically/.test(drills), 'sentences, then set length, then Done');
   ok(/Seen in drills so far:/.test(drills), 'seen in drills line');
-  ok(/Cheat sheet — tables/.test(drills), 'cheat sheet button names the tables');
+  ok(/Cheat sheet — verb and noun tables/.test(drills), 'cheat sheet button names the tables');
   ok(/<select id="pack" aria-label="Pack"><option value="core"/.test(about) && />Dante: Inferno<\/option>/.test(about), 'pack dropdown');
   ok(/The core word list is always included\. One added pack can be on at a time\./.test(about), 'pack helper');
   ok(about.indexOf('id="pack"') < about.indexOf('New words per day') && about.indexOf('New words per day') > 0, 'pack select is first in Settings');
@@ -495,7 +495,8 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(/Learn 5 more words<\/button><button class="grow" id="goquiz">Quick quiz<\/button>/.test(app), 'quiz button sits with Learn 5 more');
   ok(/Quick quiz \(doesn’t affect your schedule\)/.test(app), 'quiz link while cards are due');
   ok(/<div class="card sheetcard"><div class="sheet">\$\{cheatHTML\(\)\}<\/div><\/div>/.test(app), 'cheat sheet wraps in a sheet card');
-  ok(/Endings are in <b>bold<\/b>\. Tap a heading to open it\./.test(app), 'cheat sheet intro');
+  ok(/Tap a heading to open it\./.test(app) && !/Endings are in <b>bold<\/b>/.test(app), 'cheat sheet intro; Italian shows the whole form');
+  ok(!/\.packseg/.test(css) && !/id="spack"/.test(app), 'stacked pack buttons are gone');
   ok(/\.card\.sheetcard\{padding:18px 16px\}/.test(css), 'sheet card padding');
   ok(/details\.cs summary\{cursor:pointer;padding:6px 0;list-style:none/.test(css) && /details\.cs summary::before\{content:""/.test(css), 'custom disclosure triangle');
   ok(/margin:0 0 8px;padding:8px 0/.test(css) && /\.ovbody \.jump\{top:-8px;margin:-8px -16px 8px/.test(css), 'jump stays inside the card; overlay jump still bleeds');

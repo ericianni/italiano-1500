@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v22';
+  const VERSION = 'v23';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -340,7 +340,7 @@
         <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
         <button class="primary big" id="tdone" style="margin-top:16px">Done</button>
         <p class="small muted center" style="margin:8px 0 0">Your choices are saved automatically.</p></div>` : ''}</div>
-      <div class="card"><button class="big" id="opencs">📖 Cheat sheet — tables</button></div>`;
+      <div class="card"><button class="big" id="opencs">📖 Cheat sheet — verb and noun tables</button></div>`;
     if ($('#dgo')) $('#dgo').onclick = () => startDrills(fin && fin.only ? fin.only : null, null, fin && fin.label);
     if ($('#gweak')) $('#gweak').onclick = renderWeak;
     $('#tset').onclick = () => { showSet = !showSet; renderDrills(); };
@@ -561,7 +561,7 @@
   function cheatHTML() {
     const tenses = it => ['pres', 'imp', 'fut', 'pp'].map(t => `<div class="csh">${D.TENSES[t]}</div>${verbTable([it], t)}`).join('');
     const reg = (id, it, t) => sec(id, t, `<div class="forms"><table><tr><th></th>${['pres', 'imp', 'fut', 'pp'].map(x => `<th>${D.TENSES[x]}</th>`).join('')}</tr>${SUBJ6.map((p, i) => `<tr><th>${p}</th>${['pres', 'imp', 'fut', 'pp'].map(x => `<td>${esc(x === 'pp' ? M.passato(verb(it), i, 'm') : M.tense(verb(it), x)[i])}</td>`).join('')}</tr>`).join('')}</table></div>`);
-    return `<p class="small muted">Endings are in <b>bold</b>. Tap a heading to open it.</p>
+    return `<p class="small muted">Tap a heading to open it.</p>
       <div class="jump chips"><a href="#cs-art">Articles</a><a href="#cs-nouns">Plurals</a><a href="#cs-adj">Adjectives</a><a href="#cs-v-are">-are</a><a href="#cs-v-ere">-ere</a><a href="#cs-v-ire">-ire</a><a href="#cs-v-isc">-isc-</a><a href="#cs-v-spell">Spelling</a><a href="#cs-pp">Passato</a><a href="#cs-irr">Irregular</a></div>
       <h2>Nouns and articles</h2>
       ${sec('cs-art', 'Articles', `<div class="csh">Definite (the)</div>${artTable()}<div class="small muted">lo / gli also before ps, pn, x, y and i + vowel (lo yogurt). Feminine plural is always le. Exception: gli dei.</div>${indefTable()}<div class="small muted">un never takes an apostrophe (un amico); un’ is feminine (un’amica).</div>${prepTable()}`)}

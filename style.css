@@ -52,7 +52,6 @@ td{font-family:Georgia,serif}
 h2{font-size:1.1rem;margin:18px 0 6px}
 a{color:var(--accent)}
 .seg{display:flex;gap:6px}.seg button{flex:1;padding:9px 0}.seg button.on{background:var(--accent);color:var(--accent-ink)}
-.packseg .seg{flex-wrap:wrap}.packseg .seg button{flex:1 1 100%;padding:9px 8px}
 .stats.two{grid-template-columns:repeat(2,1fr)}
 h3{font-size:.95rem;margin:16px 0 2px;color:var(--accent)}
 .chiph{margin-top:10px}

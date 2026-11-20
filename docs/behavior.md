@@ -32,13 +32,13 @@ Questions lean toward forms you miss, have not tried, or have not seen lately. A
 
 **Ask “And…?”** lives on the How to answer card, under the Type / Identify / Mix choice, and it stays visible. Some forms have more than one reading (*sono*: io or loro). Any one is right. If the setting is on, you can name the others; skipping is free.
 
-What to drill shows how many words and forms you have seen so far. Opening it lists the form chips, then sentences, then how many questions are in a set, then Done. The line under Done says the choices are saved automatically. The cheat-sheet button reads “Cheat sheet — tables,” and the sheet opened from a drill closes with “Back to drill ✕.”
+What to drill shows how many words and forms you have seen so far. Opening it lists the form chips, then sentences, then how many questions are in a set, then Done. The line under Done says the choices are saved automatically. The cheat-sheet button reads “Cheat sheet — verb and noun tables,” and the sheet opened from a drill closes with “Back to drill ✕.”
 
 **Accents** are a setting on About. With Accents count, *citta* for *città* is wrong. You can still tap Count as correct.
 
 ## Cheat sheet
 
-The same tables as the lessons, in one place: articles, plurals, adjectives, verb groups, and irregulars. The line at the top says “Endings are in bold. Tap a heading to open it.” The section chips sit inside the card, and each heading has its own arrow.
+The same tables as the lessons, in one place: articles, plurals, adjectives, verb groups, and irregulars. Each table shows the whole form. The line at the top says “Tap a heading to open it.” The section chips sit inside the card, and each heading has its own arrow.
 
 ## Words
 
