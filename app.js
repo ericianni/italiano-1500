@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v19';
+  const VERSION = 'v20';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -145,6 +145,7 @@
   }
   function bindStop(cb) { const b = $('#stop'); if (b) b.onclick = () => { Q = null; if (TEST) renderTest(); else cb(); }; }
   const goalBar = (n, of) => `<div class="bar"><i style="width:${Math.min(100, 100 * n / of).toFixed(1)}%"></i></div>`;
+  const drillGoal = dn => dn + ' / ' + DAILY_DRILLS + (dn >= DAILY_DRILLS ? ' ✓' : '');
   function renderToday() {
     $('#sub').textContent = 'Flashcards';
     const c = counts(), d = day(), tot = c.due + c.fresh, run = Math.min(tot, SESSION_MAX);
@@ -153,7 +154,7 @@
     const goal = S.set.newPerDay + (d.extra || 0), dn = d.dn || 0;
     const goals = `<div class="card"><div class="prompt-kind">Today’s goals</div>
       <div class="small" style="margin-top:8px">New words: <b>${Math.min(d.nv || 0, goal)}</b> / ${goal}</div>${goalBar(d.nv || 0, goal)}
-      <div class="small" style="margin-top:8px">Drill answers: <b>${Math.min(dn, DAILY_DRILLS)}</b> / ${DAILY_DRILLS}</div>${goalBar(dn, DAILY_DRILLS)}</div>`;
+      <div class="small" style="margin-top:8px">Drill answers: <b>${drillGoal(dn)}</b></div>${goalBar(dn, DAILY_DRILLS)}</div>`;
     const prog = `<div class="card"><div class="small muted">Words started: <b>${started}</b> / ${W.length}</div>${goalBar(started, W.length)}</div>`;
     if (!tot) {
       V().innerHTML = `<div class="card done"><div class="check">✓</div><h2>Flashcards done for today</h2><p class="muted">Nice work. New words and reviews will be waiting tomorrow.</p>
@@ -310,7 +311,7 @@
       ? `<div class="card"><div class="prompt-kind">Form drills</div><p class="no">Nothing matches your choices.</p><p class="small muted">Turn on at least one option in each row of the settings below.</p></div>`
       : `<div class="card">${fin ? `<div class="prompt-kind">Set done${fin.label ? ' · ' + esc(fin.label) : ''}</div><h2 style="margin:4px 0 0">${fin.ok} of ${fin.n} right</h2>` : '<div class="prompt-kind">Form drills · free practice</div>'}
         <div class="stats two" style="margin:12px 0 10px"><div class="stat"><b>${tried}</b><span>of ${keys.length} forms tried</span></div><div class="stat"><b>${dn}</b><span>answered today</span></div></div>
-        <div class="small muted">Daily goal: ${Math.min(dn, DAILY_DRILLS)} / ${DAILY_DRILLS}${dn >= DAILY_DRILLS ? ' ✓' : ''}</div>${goalBar(dn, DAILY_DRILLS)}
+        <div class="small muted">Daily goal: ${drillGoal(dn)}</div>${goalBar(dn, DAILY_DRILLS)}
         <button class="primary big" id="dgo" style="margin-top:10px">${fin ? 'Keep going' : `Start a set of ${S.set.dlen}`}</button>
         <p class="small muted center" style="margin:10px 0 0">Questions lean toward forms you miss, haven’t tried, or haven’t seen lately. Stop anytime; every answer is saved.</p></div>
         <div class="card"><div class="row"><h2 class="grow" style="margin:0">Weak spots</h2><button class="link" id="gweak">View ›</button></div>

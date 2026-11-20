@@ -442,11 +442,11 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v19'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v20'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v19'/.test(app), 'app version v19');
+  ok(/const VERSION = 'v20'/.test(app), 'app version v20');
   const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
   ok(/Modern Italian \+ Dante: Inferno/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
   ok(/Dante: Inferno adds words from the poem/.test(app), 'how it works names Dante: Inferno');
@@ -459,6 +459,14 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(/With <b>Accents count<\/b>, <i>citta<\/i> for <i>città<\/i> is marked wrong/.test(app), 'accents hint');
   ok(/Ask “And…\?”<\/b> then lets you name the others/.test(app), 'and-more hint');
   ok(!/id="godr"/.test(app) && /Drill answers:/.test(app), 'today goals keep the drill count without a Drills link');
+  const drillGoal = dn => dn + ' / ' + 20 + (dn >= 20 ? ' ✓' : '');
+  eq(drillGoal(27), '27 / 20 ✓', 'drill goal past 20 shows the real count and a check');
+  eq(drillGoal(20), '20 / 20 ✓', 'drill goal just met');
+  eq(drillGoal(3), '3 / 20', 'drill goal not yet met');
+  ok(/const drillGoal = dn => dn \+ ' \/ ' \+ DAILY_DRILLS \+ \(dn >= DAILY_DRILLS \? ' ✓' : ''\)/.test(app), 'app drill goal formula');
+  ok(/Drill answers: <b>\$\{drillGoal\(dn\)\}<\/b>/.test(app) && /Daily goal: \$\{drillGoal\(dn\)\}/.test(app), 'both drill counters use the same display');
+  ok(/New words: <b>\$\{Math\.min\(d\.nv/.test(app) && !/Math\.min\(dn, DAILY_DRILLS\)/.test(app), 'new words stay capped; drill count does not');
+  ok(/Math\.min\(100, 100 \* n \/ of\)/.test(app), 'goal bar stays capped at 100%');
   ok(/placeholder="Type Italian \(optional\)"/.test(app), 'card typing placeholder');
   ok(/p === 'art' \? 'Articles'/.test(app), 'words filter lists Articles');
   const about = app.slice(app.indexOf('function renderAbout'), app.indexOf('// ---------- shell'));

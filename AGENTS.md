@@ -112,7 +112,7 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 ## Release / Git
 
 - What the app does, in plain language: `docs/behavior.md`.
-- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v19`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
+- Every user-facing code or data change: bump `const CACHE = 'italiano1500-vN'` in `sw.js` (currently `italiano1500-v20`) and extend `ASSETS` if new files are needed. Sentence engine files are in `ASSETS` and are lazy-loaded, not blocking script tags.
 - **Docs-only** commits do **not** need a cache bump.
 - Android wrapper (first APK): `io.github.ericianni.italiano1500`, display name Italiano 1500, `versionCode` 1, `versionName` `v14-android-1` (aligned with cache `italiano1500-v14`). Do **not** edit `android/` or `www/` for a web-only release. `www/` is gitignored; `npm run build:web` recopies the PWA (including `sw.js`, `core/`, `lang/`, `data/`, `icons/`, and `fonts/` when that directory exists). The service worker is not registered when `window.Capacitor` is set, because the APK already bundles the assets. The GitHub Pages PWA is unchanged.
 - APK build is local only. Do **not** sign, publish, or generate a keystore in the cloud. Signing uses the existing debug keystore on Eric’s computer (`~/.android/debug.keystore`, the same key as the delivered Latin APKs). Requires Node, JDK 21, and Android SDK platform 36: `JAVA_HOME=/opt/jdk21 ANDROID_HOME=/opt/android-sdk npm run android:debug`. Output: `android/app/build/outputs/apk/debug/app-debug.apk`. `npm run android:sync` stops before Gradle.
