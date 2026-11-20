@@ -8,7 +8,7 @@ Each word has two cards: Italian to English, then English to Italian. On the sec
 
 ## Today’s goals
 
-The Cards tab shows two daily counts: new words, and drill answers as N / 20. New words stop at the day’s goal. Drill answers keep counting past 20, and show a check once the goal is met (27 / 20 ✓). The same count is on Drills. The bar under it fills and then stays full. The drill line is only a count. It is not a link.
+The Cards tab shows two daily counts: new words, and drill answers as N / 20. Both keep counting past the goal and show a check once it is met (8 / 5 ✓, 27 / 20 ✓). The drill count is the same on Drills. Each bar fills and then stays full. The drill line is only a count. It is not a link.
 
 ## Learn
 

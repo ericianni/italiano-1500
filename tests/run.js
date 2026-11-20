@@ -442,11 +442,11 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   ok(ex.every(w => !coreIt.has(w.it) && !danteIt.has(w.it)), 'excluded: not core and not in the pack');
   // service worker precaches every file the page loads
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'), html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  ok(/const CACHE = 'italiano1500-v20'/.test(sw), 'sw: cache name');
+  ok(/const CACHE = 'italiano1500-v21'/.test(sw), 'sw: cache name');
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
   const lessons = fs.readFileSync(path.join(root, 'lang/it/lessons.js'), 'utf8');
-  ok(/const VERSION = 'v20'/.test(app), 'app version v20');
+  ok(/const VERSION = 'v21'/.test(app), 'app version v21');
   const packsJs = fs.readFileSync(path.join(root, 'core/packs.js'), 'utf8');
   ok(/Modern Italian \+ Dante: Inferno/.test(packsJs) && /label: 'Modern Italian'/.test(packsJs), 'pack labels');
   ok(/Dante: Inferno adds words from the poem/.test(app), 'how it works names Dante: Inferno');
@@ -465,7 +465,12 @@ const pending = Packs.load('data/packs/', u => Promise.resolve(JSON.parse(fs.rea
   eq(drillGoal(3), '3 / 20', 'drill goal not yet met');
   ok(/const drillGoal = dn => dn \+ ' \/ ' \+ DAILY_DRILLS \+ \(dn >= DAILY_DRILLS \? ' ✓' : ''\)/.test(app), 'app drill goal formula');
   ok(/Drill answers: <b>\$\{drillGoal\(dn\)\}<\/b>/.test(app) && /Daily goal: \$\{drillGoal\(dn\)\}/.test(app), 'both drill counters use the same display');
-  ok(/New words: <b>\$\{Math\.min\(d\.nv/.test(app) && !/Math\.min\(dn, DAILY_DRILLS\)/.test(app), 'new words stay capped; drill count does not');
+  const newGoal = (n, goal) => (n || 0) + ' / ' + goal + ((n || 0) >= goal ? ' ✓' : '');
+  eq(newGoal(8, 5), '8 / 5 ✓', 'new words past the goal show the real count and a check');
+  eq(newGoal(5, 5), '5 / 5 ✓', 'new words goal just met');
+  eq(newGoal(2, 10), '2 / 10', 'new words not yet met');
+  ok(/const newGoal = \(n, goal\) => \(n \|\| 0\) \+ ' \/ ' \+ goal \+ \(\(n \|\| 0\) >= goal \? ' ✓' : ''\)/.test(app), 'app new-words goal formula');
+  ok(/New words: <b>\$\{newGoal\(d\.nv, goal\)\}<\/b>/.test(app) && !/Math\.min\(d\.nv/.test(app) && !/Math\.min\(dn, DAILY_DRILLS\)/.test(app), 'new words and drills both show the real count');
   ok(/Math\.min\(100, 100 \* n \/ of\)/.test(app), 'goal bar stays capped at 100%');
   ok(/placeholder="Type Italian \(optional\)"/.test(app), 'card typing placeholder');
   ok(/p === 'art' \? 'Articles'/.test(app), 'words filter lists Articles');

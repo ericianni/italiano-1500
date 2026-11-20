@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v20';
+  const VERSION = 'v21';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -146,6 +146,7 @@
   function bindStop(cb) { const b = $('#stop'); if (b) b.onclick = () => { Q = null; if (TEST) renderTest(); else cb(); }; }
   const goalBar = (n, of) => `<div class="bar"><i style="width:${Math.min(100, 100 * n / of).toFixed(1)}%"></i></div>`;
   const drillGoal = dn => dn + ' / ' + DAILY_DRILLS + (dn >= DAILY_DRILLS ? ' ✓' : '');
+  const newGoal = (n, goal) => (n || 0) + ' / ' + goal + ((n || 0) >= goal ? ' ✓' : '');
   function renderToday() {
     $('#sub').textContent = 'Flashcards';
     const c = counts(), d = day(), tot = c.due + c.fresh, run = Math.min(tot, SESSION_MAX);
@@ -153,7 +154,7 @@
     const mins = Math.max(1, Math.round(run * 12 / 60));
     const goal = S.set.newPerDay + (d.extra || 0), dn = d.dn || 0;
     const goals = `<div class="card"><div class="prompt-kind">Today’s goals</div>
-      <div class="small" style="margin-top:8px">New words: <b>${Math.min(d.nv || 0, goal)}</b> / ${goal}</div>${goalBar(d.nv || 0, goal)}
+      <div class="small" style="margin-top:8px">New words: <b>${newGoal(d.nv, goal)}</b></div>${goalBar(d.nv || 0, goal)}
       <div class="small" style="margin-top:8px">Drill answers: <b>${drillGoal(dn)}</b></div>${goalBar(dn, DAILY_DRILLS)}</div>`;
     const prog = `<div class="card"><div class="small muted">Words started: <b>${started}</b> / ${W.length}</div>${goalBar(started, W.length)}</div>`;
     if (!tot) {
