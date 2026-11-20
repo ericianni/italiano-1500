@@ -5,7 +5,7 @@
   const { $, $$, esc, shuffle } = UI;
   const M = window.ItMorph, D = window.ItDrills, LS = window.LESSONS;
   const KEY = 'italiano1500.v1';
-  const VERSION = 'v21';
+  const VERSION = 'v22';
   const store = Store.create(KEY, fix);
   const DAILY_DRILLS = 20, SESSION_MAX = 30, WEAK_N = 12, WEAK_MAX = 0.85;
   const ACC_KEYS = ['à', 'è', 'é', 'ì', 'ò', 'ù', '’'];
@@ -140,7 +140,7 @@
   function sessionHead() {
     if (!Q) return '';
     const pct = Q.total ? 100 * Q.done / Q.total : 0;
-    const stop = TEST ? '<span class="pill" style="margin-right:8px">Test mode</span><button class="link" id="stop">Stop</button>' : '<button class="link" id="stop">Stop: progress is saved</button>';
+    const stop = TEST ? '<span class="pill" style="margin-right:8px">Test mode</span><button class="link" id="stop">Stop</button>' : '<button class="link" id="stop">Stop — progress is saved</button>';
     return `<div class="row small muted"><span class="grow">${Q.done} / ${Q.total}</span>${stop}</div><div class="bar"><i style="width:${pct}%"></i></div>`;
   }
   function bindStop(cb) { const b = $('#stop'); if (b) b.onclick = () => { Q = null; if (TEST) renderTest(); else cb(); }; }
@@ -159,16 +159,19 @@
     const prog = `<div class="card"><div class="small muted">Words started: <b>${started}</b> / ${W.length}</div>${goalBar(started, W.length)}</div>`;
     if (!tot) {
       V().innerHTML = `<div class="card done"><div class="check">✓</div><h2>Flashcards done for today</h2><p class="muted">Nice work. New words and reviews will be waiting tomorrow.</p>
-        <button class="big" id="more">Learn 5 more words</button></div>${goals}${prog}`;
+        <div class="row wrap" style="margin-top:14px"><button class="grow" id="more">Learn 5 more words</button><button class="grow" id="goquiz">Quick quiz</button></div></div>${goals}${prog}`;
       $('#more').onclick = () => { d.extra = (d.extra || 0) + 5; save(); startCards(); };
     } else {
       V().innerHTML = `<div class="card"><div class="prompt-kind">Today’s flashcards · about ${mins} min</div>
         <div class="stats two" style="margin:12px 0 14px"><div class="stat"><b>${c.fresh}</b><span>new words</span></div><div class="stat"><b>${c.due}</b><span>reviews</span></div></div>
         <button class="primary big" id="go">${tot > SESSION_MAX ? `Start (${SESSION_MAX} cards)` : 'Start'}</button>
-        <p class="small muted center" style="margin:10px 0 0">Stop whenever you like: every answer is saved.</p></div>${goals}${prog}`;
+        <p class="small muted center" style="margin:10px 0 0">Stop whenever you like — every answer is saved.</p></div>${goals}
+        <div class="card"><div class="small muted">Words started: <b>${started}</b> / ${W.length}</div>${goalBar(started, W.length)}
+        <button class="link" id="goquiz">Quick quiz (doesn’t affect your schedule)</button></div>`;
       $('#go').onclick = startCards;
     }
-    }
+    $('#goquiz').onclick = () => setTab('quiz');
+  }
   function renderCard(it) {
     const [dir, id] = SRS.split(it.k), w = BY[id];
     const pills = `<span class="pill">${esc(POS[w.pos] || w.pos)}</span><span class="pill">#${w.rank}</span>${it.isNew ? '<span class="pill">new</span>' : ''}${w.pack === 'dante' ? PACK_BADGE : ''}`;
@@ -319,21 +322,25 @@
         <div class="small muted" style="margin-top:4px">${weak.length ? weak.slice(0, 3).map(c => esc(D.comboLabel(c)) + ' · ' + pct(S.dst[c])).join('<br>') : (Object.keys(S.dst).length ? 'None right now: every form you’ve tried is at 85% or better.' : 'Your lowest-accuracy forms will show up here once you’ve answered a few.')}</div></div>`;
     const msg = drillMsg ? `<div class="card small">${esc(drillMsg)}</div>` : ''; drillMsg = '';
     const nw = new Set([].concat(...Object.values(U))).size;
+    const countWord = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
     V().innerHTML = msg + head + `<div class="card"><div class="small muted chiph" style="margin-top:0">How to answer</div>${UI.seg('dmode', MODES, S.set.dmode)}
-      <p class="small muted" style="margin:8px 0 0">${S.set.dmode === 'id' ? 'Tap what each form is: tense and person, or which article / adjective form fits.' : (S.set.dmode === 'mix' ? 'Half typed, half tapped. ' : 'Type the form. ') + (S.set.strict ? 'Accents count.' : 'Accents optional.')}</p></div>
+      <p class="small muted" style="margin:8px 0 0">${S.set.dmode === 'id' ? 'Tap what each form is: tense and person, or which article / adjective form fits.' : (S.set.dmode === 'mix' ? 'Half typed, half tapped. ' : 'Type the form. ') + (S.set.strict ? 'Accents count.' : 'Accents optional.')}</p>
+      <div class="small muted chiph">Identify drills: forms with more than one reading</div>${UI.seg('sand', [['1', 'Ask “And…?”'], ['0', 'Just show them']], S.set.andMore ? '1' : '0')}
+      <p class="small muted">Some forms have more than one reading (<i>sono</i>: io or loro). Any one is right. <b>Ask “And…?”</b> then lets you name the others; skipping is free.</p></div>
       <div class="card"><div class="row"><h2 class="grow" style="margin:0">What to drill</h2><button class="link" id="tset">${showSet ? 'Hide' : 'Change'}</button></div>
       <div class="small muted" style="margin-top:4px">${esc(dfSummary())} · <b>${keys.length}</b> forms, <b>${nw}</b> words</div>
+      <div class="small muted" style="margin-top:2px">Seen in drills so far: ${countWord(Object.keys(S.ds.w).length, 'word')} · ${countWord(Object.keys(S.dst).length, 'form')}</div>
       ${showSet ? `<div id="dset">${chipRow('types', 'Word types')}<h3>Verbs</h3>${chipRow('tenses', 'Tense')}${chipRow('groups', 'Verb group')}${chipRow('persons', 'Person')}${chipRow('vnums', 'Number')}<h3>Articles</h3>${chipRow('arts', 'Article')}${chipRow('agen', 'Noun gender')}${chipRow('anum', 'Number')}${chipRow('onsets', 'Word starts with')}<h3>Adjective agreement</h3>${chipRow('acls', 'Adjective type')}${chipRow('jgen', 'Noun gender')}${chipRow('jnum', 'Number')}
-        <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
+        <p class="small muted"><b>Irregular</b> covers only the tenses where a verb is irregular. Reflexive verbs aren't drilled yet.</p>
+        <h3>Sentences</h3>
         <div class="small muted chiph">Sentences in drills</div>${UI.seg('ssent', [['0', 'Off'], ['1', 'On']], S.set.df.sent ? '1' : '0')}
         <p class="small muted"><b>Sentences in drills</b> stay off until you turn them on. When they're on, about one question in seven is a short Rome-trip sentence made from words you've already seen.</p>
         ${S.set.df.sent ? `<div class="small muted chiph">Sentence question</div>${UI.seg('sstype', [['tr', 'Translate'], ['id', 'Identify'], ['both', 'Both']], S.set.df.stype)}
         <div class="small muted chiph">Translate direction</div>${UI.seg('ssdir', [['ie', 'Italian → English'], ['ei', 'English → Italian'], ['both', 'Both']], S.set.df.sdir)}` : ''}
-        <div class="small muted chiph">Identify drills: forms with more than one reading</div>${UI.seg('sand', [['1', 'Ask “And…?”'], ['0', 'Just show them']], S.set.andMore ? '1' : '0')}
-        <p class="small muted">Some forms have more than one reading (<i>sono</i>: io or loro). Any one is right. <b>Ask “And…?”</b> then lets you name the others; skipping is free.</p>
-        <p class="small muted"><b>Irregular</b> covers only the tenses where a verb is irregular. Reflexive verbs aren't drilled yet.</p>
-        <button class="primary big" id="tdone">Done</button></div>` : ''}</div>
-      <div class="card"><button class="big" id="opencs">📖 Cheat sheet</button></div>`;
+        <div class="small muted chiph">Questions per set</div>${UI.seg('sdr', [[5, '5'], [10, '10'], [20, '20']], S.set.dlen)}
+        <button class="primary big" id="tdone" style="margin-top:16px">Done</button>
+        <p class="small muted center" style="margin:8px 0 0">Your choices are saved automatically.</p></div>` : ''}</div>
+      <div class="card"><button class="big" id="opencs">📖 Cheat sheet — tables</button></div>`;
     if ($('#dgo')) $('#dgo').onclick = () => startDrills(fin && fin.only ? fin.only : null, null, fin && fin.label);
     if ($('#gweak')) $('#gweak').onclick = renderWeak;
     $('#tset').onclick = () => { showSet = !showSet; renderDrills(); };
@@ -554,7 +561,8 @@
   function cheatHTML() {
     const tenses = it => ['pres', 'imp', 'fut', 'pp'].map(t => `<div class="csh">${D.TENSES[t]}</div>${verbTable([it], t)}`).join('');
     const reg = (id, it, t) => sec(id, t, `<div class="forms"><table><tr><th></th>${['pres', 'imp', 'fut', 'pp'].map(x => `<th>${D.TENSES[x]}</th>`).join('')}</tr>${SUBJ6.map((p, i) => `<tr><th>${p}</th>${['pres', 'imp', 'fut', 'pp'].map(x => `<td>${esc(x === 'pp' ? M.passato(verb(it), i, 'm') : M.tense(verb(it), x)[i])}</td>`).join('')}</tr>`).join('')}</table></div>`);
-    return `<div class="jump chips"><a href="#cs-art">Articles</a><a href="#cs-nouns">Plurals</a><a href="#cs-adj">Adjectives</a><a href="#cs-v-are">-are</a><a href="#cs-v-ere">-ere</a><a href="#cs-v-ire">-ire</a><a href="#cs-v-isc">-isc-</a><a href="#cs-v-spell">Spelling</a><a href="#cs-pp">Passato</a><a href="#cs-irr">Irregular</a></div>
+    return `<p class="small muted">Endings are in <b>bold</b>. Tap a heading to open it.</p>
+      <div class="jump chips"><a href="#cs-art">Articles</a><a href="#cs-nouns">Plurals</a><a href="#cs-adj">Adjectives</a><a href="#cs-v-are">-are</a><a href="#cs-v-ere">-ere</a><a href="#cs-v-ire">-ire</a><a href="#cs-v-isc">-isc-</a><a href="#cs-v-spell">Spelling</a><a href="#cs-pp">Passato</a><a href="#cs-irr">Irregular</a></div>
       <h2>Nouns and articles</h2>
       ${sec('cs-art', 'Articles', `<div class="csh">Definite (the)</div>${artTable()}<div class="small muted">lo / gli also before ps, pn, x, y and i + vowel (lo yogurt). Feminine plural is always le. Exception: gli dei.</div>${indefTable()}<div class="small muted">un never takes an apostrophe (un amico); un’ is feminine (un’amica).</div>${prepTable()}`)}
       ${sec('cs-nouns', 'Noun plurals', `${nounTable([['libro', 'm'], ['casa', 'f'], ['padre', 'm'], ['notte', 'f'], ['problema', 'm'], ['città', 'f'], ['film', 'm'], ['foto', 'f'], ['amica', 'f'], ['parco', 'm'], ['medico', 'm'], ['amico', 'm'], ['camicia', 'f'], ['spiaggia', 'f'], ['figlio', 'm'], ['zio', 'm'], ['uomo', 'm'], ['mano', 'f'], ['uovo', 'm'], ['braccio', 'm']])}
@@ -573,7 +581,7 @@
   }
   function renderCheat() {
     $('#sub').textContent = 'Cheat sheet';
-    V().innerHTML = `<div class="card sheet">${cheatHTML()}</div>`;
+    V().innerHTML = `<div class="card sheetcard"><div class="sheet">${cheatHTML()}</div></div>`;
     UI.bindJump(V());
   }
   function openSheet(id) { UI.openOverlay('Cheat sheet', cheatHTML(), el => { UI.bindJump(el); UI.gotoAnchor(el, id); }); }
@@ -590,7 +598,7 @@
     const n = all.filter(l => lessonDone(l.id)).length, secs = [...new Set(all.map(l => l.sec))];
     V().innerHTML = `<div class="card"><div class="prompt-kind">${reading ? 'Lessons' : 'Lessons · about 5–10 minutes each'}</div>
       <p class="small muted" style="margin:6px 0 10px">${reading ? 'Grammar lessons have tables and a short quick check. The Dante readings are the poem, with plain English under each tercet.' : 'The grammar behind the drills, with tables and a short quick check.'} <b>${n}</b> of ${all.length} done.</p>${goalBar(n, all.length)}</div>
-      ${secs.map(s => `<h3>${esc(s)}</h3><div class="card llist">${all.filter(l => l.sec === s).map(l => `<button class="lrow" data-l="${l.id}"><span class="lck${lessonDone(l.id) ? ' on' : ''}" aria-label="${lessonDone(l.id) ? 'done' : 'not done'}">${lessonDone(l.id) ? '✓' : all.indexOf(l) + 1}</span><span class="grow"><b>${esc(l.title)}</b><br><span class="small muted">${esc(l.sum)}</span></span></button>`).join('')}</div>`).join('')}`;
+      ${secs.map(s => `<h3>${esc(s)}</h3><div class="card llist">${all.filter(l => l.sec === s).map(l => `<button class="lrow" data-l="${l.id}"><span class="lck${lessonDone(l.id) ? ' on' : ''}" aria-label="${lessonDone(l.id) ? 'done' : 'not done'}">${lessonDone(l.id) ? '✓' : all.indexOf(l) + 1}</span><span class="grow"><b>${esc(l.title)}</b><br><span class="small muted">${esc(l.sum)}</span></span><span class="muted">›</span></button>`).join('')}</div>`).join('')}`;
     $$('.lrow').forEach(b => b.onclick = () => openLesson(b.dataset.l));
   }
   function markLesson(id, score, total) { const o = S.lessons[id] || {}; S.lessons[id] = { d: today(), s: score != null ? Math.max(score, o.s || 0) : o.s, n: total || o.n }; save(); }
@@ -766,11 +774,50 @@
     $$('[data-tm]').forEach(b => b.onclick = () => { S.set.dmode = b.dataset.tm; startDrills(); });
     $('#texit').onclick = () => setTab('list');
   }
+  // ---------- quick quiz (does not touch the review schedule) ----------
+  let quizPool = 250;
+  function renderQuiz() {
+    $('#sub').textContent = 'Multiple choice';
+    V().innerHTML = `<div class="card"><div class="prompt-kind">Quick quiz · 10 questions</div><p class="muted">Pick the English meaning. Draw words from the most frequent:</p>
+      <div class="seg" id="qpool">${[[100, '100'], [250, '250'], [500, '500'], [0, 'All']].map(([n, l]) => `<button data-n="${n}" class="${n === quizPool ? 'on' : ''}">${l}</button>`).join('')}</div>
+      <button class="primary big" id="qs" style="margin-top:14px">Start quiz</button><p class="small muted">Quiz results don’t change your review schedule.</p></div>`;
+    $$('#qpool button').forEach(b => b.onclick = () => { quizPool = +b.dataset.n; renderQuiz(); });
+    $('#qs').onclick = () => {
+      const pool = quizPool ? W.slice(0, quizPool) : W;
+      runQuiz(shuffle(pool.slice()).slice(0, 10), pool);
+    };
+  }
+  function runQuiz(qs, pool) {
+    let i = 0, score = 0;
+    const short = s => s.length > 90 ? s.slice(0, 88) + '…' : s;
+    const ask = () => {
+      if (i >= qs.length) {
+        V().innerHTML = `<div class="card done"><div class="check">${score >= 8 ? '★' : '✓'}</div><h2>${score} / ${qs.length}</h2><button class="primary big" id="again">Another quiz</button></div>`;
+        $('#again').onclick = renderQuiz; return;
+      }
+      const w = qs[i];
+      let same = pool.filter(x => x.pos === w.pos && x.id !== w.id && x.en !== w.en);
+      if (same.length < 3) same = pool.filter(x => x.id !== w.id);
+      const opts = shuffle([w].concat(shuffle(same.slice()).slice(0, 3)));
+      V().innerHTML = `<div class="row small muted"><span class="grow">Question ${i + 1} / ${qs.length}</span><span>Score ${score}</span></div>
+        <div class="card"><div class="tl" lang="it">${esc(artHead(w))}</div><span class="pill">${esc(POS[w.pos] || w.pos)}</span>
+        <div class="opts">${opts.map(o => `<button data-id="${esc(o.id)}">${esc(short(o.en))}</button>`).join('')}</div><div id="qn"></div></div>`;
+      $$('.opts button').forEach(b => b.onclick = () => {
+        const right = b.dataset.id === w.id; if (right) score++;
+        $$('.opts button').forEach(x => { x.disabled = true; if (x.dataset.id === w.id) x.classList.add('right'); });
+        if (!right) b.classList.add('wrong');
+        $('#qn').innerHTML = `<button class="primary big" style="margin-top:12px" id="qnext">${i + 1 < qs.length ? 'Next' : 'Finish'}</button>`;
+        $('#qnext').onclick = () => { i++; ask(); };
+      });
+    };
+    ask();
+  }
+
   function renderList() {
     $('#sub').textContent = W.length + ' words';
     V().innerHTML = `<div class="lhead"><input type="search" id="lq" placeholder="Search Italian or English" value="${esc(LQ)}">
-      <div class="row" style="margin-top:8px"><select id="lpos"><option value="">All types</option>${['n', 'v', 'adj', 'adv', 'art', 'pron', 'prep', 'conj', 'det', 'num', 'int'].map(p => `<option value="${p}"${LPOS === p ? ' selected' : ''}>${p === 'art' ? 'Articles' : POS[p] + 's'}</option>`).join('')}</select>
-      <select id="lsort"><option value="rank"${LSORT === 'rank' ? ' selected' : ''}>By frequency</option><option value="az"${LSORT === 'az' ? ' selected' : ''}>A–Z</option>${W.some(w => w.pack === 'dante') ? `<option value="canto"${LSORT === 'canto' ? ' selected' : ''}>By canto (first appearance)</option>` : ''}</select></div></div><ul class="list" id="ll"></ul><div id="lmore"></div>`;
+      <div class="lfilters"><select id="lpos" aria-label="Word type"><option value="">All types</option>${['n', 'v', 'adj', 'adv', 'art', 'pron', 'prep', 'conj', 'det', 'num', 'int'].map(p => `<option value="${p}"${LPOS === p ? ' selected' : ''}>${p === 'art' ? 'Articles' : POS[p] + 's'}</option>`).join('')}</select>
+      <select id="lsort" aria-label="Sort"><option value="rank"${LSORT === 'rank' ? ' selected' : ''}>By frequency</option><option value="az"${LSORT === 'az' ? ' selected' : ''}>A–Z</option>${W.some(w => w.pack === 'dante') ? `<option value="canto"${LSORT === 'canto' ? ' selected' : ''}>By canto (first appearance)</option>` : ''}</select></div></div><ul class="list" id="ll"></ul><div id="lmore"></div>`;
     const draw = () => {
       const q = M.deaccent(LQ.trim());
       const match = w => (!LPOS || w.pos === LPOS) && (!q || M.deaccent(w.it).includes(q) || w.en.toLowerCase().includes(q));
@@ -801,12 +848,13 @@
     $('#sub').textContent = 'About & settings';
     const packs = PACKS.map(p => `<li><b>${esc((p.manifest && p.manifest.title) || p.id)}</b>${p.loaded ? ` · ${W.filter(w => w.pack === p.id).length} words` : ' · not loaded'}${p.manifest && p.manifest.desc ? `<div class="small muted">${esc(p.manifest.desc)}</div>` : ''}</li>`).join('');
     V().innerHTML = `<div class="card"><h2 style="margin-top:0">Settings</h2>
+      <div class="small muted">Pack</div><select id="pack" aria-label="Pack"><option value="core"${S.set.pack === 'core' ? ' selected' : ''}>Modern Italian</option><option value="dante"${S.set.pack === 'dante' ? ' selected' : ''}>Dante: Inferno</option></select>
+      <p class="small muted">The core word list is always included. One added pack can be on at a time.</p>
       <div class="small muted chiph">New words per day</div>${UI.seg('snew', [[5, '5'], [10, '10'], [20, '20']], S.set.newPerDay)}
-      <div class="small muted chiph">Pack</div><div class="packseg">${UI.seg('spack', Object.keys(Packs.CHOICES).map(id => [id, Packs.CHOICES[id].label]), S.set.pack)}</div>
       <div class="small muted chiph">Typed answers</div>${UI.seg('sacc', [['1', 'Accents count'], ['0', 'Accents optional']], S.set.strict ? '1' : '0')}
       <p class="small muted">With <b>Accents count</b>, <i>citta</i> for <i>città</i> is marked wrong. You can still tap Count as correct.</p></div>
       <div class="card"><h2 style="margin-top:0">Your progress</h2><p class="small muted" style="margin-top:0">Progress is stored only on this device. Export it to back up or move to another device.</p>
-      <div class="row wrap"><button class="grow" id="exp">Export</button><button class="grow" id="imp">Import</button><button class="grow" id="rst">Reset</button></div><input type="file" id="impf" accept=".json,application/json" hidden></div>
+      <div class="row wrap"><button class="grow" id="exp">Export progress</button><button class="grow" id="imp">Import</button><button class="grow" id="rst">Reset</button></div><input type="file" id="impf" accept=".json,application/json" hidden></div>
       <div class="card"><h2 style="margin-top:0">How it works</h2>
       <p class="small"><b>Cards:</b> learn a few new words a day and review what's due. Mark each one Right or Wrong. Right answers come back later and later; wrong ones come back soon.</p>
       <p class="small"><b>Learn:</b> short grammar lessons.</p>
@@ -820,11 +868,7 @@
       <p class="small"><b>Word list:</b> frequencies from FrequencyWords by Hermit Dave (OpenSubtitles 2018, CC BY-SA 4.0) and the Leipzig Corpora Collection Italian news 2023–24 (CC BY 4.0). Forms checked with Morph-it! (CC BY-SA 2.0 / LGPL) and English Wiktionary via kaikki.org (CC BY-SA). Glosses written for this app.</p>
       ${(S.packs || []).indexOf('dante') >= 0 ? '<p class="small"><b>Dante: Inferno.</b> Text from Project Gutenberg eBook #997 (public domain in the USA). Lemmas from Morph-it! (CC BY-SA 2.0 / LGPL). Glosses written for this app.</p>' : ''}
       <p class="small">Made by Eric Ianni. App code: MIT. Word data: CC BY-SA 4.0. Source: github.com/ericianni/italiano-1500. Version ${VERSION}.</p></div>`;
-    $$('#spack button').forEach(b => b.onclick = () => {
-      const n = Packs.normalize(b.dataset.v);
-      if (n.id === S.set.pack) return;
-      S.set.pack = n.id; S.packs = n.packs; save(); location.reload();
-    });
+    $('#pack').onchange = () => { applyPack($('#pack').value); };
     $$('#snew button').forEach(b => b.onclick = () => { S.set.newPerDay = +b.dataset.v; save(); renderAbout(); });
     $$('#sacc button').forEach(b => b.onclick = () => { S.set.strict = b.dataset.v === '1'; save(); renderAbout(); });
     $('#exp').onclick = () => UI.download('italiano1500-progress-' + new Date().toISOString().slice(0, 10) + '.json', store.exportText(S));
@@ -836,27 +880,51 @@
   }
 
   // ---------- shell ----------
-  const TABS = { today: renderToday, learn: renderLearn, drills: renderDrills, cheat: renderCheat, list: renderList, about: renderAbout };
+  const TABS = { today: renderToday, learn: renderLearn, drills: renderDrills, cheat: renderCheat, quiz: renderQuiz, list: renderList, about: renderAbout };
   function setTab(t) {
     if (!TABS[t]) t = 'today'; TAB = t;
     exitTest();
-    $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+    $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === (t === 'quiz' ? 'today' : t)));
     Q = null; UI.closeOverlay(); TABS[t](); window.scrollTo(0, 0);
     if (location.hash.slice(1) !== t) history.replaceState(null, '', '#' + t);
   }
-  async function boot() {
-    S = store.load();
-    try {
-      const r = await Packs.load('data/packs/', u => fetch(u).then(x => { if (!x.ok) throw new Error(u + ' ' + x.status); return x.json(); }), new Set(S.packs || []));
-      PACKS = r.packs; W = r.words.sort((a, b) => (a.pack === 'core' ? 0 : 1) - (b.pack === 'core' ? 0 : 1) || a.rank - b.rank);
-    } catch (e) { V().innerHTML = `<div class="card"><p class="no">Couldn’t load the word list.</p><p class="small muted">${esc(e.message)}</p></div>`; return; }
-    CARD = {};
+  let deckGen = 0;
+  function indexWords() {
+    BY = {}; BYIT = {}; CARD = {};
     W.forEach(w => { BY[w.id] = w; if (w.pack === 'core') BYIT[w.it] = w; if (!CARD[w.it] || w.pack === 'core') CARD[w.it] = w; });
+  }
+  async function loadDeck() {
+    const gen = ++deckGen;
+    const r = await Packs.load('data/packs/', u => fetch(u).then(x => { if (!x.ok) throw new Error(u + ' ' + x.status); return x.json(); }), new Set(S.packs || []));
+    if (gen !== deckGen) return false;
+    PACKS = r.packs; W = r.words.sort((a, b) => (a.pack === 'core' ? 0 : 1) - (b.pack === 'core' ? 0 : 1) || a.rank - b.rank);
+    indexWords();
     document.body.classList.toggle('theme-descent', (S.packs || []).indexOf('dante') >= 0);
     CTX = { agrNouns: D.agrNouns(W) }; UALL = D.buildUnits(W, D.DF); rebuild();
+    return true;
+  }
+  async function applyPack(id) {
+    const n = Packs.normalize(id);
+    if (n.id === S.set.pack) return;
+    const prev = { id: S.set.pack, packs: (S.packs || []).slice() };
+    S.set.pack = n.id; S.packs = n.packs; save();
+    try {
+      if (await loadDeck() && TAB === 'about') renderAbout();
+    } catch (e) {
+      if (S.set.pack !== n.id) return;
+      S.set.pack = prev.id; S.packs = prev.packs; save();
+      await loadDeck().catch(() => {});
+      if (TAB === 'about') renderAbout();
+      alert('Couldn’t load that pack.');
+    }
+  }
+  async function boot() {
+    S = store.load();
+    try { await loadDeck(); }
+    catch (e) { V().innerHTML = `<div class="card"><p class="no">Couldn’t load the word list.</p><p class="small muted">${esc(e.message)}</p></div>`; return; }
     $$('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
     setTab(location.hash.slice(1) || 'today');
-    window.__it1500 = { get S() { return S; }, get test() { return TEST; }, W, U: () => U, UALL, setTab, startDrills, startCards, openLesson, openSheet, enterTest, loadSentences };   // for tests
+    window.__it1500 = { get S() { return S; }, get test() { return TEST; }, get W() { return W; }, U: () => U, get UALL() { return UALL; }, setTab, startDrills, startCards, openLesson, openSheet, enterTest, loadSentences, applyPack };   // for tests
   }
   // Updates: the new service worker takes over as soon as it is installed (skipWaiting + clients.claim). When it does,
   // reload right away so the new code runs, unless a set is in progress: then offer a one-tap reload instead.

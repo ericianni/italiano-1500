@@ -4,7 +4,9 @@ A phone-first study app for frequent Italian, with an optional Dante pack. Progr
 
 ## Cards
 
-Each word has two cards: Italian to English, then English to Italian. On the second card you can type the Italian; the box says “Type Italian (optional).” Nouns are shown with their article. Right and wrong follow a Leitner schedule: a right answer waits longer each time (1, 3, 7, 14, 30, 60, then 120 days); a wrong answer comes back soon. New words arrive in frequency order, 10 a day unless you change that. A session stops at 30 cards.
+Each word has two cards: Italian to English, then English to Italian. On the second card you can type the Italian; the box says “Type Italian (optional).” Nouns are shown with their article. The rank shows as #12. Right and wrong follow a Leitner schedule: a right answer waits longer each time (1, 3, 7, 14, 30, 60, then 120 days); a wrong answer comes back soon. New words arrive in frequency order, 10 a day unless you change that. A session stops at 30 cards. The button says “Start (30 cards)” when more than 30 are waiting. You can stop anytime; the line reads “Stop whenever you like — every answer is saved.” During a session it reads “Stop — progress is saved.”
+
+A Quick quiz link sits on the progress card while flashcards are still due, and a Quick quiz button sits beside “Learn 5 more words” when they are done. It asks for the English meaning of ten words drawn from the most frequent 100, 250, 500, or the whole list. The result does not move a card or change the schedule. When the day’s cards are done, the screen is the done card (with Learn 5 more words and Quick quiz), then Today’s goals, then the progress card.
 
 ## Today’s goals
 
@@ -28,28 +30,32 @@ Questions lean toward forms you miss, have not tried, or have not seen lately. A
 
 **Sentences in drills** stay off until you turn them on. Then about one question in seven is a short Rome-trip sentence made only from words you have already seen. The sentence is never followed by another sentence.
 
-**Ask “And…?”** lives under Drills → What to drill. Some forms have more than one reading (*sono*: io or loro). Any one is right. If the setting is on, you can name the others; skipping is free.
+**Ask “And…?”** lives on the How to answer card, under the Type / Identify / Mix choice, and it stays visible. Some forms have more than one reading (*sono*: io or loro). Any one is right. If the setting is on, you can name the others; skipping is free.
+
+What to drill shows how many words and forms you have seen so far. Opening it lists the form chips, then sentences, then how many questions are in a set, then Done. The line under Done says the choices are saved automatically. The cheat-sheet button reads “Cheat sheet — tables,” and the sheet opened from a drill closes with “Back to drill ✕.”
 
 **Accents** are a setting on About. With Accents count, *citta* for *città* is wrong. You can still tap Count as correct.
 
 ## Cheat sheet
 
-The same tables as the lessons, in one place: articles, plurals, adjectives, verb groups, and irregulars.
+The same tables as the lessons, in one place: articles, plurals, adjectives, verb groups, and irregulars. The line at the top says “Endings are in bold. Tap a heading to open it.” The section chips sit inside the card, and each heading has its own arrow.
 
 ## Words
 
-Search Italian or English. Filter by type, including Articles (*il*, *un*, and the other articles). Sort by frequency or A–Z. Tap a word to test it without saving. With the Dante pack on, those words sit under a Dante: Inferno heading, names under Names, and you can sort by canto (first appearance).
+Search Italian or English. Filter by type, including Articles (*il*, *un*, and the other articles). Sort by frequency or A–Z. On a narrow screen the type filter and the sort each take their own row, so they stay inside the card. The list shows 200 rows at a time, then “Show more (N left).” Tap a word to test it without saving. With the Dante pack on, those words sit under a Dante: Inferno heading, names under Names, and you can sort by canto (first appearance).
 
 ## Settings
 
-About keeps new words per day, the accent switch, and the pack choice. Export, import, and reset are on the same tab.
+The tab subtitle is “About & settings.” The page is Settings, then Your progress (Export progress, Import, Reset), then How it works, Word packs, and credits.
+
+Settings starts with a Pack menu, then “New words per day,” then the accent switch. Under the menu: “The core word list is always included. One added pack can be on at a time.”
 
 **Pack** is one choice, not a switch per pack:
 
 - Modern Italian (core only). This is the default, including for anyone who already has progress.
-- Modern Italian + Dante: Inferno.
+- Dante: Inferno.
 
-Core stays on either way. A future pack such as Rome would be another choice in the same list.
+Choosing a pack loads it immediately and stays on About. Core stays on either way. The Word packs card below still lists what is installed. A future pack such as Rome would be another choice in the same menu.
 
 ## Dante pack
 
@@ -66,6 +72,8 @@ Lemmas that occur once or twice, and are not in the core list, are written out i
 ## Offline and the installed site
 
 The site is a PWA. A service worker precaches the app, including the Dante pack files, so it opens with no network. The cache name changes when the app changes, and the new copy takes over on the next open. The live site is https://ericianni.github.io/italiano-1500/.
+
+On a wide screen (1180px and up) the tabs sit in a left sidebar, and the cheat sheet and the word list use two columns. The phone layout is unchanged below that.
 
 ## Android
 

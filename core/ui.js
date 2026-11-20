@@ -26,7 +26,7 @@
   function openOverlay(title, html, onBind) {
     closeOverlay();
     const o = document.createElement('div'); o.id = 'overlay';
-    o.innerHTML = `<div class="ovtop"><b class="grow">${esc(title)}</b><button id="ovx">Back ✕</button></div><div class="ovbody sheet">${html}</div>`;
+    o.innerHTML = `<div class="ovtop"><b class="grow">${esc(title)}</b><button id="ovx">Back to drill ✕</button></div><div class="ovbody sheet">${html}</div>`;
     document.body.appendChild(o); document.body.style.overflow = 'hidden';
     $('#ovx').onclick = closeOverlay;
     if (onBind) onBind(o.querySelector('.ovbody'));
