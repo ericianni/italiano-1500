@@ -79,6 +79,16 @@ On a wide screen (1180px and up) the tabs sit in a left sidebar, and the cheat s
 
 The same files can be wrapped as an Android app (`io.github.ericianni.italiano1500`, versionCode 1, versionName `v14-android-1`). The APK is built and signed on the maintainer’s computer. This web release does not build a new APK. Inside the wrapper the service worker is not used, because the pages are already in the app.
 
+## Intended differences from Latin 1400
+
+The layout, daily counters, Pack menu, Quick quiz, And…? placement, and the 1180px sidebar match Latin 1400. The differences below are on purpose.
+
+**Language.** The forms are Italian. Accents count unless Settings says Accents optional. Latin’s macrons are optional unless Require macrons is on. Noun cards show the article. Drills practice verb forms, articles, and adjective agreement. Tables show the whole form. The cheat sheet says “Tap a heading to open it,” and the Drills button says “Cheat sheet — verb and noun tables.” There is no “And…? across parts of speech” switch, and a typed alternate is not marked as an accepted alternate. Sentences in drills use the Rome-trip lexicon. There is no separate Sentences page.
+
+**Dante: Inferno.** This is the added pack. It adds Inferno lemmas and names, a reading for each canto with a prose-order line, and a By canto sort. While it is on, the Descent theme is on: parchment, a dark header, a moderate ember glow, and the Inferno tab icons. New Dante words come after the core list. They are not woven into the day’s new words the way Church Latin words are.
+
+**Look.** The wordmark stays “Italiano 1500,” in Georgia and green. Dark mode follows the system setting. Latin stays on its own light theme. The phone layout stays in place until 1180px. From 720px, Latin also uses a top tab bar.
+
 ## Known gaps
 
 - The Inferno text is Project Gutenberg eBook #997, public domain in the United States, checked against the standard 4,720-line numbering. It is not Petrocchi’s critical edition.

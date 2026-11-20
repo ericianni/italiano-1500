@@ -109,6 +109,10 @@ Adding a pack: `data/packs/<id>/manifest.json` + `words.json`, list in `index.js
 - Linguistic accuracy is critical; prefer Wiktionary / Morph-it! checked forms.
 - Keep word data in **packs** so expansion packs do not collide with core progress.
 
+## Keep in sync with Latin 1400
+
+Italiano 1500 and Latin 1400 (`ericianni/latin-diederich-vocab`) share the same UI, layout, counters, and behavior. Any change to UI, layout, counters, settings, or shared behavior must be made in both apps in the same batch, or the report must say why not. Intended differences are listed in `docs/behavior.md`.
+
 ## Release / Git
 
 - What the app does, in plain language: `docs/behavior.md`.
